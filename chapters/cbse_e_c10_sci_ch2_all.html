@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wagh Tuition Classes - Chapter 2: Acids, Bases and Salts</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --bg-color: #f4f6f7;
+            --text-color: #333;
+            --success-color: #27ae60;
+            --whatsapp-color: #25d366;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            padding-bottom: 60px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 1rem;
+            border-bottom: 4px solid var(--accent-color);
+        }
+
+        header .brand-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        header .tagline {
+            font-size: 1.2rem;
+            color: #f1c40f;
+            font-weight: 600;
+            margin: 0.5rem 0 1rem 0;
+            font-style: italic;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .tabs-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 0.5rem;
+        }
+
+        .tab-btn {
+            background: #ddd;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 5px 5px 0 0;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            background: #ccc;
+        }
+
+        .tab-btn.active {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            background: white;
+            padding: 2rem;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .pdf-download-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-radius: 4px;
+        }
+
+        .pdf-btn {
+            background-color: var(--success-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .pdf-btn:hover {
+            background-color: #219653;
+        }
+
+        .test-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .test-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .test-box {
+            border: 1px solid #ddd;
+            padding: 1.5rem;
+            border-radius: 6px;
+            background: #fafafa;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .test-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        .test-meta {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        #quiz-interface {
+            display: none;
+            background: #fdfdfd;
+            border: 2px solid var(--primary-color);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .quiz-q-block {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .quiz-options label {
+            display: block;
+            background: #f1f1f1;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .quiz-options label:hover {
+            background: #e5e5e5;
+        }
+
+        #quiz-result-box {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: #d4edda;
+            color: #155724;
+            border-radius: 4px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .qa-block {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+
+        .qa-block h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .formula-box {
+            background: #f8f9fa;
+            border: 1px dashed #2c3e50;
+            padding: 1rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            margin: 1rem 0;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            overflow-x: auto;
+        }
+
+        .activity-section {
+            margin-bottom: 3rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 2rem;
+        }
+
+        .activity-img-container {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+
+        .activity-svg {
+            max-width: 100%;
+            height: auto;
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--whatsapp-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 9999;
+            transition: transform 0.3s ease, background-color 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #1ebd56;
+            transform: scale(1.05);
+        }
+
+        .whatsapp-icon {
+            font-size: 1.3rem;
+        }
+        
+        .section-divider {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.75rem 1.25rem;
+            margin: 2.5rem 0 1.5rem 0;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+        }
+
+        sub, sup {
+            font-size: 0.75em;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline;
+        }
+        sub { bottom: -0.25em; }
+        sup { top: -0.5em; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="brand-name">Wagh Tuition Classes & Digital Seva Kendra</div>
+    <div class="tagline">✨ Join Wagh Tuition Classes in Vyara! ✨</div>
+    <h1>CBSE Class 10th Science Study Portal</h1>
+    <h2 style="margin:0; font-size: 1.2rem; font-weight: 300;">Chapter 2: Acids, Bases and Salts</h2>
+</header>
+
+<div class="container">
+
+    <div class="tabs-nav">
+        <button class="tab-btn active" onclick="openTab(event, 'definitions')">1. Definitions & Explanations</button>
+        <button class="tab-btn" onclick="openTab(event, 'summary')">2. All Chemical Activity</button>
+        <button class="tab-btn" onclick="openTab(event, 'mcq')">3. MCQ Tests</button>
+        <button class="tab-btn" onclick="openTab(event, 'solutions')">4. NCERT Solutions</button>
+    </div>
+
+    <div id="definitions" class="tab-content active">
+        <div class="pdf-download-box">
+            <span>Get the complete, print-ready Definitions PDF on your device.</span>
+            <a href="#" class="pdf-btn" target="_blank">💳 Buy PDF Now</a>
+        </div>
+        <h2>Comprehensive Definitions & Explanations</h2>
+        
+        <h3>1. Nature of Acids and Bases</h3>
+        <ul>
+            <li><strong>Acid:</strong> A chemical substance that possesses a sour taste, turns blue litmus paper red, and dissociates to yield hydrogen ions H<sup>+</sup><sub>(aq)</sub> or hydronium ions H<sub>3</sub>O<sup>+</sup> in an aqueous solution.</li>
+            <li><strong>Base:</strong> A chemical compound that features a bitter taste, feels soapy to the touch, turns red litmus paper blue, and generates hydroxide ions OH<sup>-</sup><sub>(aq)</sub> when dissolved in water.</li>
+            <li><strong>Alkali:</strong> A specific class of bases that are highly soluble in water, such as sodium hydroxide (NaOH) and potassium hydroxide (KOH).</li>
+            <li><strong>Indicator:</strong> A natural or synthetic substance that alters its color or odor depending on whether it is placed in an acidic or basic medium.</li>
+            <li><strong>Olfactory Indicator:</strong> An exceptional indicator substance whose characteristic odor changes systematically when mixed with an acid or a base.</li>
+            <li><strong>Synthetic Indicator:</strong> Artificially prepared laboratory chemical color indicators, most notably Phenolphthalein and Methyl Orange.</li>
+        </ul>
+
+        <h3>2. Chemical Interactions & The pH Scale</h3>
+        <ul>
+            <li><strong>Neutralization Reaction:</strong> A classic ionic reaction between an acid and a base that produces a salt and water, fundamentally represented as: H<sup>+</sup><sub>(aq)</sub> + OH<sup>-</sup><sub>(aq)</sub> &rarr; H<sub>2</sub>O<sub>(l)</sub>.</li>
+            <li><strong>pH Scale:</strong> A logarithmic scale ranging from 0 to 14 used to specify the acidity or basicity of an aqueous solution, tracking the relative concentration of H<sup>+</sup> ions.</li>
+            <li><strong>Universal Indicator:</strong> A carefully calibrated mixture of several distinct organic indicators that exhibits a smooth spectrum of color variations across the entire pH scale.</li>
+            <li><strong>Strong Acid:</strong> An acid that dissociates completely into its constituent ions in an aqueous solution, yielding a high concentration of H<sup>+</sup> ions (e.g., HCl, H<sub>2</sub>SO<sub>4</sub>).</li>
+            <li><strong>Weak Acid:</strong> An acid that only partially ionizes when dissolved in water, resulting in a low concentration of H<sup>+</sup> ions in the solution (e.g., CH<sub>3</sub>COOH).</li>
+            <li><strong>Dilution:</strong> The process of mixing an acid or base with water to systematically reduce its concentration of ions (H<sub>3</sub>O<sup>+</sup> or OH<sup>-</sup>) per unit volume.</li>
+        </ul>
+
+        <h3>3. Salts and Commercial Chemicals</h3>
+        <ul>
+            <li><strong>Salt:</strong> An ionic compound formed by the neutralization reaction between an acid and a base, containing a positive metallic/ammonium ion and a negative acid radical.</li>
+            <li><strong>Chlor-Alkali Process:</strong> An industrial electrochemical process involving the electrolysis of an aqueous sodium chloride solution (brine) to yield chlorine gas, hydrogen gas, and sodium hydroxide.</li>
+            <li><strong>Brine:</strong> A highly concentrated aqueous solution of sodium chloride (NaCl).</li>
+            <li><strong>Water of Crystallization:</strong> The fixed, definite number of water molecules chemically combined in a loose crystalline structure within one formula unit of a salt (e.g., 5H<sub>2</sub>O in CuSO<sub>4</sub>&middot;5H<sub>2</sub>O).</li>
+            <li><strong>Plaster of Paris:</strong> A white powdery chemical compound, calcium sulphate hemihydrate (CaSO<sub>4</sub>&middot;&frac12;H<sub>2</sub>O), obtained by carefully heating gypsum to 373 K.</li>
+            <li><strong>Gypsum:</strong> A hard crystalline mineral compound, calcium sulphate dihydrate (CaSO<sub>4</sub>&middot;2H<sub>2</sub>O), formed when Plaster of Paris absorbs water and sets into a solid mass.</li>
+        </ul>
+    </div>
+
+    <div id="summary" class="tab-content">
+        <div class="pdf-download-box">
+            <span>Download the Complete Activities Manual & Diagram Blueprint Chart PDF.</span>
+            <a href="#" class="pdf-btn" target="_blank">💳 Buy PDF Now</a>
+        </div>
+        <h2>Detailed Analysis of Chapter Activities</h2>
+        <p>This section outlines the laboratory experiments for Chapter 2, accompanied by precise structural vector graphics.</p>
+
+        <div class="activity-section">
+            <h3>Activity 2.1: Testing Acids and Bases with Indicators</h3>
+            <p><strong>Procedure:</strong> Collect samples of various laboratory acids and bases on a watch-glass and test them using red litmus, blue litmus, phenolphthalein, and methyl orange indicators.</p>
+            <div class="activity-img-container">
+                <svg class="activity-svg" width="550" height="240" viewBox="0 0 550 240">
+                    <rect width="100%" height="100%" fill="#fcfcfc"/>
+                    <text x="20" y="30" font-family="sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Fig 2.1: Indicator Testing on Watch-Glasses</text>
+                    <ellipse cx="160" cy="130" rx="70" ry="20" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="3"/>
+                    <ellipse cx="160" cy="130" rx="50" ry="12" fill="#e74c3c" opacity="0.2"/>
+                    <rect x="140" y="115" width="40" height="15" fill="#e74c3c" transform="rotate(-15 160 120)"/> 
+                    <text x="160" y="180" font-family="sans-serif" font-size="12" font-weight="bold" fill="#c0392b" text-anchor="middle">Acid Sample (HCl)</text>
+                    
+                    <ellipse cx="390" cy="130" rx="70" ry="20" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="3"/>
+                    <ellipse cx="390" cy="130" rx="50" ry="12" fill="#3498db" opacity="0.2"/>
+                    <rect x="370" y="115" width="40" height="15" fill="#3498db" transform="rotate(15 390 120)"/> 
+                    <text x="390" y="180" font-family="sans-serif" font-size="12" font-weight="bold" fill="#2980b9" text-anchor="middle">Base Sample (NaOH)</text>
+                    
+                    <text x="160" y="95" font-family="sans-serif" font-size="11" fill="#555" text-anchor="middle">Blue Litmus turns Red</text>
+                    <text x="390" y="95" font-family="sans-serif" font-size="11" fill="#555" text-anchor="middle">Red Litmus turns Blue</text>
+                </svg>
+            </div>
+            <p><strong>Observation:</strong> Acids turn blue litmus red and stay colorless in phenolphthalein. Bases turn red litmus blue and produce a deep pink color in phenolphthalein.</p>
+        </div>
+
+        <div class="activity-section">
+            <h3>Activity 2.3: Reaction of Acids with Metal Granules</h3>
+            <p><strong>Procedure:</strong> Add zinc granules to dilute sulphuric acid in a test tube, route the escaping gas through a soap solution via a delivery tube, and bring a burning candle near the bubbles.</p>
+            <div class="activity-img-container">
+                <svg class="activity-svg" width="550" height="340" viewBox="0 0 550 340">
+                    <rect width="100%" height="100%" fill="#fcfcfc"/>
+                    <text x="20" y="30" font-family="sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Fig 2.2: Zinc Reacting with Acid & Soap Bubble Test</text>
+                    <rect x="100" y="100" width="40" height="160" rx="15" fill="#eef7fa" stroke="#34495e" stroke-width="3"/>
+                    <rect x="102" y="170" width="36" height="85" fill="#3498db" opacity="0.2"/>
+                    <polygon points="100,105 140,105 135,125 105,125" fill="#d35400"/>
+                    <circle cx="115" cy="240" r="6" fill="#7f8c8d"/>
+                    <circle cx="128" cy="245" r="7" fill="#95a5a6"/>
+                    <circle cx="122" cy="230" r="5" fill="#bdc3c7"/>
+                    <path d="M 120,120 L 120,60 L 300,60 L 300,240" stroke="#7f8c8d" stroke-width="6" fill="none"/>
+                    <rect x="230" y="240" width="140" height="60" rx="5" fill="#ebf5fb" stroke="#34495e" stroke-width="3"/>
+                    <line x1="230" y1="260" x2="370" y2="260" stroke="#3498db" stroke-width="2"/>
+                    <circle cx="300" cy="190" r="12" fill="#eef7fa" stroke="#3498db" stroke-width="2"/>
+                    <circle cx="320" cy="140" r="16" fill="#eef7fa" stroke="#3498db" stroke-width="2"/>
+                    <text x="320" y="145" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2980b9" text-anchor="middle">H₂</text>
+                    <path d="M 380,120 L 420,120" stroke="#8e44ad" stroke-width="8" stroke-linecap="round"/>
+                    <path d="M 370,120 Q 350,90 370,70 Q 390,90 370,120 Z" fill="#f1c40f"/>
+                    <path d="M 370,110 Q 360,95 370,85 Q 380,95 370,110 Z" fill="#e67e22"/>
+                    <text x="400" y="90" font-family="sans-serif" font-size="14" font-weight="bold" fill="#c0392b">"POP!"</text>
+                    <text x="40" y="195" font-family="sans-serif" font-size="11" fill="#555">Dilute H₂SO₄</text>
+                    <text x="40" y="245" font-family="sans-serif" font-size="11" fill="#555">Zinc Granules</text>
+                    <text x="300" y="320" font-family="sans-serif" font-size="11" fill="#555" text-anchor="middle">Soap Solution Trough</text>
+                </svg>
+            </div>
+            <p><strong>Observation:</strong> Gas bubbles form rapidly on the surface of the zinc pieces. When passing into the soap solution, bubbles rise into the air and burst with a sharp pop sound near a flame.</p>
+            <p><strong>Inference & Chemical Equation:</strong> Active metals displace hydrogen from dilute acids, generating hydrogen gas.</p>
+            <div class="formula-box">Zn<sub>(s)</sub> + H<sub>2</sub>SO<sub>4(aq)</sub> &rarr; ZnSO<sub>4(aq)</sub> + H<sub>2(g)</sub>&uarr;</div>
+        </div>
+
+        <div class="activity-section">
+            <h3>Activity 2.5: Reaction of Metal Carbonates with Acids</h3>
+            <p><strong>Procedure:</strong> Take 0.5 g of sodium carbonate in a test tube, add 2 mL of dilute HCl, and route the generated gas into a second test tube containing lime water.</p>
+            <div class="activity-img-container">
+                <svg class="activity-svg" width="550" height="320" viewBox="0 0 550 320">
+                    <rect width="100%" height="100%" fill="#fcfcfc"/>
+                    <text x="20" y="30" font-family="sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Fig 2.3: Carbon Dioxide Lime Water Milky Test</text>
+                    <rect x="130" y="110" width="40" height="150" rx="15" fill="#eef7fa" stroke="#34495e" stroke-width="3"/>
+                    <path d="M 132,190 L 168,190 L 168,245 A 15,15 0 0 1 132,245 Z" fill="#e67e22" opacity="0.15"/>
+                    <circle cx="140" cy="235" r="4" fill="#d35400"/>
+                    <circle cx="155" cy="240" r="5" fill="#d35400"/>
+                    <polygon points="130,115 170,115 165,135 135,135" fill="#d35400"/>
+                    <text x="150" y="220" font-family="sans-serif" font-size="10" font-weight="bold" fill="#555" text-anchor="middle">Na₂CO₃ + HCl</text>
+                    <path d="M 150,125 L 150,60 L 320,60 L 320,180" stroke="#7f8c8d" stroke-width="5" fill="none"/>
+                    <rect x="300" y="110" width="40" height="150" rx="15" fill="#eef7fa" stroke="#34495e" stroke-width="3"/>
+                    <path d="M 302,180 L 338,180 L 338,245 A 15,15 0 0 1 302,245 Z" fill="#ecf0f1" stroke="#bdc3c7" opacity="0.95"/>
+                    <circle cx="320" cy="240" r="2" fill="#fff"/>
+                    <line x1="80" y1="210" x2="125" y2="210" stroke="#7f8c8d"/>
+                    <text x="10" y="214" font-family="sans-serif" font-size="11" fill="#555">Effervescence</text>
+                    <line x1="380" y1="210" x2="345" y2="210" stroke="#7f8c8d"/>
+                    <text x="385" y="214" font-family="sans-serif" font-size="12" fill="#c0392b" font-weight="bold">Lime water turns milky</text>
+                    <text x="240" y="50" font-family="sans-serif" font-size="12" fill="#2980b9" font-weight="bold">CO₂ Gas</text>
+                </svg>
+            </div>
+            <p><strong>Observation:</strong> Brisk effervescence occurs in the first test tube. The lime water in the second tube turns milky due to a white precipitate.</p>
+            <p><strong>Inference & Chemical Equation:</strong> Metal carbonates react with acids to yield carbon dioxide gas, which precipitates calcium carbonate from lime water.</p>
+            <div class="formula-box">Na<sub>2</sub>CO<sub>3(s)</sub> + 2HCl<sub>(aq)</sub> &rarr; 2NaCl<sub>(aq)</sub> + H<sub>2</sub>O<sub>(l)</sub> + CO<sub>2(g)</sub>&uarr;</div>
+            <div class="formula-box">Ca(OH)<sub>2(aq)</sub> + CO<sub>2(g)</sub> &rarr; CaCO<sub>3(s)</sub>&darr; [Milky Precipitate] + H<sub>2</sub>O<sub>(l)</sub></div>
+        </div>
+
+        <div class="activity-section">
+            <h3>Activity 2.8: Electrical Conductivity of Acidic Solutions</h3>
+            <p><strong>Procedure:</strong> Fix two iron nails on a rubber cork inside a beaker. Connect them to a 6V battery and a bulb. Pour dilute HCl into the beaker and switch on the current.</p>
+            <div class="activity-img-container">
+                <svg class="activity-svg" width="550" height="340" viewBox="0 0 550 340">
+                    <rect width="100%" height="100%" fill="#fcfcfc"/>
+                    <text x="20" y="30" font-family="sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Fig 2.4: Acid Solution Conducting Electricity</text>
+                    <rect x="180" y="120" width="160" height="180" rx="8" fill="none" stroke="#34495e" stroke-width="4"/>
+                    <rect x="182" y="190" width="156" height="108" fill="#eef7fa" opacity="0.9"/>
+                    <polygon points="230,280 290,280 295,298 225,298" fill="#d35400"/>
+                    <rect x="240" y="230" width="6" height="50" fill="#7f8c8d"/>
+                    <rect x="274" y="230" width="6" height="50" fill="#7f8c8d"/>
+                    <rect x="235" y="228" width="16" height="4" fill="#333"/>
+                    <rect x="269" y="228" width="16" height="4" fill="#333"/>
+                    <path d="M 243,228 L 243,60 L 100,60 L 100,100" stroke="#2c3e50" stroke-width="3" fill="none"/>
+                    <path d="M 277,228 L 277,100 L 420,100 L 420,60 L 220,60" stroke="#e74c3c" stroke-width="3" fill="none"/>
+                    <rect x="70" y="100" width="60" height="30" fill="#34495e"/>
+                    <text x="100" y="120" font-family="sans-serif" font-size="12" fill="#fff" text-anchor="middle">6V Battery</text>
+                    <circle cx="277" cy="100" r="10" fill="#fff" stroke="#333" stroke-width="3"/>
+                    <circle cx="277" cy="100" r="3" fill="#333"/> <circle cx="160" cy="60" r="20" fill="#f1c40f" opacity="0.3"/>
+                    <circle cx="160" cy="60" r="15" fill="#f1c40f" opacity="0.6"/>
+                    <circle cx="160" cy="60" r="10" fill="#fff"/>
+                    <path d="M 150,75 L 170,75 L 165,90 L 155,90 Z" fill="#95a5a6"/>
+                    <text x="160" y="35" font-family="sans-serif" font-size="12" font-weight="bold" fill="#e67e22" text-anchor="middle">Bulb Glows</text>
+                    <line x1="345" y1="240" x2="380" y2="240" stroke="#7f8c8d"/>
+                    <text x="385" y="244" font-family="sans-serif" font-size="12" fill="#555">Dilute HCl (H⁺ + Cl⁻)</text>
+                </svg>
+            </div>
+            <p><strong>Observation:</strong> The bulb glows brightly with dilute HCl and dilute H₂SO₄, but does not glow with glucose or alcohol solutions.</p>
+            <p><strong>Conclusion:</strong> Acids dissociate into mobile ions in aqueous solution that conduct electricity.</p>
+        </div>
+
+        <div class="activity-section">
+            <h3>Activity 2.9: Testing Dry vs. Aqueous HCl Gas</h3>
+            <p><strong>Procedure:</strong> Add conc. H₂SO₄ to solid NaCl in a test tube. Pass the evolved gas over dry blue litmus paper, then wet blue litmus paper.</p>
+            <div class="activity-img-container">
+                <svg class="activity-svg" width="550" height="320" viewBox="0 0 550 320">
+                    <rect width="100%" height="100%" fill="#fcfcfc"/>
+                    <text x="20" y="30" font-family="sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Fig 2.5: Preparation and Testing of HCl Gas</text>
+                    <rect x="150" y="100" width="40" height="160" rx="15" fill="#eef7fa" stroke="#34495e" stroke-width="3"/>
+                    <rect x="152" y="210" width="36" height="48" fill="#ecf0f1" opacity="0.8"/>
+                    <circle cx="160" cy="245" r="4" fill="#bdc3c7"/>
+                    <circle cx="180" cy="250" r="5" fill="#bdc3c7"/>
+                    <polygon points="150,105 190,105 185,130 155,130" fill="#d35400"/>
+                    <path d="M 170,120 L 170,70 L 320,70 L 320,130" stroke="#7f8c8d" stroke-width="5" fill="none"/>
+                    <rect x="305" y="140" width="30" height="50" fill="#3498db" rx="2"/>
+                    <rect x="305" y="140" width="30" height="25" fill="#e74c3c" rx="2"/> <path d="M 370,160 L 340,165" stroke="#333" stroke-width="3"/>
+                    <path d="M 130,50 L 140,80 L 145,80 L 135,50 Z" fill="#95a5a6"/>
+                    <circle cx="132" cy="45" r="10" fill="#e74c3c"/>
+                    <text x="40" y="240" font-family="sans-serif" font-size="11" fill="#555">NaCl + Conc. H₂SO₄</text>
+                    <text x="360" y="145" font-family="sans-serif" font-size="12" font-weight="bold" fill="#c0392b">Wet Blue Litmus turns Red</text>
+                    <text x="240" y="60" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2980b9">Dry HCl Gas</text>
+                </svg>
+            </div>
+            <p><strong>Observation:</strong> Dry blue litmus paper shows no color change. Wet blue litmus paper turns red instantly.</p>
+            <p><strong>Conclusion:</strong> HCl gas acts as an acid only when moisture is present to form hydronium ions.</p>
+            <div class="formula-box">NaCl<sub>(s)</sub> + H<sub>2</sub>SO<sub>4(conc)</sub> &rarr; NaHSO<sub>4(s)</sub> + HCl<sub>(g)</sub>&uarr;</div>
+        </div>
+
+        <div class="activity-section">
+            <h3>Activity 2.15: Removing Water of Crystallization</h3>
+            <p><strong>Procedure:</strong> Heat blue copper sulphate crystals in a dry boiling tube. Observe changes, cool, and add water.</p>
+            <div class="activity-img-container">
+                <svg class="activity-svg" width="550" height="320" viewBox="0 0 550 320">
+                    <rect width="100%" height="100%" fill="#fcfcfc"/>
+                    <text x="20" y="30" font-family="sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Fig 2.6: Heating Hydrated Copper Sulphate</text>
+                    <g transform="translate(180,110) rotate(30)">
+                        <rect x="0" y="0" width="35" height="150" rx="15" fill="none" stroke="#34495e" stroke-width="3"/>
+                        <path d="M 2,120 L 33,120 L 33,140 A 15,15 0 0 1 2,140 Z" fill="#ecf0f1" stroke="#bdc3c7"/>
+                        <circle cx="10" cy="30" r="3" fill="#3498db"/>
+                        <circle cx="25" cy="40" r="2.5" fill="#3498db"/>
+                        <circle cx="15" cy="55" r="3.5" fill="#3498db"/>
+                        <circle cx="28" cy="20" r="2" fill="#3498db"/>
+                    </g>
+                    <rect x="220" y="280" width="50" height="15" fill="#7f8c8d"/>
+                    <path d="M 245,280 L 245,220" stroke="#7f8c8d" stroke-width="5"/>
+                    <path d="M 245,220 Q 230,185 245,165 Q 260,185 245,220 Z" fill="#f1c40f" opacity="0.8"/>
+                    <line x1="340" y1="85" x2="300" y2="130" stroke="#7f8c8d"/>
+                    <text x="345" y="89" font-family="sans-serif" font-size="12" fill="#2980b9" font-weight="bold">Water droplets condense</text>
+                    <line x1="130" y1="240" x2="200" y2="230" stroke="#7f8c8d"/>
+                    <text x="15" y="244" font-family="sans-serif" font-size="11" fill="#555">Turns to white powder</text>
+                    <text x="15" y="260" font-family="sans-serif" font-size="11" fill="#555">(Anhydrous CuSO₄)</text>
+                </svg>
+            </div>
+            <p><strong>Observation:</strong> Upon heating, the blue crystals turn into a dull white powder and water droplets condense near the tube's neck. Adding water restores the blue color.</p>
+            <div class="formula-box">CuSO<sub>4</sub>&middot;5H<sub>2</sub>O<sub>(Blue)</sub> &rarr; CuSO<sub>4(White)</sub> + 5H<sub>2</sub>O&uarr;</div>
+        </div>
+    </div>
+
+    <div id="mcq" class="tab-content">
+        <div class="pdf-download-box">
+            <span>Get all MCQ Assessment Sheets with detailed paper copies offline.</span>
+            <a href="#" class="pdf-btn" target="_blank">💳 Buy PDF Now</a>
+        </div>
+        <h2>Online Live Mock Assessment Portal</h2>
+        <p>Select an evaluation module below to test your understanding of acids, bases, and salts.</p>
+        
+        <div class="test-grid" id="test-selection-screen">
+            <div class="test-box">
+                <div>
+                    <p class="test-title">Test 1: Properties & Indicators</p>
+                    <p class="test-meta">Weightage: 10 Marks | Time: 15 Mins</p>
+                    <p>Evaluates litmus changes, phenolphthalein reactions, and olfactory behaviors.</p>
+                </div>
+                <button class="tab-btn" style="background: var(--primary-color); color: white; border-radius:4px;" onclick="loadQuiz(1)">Start Test 1</button>
+            </div>
+            <div class="test-box">
+                <div>
+                    <p class="test-title">Test 2: Metal and Carbonate Reactions</p>
+                    <p class="test-meta">Weightage: 10 Marks | Time: 15 Mins</p>
+                    <p>Tests tracking hydrogen evolution and lime-water precipitation calculations.</p>
+                </div>
+                <button class="tab-btn" style="background: var(--primary-color); color: white; border-radius:4px;" onclick="loadQuiz(2)">Start Test 2</button>
+            </div>
+            <div class="test-box">
+                <div>
+                    <p class="test-title">Test 3: pH Scale Dynamics</p>
+                    <p class="test-meta">Weightage: 10 Marks | Time: 15 Mins</p>
+                    <p>Focuses on hydronium concentration, strong vs. weak acids, and daily pH variations.</p>
+                </div>
+                <button class="tab-btn" style="background: var(--primary-color); color: white; border-radius:4px;" onclick="loadQuiz(3)">Start Test 3</button>
+            </div>
+            <div class="test-box">
+                <div>
+                    <p class="test-title">Test 4: Industrial Chemicals & Salts</p>
+                    <p class="test-meta">Weightage: 10 Marks | Time: 15 Mins</p>
+                    <p>Analyzes the Chlor-Alkali workflow, Bleaching Powder, and Plaster of Paris formulas.</p>
+                </div>
+                <button class="tab-btn" style="background: var(--primary-color); color: white; border-radius:4px;" onclick="loadQuiz(4)">Start Test 4</button>
+            </div>
+            <div class="test-box" style="border: 2px solid var(--accent-color); background: #fffcf9;">
+                <div>
+                    <p class="test-title" style="color: var(--accent-color);">✨ Full Length Mock Paper 1</p>
+                    <p class="test-meta"><strong>Weightage: 20 Marks</strong> | Time: 30 Mins</p>
+                    <p>Comprehensive evaluation covering the entire blueprint curriculum for Chapter 2.</p>
+                </div>
+                <button class="tab-btn" style="background: var(--accent-color); color: white; border-radius:4px;" onclick="loadQuiz(5)">Start Full Test 1</button>
+            </div>
+            <div class="test-box" style="border: 2px solid var(--accent-color); background: #fffcf9;">
+                <div>
+                    <p class="test-title" style="color: var(--accent-color);">✨ Full Length Mock Paper 2</p>
+                    <p class="test-meta"><strong>Weightage: 20 Marks</strong> | Time: 30 Mins</p>
+                    <p>Advanced assessment testing neutralization formulas and water of crystallization mechanisms.</p>
+                </div>
+                <button class="tab-btn" style="background: var(--accent-color); color: white; border-radius:4px;" onclick="loadQuiz(6)">Start Full Test 2</button>
+            </div>
+        </div>
+
+        <div id="quiz-interface">
+            <button class="tab-btn" style="background: #e74c3c; color:white; margin-bottom: 1rem; border-radius:4px;" onclick="closeQuiz()">&larr; Exit Assessment</button>
+            <h3 id="quiz-panel-title">Active Test Terminal</h3>
+            <form id="quiz-form">
+                <div id="quiz-questions-container"></div>
+                <button type="button" class="pdf-btn" style="width: 100%; margin-top:1rem;" onclick="evaluateQuiz()">Submit Answer Script</button>
+            </form>
+            <div id="quiz-result-box"></div>
+        </div>
+    </div>
+
+    <div id="solutions" class="tab-content">
+        <div class="pdf-download-box">
+            <span>Download step-by-step NCERT textbook solutions PDF.</span>
+            <a href="#" class="pdf-btn" target="_blank">💳 Buy PDF Now</a>
+        </div>
+        <h2>Complete Chapter Textbook Solutions</h2>
+
+        <div class="section-divider">PART I: SOLUTIONS TO QUESTIONS INSIDE THE CHAPTER</div>
+        
+        <h3>In-Text Questions (Page 18)</h3>
+        <div class="qa-block">
+            <h4>Q1: You have been provided with three test tubes. One of them contains distilled water and the other two contain an acidic solution and a basic solution, respectively. If you are given only red litmus paper, how will you identify the contents of each test tube?</h4>
+            <p><strong>Answer:</strong><br>
+            1. Dip the red litmus paper into each test tube.<br>
+            2. The solution that turns the red litmus paper blue is the <strong>basic solution</strong>.<br>
+            3. Now, divide the blue litmus paper into two pieces and dip them into the remaining two test tubes.<br>
+            4. The solution that turns the blue litmus paper back to red is the <strong>acidic solution</strong>.<br>
+            5. The test tube that shows no color change on the blue litmus paper contains <strong>distilled water</strong> (neutral).</p>
+        </div>
+
+        <h3>In-Text Questions (Page 22)</h3>
+        <div class="qa-block">
+            <h4>Q1: Why should curd and sour substances not be kept in brass and copper vessels?</h4>
+            <p><strong>Answer:</strong> Curd and other sour foods contain naturally occurring organic acids (such as lactic acid). These acids react chemically with metals like copper and brass to form toxic, soluble metal compounds. This corrodes the vessel and causes food poisoning.</p>
+        </div>
+        <div class="qa-block">
+            <h4>Q2: Which gas is usually liberated when an acid reacts with a metal? Illustrate with an example. How will you test for the presence of this gas?</h4>
+            <p><strong>Answer:</strong> <strong>Hydrogen gas (H₂)</strong> is usually liberated.<br>
+            <strong>Example:</strong> Zn<sub>(s)</sub> + H<sub>2</sub>SO<sub>4(aq)</sub> &rarr; ZnSO<sub>4(aq)</sub> + H<sub>2(g)</sub>&uarr;<br>
+            <strong>Test:</strong> Bring a burning candle near the mouth of the test tube. The evolved hydrogen gas will ignite and burn with a characteristic <strong>pop sound</strong>.</p>
+        </div>
+        <div class="qa-block">
+            <h4>Q3: Metal compound A reacts with dilute hydrochloric acid to produce effervescence. The gas evolved extinguishes a burning candle. Write a balanced chemical equation for the reaction if one of the compounds formed is calcium chloride.</h4>
+            <p><strong>Answer:</strong> Since the gas extinguishes a fire and causes effervescence, it must be carbon dioxide (CO₂). Since calcium chloride (CaCl₂) is a product, Compound A must be Calcium Carbonate (CaCO₃).<br>
+            <strong>Equation:</strong> CaCO<sub>3(s)</sub> + 2HCl<sub>(aq)</sub> &rarr; CaCl<sub>2(aq)</sub> + H<sub>2</sub>O<sub>(l)</sub> + CO<sub>2(g)</sub>&uarr;</p>
+        </div>
+
+        <h3>In-Text Questions (Page 25)</h3>
+        <div class="qa-block">
+            <h4>Q1: Why do HCl, HNO₃, etc., show acidic characters in aqueous solutions while solutions of compounds like alcohol and glucose do not show acidic character?</h4>
+            <p><strong>Answer:</strong> HCl and HNO₃ completely dissociate into hydrogen ions (H⁺) or hydronium ions (H₃O⁺) in water. These free ions are responsible for their acidic properties. Covalent compounds like glucose and alcohol do not ionize in water to release H⁺ ions.</p>
+        </div>
+        <div class="qa-block">
+            <h4>Q2: Why does an aqueous solution of an acid conduct electricity?</h4>
+            <p><strong>Answer:</strong> An acid dissociates into mobile cations (H⁺) and anions in an aqueous solution. These free-moving ions act as charge carriers that conduct electric current.</p>
+        </div>
+        <div class="qa-block">
+            <h4>Q3: Why does dry HCl gas not change the colour of the dry litmus paper?</h4>
+            <p><strong>Answer:</strong> HCl gas only dissociates into its acidic H⁺ ions in the presence of water. Without moisture, no free ions are formed to change the indicator's color.</p>
+        </div>
+        <div class="qa-block">
+            <h4>Q4: While diluting an acid, why is it recommended that the acid should be added to water and not water to the acid?</h4>
+            <p><strong>Answer:</strong> Diluting concentrated acid is highly exothermic. If water is poured directly into acid, the sudden massive heat generation can cause the mixture to flash-boil and splash, causing severe burns. Adding acid slowly to a large volume of water dissipates the heat safely.</p>
+        </div>
+        <div class="qa-block">
+            <h4>Q5: How is the concentration of hydronium ions (H₃O⁺) affected when a solution of an acid is diluted?</h4>
+            <p><strong>Answer:</strong> Dilution increases the overall volume of the solution, which causes the number of hydronium (H₃O⁺) ions <strong>per unit volume to decrease</strong>.</p>
+        </div>
+        <div class="qa-block">
+            <h4>Q6: How is the concentration of hydroxide ions (OH⁻) affected when excess base is dissolved in a solution of sodium hydroxide?</h4>
+            <p><strong>Answer:</strong> Dissolving excess base releases more OH⁻ ions, increasing the number of hydroxide ions per unit volume and making the solution more concentrated.</p>
+        </div>
+
+        <h3>In-Text Questions (Page 28)</h3>
+        <div class="qa-block">
+            <h4>Q1: You have two solutions, A and B. The pH of solution A is 6 and pH of solution B is 8. Which solution has more hydrogen ion concentration? Which of this is acidic and which one is basic?</h4>
+            <p><strong>Answer:</strong> Lower pH indicates a higher H⁺ concentration. <strong>Solution A (pH=6)</strong> has a higher hydrogen ion concentration. Solution A is <strong>acidic</strong>, and Solution B is <strong>basic</strong>.</p>
+        </div>
+        <div class="qa-block">
+            <h4>Q2: What effect does the concentration of H⁺(aq) ions have on the nature of the solution?</h4>
+            <p><strong>Answer:</strong> A higher concentration of H⁺ ions lowers the pH value, making the solution more strongly acidic.</p>
+        </div>
+        <div class="qa-block">
+            <h4>Q3: Do basic solutions also have H⁺(aq) ions? If yes, then why are these basic?</h4>
+            <p><strong>Answer:</strong> <strong>Yes</strong>, they have H⁺ ions from the self-ionization of water. They are basic because the concentration of hydroxide ions (OH⁻) heavily outweighs the concentration of H⁺ ions.</p>
+        </div>
+        <div class="qa-block">
+            <h4>Q4: Under what soil condition do you think a farmer would treat the soil of his fields with quick lime, slaked lime or chalk?</h4>
+            <p><strong>Answer:</strong> A farmer uses these basic compounds when the soil is <strong>too acidic</strong>. The bases neutralize the excess soil acidity to restore an optimal pH for crops.</p>
+        </div>
+
+        <h3>In-Text Questions (Page 33)</h3>
+        <div class="qa-block">
+            <h4>Q1: What is the common name of the compound CaOCl₂?</h4>
+            <p><strong>Answer:</strong> <strong>Bleaching powder</strong>.</p>
+        </div>
+        <div class="qa-block">
+            <h4>Q2: Name the substance which on treatment with chlorine yields bleaching powder.</h4>
+            <p><strong>Answer:</strong> <strong>Dry slaked lime</strong> or calcium hydroxide, Ca(OH)₂.</p>
+        </div>
+        <div class="qa-block">
+            <h4>Q3: Name the sodium compound which is used for softening hard water.</h4>
+            <p><strong>Answer:</strong> <strong>Sodium carbonate</strong> (Washing Soda, Na₂CO₃&middot;10H₂O).</p>
+        </div>
+        <div class="qa-block">
+            <h4>Q4: What will happen if a solution of sodium hydrocarbonate is heated? Give the equation.</h4>
+            <p><strong>Answer:</strong> It decomposes to form sodium carbonate, water vapor, and carbon dioxide gas.<br>
+            <strong>Equation:</strong> 2NaHCO<sub>3(aq)</sub> &rarr; Na<sub>2</sub>CO<sub>3(aq)</sub> + H<sub>2</sub>O<sub>(l)</sub> + CO<sub>2(g)</sub>&uarr;</p>
+        </div>
+        <div class="qa-block">
+            <h4>Q5: Write an equation to show the reaction between Plaster of Paris and water.</h4>
+            <p><strong>Answer:</strong> CaSO<sub>4</sub>&middot;&frac12;H<sub>2</sub>O + 1&frac12;H<sub>2</sub>O &rarr; CaSO<sub>4</sub>&middot;2H<sub>2</sub>O</p>
+        </div>
+
+        <div class="section-divider">PART II: SOLUTIONS TO EXERCISES AT THE END OF THE CHAPTER</div>
+        
+        <h3>Chapter End Exercises (Pages 34-36)</h3>
+        
+        <div class="qa-block">
+            <h4>Q1: A solution turns red litmus blue, its pH is likely to be: (a) 1 (b) 4 (c) 5 (d) 10</h4>
+            <p><strong>Answer:</strong> <strong>(d) 10</strong>. Basic solutions turn red litmus paper blue, and bases have pH values above 7.</p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q2: A solution reacts with crushed egg-shells to give a gas that turns lime-water milky. The solution contains: (a) NaCl (b) HCl (c) LiCl (d) KCl</h4>
+            <p><strong>Answer:</strong> <strong>(b) HCl</strong>. Eggshells are made of CaCO₃. It reacts with HCl to release CO₂ gas, which turns lime water milky.</p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q3: 10 mL of a solution of NaOH is found to be completely neutralised by 8 mL of a given solution of HCl. If we take 20 mL of the same solution of NaOH, the amount HCl solution required to neutralise it will be: (a) 4 mL (b) 8 mL (c) 12 mL (d) 16 mL</h4>
+            <p><strong>Answer:</strong> <strong>(d) 16 mL</strong>. (Volume doubles proportionally).</p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q4: Which one of the following types of medicines is used for treating indigestion? (a) Antibiotic (b) Analgesic (c) Antacid (d) Antiseptic</h4>
+            <p><strong>Answer:</strong> <strong>(c) Antacid</strong>.</p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q5: Write word equations and then balanced equations for the reaction taking place when —<br>
+            (a) dilute sulphuric acid reacts with zinc granules.<br>
+            (b) dilute hydrochloric acid reacts with magnesium ribbon.<br>
+            (c) dilute sulphuric acid reacts with aluminium powder.<br>
+            (d) dilute hydrochloric acid reacts with iron filings.</h4>
+            <p><strong>Answer:</strong><br>
+            (a) Zinc + Dilute Sulphuric Acid &rarr; Zinc Sulphate + Hydrogen<br>
+            Zn<sub>(s)</sub> + H<sub>2</sub>SO<sub>4(aq)</sub> &rarr; ZnSO<sub>4(aq)</sub> + H<sub>2(g)</sub>&uarr;<br>
+            (b) Magnesium + Dilute Hydrochloric Acid &rarr; Magnesium Chloride + Hydrogen<br>
+            Mg<sub>(s)</sub> + 2HCl<sub>(aq)</sub> &rarr; MgCl<sub>2(aq)</sub> + H<sub>2(g)</sub>&uarr;<br>
+            (c) Aluminium + Dilute Sulphuric Acid &rarr; Aluminium Sulphate + Hydrogen<br>
+            2Al<sub>(s)</sub> + 3H<sub>2</sub>SO<sub>4(aq)</sub> &rarr; Al<sub>2</sub>(SO<sub>4</sub>)<sub>3(aq)</sub> + 3H<sub>2(g)</sub>&uarr;<br>
+            (d) Iron + Dilute Hydrochloric Acid &rarr; Iron(II) Chloride + Hydrogen<br>
+            Fe<sub>(s)</sub> + 2HCl<sub>(aq)</sub> &rarr; FeCl<sub>2(aq)</sub> + H<sub>2(g)</sub>&uarr;</p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q6: Compounds such as alcohols and glucose also contain hydrogen but are not categorised as acids. Describe an Activity to prove it.</h4>
+            <p><strong>Answer:</strong> Set up a circuit with a 6V battery, a bulb, and two nails in a beaker. When dilute HCl is added, the bulb glows because HCl provides free ions. However, if glucose or alcohol solution is added, the bulb <strong>does not glow</strong>. This proves they do not dissociate into H⁺ ions in water, so they are not acids.</p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q7: Why does distilled water not conduct electricity, whereas rain water does?</h4>
+            <p><strong>Answer:</strong> Distilled water is pure and has no dissolved free ions. Rainwater picks up atmospheric gases like CO₂ and SO₂, forming weak acids (like carbonic acid) that dissociate into free ions, enabling electrical conduction.</p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q8: Why does dry HCl gas not show acidic behaviour in the absence of water?</h4>
+            <p><strong>Answer:</strong> Acidic behavior is strictly caused by free H⁺ or H₃O⁺ ions. HCl gas can only dissociate into these ions when dissolved in water.</p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q9: Five solutions A, B, C, D and E when tested with universal indicator showed pH as 4, 1, 11, 7 and 9, respectively. Which solution is (a) neutral? (b) strongly alkaline? (c) strongly acidic? (d) weakly acidic? (e) weakly alkaline? Arrange the pH in increasing order of hydrogen-ion concentration.</h4>
+            <p><strong>Answer:</strong><br>
+            (a) Neutral: <strong>D (pH 7)</strong><br>
+            (b) Strongly alkaline: <strong>C (pH 11)</strong><br>
+            (c) Strongly acidic: <strong>B (pH 1)</strong><br>
+            (d) Weakly acidic: <strong>A (pH 4)</strong><br>
+            (e) Weakly alkaline: <strong>E (pH 9)</strong><br>
+            <strong>Increasing order of H⁺ concentration:</strong> C (11) < E (9) < D (7) < A (4) < B (1).</p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q10: Equal lengths of magnesium ribbons are taken in test tubes A and B. Hydrochloric acid (HCl) is added to test tube A, while acetic acid (CH₃COOH) is added to test tube B. In which test tube will the fizzing occur more vigorously and why?</h4>
+            <p><strong>Answer:</strong> Fizzing occurs <strong>more vigorously in test tube A</strong>. HCl is a strong mineral acid that fully ionizes, producing a high concentration of H⁺ ions. Acetic acid is a weak acid with fewer H⁺ ions. The higher H⁺ concentration in tube A drives a faster reaction.</p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q11: Fresh milk has a pH of 6. How do you think the pH will change as it turns into curd? Explain your answer.</h4>
+            <p><strong>Answer:</strong> The pH will <strong>decrease (drop below 6)</strong>. Bacteria ferment the lactose sugar in milk into lactic acid. The presence of this newly formed acid increases the H⁺ ion concentration, lowering the pH.</p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q12: A milkman adds a very small amount of baking soda to fresh milk. (a) Why does he shift the pH of the fresh milk from 6 to slightly alkaline? (b) Why does this milk take a long time to set as curd?</h4>
+            <p><strong>Answer:</strong><br>
+            (a) The alkaline baking soda neutralizes any naturally forming lactic acid, delaying the souring process and keeping the milk fresh longer.<br>
+            (b) The bacteria must first generate enough lactic acid to neutralize the added baking soda before the pH can drop low enough to coagulate the milk proteins into curd.</p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q13: Plaster of Paris should be stored in a moisture-proof container. Explain why?</h4>
+            <p><strong>Answer:</strong> Plaster of Paris easily absorbs ambient moisture from the air. Upon contact with water, it undergoes a rigid hydration reaction, setting into a hard solid mass of gypsum, rendering the powder useless.</p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q14: What is a neutralisation reaction? Give two examples.</h4>
+            <p><strong>Answer:</strong> A reaction where an acid and a base chemically cancel each other out to form a salt and water. <br>
+            Example 1: HCl<sub>(aq)</sub> + NaOH<sub>(aq)</sub> &rarr; NaCl<sub>(aq)</sub> + H₂O<sub>(l)</sub><br>
+            Example 2: H₂SO₄<sub>(aq)</sub> + 2KOH<sub>(aq)</sub> &rarr; K₂SO₄<sub>(aq)</sub> + 2H₂O<sub>(l)</sub></p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q15: Give two important uses of washing soda and baking soda.</h4>
+            <p><strong>Answer:</strong><br>
+            <strong>Washing Soda:</strong> 1) Used to permanently remove water hardness. 2) Used in the glass, soap, and paper industries.<br>
+            <strong>Baking Soda:</strong> 1) Used as an active antacid to neutralize stomach acid. 2) Used to make baking powder for spongy cakes and bread.</p>
+        </div>
+
+    </div>
+
+</div>
+
+<a href="https://wa.me/919999999999?text=Hello%20Wagh%20Tuition%20Classes,%20I%20want%20to%20inquire%20about%20Class%2010%20Science%20Chapter%202%20Notes." 
+   class="whatsapp-float" 
+   target="_blank">
+   <span class="whatsapp-icon">💬</span> Chat with us on WhatsApp
+</a>
+
+<script>
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+        tabcontent[i].classList.remove("active");
+    }
+    tablinks = document.getElementsByClassName("tab-btn");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.classList.add("active");
+}
+
+const quizBank = {
+    1: {
+        title: "Test 1: Properties & Indicators (10 Marks)",
+        questions: [
+            { q: "A curry stain on a white cloth turns reddish-brown when scrubbed with soap because soap is:", o: ["Acidic", "Basic", "Neutral", "An olfactory indicator"], a: 1 },
+            { q: "Which of the following is a synthetic acid-base indicator?", o: ["Turmeric", "Litmus solution", "Phenolphthalein", "Red cabbage leaf extract"], a: 2 },
+            { q: "A solution changes the color of blue litmus paper to red. Its pH is likely to be:", o: ["9", "7", "5", "12"], a: 2 },
+            { q: "Which of the following alternatives represents a valid pair of olfactory indicators?", o: ["Litmus and Methyl Orange", "Onion and Vanilla Essence", "Turmeric and Phenolphthalein", "Geranium and Petunia Petals"], a: 1 },
+            { q: "When phenolphthalein is added to an aqueous solution of sodium hydroxide, the color shifts to:", o: ["Pink", "Yellow", "Colorless", "Blue"], a: 0 },
+            { q: "What is the natural color of litmus solution when it is neither acidic nor basic?", o: ["Blue", "Red", "Purple", "Yellow"], a: 2 },
+            { q: "A plant extract indicator turns yellow in basic solutions. It is most likely:", o: ["Red cabbage", "Litmus", "Turmeric", "Hydrangea petals"], a: 2 },
+            { q: "Which plant does the purple dye litmus come from?", o: ["Thallophyta (Lichen)", "Bryophyta", "Pteridophyta", "Gymnosperms"], a: 0 },
+            { q: "Methyl orange indicator turns basic solutions:", o: ["Pink", "Yellow", "Colorless", "Red"], a: 1 },
+            { q: "Olfactory indicators identify acids and bases through shifts in:", o: ["Color", "Temperature", "Odor", "Physical state"], a: 2 }
+        ]
+    },
+    2: {
+        title: "Test 2: Metal and Carbonate Reactions (10 Marks)",
+        questions: [
+            { q: "Which gas is uniformly liberated when a metal reacts with a dilute mineral acid?", o: ["Carbon dioxide", "Oxygen", "Hydrogen", "Nitrogen dioxide"], a: 2 },
+            { q: "The product formed alongside hydrogen gas when zinc reacts with aqueous sodium hydroxide is:", o: ["Zinc hydroxide", "Sodium zincate", "Zinc oxide", "Sodium oxide"], a: 1 },
+            { q: "The chemical formula of Sodium Zincate is written as:", o: ["NaZnO2", "Na2ZnO2", "NaZn(OH)4", "Na2ZnO"], a: 1 },
+            { q: "Limestone, chalk, and marble are all distinct chemical forms of:", o: ["Calcium hydroxide", "Calcium oxide", "Calcium carbonate", "Calcium sulphate"], a: 2 },
+            { q: "When CO2 gas is passed through lime water for an extended period, the milkiness clears up due to:", o: ["CaCO3", "CaO", "Ca(HCO3)2", "Ca(OH)2"], a: 2 },
+            { q: "The reaction between an acid and a base to produce a salt and water is classified as a:", o: ["Decomposition reaction", "Combination reaction", "Neutralization reaction", "Displacement reaction"], a: 2 },
+            { q: "Because metallic oxides react with acids to yield salt and water, they are classified as:", o: ["Acidic oxides", "Amphoteric oxides", "Neutral oxides", "Basic oxides"], a: 3 },
+            { q: "Which of the following is a non-metallic oxide that exhibits an acidic nature?", o: ["CuO", "MgO", "CO2", "Na2O"], a: 2 },
+            { q: "What is the correct balanced equation for black copper oxide with dilute hydrochloric acid?", o: ["CuO + HCl -> CuCl + H2O", "CuO + 2HCl -> CuCl2 + H2O", "CuO2 + 4HCl -> CuCl4 + 2H2O", "2CuO + 2HCl -> 2CuCl + H2O + O2"], a: 1 },
+            { q: "The effervescence produced when an acid reacts with a metal carbonate is caused by:", o: ["H2 gas", "O2 gas", "CO2 gas", "Cl2 gas"], a: 2 }
+        ]
+    },
+    3: {
+        title: "Test 3: pH Scale Dynamics (10 Marks)",
+        questions: [
+            { q: "The letter 'p' in the term pH scale stands for which German word?", o: ["Proton", "Power", "Potenz", "Percentage"], a: 2 },
+            { q: "As the pH value transitions upwards from 7 to 14, it indicates an increase in:", o: ["H+ ions", "H3O+ ions", "OH- ions", "Cl- ions"], a: 2 },
+            { q: "What is the specific operating pH window of the healthy human body?", o: ["6.0 to 6.8", "7.0 to 7.8", "5.5 to 6.5", "8.0 to 9.0"], a: 1 },
+            { q: "Rainwater is categorized as 'acid rain' when its pH value drops below:", o: ["7.0", "6.5", "5.6", "4.0"], a: 2 },
+            { q: "Which mild base is commonly recommended as an antacid?", o: ["Sodium hydroxide", "Calcium hydroxide", "Magnesium hydroxide", "Potassium hydroxide"], a: 2 },
+            { q: "Tooth decay begins when the ambient pH inside the human mouth falls below:", o: ["6.5", "5.5", "7.0", "4.5"], a: 1 },
+            { q: "The chemical compound that forms the hard structure of human tooth enamel is:", o: ["Calcium hydroxyapatite", "Calcium carbonate", "Calcium oxalate", "Calcium sulphate"], a: 0 },
+            { q: "Nettle stings inject which chemical into the skin?", o: ["Acetic acid", "Lactic acid", "Methanoic acid", "Tartaric acid"], a: 2 },
+            { q: "The dense atmosphere surrounding Venus is composed of thick clouds of:", o: ["Hydrochloric acid", "Nitric acid", "Sulphuric acid", "Phosphoric acid"], a: 2 },
+            { q: "An assessment of a solution reveals extremely high hydronium ion concentration. Its pH will be:", o: ["Very High", "Neutral (7.0)", "Very Low", "Unaffected"], a: 2 }
+        ]
+    },
+    4: {
+        title: "Test 4: Industrial Chemicals & Salts (10 Marks)",
+        questions: [
+            { q: "The chemical name for regular baking soda is:", o: ["Sodium carbonate", "Sodium hydrogencarbonate", "Sodium hydroxide", "Calcium carbonate"], a: 1 },
+            { q: "The industrial process used to manufacture sodium hydroxide via electrolysis of brine is:", o: ["Solvay process", "Chlor-alkali process", "Haber process", "Bessemer process"], a: 1 },
+            { q: "During the chlor-alkali process, where are the chlorine and hydrogen gases released?", o: ["Chlorine at cathode, Hydrogen at anode", "Chlorine at anode, Hydrogen at cathode", "Both gases escape at anode", "Both gases escape at cathode"], a: 1 },
+            { q: "Bleaching powder is manufactured by reacting chlorine gas with:", o: ["Calcium oxide", "Liquid water", "Dry slaked lime", "Limestone crystals"], a: 2 },
+            { q: "Commercial baking powder consists of a dry mixture of regular baking soda and:", o: ["Hydrochloric acid", "Tartaric acid", "Acetic acid", "Sulphuric acid"], a: 1 },
+            { q: "The number of water molecules that make up the water of crystallization in washing soda is:", o: ["2", "5", "7", "10"], a: 3 },
+            { q: "When gypsum is heated to a temperature of 373 K, it transforms into:", o: ["Bleaching powder", "Anhydrous copper sulphate", "Plaster of Paris", "Washing soda crusts"], a: 2 },
+            { q: "The exact chemical formula for Plaster of Paris is written as:", o: ["CaSO4·2H2O", "CaSO4·½H2O", "CuSO4·5H2O", "Na2CO3·10H2O"], a: 1 },
+            { q: "Which of the following salts is used to remove the permanent hardness of water?", o: ["Sodium chloride", "Sodium carbonate", "Sodium hydrogencarbonate", "Bleaching powder"], a: 1 },
+            { q: "What is the fixed chemical composition of raw Gypsum?", o: ["CaSO4·½H2O", "CaSO4·2H2O", "CaCO3", "CaCl2"], a: 1 }
+        ]
+    },
+    5: {
+        title: "✨ Full Length Mock Paper 1 (20 Marks)",
+        questions: [
+            { q: "An aqueous solution reacts with crushed eggshells to yield a gas that turns lime water milky. The solution contains:", o: ["NaCl", "HCl", "LiCl", "KCl"], a: 1 },
+            { q: "A sample of basic solution is given. Which step will increase its H⁺(aq) concentration?", o: ["Adding a few drops of sodium hydroxide", "Adding an acidic solution", "Dissolving more basic salt into it", "Diluting it heavily with pure alkali"], a: 1 },
+            { q: "Which statement is correct regarding strong mineral acids compared to weak organic acids?", o: ["Strong acids contain fewer hydrogen ions", "Strong acids ionize completely in water to yield more H⁺ ions", "Strong acids fail to conduct an electric current", "Strong acids turn phenolphthalein pink"], a: 1 },
+            { q: "A basic salt among the following choices is:", o: ["NaCl", "Na2CO3", "KNO3", "CuSO4"], a: 1 },
+            { q: "When an acid is diluted with water, the concentration of hydronium ions (H3O⁺) per unit volume:", o: ["Increases", "Decreases", "Remains unchanged", "First drops then climbs"], a: 1 },
+            { q: "What is the true ionic equation of a standard neutralization reaction?", o: ["Na⁺ + Cl⁻ -> NaCl", "H⁺(aq) + OH⁻(aq) -> H2O(l)", "CO2 + Ca(OH)2 -> CaCO3 + H2O", "Metal + Acid -> Salt + Hydrogen"], a: 1 },
+            { q: "A safety warning sign on concentrated acid containers emphasizes that the chemicals are:", o: ["Flammable", "Highly Corrosive", "Gaseous", "Sweets-scented"], a: 1 },
+            { q: "Which acid is found naturally in sour curd?", o: ["Citric acid", "Oxalic acid", "Lactic acid", "Methanoic acid"], a: 2 },
+            { q: "The actual compound composition used to disinfect drinking water from germs is:", o: ["Washing soda", "Baking soda", "Bleaching powder", "Plaster of Paris"], a: 2 },
+            { q: "A farmer adds quicklime (CaO) to his fields. This indicates the soil condition is:", o: ["Highly basic", "Highly acidic", "Completely neutral", "Excessively saline"], a: 1 },
+            { q: "Which indicator turns red in an acidic medium?", o: ["Phenolphthalein", "Methyl orange", "Turmeric", "Vanilla"], a: 1 },
+            { q: "What happens when CO2 is passed through limewater in excess?", o: ["Precipitate thickens", "Milkiness disappears", "Solution turns blue", "No change occurs"], a: 1 },
+            { q: "The pH of gastric juice is roughly around:", o: ["7.4", "1.2", "10", "14"], a: 1 },
+            { q: "Brine is a concentrated solution of:", o: ["Sodium carbonate", "Sodium hydroxide", "Sodium chloride", "Sodium sulphate"], a: 2 },
+            { q: "What forms when active metals react with bases like NaOH?", o: ["Metal hydroxides", "Metal oxides", "Metal salts and hydrogen gas", "No reaction"], a: 2 },
+            { q: "Copper oxide is basic in nature. What color is its solid powder?", o: ["Blue", "Green", "White", "Black"], a: 3 },
+            { q: "Dry HCl gas does not change litmus color because:", o: ["It is basic", "It lacks water to form H+ ions", "It is a weak acid", "Litmus is flawed"], a: 1 },
+            { q: "A solution of pH 11 is mixed with a solution of pH 3. The resulting mixture will likely tend towards:", o: ["Neutralization", "High acidity", "High basicity", "No reaction"], a: 0 },
+            { q: "Baking powder is superior to pure baking soda in cakes because:", o: ["It is cheaper", "Tartaric acid neutralizes bitter sodium carbonate", "It creates more gas", "It is organic"], a: 1 },
+            { q: "Gypsum contains how many molecules of water of crystallization?", o: ["0.5", "1", "2", "5"], a: 2 }
+        ]
+    },
+    6: {
+        title: "✨ Full Length Mock Paper 2 (20 Marks)",
+        questions: [
+            { q: "Which of the following salts does NOT contain any water of crystallization?", o: ["Blue Vitriol", "Baking Soda", "Gypsum", "Washing Soda"], a: 1 },
+            { q: "What occurs when a piece of zinc metal is added to a test tube containing dilute hydrochloric acid?", o: ["No reaction occurs", "Gas is evolved and temperature rises", "Solution turns pink instantly", "A thick white precipitate forms"], a: 1 },
+            { q: "An elegant matching setup of natural indicators would pair tomato with which acid?", o: ["Acetic acid", "Citric acid", "Tartaric acid", "Oxalic acid"], a: 3 },
+            { q: "A student touches nettle leaves. The traditional remedy involves rubbing the area with the leaf of a:", o: ["Lemon tree", "Dock plant", "Cactus plant", "Tamarind vine"], a: 1 },
+            { q: "The component used during baking that reacts to release carbon dioxide gas is:", o: ["Sodium chloride", "Baking powder", "Bleaching powder", "Gypsum plaster"], a: 1 },
+            { q: "The gas used in soda-acid fire extinguishers to suffocate flames is:", o: ["O2", "H2", "CO2", "Cl2"], a: 2 },
+            { q: "A solution turns red litmus paper blue; its estimated pH value will fall into which range?", o: ["1 - 3", "4 - 5", "7", "8 - 14"], a: 3 },
+            { q: "When mixing concentrated mineral acid with water, safety protocols dictate that:", o: ["Water added to acid", "Acid added slowly to water", "Water added dropwise", "Heat both liquids"], a: 1 },
+            { q: "The raw chemical substance commonly mined from old, dried-up seas is:", o: ["Plaster of Paris", "Rock salt", "Lime mortar", "Bleaching salts"], a: 1 },
+            { q: "Which of the following compounds forms an acidic aqueous solution?", o: ["Sodium chloride", "Sodium acetate", "Copper sulphate", "Sodium carbonate"], a: 2 },
+            { q: "Phenolphthalein in an acidic medium is:", o: ["Pink", "Red", "Yellow", "Colorless"], a: 3 },
+            { q: "Reaction of acid with base is termed:", o: ["Oxidation", "Reduction", "Neutralization", "Crystallization"], a: 2 },
+            { q: "CaCO3 is the chemical formula for:", o: ["Limestone", "Chalk", "Marble", "All of the above"], a: 3 },
+            { q: "Washing soda is chemically known as:", o: ["Sodium bicarbonate", "Sodium carbonate decahydrate", "Sodium hydroxide", "Calcium oxychloride"], a: 1 },
+            { q: "pH of pure water at 25°C is:", o: ["0", "7", "14", "10"], a: 1 },
+            { q: "When electricity is passed through brine, what is formed at the cathode?", o: ["Chlorine gas", "Hydrogen gas", "Oxygen gas", "Sodium metal"], a: 1 },
+            { q: "What is the pH of a 1M NaOH solution?", o: ["0", "1", "7", "14"], a: 3 },
+            { q: "Which base is present in window cleaners?", o: ["Sodium hydroxide", "Ammonium hydroxide", "Calcium hydroxide", "Magnesium hydroxide"], a: 1 },
+            { q: "Toothpastes are generally:", o: ["Acidic", "Basic", "Neutral", "Amphoteric"], a: 1 },
+            { q: "Adding water to acid results in:", o: ["Decrease in H+ concentration per volume", "Increase in H+ concentration per volume", "No change", "Formation of salt"], a: 0 }
+        ]
+    }
+};
+
+let currentActiveQuiz = null;
+
+function loadQuiz(id) {
+    currentActiveQuiz = id;
+    const targetData = quizBank[id];
+    document.getElementById("test-selection-screen").style.display = "none";
+    document.getElementById("quiz-interface").style.display = "block";
+    document.getElementById("quiz-panel-title").innerText = targetData.title;
+    document.getElementById("quiz-result-box").style.display = "none";
+
+    let htmlTemplate = "";
+    targetData.questions.forEach((item, index) => {
+        htmlTemplate += `
+            <div class="quiz-q-block">
+                <p><strong>Q${index + 1}: ${item.q}</strong></p>
+                <div class="quiz-options">
+                    ${item.o.map((opt, oIdx) => `
+                        <label>
+                            <input type="radio" name="q_${index}" value="${oIdx}" required> ${opt}
+                        </label>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+    });
+    document.getElementById("quiz-questions-container").innerHTML = htmlTemplate;
+}
+
+function closeQuiz() {
+    document.getElementById("quiz-interface").style.display = "none";
+    document.getElementById("test-selection-screen").style.display = "grid";
+}
+
+function evaluateQuiz() {
+    const targetData = quizBank[currentActiveQuiz];
+    let studentScore = 0;
+    let validated = true;
+
+    targetData.questions.forEach((item, index) => {
+        const selector = document.querySelector(`input[name="q_${index}"]:checked`);
+        if (!selector) {
+            validated = false;
+        } else {
+            if (parseInt(selector.value) === item.a) {
+                studentScore++;
+            }
+        }
+    });
+
+    if (!validated) {
+        alert("Please complete all questions before submitting the assessment sheet.");
+        return;
+    }
+
+    const totalMarks = targetData.questions.length;
+    const resultBox = document.getElementById("quiz-result-box");
+    resultBox.style.display = "block";
+    resultBox.innerHTML = `Assessment Complete! Final Score: ${studentScore} / ${totalMarks} Marks (${Math.round((studentScore/totalMarks)*100)}%)`;
+    window.scrollTo({ top: resultBox.offsetTop, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
