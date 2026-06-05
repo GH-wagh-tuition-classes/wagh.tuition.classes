@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wagh Tuition Classes - Chapter 1: Chemical Reactions and Equations</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --bg-color: #f4f6f7;
+            --text-color: #333;
+            --success-color: #27ae60;
+            --whatsapp-color: #25d366;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            padding-bottom: 60px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2.5rem 1rem;
+            border-bottom: 4px solid var(--accent-color);
+        }
+
+        header .brand-name {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        header .tagline {
+            font-size: 1.2rem;
+            color: #f1c40f;
+            font-weight: 600;
+            margin: 0.5rem 0 1rem 0;
+            font-style: italic;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .tabs-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #ccc;
+            padding-bottom: 0.5rem;
+        }
+
+        .tab-btn {
+            background: #ddd;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 5px 5px 0 0;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            background: #ccc;
+        }
+
+        .tab-btn.active {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            background: white;
+            padding: 2rem;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .pdf-download-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border-radius: 4px;
+        }
+
+        .pdf-btn {
+            background-color: var(--success-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .pdf-btn:hover {
+            background-color: #219653;
+        }
+
+        .test-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .test-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .test-box {
+            border: 1px solid #ddd;
+            padding: 1.5rem;
+            border-radius: 6px;
+            background: #fafafa;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .test-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-top: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        .test-meta {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        #quiz-interface {
+            display: none;
+            background: #fdfdfd;
+            border: 2px solid var(--primary-color);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .quiz-q-block {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed #ddd;
+        }
+
+        .quiz-options label {
+            display: block;
+            background: #f1f1f1;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .quiz-options label:hover {
+            background: #e5e5e5;
+        }
+
+        #quiz-result-box {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: #d4edda;
+            color: #155724;
+            border-radius: 4px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .qa-block {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+
+        .qa-block h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .formula-box {
+            background: #f8f9fa;
+            border: 1px dashed #2c3e50;
+            padding: 1rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            margin: 1rem 0;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            overflow-x: auto;
+        }
+
+        .activity-section {
+            margin-bottom: 3rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 2rem;
+        }
+
+        .activity-img-container {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+
+        .activity-svg {
+            max-width: 100%;
+            height: auto;
+            background: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--whatsapp-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 9999;
+            transition: transform 0.3s ease, background-color 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #1ebd56;
+            transform: scale(1.05);
+        }
+
+        .whatsapp-icon {
+            font-size: 1.3rem;
+        }
+        
+        .section-divider {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.75rem 1.25rem;
+            margin: 2.5rem 0 1.5rem 0;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            letter-spacing: 0.5px;
+        }
+
+        sub {
+            font-size: 0.75em;
+            line-height: 0;
+            position: relative;
+            vertical-align: baseline;
+            bottom: -0.25em;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="brand-name">Wagh Tuition Classes</div>
+    <div class="tagline">✨ Join Wagh Tuition Classes in Vyara! ✨</div>
+    <h1>CBSE Class 10th Science Study Portal</h1>
+</header>
+
+<div class="container">
+
+    <div class="tabs-nav">
+        <button class="tab-btn active" onclick="openTab(event, 'definitions')">1. Definitions & Explanations</button>
+        <button class="tab-btn" onclick="openTab(event, 'summary')">2. All Chemical Activity</button>
+        <button class="tab-btn" onclick="openTab(event, 'mcq')">3. MCQ Tests</button>
+        <button class="tab-btn" onclick="openTab(event, 'solutions')">4. NCERT Solutions</button>
+    </div>
+
+    <div id="definitions" class="tab-content active">
+        <div class="pdf-download-box">
+            <span>Get the complete, print-ready Definitions PDF on your device.</span>
+            <a href="#" class="pdf-btn" target="_blank">💳 Buy PDF Now</a>
+        </div>
+        <h2>Comprehensive Definitions & Explanations</h2>
+        
+        <h3>1. Fundamentals of Chemical Reactions & Equations</h3>
+        <ul>
+            <li><strong>Chemical Reaction:</strong> A process in which chemical bonds break and reform, transforming starting materials into entirely new chemical substances with distinct chemical identities and properties.</li>
+            <li><strong>Reactants:</strong> The initial molecular or ionic substances that actively change composition during a chemical reaction, written on the Left-Hand Side (LHS) of an equation.</li>
+            <li><strong>Products:</strong> The newly arranged atomic chemical compounds generated by a chemical reaction, displayed on the Right-Hand Side (RHS) of an equation.</li>
+            <li><strong>Word Equation:</strong> A basic representation of a chemical reaction using literal substance names separated by an addition sign and reaction direction arrow.</li>
+            <li><strong>Chemical Equation:</strong> A symbolic and shorthand representation of a chemical reaction using chemical formulas, structural coefficients, and state symbols.</li>
+            <li><strong>Skeletal Chemical Equation:</strong> An unbalanced equation where the elemental atom counts do not match on both sides, serving as a raw qualitative statement.</li>
+            <li><strong>Balanced Chemical Equation:</strong> A complete equation where each element contains an identical atom count on both sides, ensuring compliance with physical conservation metrics.</li>
+            <li><strong>Law of Conservation of Mass:</strong> A physical chemistry law stating matter cannot be generated or destroyed inside isolated chemical updates; total initial mass must equal final product mass.</li>
+            <li><strong>Hit-and-Trial Method:</strong> An algebraic inspection technique used to balance skeletal chemical equations by varying coefficients without shifting base subscripts.</li>
+            <li><strong>Physical States Notation:</strong> Informative notations explicitly marked as <sub>(s)</sub> for solid, <sub>(l)</sub> for liquid, <sub>(g)</sub> for gas, and <sub>(aq)</sub> for aqueous systems dissolved in water.</li>
+        </ul>
+
+        <h3>2. Types of Chemical Reactions</h3>
+        <ul>
+            <li><strong>Combination Reaction:</strong> A synthesis pathway where two or more fundamental chemical elements or small compounds merge into a single compound product.</li>
+            <li><strong>Exothermic Chemical Reaction:</strong> A chemical step that generates and radiates thermal energy out into the immediate test surroundings.</li>
+            <li><strong>Decomposition Reaction:</strong> A reaction pattern where a single complex reactant splits into two or more clean elements or simpler molecular fragments.</li>
+            <li><strong>Thermal Decomposition:</strong> A decomposition process driven by continuous heat input.</li>
+            <li><strong>Electrolytic Decomposition (Electrolysis):</strong> A decomposition process driven by passing an external electric current through an electrolyte.</li>
+            <li><strong>Photolytic Decomposition (Photolysis):</strong> A clean degradation pathway driven by photons from light or direct sunlight.</li>
+            <li><strong>Endothermic Reaction:</strong> A reaction network that requires continuous energy absorption from external systems to break its molecular bonds.</li>
+            <li><strong>Displacement Reaction:</strong> A single replacement reaction where a metal with higher thermodynamic reactivity displaces a less reactive metal ion from its salt solution.</li>
+            <li><strong>Double Displacement Reaction:</strong> A reaction process where two ionic compounds swap structural partners to generate two new products.</li>
+            <li><strong>Precipitate:</strong> An insoluble solid compound that drops out of liquid phases during aqueous ionic updates.</li>
+            <li><strong>Precipitation Reaction:</strong> An aqueous mixing sequence that directly produces an insoluble solid precipitate.</li>
+        </ul>
+
+        <h3>3. Oxidation-Reduction & Practical Degradation</h3>
+        <ul>
+            <li><strong>Oxidation:</strong> A process defined by the gain of oxygen atoms or the loss of hydrogen atoms from an atomic or molecular substance.</li>
+            <li><strong>Reduction:</strong> A process defined by the absolute loss of oxygen atoms or the gain of hydrogen atoms by a substance.</li>
+            <li><strong>Redox Reaction:</strong> A coupled reaction system where oxidation and reduction steps happen simultaneously.</li>
+            <li><strong>Oxidizing Agent:</strong> A chemical component that provides oxygen or accepts hydrogen, causing another target substance to oxidize.</li>
+            <li><strong>Reducing Agent:</strong> A compound that extracts oxygen or provides hydrogen, causing another target substance to reduce.</li>
+            <li><strong>Corrosion:</strong> The slow conversion of metal structures into oxides, carbonates, or sulphides through exposure to moist air and chemical gases.</li>
+            <li><strong>Rusting:</strong> The specific corrosion path of iron forming flaky, hydrated reddish-brown iron oxide layers on exposure to moist air.</li>
+            <li><strong>Rancidity:</strong> The air oxidation of lipid and fat chains inside open food goods, spoiling their natural flavor and aroma.</li>
+            <li><strong>Antioxidants:</strong> Sacrificial compounds mixed into commercial food packets to neutralize oxygen fractions and check rancidification.</li>
+        </ul>
+    </div>
+
+    <div id="summary" class="tab-content">
+        <div class="pdf-download-box">
+            <span>Download the Complete Activities Manual & Diagram Blueprint Chart PDF.</span>
+            <a href="#" class="pdf-btn" target="_blank">💳 Buy PDF Now</a>
+        </div>
+        <h2>Detailed Analysis of All 11 Chapter Activities</h2>
+        <p>This section explores every practical experiment documented within the textbook blueprint in sequential order with high-quality experimental setups.</p>
+
+        <div class="activity-section">
+            <h3>Activity 1.1: Combustion of Magnesium Ribbon</h3>
+            <p><strong>Procedure:</strong> Clean a 3-4 cm long magnesium ribbon with sandpaper, hold it using a pair of tongs, and burn it over a spirit lamp while collecting the ash in a watch-glass.</p>
+            <div class="activity-img-container">
+                <svg class="activity-svg" width="550" height="320" viewBox="0 0 550 320">
+                    <rect width="100%" height="100%" fill="#fcfcfc"/>
+                    <text x="20" y="30" font-family="sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Fig 1.1: Heating Magnesium Ribbon over Burner</text>
+                    <rect x="70" y="270" width="80" height="15" fill="#7f8c8d" rx="3"/>
+                    <path d="M 110,270 L 110,200" stroke="#7f8c8d" stroke-width="6"/>
+                    <path d="M 95,200 L 125,200 L 120,170 L 100,170 Z" fill="#34495e"/>
+                    <path d="M 110,170 Q 95,120 110,100 Q 125,120 110,170 Z" fill="#f1c40f" opacity="0.4"/>
+                    <path d="M 110,165 Q 102,135 110,115 Q 118,135 110,165 Z" fill="#ffffff" opacity="0.9"/>
+                    <path d="M 360,110 L 220,135 L 140,140" stroke="#333333" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    <path d="M 360,120 L 220,143 L 142,146" stroke="#555555" stroke-width="4" fill="none" stroke-linecap="round"/>
+                    <rect x="340" y="105" width="40" height="20" fill="#c0392b" rx="2"/>
+                    <path d="M 141,141 L 110,143" stroke="#bdc3c7" stroke-width="6" stroke-linecap="round"/>
+                    <circle cx="110" cy="143" r="12" fill="#fff" filter="drop-shadow(0px 0px 8px #fff)"/>
+                    <path d="M 110,143 L 115,240" stroke="#eee" stroke-width="2" stroke-dasharray="3,6"/>
+                    <path d="M 70,250 Q 115,270 160,250" stroke="#7f8c8d" stroke-width="3" fill="none"/>
+                    <ellipse cx="115" cy="252" rx="25" ry="6" fill="#ecf0f1" stroke="#bdc3c7"/>
+                    <path d="M 100,252 Q 115,245 130,252 Z" fill="#ffffff"/>
+                    <line x1="60" y1="185" x2="95" y2="185" stroke="#7f8c8d" stroke-width="1"/>
+                    <text x="15" y="189" font-family="sans-serif" font-size="11" fill="#555">Burner</text>
+                    <line x1="220" y1="95" x2="190" y2="136" stroke="#7f8c8d" stroke-width="1"/>
+                    <text x="215" y="92" font-family="sans-serif" font-size="11" fill="#555">Pair of tongs</text>
+                    <line x1="125" y1="142" x2="165" y2="175" stroke="#7f8c8d" stroke-width="1"/>
+                    <text x="170" y="179" font-family="sans-serif" font-size="11" fill="#555">Magnesium ribbon</text>
+                    <line x1="125" y1="252" x2="200" y2="252" stroke="#7f8c8d" stroke-width="1"/>
+                    <text x="205" y="256" font-family="sans-serif" font-size="11" fill="#555">Magnesium oxide (White powder)</text>
+                </svg>
+            </div>
+            <p><strong>Observation:</strong> The magnesium ribbon burns with a dazzling white flame, changing into a fine white powder.</p>
+            <p><strong>Inference & Chemical Equation:</strong> Magnesium undergoes a combination reaction with atmospheric oxygen to create magnesium oxide.</p>
+            <div class="formula-box">2Mg<sub>(s)</sub> + O<sub>2(g)</sub> &rarr; 2MgO<sub>(s)</sub></div>
+        </div>
+
+        <div class="activity-section">
+            <h3>Activity 1.2: Reaction of Lead Nitrate with Potassium Iodide</h3>
+            <p><strong>Procedure:</strong> Mix lead nitrate solution with potassium iodide solution in a laboratory test tube.</p>
+            <div class="activity-img-container">
+                <svg class="activity-svg" width="550" height="320" viewBox="0 0 550 320">
+                    <rect width="100%" height="100%" fill="#fcfcfc"/>
+                    <text x="20" y="30" font-family="sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Fig 1.2: Precipitation Mix forming Lead Iodide</text>
+                    <g transform="translate(140,40) rotate(45)">
+                        <rect x="0" y="0" width="30" height="130" rx="15" fill="#eef7fa" stroke="#34495e" stroke-width="2" opacity="0.6"/>
+                        <path d="M 0,70 L 30,70 L 30,115 A 15,15 0 0 1 0,115 Z" fill="#ebf5fb"/>
+                    </g>
+                    <path d="M 225,120 Q 240,150 250,170" stroke="#ebf5fb" stroke-width="4" fill="none"/>
+                    <rect x="235" y="110" width="45" height="160" rx="22" fill="#eef7fa" stroke="#34495e" stroke-width="2"/>
+                    <path d="M 236,210 L 279,210 L 279,248 A 22,22 0 0 1 236,248 Z" fill="#ebf5fb"/>
+                    <path d="M 236,170 Q 260,160 279,170 L 279,220 Q 255,235 236,210 Z" fill="#f1c40f" opacity="0.95"/>
+                    <circle cx="250" cy="190" r="4" fill="#f39c12"/>
+                    <circle cx="265" cy="205" r="3" fill="#f39c12"/>
+                    <circle cx="245" cy="210" r="3" fill="#f39c12"/>
+                    <line x1="120" y1="70" x2="165" y2="85" stroke="#7f8c8d"/>
+                    <text x="15" y="68" font-family="sans-serif" font-size="11" fill="#555">Lead nitrate solution</text>
+                    <line x1="320" y1="150" x2="265" y2="185" stroke="#7f8c8d"/>
+                    <text x="325" y="154" font-family="sans-serif" font-size="11" fill="#555">Yellow precipitate cloud (PbI<sub>2</sub>)</text>
+                    <line x1="320" y1="240" x2="270" y2="240" stroke="#7f8c8d"/>
+                    <text x="325" y="244" font-family="sans-serif" font-size="11" fill="#555">Potassium iodide solution</text>
+                </svg>
+            </div>
+            <p><strong>Observation:</strong> A bright, instantaneous yellow precipitate settles out of the solution.</p>
+            <p><strong>Inference & Chemical Equation:</strong> This represents a double displacement and precipitation reaction where insoluble lead iodide separates.</p>
+            <div class="formula-box">Pb(NO<sub>3</sub>)<sub>2(aq)</sub> + 2KI<sub>(aq)</sub> &rarr; PbI<sub>2(s)</sub>&darr; + 2KNO<sub>3(aq)</sub></div>
+        </div>
+
+        <div class="activity-section">
+            <h3>Activity 1.3: Reaction of Zinc Granules with Dilute Acid</h3>
+            <p><strong>Procedure:</strong> Put zinc granules into a conical flask and slowly introduce dilute hydrochloric acid or dilute sulphuric acid.</p>
+            <div class="activity-img-container">
+                <svg class="activity-svg" width="550" height="340" viewBox="0 0 550 340">
+                    <rect width="100%" height="100%" fill="#fcfcfc"/>
+                    <text x="20" y="30" font-family="sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Fig 1.3: Evolution of Hydrogen Gas from Conical Flask</text>
+                    <path d="M 250,110 L 250,140 L 170,280 A 15,15 0 0 0 185,295 L 345,295 A 15,15 0 0 0 360,280 L 282,140 L 282,110 Z" fill="none" stroke="#2c3e50" stroke-width="2.5"/>
+                    <path d="M 193,240 L 339,240 L 346,281 A 12,12 0 0 1 334,294 L 198,294 A 12,12 0 0 1 186,281 Z" fill="#ebf5fb"/>
+                    <polygon points="250,115 282,115 278,135 254,135" fill="#d35400"/>
+                    <path d="M 266,130 L 266,70 L 330,70" stroke="#7f8c8d" stroke-width="4" fill="none"/>
+                    <polygon points="210,285 225,275 235,288 220,292" fill="#7f8c8d" stroke="#555"/>
+                    <polygon points="250,290 265,280 270,293 255,294" fill="#95a5a6" stroke="#55"/>
+                    <polygon points="290,283 310,278 305,292 295,293" fill="#7f8c8d" stroke="#55"/>
+                    <circle cx="220" cy="265" r="3" fill="#3498db" opacity="0.6"/>
+                    <circle cx="225" cy="250" r="4" fill="#3498db" opacity="0.5"/>
+                    <circle cx="260" cy="270" r="3" fill="#3498db" opacity="0.6"/>
+                    <circle cx="262" cy="245" r="5" fill="#3498db" opacity="0.4"/>
+                    <circle cx="300" cy="260" r="3" fill="#3498db" opacity="0.6"/>
+                    <circle cx="266" cy="90" r="3" fill="#3498db" opacity="0.4"/>
+                    <line x1="335" y1="65" x2="365" y2="65" stroke="#7f8c8d"/>
+                    <text x="372" y="69" font-family="sans-serif" font-size="11" fill="#555">Hydrogen gas escaping</text>
+                    <line x1="240" y1="125" x2="160" y2="125" stroke="#7f8c8d"/>
+                    <text x="90" y="129" font-family="sans-serif" font-size="11" fill="#555">Cork stopper</text>
+                    <line x1="340" y1="220" x2="280" y2="250" stroke="#7f8c8d"/>
+                    <text x="345" y="218" font-family="sans-serif" font-size="11" fill="#555">Dilute sulphuric acid</text>
+                    <line x1="180" y1="285" x2="120" y2="285" stroke="#7f8c8d"/>
+                    <text x="45" y="289" font-family="sans-serif" font-size="11" fill="#555">Zinc granules</text>
+                </svg>
+            </div>
+            <p><strong>Observation:</strong> Gas bubbles evolve rapidly around the zinc pieces, and the flask becomes hot to the touch.</p>
+            <p><strong>Inference & Chemical Equation:</strong> An exothermic single displacement reaction occurs, releasing hydrogen gas.</p>
+            <div class="formula-box">Zn<sub>(s)</sub> + H<sub>2</sub>SO<sub>4(aq)</sub> &rarr; ZnSO<sub>4(aq)</sub> + H<sub>2(g)</sub>&uarr;</div>
+        </div>
+
+        <div class="activity-section">
+            <h3>Activity 1.4: Reaction of Calcium Oxide with Water</h3>
+            <p><strong>Procedure:</strong> Place a small quantity of calcium oxide (quicklime) inside a glass beaker and slowly add water.</p>
+            <div class="activity-img-container">
+                <svg class="activity-svg" width="550" height="320" viewBox="0 0 550 320">
+                    <rect width="100%" height="100%" fill="#fcfcfc"/>
+                    <text x="20" y="30" font-family="sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Fig 1.4: Exothermic Synthesis of Slaked Lime</text>
+                    <rect x="180" y="90" width="160" height="170" rx="3" fill="none" stroke="#34495e" stroke-width="3"/>
+                    <rect x="183" y="145" width="154" height="112" fill="#ebf5fb" opacity="0.8"/>
+                    <path d="M 200,255 Q 220,240 240,257 Q 270,235 300,255 Q 320,245 330,256" stroke="#bdc3c7" stroke-width="12" stroke-linecap="round" fill="none"/>
+                    <path d="M 210,135 Q 215,115 210,105" stroke="#e74c3c" stroke-width="2" fill="none" opacity="0.6"/>
+                    <path d="M 260,130 Q 265,110 260,100" stroke="#e74c3c" stroke-width="2" fill="none" opacity="0.6"/>
+                    <path d="M 310,135 Q 315,115 310,105" stroke="#e74c3c" stroke-width="2" fill="none" opacity="0.6"/>
+                    <path d="M 345,190 L 375,190" stroke="#c0392b" stroke-width="2" stroke-dasharray="2,2"/>
+                    <line x1="170" y1="175" x2="210" y2="175" stroke="#7f8c8d"/>
+                    <text x="115" y="179" font-family="sans-serif" font-size="11" fill="#555">Water layer</text>
+                    <line x1="170" y1="250" x2="220" y2="250" stroke="#7f8c8d"/>
+                    <text x="15" y="254" font-family="sans-serif" font-size="11" fill="#555">Calcium oxide (Quicklime)</text>
+                    <text x="385" y="194" font-family="sans-serif" font-size="11" fill="#c0392b" font-weight="bold">Beaker feels hot (Exothermic)</text>
+                </svg>
+            </div>
+            <p><strong>Observation:</strong> A vigorous reaction occurs with a hissing sound, causing a sharp rise in temperature.</p>
+            <p><strong>Inference & Chemical Equation:</strong> An highly exothermic combination reaction yields calcium hydroxide (slaked lime).</p>
+            <div class="formula-box">CaO<sub>(s)</sub> + H<sub>2</sub>O<sub>(l)</sub> &rarr; Ca(OH)<sub>2(aq)</sub> + Heat</div>
+        </div>
+
+        <div class="activity-section">
+            <h3>Activity 1.5: Thermal Decomposition of Ferrous Sulphate</h3>
+            <p><strong>Procedure:</strong> Heat approximately 2 g of green ferrous sulphate crystals inside a dry boiling tube.</p>
+            <div class="activity-img-container">
+                <svg class="activity-svg" width="550" height="320" viewBox="0 0 550 320">
+                    <rect width="100%" height="100%" fill="#fcfcfc"/>
+                    <text x="20" y="30" font-family="sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Fig 1.5: Thermal Cracking of Ferrous Sulphate Crystals</text>
+                    <g transform="translate(150,110) rotate(25)">
+                        <rect x="0" y="0" width="32" height="150" rx="10" fill="none" stroke="#2c3e50" stroke-width="2.5"/>
+                        <path d="M 2,120 L 30,120 L 30,140 A 10,10 0 0 1 2,140 Z" fill="#a3e4d7"/>
+                        <circle cx="10" cy="135" r="3" fill="#d35400"/>
+                        <circle cx="22" cy="130" r="4" fill="#bdc3c7"/>
+                        <path d="M 5,-30 Q 15,-60 5,-80" stroke="#7f8c8d" stroke-width="2" fill="none" opacity="0.5"/>
+                        <path d="M 25,-30 Q 35,-60 25,-80" stroke="#7f8c8d" stroke-width="2" fill="none" opacity="0.5"/>
+                    </g>
+                    <path d="M 235,300 L 285,300 L 275,230 L 245,230 Z" fill="#7f8c8d"/>
+                    <path d="M 260,230 Q 245,190 260,170 Q 275,190 260,230 Z" fill="#3498db" opacity="0.8"/>
+                    <line x1="340" y1="90" x2="260" y2="100" stroke="#7f8c8d"/>
+                    <text x="345" y="94" font-family="sans-serif" font-size="11" fill="#555">Sulphur oxide fumes (SO<sub>2</sub>, SO<sub>3</sub>)</text>
+                    <line x1="330" y1="215" x2="235" y2="215" stroke="#7f8c8d"/>
+                    <text x="335" y="219" font-family="sans-serif" font-size="11" fill="#555">Green crystals turn brown</text>
+                    <text x="170" y="270" font-family="sans-serif" font-size="11" fill="#555">Boiling tube</text>
+                </svg>
+            </div>
+            <p><strong>Observation:</strong> The green color fades to a brown solid, and pungent gases with the odor of burning sulphur escape.</p>
+            <p><strong>Inference & Chemical Equation:</strong> Thermal decomposition breaks down the crystals into ferric oxide while releasing sulphur gases.</p>
+            <div class="formula-box">2FeSO<sub>4(s)</sub> + Heat &rarr; Fe<sub>2</sub>O<sub>3(s)</sub> + SO<sub>2(g)</sub> + SO<sub>3(g)</sub></div>
+        </div>
+
+        <div class="activity-section">
+            <h3>Activity 1.6: Thermal Decomposition of Lead Nitrate</h3>
+            <p><strong>Procedure:</strong> Hold a boiling tube containing 2 g of lead nitrate powder with tongs and heat it over an open burner.</p>
+            <div class="activity-img-container">
+                <svg class="activity-svg" width="550" height="320" viewBox="0 0 550 320">
+                    <rect width="100%" height="100%" fill="#fcfcfc"/>
+                    <text x="20" y="30" font-family="sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Fig 1.6: Decomposition leaving Nitrogen Dioxide Brown Fumes</text>
+                    <g transform="translate(180,100) rotate(30)">
+                        <rect x="0" y="0" width="30" height="140" rx="10" fill="none" stroke="#34495e" stroke-width="2"/>
+                        <path d="M 2,120 L 28,120 L 28,132 A 10,10 0 0 1 2,132 Z" fill="#f8f9fa" stroke="#ccc"/>
+                        <ellipse cx="15" cy="50" rx="10" ry="25" fill="#e67e22" opacity="0.3"/>
+                    </g>
+                    <path d="M 290,90 Q 320,60 350,80 Q 380,60 400,95" fill="none" stroke="#d35400" stroke-width="4" stroke-linecap="round" opacity="0.6"/>
+                    <rect x="200" y="280" width="60" height="15" fill="#7f8c8d"/>
+                    <path d="M 230,280 L 230,220" stroke="#7f8c8d" stroke-width="4"/>
+                    <path d="M 230,220 Q 215,185 230,165 Q 245,185 230,220 Z" fill="#f1c40f"/>
+                    <line x1="410" y1="85" x2="360" y2="85" stroke="#7f8c8d"/>
+                    <text x="415" y="89" font-family="sans-serif" font-size="11" fill="#ba4a00" font-weight="bold">Brown Fumes (NO<sub>2</sub> gas)</text>
+                    <line x1="160" y1="230" x2="210" y2="210" stroke="#7f8c8d"/>
+                    <text x="85" y="234" font-family="sans-serif" font-size="11" fill="#555">White Lead Nitrate</text>
+                </svg>
+            </div>
+            <p><strong>Observation:</strong> Thick, choking brown gas fumes escape, leaving a yellowish solid behind.</p>
+            <p><strong>Inference & Chemical Equation:</strong> Lead nitrate undergoes thermal decomposition, yielding nitrogen dioxide gas.</p>
+            <div class="formula-box">2Pb(NO<sub>3</sub>)2<sub>(s)</sub> + Heat &rarr; 2PbO<sub>(s)</sub> + 4NO<sub>2(g)</sub>&uarr; + O<sub>2(g)</sub></div>
+        </div>
+
+        <div class="activity-section">
+            <h3>Activity 1.7: Electrolytic Decomposition of Water</h3>
+            <p><strong>Procedure:</strong> Set up carbon electrodes inside a water-filled plastic mug, invert water-filled test tubes over them, and pass a 6V direct current.</p>
+            <div class="activity-img-container">
+                <svg class="activity-svg" width="550" height="350" viewBox="0 0 550 350">
+                    <rect width="100%" height="100%" fill="#fcfcfc"/>
+                    <text x="20" y="30" font-family="sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Fig 1.7: Complete Volumetric Water Electrolysis Apparatus</text>
+                    <rect x="160" y="110" width="220" height="170" rx="8" fill="#eef7fa" stroke="#34495e" stroke-width="2"/>
+                    <line x1="160" y1="140" x2="380" y2="140" stroke="#3498db" stroke-width="2"/>
+                    <rect x="210" y="80" width="30" height="140" rx="6" fill="#ffffff" stroke="#2c3e50" stroke-width="2"/>
+                    <rect x="211" y="81" width="28" height="50" fill="#ffffff"/> <rect x="221" y="130" width="8" height="90" fill="#333333"/> <rect x="300" y="80" width="30" height="140" rx="6" fill="#ffffff" stroke="#2c3e50" stroke-width="2"/>
+                    <rect x="301" y="81" width="28" height="25" fill="#ffffff"/> <rect x="311" y="105" width="8" height="115" fill="#333333"/> <path d="M 225,220 L 225,320 L 250,320" stroke="#e74c3c" stroke-width="2.5" fill="none"/>
+                    <path d="M 315,220 L 315,320 L 290,320" stroke="#34495e" stroke-width="2.5" fill="none"/>
+                    <rect x="250" y="305" width="40" height="26" fill="#2c3e50" rx="2"/>
+                    <text x="270" y="322" font-family="sans-serif" font-size="10" fill="#fff" text-anchor="middle">6V</text>
+                    <text x="225" y="70" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2980b9" text-anchor="middle">Hydrogen (2 Vol)</text>
+                    <text x="315" y="70" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2980b9" text-anchor="middle">Oxygen (1 Vol)</text>
+                    <line x1="140" y1="210" x2="205" y2="210" stroke="#7f8c8d"/>
+                    <text x="80" y="214" font-family="sans-serif" font-size="11" fill="#555">Cathode (-)</text>
+                    <line x1="400" y1="210" x2="335" y2="210" stroke="#7f8c8d"/>
+                    <text x="410" y="214" font-family="sans-serif" font-size="11" fill="#555">Anode (+)</text>
+                </svg>
+            </div>
+            <p><strong>Observation:</strong> Gas bubbles accumulate at both electrodes, but the volume of gas collected at the cathode is exactly twice that at the anode.</p>
+            <p><strong>Inference & Chemical Equation:</strong> Water undergoes electrolytic decomposition, splitting into hydrogen and oxygen in a 2:1 ratio by volume.</p>
+            <div class="formula-box">2H<sub>2</sub>O<sub>(l)</sub> + Electrical Current &rarr; 2H<sub>2(g)</sub>&uarr; [Cathode] + O<sub>2(g)</sub>&uarr; [Anode]</div>
+        </div>
+
+        <div class="activity-section">
+            <h3>Activity 1.8: Photolytic Decomposition of Silver Chloride</h3>
+            <p><strong>Procedure:</strong> Place 2 g of white silver chloride powder in an open china dish under direct sunlight.</p>
+            <div class="activity-img-container">
+                <svg class="activity-svg" width="550" height="320" viewBox="0 0 550 320">
+                    <rect width="100%" height="100%" fill="#fcfcfc"/>
+                    <text x="20" y="30" font-family="sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Fig 1.8: Photochemical Solar Cleavage of Silver Chloride</text>
+                    <circle cx="480" cy="50" r="30" fill="#f1c40f" opacity="0.9"/>
+                    <line x1="440" y1="70" x2="320" y2="160" stroke="#f39c12" stroke-width="2" stroke-dasharray="4,4"/>
+                    <line x1="450" y1="90" x2="350" y2="175" stroke="#f39c12" stroke-width="2" stroke-dasharray="4,4"/>
+                    <path d="M 220,180 Q 280,220 340,180 Q 280,190 220,180" fill="#ffffff" stroke="#bdc3c7" stroke-width="2"/>
+                    <ellipse cx="280" cy="186" rx="45" ry="6" fill="#95a5a6"/>
+                    <path d="M 240,186 Q 260,184 280,186 Q 280,191 240,186" fill="#ffffff"/>
+                    <line x1="200" y1="130" x2="250" y2="183" stroke="#7f8c8d"/>
+                    <text x="130" y="125" font-family="sans-serif" font-size="11" fill="#555">Turns Grey (Silver Metal)</text>
+                    <text x="445" y="110" font-family="sans-serif" font-size="11" fill="#f39c12" font-weight="bold">Sunlight Rays</text>
+                    <line x1="340" y1="210" x2="295" y2="192" stroke="#7f8c8d"/>
+                    <text x="345" y="214" font-family="sans-serif" font-size="11" fill="#555">China dish stand</text>
+                </svg>
+            </div>
+            <p><strong>Observation:</strong> The white powder turns a dull grey color after exposure.</p>
+            <p><strong>Inference & Chemical Equation:</strong> Ambient light causes photolytic decomposition, splitting the compound into silver metal and chlorine gas.</p>
+            <div class="formula-box">2AgCl<sub>(s)</sub> + Sunlight &rarr; 2Ag<sub>(s)</sub> + Cl<sub>2(g)</sub>&uarr;</div>
+        </div>
+
+        <div class="activity-section">
+            <h3>Activity 1.9: Displacement Reaction of Iron Nails in Copper Sulphate</h3>
+            <p><strong>Procedure:</strong> Suspend clean iron nails into a test tube filled with blue copper sulphate solution for 20 minutes.</p>
+            <div class="activity-img-container">
+                <svg class="activity-svg" width="550" height="320" viewBox="0 0 550 320">
+                    <rect width="100%" height="100%" fill="#fcfcfc"/>
+                    <text x="20" y="30" font-family="sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Fig 1.9: Metal Displacement Tracking Vector</text>
+                    <rect x="120" y="90" width="45" height="170" rx="15" fill="#eef7fa" stroke="#34495e" stroke-width="2"/>
+                    <path d="M 121,150 L 164,150 L 164,248 A 15,15 0 0 1 121,248 Z" fill="#3498db" opacity="0.85"/>
+                    <rect x="140" y="110" width="5" height="110" fill="#7f8c8d" rx="1"/> <text x="142" y="280" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2980b9" text-anchor="middle">Tube A (Initial Blue)</text>
+                    <rect x="360" y="90" width="45" height="170" rx="15" fill="#eef7fa" stroke="#34495e" stroke-width="2"/>
+                    <path d="M 361,150 L 404,150 L 404,248 A 15,15 0 0 1 361,248 Z" fill="#2ecc71" opacity="0.6"/>
+                    <rect x="380" y="110" width="5" height="110" fill="#d35400" rx="1"/> <text x="382" y="280" font-family="sans-serif" font-size="11" font-weight="bold" fill="#27ae60" text-anchor="middle">Tube B (Final Green)</text>
+                    <line x1="60" y1="180" x2="115" y2="180" stroke="#7f8c8d"/>
+                    <text x="15" y="165" font-family="sans-serif" font-size="11" fill="#555">Blue CuSO<sub>4</sub></text>
+                    <line x1="470" y1="180" x2="405" y2="180" stroke="#7f8c8d"/>
+                    <text x="475" y="175" font-family="sans-serif" font-size="11" fill="#555">Green FeSO<sub>4</sub></text>
+                    <text x="475" y="195" font-family="sans-serif" font-size="11" fill="#d35400" font-weight="bold">Brown Copper Coating</text>
+                </svg>
+            </div>
+            <p><strong>Observation:</strong> The iron nails acquire a brown coating, and the blue color of the solution fades to light green.</p>
+            <p><strong>Inference & Chemical Equation:</strong> Iron is more reactive than copper and displaces it from the salt solution.</p>
+            <div class="formula-box">Fe<sub>(s)</sub> + CuSO<sub>4(aq)</sub> &rarr; FeSO<sub>4(aq)</sub> + Cu<sub>(s)</sub></div>
+        </div>
+
+        <div class="activity-section">
+            <h3>Activity 1.10: Double Displacement of Sodium Sulphate and Barium Chloride</h3>
+            <p><strong>Procedure:</strong> Mix 3 mL of sodium sulphate solution with 3 mL of barium chloride solution in a test tube.</p>
+            <div class="activity-img-container">
+                <svg class="activity-svg" width="550" height="320" viewBox="0 0 550 320">
+                    <rect width="100%" height="100%" fill="#fcfcfc"/>
+                    <text x="20" y="30" font-family="sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Fig 1.10: Insoluble Solid Barium Sulphate Matrix Precipitation</text>
+                    <rect x="240" y="100" width="50" height="170" rx="16" fill="#eef7fa" stroke="#34495e" stroke-width="2"/>
+                    <path d="M 241,170 L 289,170 L 289,254 A 16,16 0 0 1 241,254 Z" fill="#ffffff" opacity="0.95"/>
+                    <circle cx="255" cy="190" r="4" fill="#bdc3c7"/>
+                    <circle cx="275" cy="210" r="5" fill="#bdc3c7"/>
+                    <circle cx="260" cy="235" r="4" fill="#bdc3c7"/>
+                    <line x1="150" y1="130" x2="235" y2="130" stroke="#7f8c8d"/>
+                    <text x="45" y="134" font-family="sans-serif" font-size="11" fill="#555">Sodium sulphate mixture</text>
+                    <line x1="390" y1="200" x2="295" y2="200" stroke="#7f8c8d"/>
+                    <text x="400" y="204" font-family="sans-serif" font-size="11" fill="#333" font-weight="bold">White Precipitate (BaSO<sub>4</sub>)</text>
+                </svg>
+            </div>
+            <p><strong>Observation:</strong> An instantaneous white solid precipitate forms throughout the mixed solution.</p>
+            <p><strong>Inference & Chemical Equation:</strong> A double displacement reaction occurs via the mutual exchange of Ba<sup>2+</sup> and SO<sub>4</sub><sup>2-</sup> ions.</p>
+            <div class="formula-box">Na<sub>2</sub>SO<sub>4(aq)</sub> + BaCl<sub>2(aq)</sub> &rarr; BaSO<sub>4(s)</sub>&darr; + 2NaCl<sub>(aq)</sub></div>
+        </div>
+
+        <div class="activity-section">
+            <h3>Activity 1.11: Oxidation of Copper Powder</h3>
+            <p><strong>Procedure:</strong> Heat about 1 g of brown copper powder inside a china dish over a laboratory burner.</p>
+            <div class="activity-img-container">
+                <svg class="activity-svg" width="550" height="320" viewBox="0 0 550 320">
+                    <rect width="100%" height="100%" fill="#fcfcfc"/>
+                    <text x="20" y="30" font-family="sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">Fig 1.11: Thermal Oxidation transforming Copper Surface</text>
+                    <path d="M 210,160 Q 275,200 340,160 Q 275,170 210,160" fill="#ffffff" stroke="#7f8c8d" stroke-width="2"/>
+                    <ellipse cx="275" cy="166" rx="40" ry="6" fill="#111111"/>
+                    <path d="M 255,166 Q 275,162 295,166 Q 275,168 255,166" fill="#d35400"/> <path d="M 275,260 L 275,210" stroke="#7f8c8d" stroke-width="4"/>
+                    <path d="M 275,210 Q 260,180 275,160 Q 290,180 275,210 Z" fill="#e67e22" opacity="0.8"/>
+                    <line x1="180" y1="120" x2="245" y2="162" stroke="#7f8c8d"/>
+                    <text x="65" y="115" font-family="sans-serif" font-size="11" fill="#111" font-weight="bold">Black Copper(II) Oxide (CuO)</text>
+                    <text x="290" y="240" font-family="sans-serif" font-size="11" fill="#555">Heat source burner</text>
+                </svg>
+            </div>
+            <p><strong>Observation:</strong> The surface of the brown copper powder turns black.</p>
+            <p><strong>Inference & Chemical Equation:</strong> Copper binds with oxygen in an oxidation process to form black copper(II) oxide.</p>
+            <div class="formula-box">2Cu<sub>(s)</sub> + O<sub>2(g)</sub> + Heat &rarr; 2CuO<sub>(s)</sub></div>
+        </div>
+    </div>
+
+    <div id="mcq" class="tab-content">
+        <div class="pdf-download-box">
+            <span>Get all MCQ Assessment Sheets with detailed paper copies offline.</span>
+            <a href="#" class="pdf-btn" target="_blank">💳 Buy PDF Now</a>
+        </div>
+        <h2>Online Live Mock Assessment Portal</h2>
+        <p>Select any diagnostic evaluation module below to test your instant competence. The engine grades inputs dynamically.</p>
+        
+        <div class="test-grid" id="test-selection-screen">
+            <div class="test-box">
+                <div>
+                    <p class="test-title">Test 1: Types of Chemical Reactions</p>
+                    <p class="test-meta">Weightage: 10 Marks | Time: 15 Mins</p>
+                    <p>Evaluates Combination, Decomposition, Displacement, and Double Displacement modules.</p>
+                </div>
+                <button class="tab-btn" style="background: var(--primary-color); color: white; border-radius:4px;" onclick="loadQuiz(1)">Start Test 1</button>
+            </div>
+            <div class="test-box">
+                <div>
+                    <p class="test-title">Test 2: Balancing & Stoichiometry</p>
+                    <p class="test-meta">Weightage: 10 Marks | Time: 15 Mins</p>
+                    <p>Tests tracking balancing equations, coefficients, and mass conservation constraints.</p>
+                </div>
+                <button class="tab-btn" style="background: var(--primary-color); color: white; border-radius:4px;" onclick="loadQuiz(2)">Start Test 2</button>
+            </div>
+            <div class="test-box">
+                <div>
+                    <p class="test-title">Test 3: Redox, Corrosion & Rancidity</p>
+                    <p class="test-meta">Weightage: 10 Marks | Time: 15 Mins</p>
+                    <p>Focuses on oxidation processes, oxidizing agents, reduction, and preservation steps.</p>
+                </div>
+                <button class="tab-btn" style="background: var(--primary-color); color: white; border-radius:4px;" onclick="loadQuiz(3)">Start Test 3</button>
+            </div>
+            <div class="test-box">
+                <div>
+                    <p class="test-title">Test 4: Lab Observations & Indicators</p>
+                    <p class="test-meta">Weightage: 10 Marks | Time: 15 Mins</p>
+                    <p>Analyzes experimental conditions, gas behaviors, and color mutations.</p>
+                </div>
+                <button class="tab-btn" style="background: var(--primary-color); color: white; border-radius:4px;" onclick="loadQuiz(4)">Start Test 4</button>
+            </div>
+            <div class="test-box" style="border: 2px solid var(--accent-color); background: #fffcf9;">
+                <div>
+                    <p class="test-title" style="color: var(--accent-color);">✨ Full Length Mock Paper 1</p>
+                    <p class="test-meta"><strong>Weightage: 20 Marks</strong> | Time: 30 Mins</p>
+                    <p>Comprehensive evaluation spanning the entire blueprint curriculum with strict scoring criteria.</p>
+                </div>
+                <button class="tab-btn" style="background: var(--accent-color); color: white; border-radius:4px;" onclick="loadQuiz(5)">Start Full Test 1</button>
+            </div>
+            <div class="test-box" style="border: 2px solid var(--accent-color); background: #fffcf9;">
+                <div>
+                    <p class="test-title" style="color: var(--accent-color);">✨ Full Length Mock Paper 2</p>
+                    <p class="test-meta"><strong>Weightage: 20 Marks</strong> | Time: 30 Mins</p>
+                    <p>Advanced comprehensive assessment covering critical equation writing and predictive analytical labs.</p>
+                </div>
+                <button class="tab-btn" style="background: var(--accent-color); color: white; border-radius:4px;" onclick="loadQuiz(6)">Start Full Test 2</button>
+            </div>
+        </div>
+
+        <div id="quiz-interface">
+            <button class="tab-btn" style="background: #e74c3c; color:white; margin-bottom: 1rem; border-radius:4px;" onclick="closeQuiz()">&larr; Exit Assessment</button>
+            <h3 id="quiz-panel-title">Active Test Terminal</h3>
+            <form id="quiz-form">
+                <div id="quiz-questions-container"></div>
+                <button type="button" class="pdf-btn" style="width: 100%; margin-top:1rem;" onclick="evaluateQuiz()">Submit Answer Script</button>
+            </form>
+            <div id="quiz-result-box"></div>
+        </div>
+    </div>
+
+    <div id="solutions" class="tab-content">
+        <div class="pdf-download-box">
+            <span>Download step-by-step NCERT textbook solutions PDF.</span>
+            <a href="#" class="pdf-btn" target="_blank">💳 Buy PDF Now</a>
+        </div>
+        <h2>Complete Chapter Textbook Solutions</h2>
+
+        <div class="section-divider">PART I: SOLUTIONS TO QUESTIONS INSIDE THE CHAPTER</div>
+        
+        <h3>In-Text Questions (Page 6)</h3>
+        <div class="qa-block">
+            <h4>Q1: Why should a magnesium ribbon be cleaned before burning in air?</h4>
+            <p><strong>Answer:</strong> Magnesium reacts with atmospheric oxygen to form a thin, stable protective coat of basic magnesium carbonate on its surface. This film acts as a shield and arrests smooth flame propagation during heating. Rubbing with sandpaper strips away this passive layer to expose the pure reactive metal beneath.</p>
+        </div>
+        <div class="qa-block">
+            <h4>Q2: Write the balanced equation for the following chemical reactions:<br>
+            (i) Hydrogen + Chlorine &rarr; Hydrogen chloride<br>
+            (ii) Barium chloride + Aluminium sulphate &rarr; Barium sulphate + Aluminium chloride<br>
+            (iii) Sodium + Water &rarr; Sodium hydroxide + Hydrogen</h4>
+            <p><strong>Answer:</strong><br>
+            (i) H<sub>2(g)</sub> + Cl<sub>2(g)</sub> &rarr; 2HCl<sub>(g)</sub><br>
+            (ii) 3BaCl<sub>2(aq)</sub> + Al<sub>2</sub>(SO<sub>4</sub>)<sub>3(aq)</sub> &rarr; 3BaSO<sub>4(s)</sub>&darr; + 2AlCl<sub>3(aq)</sub><br>
+            (iii) 2Na<sub>(s)</sub> + 2H<sub>2</sub>O<sub>(l)</sub> &rarr; 2NaOH<sub>(aq)</sub> + H<sub>2(g)</sub>&uarr;</p>
+        </div>
+        <div class="qa-block">
+            <h4>Q3: Write a balanced chemical equation with state symbols for the following reactions:<br>
+            (i) Solutions of barium chloride and sodium sulphate in water react to give insoluble barium sulphate and the solution of sodium chloride.<br>
+            (ii) Sodium hydroxide solution (in water) reacts with hydrochloric acid solution (in water) to produce sodium chloride solution and water.</h4>
+            <p><strong>Answer:</strong><br>
+            (i) BaCl<sub>2(aq)</sub> + Na<sub>2</sub>SO<sub>4(aq)</sub> &rarr; BaSO<sub>4(s)</sub>&darr; + 2NaCl<sub>(aq)</sub><br>
+            (ii) NaOH<sub>(aq)</sub> + HCl<sub>(aq)</sub> &rarr; NaCl<sub>(aq)</sub> + H<sub>2}</sub>O<sub>(l)</sub></p>
+        </div>
+
+        <h3>In-Text Questions (Page 10)</h3>
+        <div class="qa-block">
+            <h4>Q1: A solution of a substance 'X' is used for whitewashing.<br>
+            (i) Name the substance 'X' and write its formula.<br>
+            (ii) Write the reaction of the substance 'X' named in (i) above with water.</h4>
+            <p><strong>Answer:</strong><br>
+            (i) Substance 'X' is Calcium Oxide (commonly termed quicklime). Its chemical formula is CaO.<br>
+            (ii) CaO<sub>(s)</sub> + H<sub>2</sub>O<sub>(l)</sub> &rarr; Ca(OH)<sub>2(aq)</sub></p>
+        </div>
+        <div class="qa-block">
+            <h4>Q2: Why is the amount of gas collected in one of the test tubes in Activity 1.7 double of the amount collected in the other? Name this gas.</h4>
+            <p><strong>Answer:</strong> The stoichiometry of water splitting requires two parts of hydrogen gas for every single part of oxygen gas evolved. Hence, the gas collected in twice the volume is Hydrogen (H<sub>2</sub>).</p>
+        </div>
+
+        <h3>In-Text Questions (Page 13)</h3>
+        <div class="qa-block">
+            <h4>Q1: Why does the colour of copper sulphate solution change when an iron nail is dipped in it?</h4>
+            <p><strong>Answer:</strong> Iron has a higher chemical reactivity than copper. When introduced into blue copper sulphate solution, iron displaces copper ions to generate a light-green iron sulphate matrix while metallic copper settles on the nail face.</p>
+        </div>
+        <div class="qa-block">
+            <h4>Q2: Give an example of a double displacement reaction other than the one given in Activity 1.10.</h4>
+            <p><strong>Answer:</strong> Lead nitrate solution reacts cleanly with potassium iodide fluid to swap ionic partners:<br>
+            Pb(NO<sub>3</sub>)<sub>2(aq)</sub> + 2KI<sub>(aq)</sub> &rarr; PbI<sub>2(s)</sub>&darr; + 2KNO<sub>3(aq)</sub></p>
+        </div>
+        <div class="qa-block">
+            <h4>Q3: Identify the substances that are oxidised and the substances that are reduced in the following reactions:<br>
+            (i) 4Na<sub>(s)</sub> + O<sub>2(g)</sub> &rarr; 2Na<sub>2</sub>O<sub>(s)</sub><br>
+            (ii) CuO<sub>(s)</sub> + H<sub>2(g)</sub> &rarr; Cu<sub>(s)</sub> + H<sub>2</sub>O<sub>(l)</sub></h4>
+            <p><strong>Answer:</strong><br>
+            (i) Sodium (Na) is **oxidised** (gains oxygen); Oxygen (O<sub>2</sub>) acts as the oxidizer and is **reduced**.<br>
+            (ii) Hydrogen (H<sub>2</sub>) is **oxidised** into water; Copper Oxide (CuO) loses its oxygen component and is therefore **reduced**.</p>
+        </div>
+
+        <div class="section-divider">PART II: SOLUTIONS TO EXERCISES AT THE END OF THE CHAPTER</div>
+        
+        <h3>Chapter End Exercises (Pages 14-16)</h3>
+        
+        <div class="qa-block">
+            <h4>Q1: Which of the statements about the reaction below are incorrect?<br>
+            2PbO<sub>(s)</sub> + C<sub>(s)</sub> &rarr; 2Pb<sub>(s)</sub> + CO<sub>2(g)</sub><br>
+            (a) Lead is getting reduced. (b) Carbon dioxide is getting oxidised. (c) Carbon is getting oxidised. (d) Lead oxide is getting reduced.</h4>
+            <p><strong>Answer:</strong> **Statements (a) and (b) are incorrect**.</p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q2: Fe<sub>2</sub>O<sub>3</sub> + 2Al &rarr; Al<sub>2</sub>O<sub>3</sub> + 2Fe<br>
+            The above reaction is an example of a: (a) combination (b) double displacement (c) decomposition (d) displacement reaction.</h4>
+            <p><strong>Answer:</strong> **(d) displacement reaction**.</p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q3: What happens when dilute hydrochloric acid is added to iron filings?</h4>
+            <p><strong>Answer:</strong> **(a) Hydrogen gas and iron chloride are produced**.</p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q4: What is a balanced chemical equation? Why should chemical equations be balanced?</h4>
+            <p><strong>Answer:</strong> A balanced equation contains an identical atom count for each element across both the reactant and product zones. Equations are balanced to comply with the Law of Conservation of Mass.</p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q5: Translate into chemical equations and balance them:<br>
+            (a) Hydrogen gas combines with nitrogen to form ammonia.<br>
+            (b) Hydrogen sulphide gas burns in air to give water and sulphur dioxide.<br>
+            (c) Barium chloride reacts with aluminium sulphate to give aluminium chloride and barium sulphate precipitate.<br>
+            (d) Potassium metal reacts with water to give potassium hydroxide and hydrogen gas.</h4>
+            <p><strong>Answer:</strong><br>
+            (a) 3H<sub>2(g)</sub> + N<sub>2(g)</sub> &rarr; 2NH<sub>3(g)</sub><br>
+            (b) 2H<sub>2</sub>S<sub>(g)</sub> + 3O<sub>2(g)</sub> &rarr; 2H<sub>2</sub>O<sub>(l)</sub> + 2SO<sub>2(g)</sub><br>
+            (c) 3BaCl<sub>2(aq)</sub> + Al<sub>2</sub>(SO<sub>4</sub>)<sub>3(aq)</sub> &rarr; 2AlCl<sub>3(aq)</sub> + 3BaSO<sub>4(s)</sub>&darr;<br>
+            (d) 2K<sub>(s)</sub> + 2H<sub>2</sub>O<sub>(l)</sub> &rarr; 2KOH<sub>(aq)</sub> + H<sub>2(g)</sub>&uarr;</p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q6: Balance the following chemical equations:<br>
+            (a) HNO<sub>3</sub> + Ca(OH)<sub>2</sub> &rarr; Ca(NO<sub>3</sub>)<sub>2</sub> + H<sub>2</sub>O<br>
+            (b) NaOH + H<sub>2</sub>SO<sub>4</sub> &rarr; Na<sub>2</sub>SO<sub>4</sub> + H<sub>2</sub>O<br>
+            (c) NaCl + AgNO<sub>3</sub> &rarr; AgCl + NaNO<sub>3</sub><br>
+            (d) BaCl<sub>2</sub> + H<sub>2}</sub>SO<sub>4</sub> &rarr; BaSO<sub>4</sub> + HCl</h4>
+            <p><strong>Answer:</strong><br>
+            (a) 2HNO<sub>3</sub> + Ca(OH)2 &rarr; Ca(NO<sub>3</sub>)<sub>2</sub> + 2H<sub>2</sub>O<br>
+            (b) 2NaOH + H<sub>2</sub>SO<sub>4</sub> &rarr; Na<sub>2</sub>SO<sub>4</sub> + 2H<sub>2</sub>O<br>
+            (c) NaCl + AgNO<sub>3</sub> &rarr; AgCl&darr; + NaNO<sub>3</sub> *(Balanced)*<br>
+            (d) BaCl<sub>2</sub> + H<sub>2}</sub>SO<sub>4</sub> &rarr; BaSO<sub>4</sub>&darr; + 2HCl</p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q7: Write balanced chemical equations for the following:<br>
+            (a) Calcium hydroxide + Carbon dioxide &rarr; Calcium carbonate + Water<br>
+            (b) Zinc + Silver nitrate &rarr; Zinc nitrate + Silver<br>
+            (c) Barium chloride + Potassium sulphate &rarr; Barium sulphate + Potassium chloride<br>
+            (d) Aluminium + Copper chloride &rarr; Aluminium chloride + Copper</h4>
+            <p><strong>Answer:</strong><br>
+            (a) Ca(OH)<sub>2</sub> + CO<sub>2</sub> &rarr; CaCO<sub>3</sub> + H<sub>2</sub>O<br>
+            (b) Zn + 2AgNO<sub>3</sub> &rarr; Zn(NO<sub>3</sub>)2 + 2Ag<br>
+            (c) BaCl<sub>2</sub> + K<sub>2</sub>SO<sub>4}</sub> &rarr; BaSO<sub>4</sub>&darr; + 2KCl<br>
+            (d) 2Al + 3CuCl<sub>2</sub> &rarr; 2AlCl<sub>3</sub> + 3Cu</p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q8: Write balanced chemical equations and identify the reaction type:<br>
+            (a) Potassium bromide<sub>(aq)</sub> + Barium iodide<sub>(aq)</sub> &rarr; Potassium iodide<sub>(aq)</sub> + Barium bromide<sub>(s)</sub><br>
+            (b) Zinc carbonate<sub>(s)</sub> &rarr; Zinc oxide<sub>(s)</sub> + Carbon dioxide<sub>(g)</sub><br>
+            (c) Hydrogen<sub>(g)</sub> + Chlorine<sub>(g)</sub> &rarr; Hydrogen chloride<sub>(g)</sub><br>
+            (d) Magnesium<sub>(s)</sub> + Hydrochloric acid<sub>(aq)</sub> &rarr; Magnesium chloride<sub>(aq)</sub> + Hydrogen<sub>(g)</sub></h4>
+            <p><strong>Answer:</strong><br>
+            (a) 2KBr<sub>(aq)</sub> + BaI<sub>2(aq)</sub> &rarr; 2KI<sub>(aq)</sub> + BaBr<sub>2(s)</sub> [Double Displacement]<br>
+            (b) ZnCO<sub>3(s)</sub> &rarr; ZnO<sub>(s)</sub> + CO<sub>2(g)</sub> [Thermal Decomposition]<br>
+            (c) H<sub>2(g)</sub> + Cl<sub>2(g)</sub> &rarr; 2HCl<sub>(g)</sub> [Combination]<br>
+            (d) Mg<sub>(s)</sub> + 2HCl<sub>(aq)</sub> &rarr; MgCl<sub>2(aq)</sub> + H<sub>2(g)</sub> [Displacement]</p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q9: What does one mean by exothermic and endothermic reactions? Give examples.</h4>
+            <p><strong>Answer:</strong> Exothermic reactions release energy into their surroundings (e.g., combustion of methane). Endothermic reactions absorb thermal energy to progress forward (e.g., thermal tracking of limestone).</p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q10: Why is respiration considered an exothermic reaction? Explain.</h4>
+            <p><strong>Answer:</strong> In respiration, body cells break down complex glucose molecules using inspired oxygen. This metabolic process yields water, carbon dioxide, and life-supporting chemical energy, making it an exothermic reaction pathway.</p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q11: Why are decomposition reactions called the opposite of combination reactions? Write equations.</h4>
+            <p><strong>Answer:</strong> Combination reactions form a single final output compound from multiple smaller elements or species. Decomposition reactions split an integrated molecular structure into multiple simpler fragments.<br>
+            * Combination: 2H<sub>2(g)</sub> + O<sub>2(g)</sub> &rarr; 2H<sub>2</sub>O<sub>(l)</sub><br>
+            * Decomposition: 2H<sub>2</sub>O<sub>(l)</sub> &rarr; 2H<sub>2(g)</sub> + O<sub>2(g)</sub></p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q12: Write one equation each for decomposition reactions where energy is supplied in the form of heat, light or electricity.</h4>
+            <p><strong>Answer:</strong><br>
+            * **Heat:** CaCO<sub>3(s)</sub> &rarr; CaO<sub>(s)</sub> + CO<sub>2(g)</sub><br>
+            * **Light:** 2AgBr<sub>(s)</sub> &rarr; 2Ag<sub>(s)</sub> + Br<sub>2(g)</sub><br>
+            * **Electricity:** 2H<sub>2</sub>O<sub>(l)</sub> &rarr; 2H<sub>2(g)</sub> + O<sub>2(g)</sub></p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q13: What is the difference between displacement and double displacement reactions? Write equations.</h4>
+            <p><strong>Answer:</strong> Single displacement reactions occur when a single reactive metal displaces a less reactive companion from its solution. Double displacement steps swap ionic partners across two participating salts simultaneously.<br>
+            * Displacement: Zn + CuSO<sub>4</sub> &rarr; ZnSO<sub>4}</sub> + Cu<br>
+            * Double Displacement: Na<sub>2}</sub>SO<sub>4</sub> + BaCl<sub>2</sub> &rarr; BaSO<sub>4</sub>&darr; + 2NaCl</p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q14: In the refining of silver, the recovery of silver from silver nitrate solution involved displacement by copper metal. Write down the reaction involved.</h4>
+            <p><strong>Answer:</strong> Cu<sub>(s)</sub> + 2AgNO<sub>3(aq)</sub> &rarr; Cu(NO3)<sub>2(aq)</sub> + 2Ag<sub>(s)</sub></p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q15: What do you mean by a precipitation reaction? Explain by giving examples.</h4>
+            <p><strong>Answer:</strong> A precipitation reaction is a chemical process where two clear, dissolved solutions mix to form an insoluble solid product called a precipitate. Example:<br>
+            Na<sub>2</sub>SO<sub>4(aq)</sub> + BaCl<sub>2(aq)</sub> &rarr; BaSO<sub>4(s)</sub>&darr; + 2NaCl<sub>(aq)</sub></p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q16: Explain the following in terms of gain or loss of oxygen with two examples each: (a) Oxidation (b) Reduction</h4>
+            <p><strong>Answer:</strong><br>
+            (a) **Oxidation:** Chemical gain of oxygen atoms. Examples: 2Mg + O<sub>2</sub> &rarr; 2MgO and C + O<sub>2</sub> &rarr; CO<sub>2</sub>.<br>
+            (b) **Reduction:** Complete loss of bounded oxygen fractions. Examples: CuO + H<sub>2</sub> &rarr; Cu + H<sub>2</sub>O and ZnO + C &rarr; Zn + CO.</p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q17: A shiny brown coloured element 'X' on heating in air becomes black in colour. Name the element 'X' and the black coloured compound formed.</h4>
+            <p><strong>Answer:</strong> Element 'X' is Copper (Cu). The resulting black substance is Copper(II) Oxide (CuO).</p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q18: Why do we apply paint on iron articles?</h4>
+            <p><strong>Answer:</strong> Paint seals the raw iron surface away from moisture and ambient atmospheric oxygen, preventing the chemical reaction that forms rust.</p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q19: Oil and fat containing food items are flushed with nitrogen. Why?</h4>
+            <p><strong>Answer:</strong> Nitrogen gas creates an unreactive, oxygen-free atmosphere inside packaging. This blocks oxidation pathways and prevents food items from turning rancid.</p>
+        </div>
+
+        <div class="qa-block">
+            <h4>Q20: Explain the following terms with one example each: (a) Corrosion (b) Rancidity</h4>
+            <p><strong>Answer:</strong><br>
+            (a) **Corrosion:** The gradual structural degradation of metals caused by environmental factors (e.g., the green film that forms on copper surfaces).<br>
+            (b) **Rancidity:** The process where fats and oils oxidize over time, spoiling their smell and flavor profile (e.g., stale potato chips changing taste).</p>
+        </div>
+    </div>
+
+</div>
+
+<a href="https://wa.me/919999999999?text=Hello%20Wagh%20Tuition%20Classes,%20I%20want%20to%20inquire%20about%20Class%2010%20Science%20courses%20and%20study%20notes." 
+   class="whatsapp-float" 
+   target="_blank">
+   <span class="whatsapp-icon">💬</span> Chat with us on WhatsApp
+</a>
+
+<script>
+function openTab(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+        tabcontent[i].classList.remove("active");
+    }
+    tablinks = document.getElementsByClassName("tab-btn");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+    }
+    document.getElementById(tabName).style.display = "block";
+    evt.currentTarget.classList.add("active");
+}
+
+const quizBank = {
+    1: {
+        title: "Test 1: Types of Chemical Reactions (10 Marks)",
+        questions: [
+            { q: "What type of reaction occurs when Quicklime reacts with water?", o: ["Decomposition", "Combination", "Displacement", "Double Displacement"], a: 1 },
+            { q: "Heating Ferrous sulphate crystals leads to gas emissions. What are they?", o: ["O2 only", "SO2 and SO3", "CO2", "NO2"], a: 1 },
+            { q: "Photolytic decomposition is used in which industry?", o: ["Metallurgy", "Photography", "Welding", "Cement making"], a: 1 },
+            { q: "Fe(s) + CuSO4(aq) -> FeSO4(aq) + Cu(s) is an example of:", o: ["Combination", "Double Displacement", "Single Displacement", "Endothermic"], a: 2 },
+            { q: "What is the color of the precipitate formed when Barium chloride meets Sodium sulphate?", o: ["Yellow", "Blue", "Black", "White"], a: 3 }
+        ]
+    },
+    2: {
+        title: "Test 2: Balancing & Stoichiometry (10 Marks)",
+        questions: [
+            { q: "Balanced chemical equations satisfy which law?", o: ["Law of Constant Proportions", "Law of Conservation of Mass", "Law of Multiple Proportions", "Boyles Law"], a: 1 },
+            { q: "In xMg + O2 -> 2MgO, what is the value of x to balance the script?", o: ["1", "2", "3", "4"], a: 1 }
+        ]
+    },
+    3: {
+        title: "Test 3: Redox, Corrosion & Rancidity (10 Marks)",
+        questions: [
+            { q: "Oxidation involves the explicit structural gain of:", o: ["Hydrogen", "Nitrogen", "Oxygen", "Helium"], a: 2 },
+            { q: "What gas is flushed inside potato chips packages to stop rancidification?", o: ["Oxygen", "Chlorine", "Argon", "Nitrogen"], a: 3 }
+        ]
+    },
+    4: {
+        title: "Test 4: Lab Observations & Indicators (10 Marks)",
+        questions: [
+            { q: "What is the color of Nitrogen Dioxide fumes emitted by heating Lead Nitrate?", o: ["White", "Yellow", "Brown", "Green"], a: 2 },
+            { q: "Mixing Potassium Iodide and Lead Nitrate solutions forms a precipitate of what color?", o: ["Brilliant Yellow", "Milky White", "Deep Blue", "Jet Black"], a: 0 }
+        ]
+    },
+    5: {
+        title: "Full Length Mock Paper 1 (20 Marks)",
+        questions: [
+            { q: "Which of the following is an endothermic process?", o: ["Dilution of sulphuric acid", "Decomposition of calcium carbonate", "Respiration in body cells", "Combustion of LPG"], a: 1 },
+            { q: "Fatty foods change taste and smell due to which process?", o: ["Reduction", "Carbonation", "Oxidation", "Hydrogenation"], a: 2 },
+            { q: "When zinc reacts with sodium hydroxide, the product formed is:", o: ["Zinc hydroxide", "Sodium zincate and hydrogen gas", "Sodium oxide", "No reaction"], a: 1 },
+            { q: "In a balanced chemical statement, atoms are conserved on both sides. This proves:", o: ["Dalton's Atomic Theory", "Law of Mass Action", "Law of Conservation of Mass", "Avogadro's Law"], a: 2 },
+            { q: "What color layer develops on silver items when left exposed to humid air?", o: ["Green coating", "Brown rust layer", "White powder oxide", "Black sulphide layer"], a: 3 }
+        ]
+    },
+    6: {
+        title: "Full Length Mock Paper 2 (20 Marks)",
+        questions: [
+            { q: "Chemically, rust is classified as:", o: ["Ferric oxide", "Hydrated ferric oxide", "Ferrous oxide", "Iron sulphide"], a: 1 },
+            { q: "The reducing agent in the reaction: CuO + H2 -> Cu + H2O is:", o: ["CuO", "H2", "Cu", "H2O"], a: 1 },
+            { q: "A solution turned a green iron nail brown after 15 mins. The salt solution was:", o: ["ZnSO4", "Al2(SO4)3", "CuSO4", "MgSO4"], a: 2 },
+            { q: "Barium sulphate precipitate does not dissolve in water because it forms:", o: ["An insoluble covalent network", "An insoluble ionic precipitate", "An acidic solution", "An aqueous complex compound"], a: 1 },
+            { q: "What prevents rancidity in food packets packed for retail distribution?", o: ["Adding basic elements", "Vacuum sealing only", "Adding antioxidants or nitrogen gas", "Heating the packet surface"], a: 2 }
+        ]
+    }
+};
+
+let currentActiveQuiz = null;
+
+function loadQuiz(id) {
+    currentActiveQuiz = id;
+    const targetData = quizBank[id];
+    document.getElementById("test-selection-screen").style.display = "none";
+    document.getElementById("quiz-interface").style.display = "block";
+    document.getElementById("quiz-panel-title").innerText = targetData.title;
+    document.getElementById("quiz-result-box").style.display = "none";
+
+    let htmlTemplate = "";
+    targetData.questions.forEach((item, index) => {
+        htmlTemplate += `
+            <div class="quiz-q-block">
+                <p><strong>Q${index + 1}: ${item.q}</strong></p>
+                <div class="quiz-options">
+                    ${item.o.map((opt, oIdx) => `
+                        <label>
+                            <input type="radio" name="q_${index}" value="${oIdx}" required> ${opt}
+                        </label>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+    });
+    document.getElementById("quiz-questions-container").innerHTML = htmlTemplate;
+}
+
+function closeQuiz() {
+    document.getElementById("quiz-interface").style.display = "none";
+    document.getElementById("test-selection-screen").style.display = "grid";
+}
+
+function evaluateQuiz() {
+    const targetData = quizBank[currentActiveQuiz];
+    let studentScore = 0;
+    let validated = true;
+
+    targetData.questions.forEach((item, index) => {
+        const selector = document.querySelector(`input[name="q_${index}"]:checked`);
+        if (!selector) {
+            validated = false;
+        } else {
+            if (parseInt(selector.value) === item.a) {
+                studentScore++;
+            }
+        }
+    });
+
+    if (!validated) {
+        alert("Please complete all questions before submitting the assessment sheet.");
+        return;
+    }
+
+    const totalMarks = targetData.questions.length;
+    const resultBox = document.getElementById("quiz-result-box");
+    resultBox.style.display = "block";
+    resultBox.innerHTML = `Assessment Complete! Final Score: ${studentScore} / ${totalMarks} Marks (${Math.round((studentScore/totalMarks)*100)}%)`;
+    window.scrollTo({ top: resultBox.offsetTop, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
+ipt>
+
+</body>
+</html>
