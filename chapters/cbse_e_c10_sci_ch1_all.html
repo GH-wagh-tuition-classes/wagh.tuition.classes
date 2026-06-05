@@ -4,7 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wagh Tuition Classes - Chapter 1: Chemical Reactions and Equations</title>
-    <style>
+    <style> .top-nav{
+    display:flex;
+    gap:10px;
+    margin:15px 0 25px 0;
+    flex-wrap:wrap;
+}
+
+.back-btn,
+.home-btn{
+    text-decoration:none;
+    border:none;
+    padding:10px 16px;
+    border-radius:10px;
+    font-weight:600;
+    font-size:15px;
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.back-btn{
+    background:#0d6efd;
+    color:white;
+}
+
+.home-btn{
+    background:#198754;
+    color:white;
+}
         :root {
             --primary-color: #2c3e50;
             --accent-color: #e67e22;
@@ -301,7 +330,15 @@
     </style>
 </head>
 <body>
+<div class="top-nav">
+    <button onclick="history.back()" class="back-btn">
+        ← Back to Chapters
+    </button>
 
+    <a href="../index.html" class="home-btn">
+        🏠 Home
+    </a>
+</div>
 <header>
     <div class="brand-name">Wagh Tuition Classes</div>
     <div class="tagline">✨ Join Wagh Tuition Classes in Vyara! ✨</div>
