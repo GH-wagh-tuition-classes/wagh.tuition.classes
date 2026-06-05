@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class 7 Maths – Ch 2: Arithmetic Expressions</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f0f4ff;
+  --surface: #ffffff;
+  --primary: #1a3fa0;
+  --primary-light: #dbe8ff;
+  --accent: #e63946;
+  --accent-light: #fde8ea;
+  --green: #1a7a3c;
+  --green-light: #d4f0de;
+  --yellow: #f4a31a;
+  --yellow-light: #fff3d6;
+  --purple: #6c3fc7;
+  --purple-light: #ede6ff;
+  --text: #1a1a2e;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --radius: 12px;
+  --shadow: 0 4px 20px rgba(26,63,160,0.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.7}
+
+/* ── NAV ── */
+.topnav{
+  position:sticky;top:0;z-index:100;
+  background:var(--primary);
+  display:flex;flex-wrap:wrap;gap:4px;
+  padding:10px 16px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.25);
+}
+.topnav a{
+  color:#fff;text-decoration:none;font-size:12px;font-weight:700;
+  padding:5px 12px;border-radius:20px;background:rgba(255,255,255,0.12);
+  transition:background .2s;white-space:nowrap;
+}
+.topnav a:hover{background:rgba(255,255,255,0.28)}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(135deg,#1a3fa0 0%,#2563eb 50%,#6c3fc7 100%);
+  color:#fff;text-align:center;
+  padding:52px 20px 44px;
+}
+.hero .badge{
+  display:inline-block;background:rgba(255,255,255,0.18);
+  font-size:12px;font-weight:700;letter-spacing:2px;
+  padding:4px 16px;border-radius:20px;margin-bottom:14px;
+}
+.hero h1{font-family:'Baloo 2',cursive;font-size:clamp(26px,5vw,42px);font-weight:800;line-height:1.2;margin-bottom:10px}
+.hero p{font-size:16px;opacity:.88;max-width:560px;margin:0 auto}
+
+/* ── LAYOUT ── */
+.container{max-width:900px;margin:0 auto;padding:0 16px 60px}
+
+/* ── SECTION CARDS ── */
+.section{background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow);margin:28px 0;overflow:hidden}
+.section-header{
+  display:flex;align-items:center;gap:12px;
+  padding:16px 22px;cursor:pointer;
+  border-bottom:1px solid var(--border);
+  user-select:none;
+}
+.section-header .icon{
+  width:38px;height:38px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:19px;flex-shrink:0;
+}
+.section-header h2{font-family:'Baloo 2',cursive;font-size:18px;font-weight:700;flex:1}
+.section-header .toggle{font-size:18px;color:var(--muted);transition:transform .3s}
+.section-header.open .toggle{transform:rotate(180deg)}
+.section-body{padding:22px;display:none}
+.section-body.open{display:block}
+
+/* Colors per section */
+.s-summary .section-header .icon{background:var(--primary-light);color:var(--primary)}
+.s-keywords .section-header .icon{background:var(--green-light);color:var(--green)}
+.s-inchapter .section-header .icon{background:var(--yellow-light);color:var(--yellow)}
+.s-exercise .section-header .icon{background:var(--accent-light);color:var(--accent)}
+.s-test .section-header .icon{background:var(--purple-light);color:var(--purple)}
+
+/* ── TYPOGRAPHY ── */
+h3{font-family:'Baloo 2',cursive;font-size:16px;font-weight:700;color:var(--primary);margin:18px 0 8px}
+h4{font-size:14px;font-weight:700;color:var(--accent);margin:14px 0 6px}
+p{margin:6px 0}
+ul,ol{padding-left:22px;margin:6px 0}
+li{margin:3px 0}
+code{background:#f1f5fd;border:1px solid #d1d9f0;border-radius:5px;padding:1px 7px;font-size:13px;font-family:monospace}
+
+/* ── KEYWORD CHIPS ── */
+.kw-grid{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0}
+.kw-card{
+  background:var(--green-light);border-left:4px solid var(--green);
+  border-radius:0 8px 8px 0;padding:8px 14px;min-width:180px;flex:1;
+}
+.kw-card .term{font-weight:700;color:var(--green);font-size:14px}
+.kw-card .def{font-size:13px;color:var(--text);margin-top:2px}
+
+/* ── SUMMARY BOXES ── */
+.sum-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin:14px 0}
+.sum-card{border-radius:10px;padding:14px 16px}
+.sum-card.blue{background:var(--primary-light);border-left:4px solid var(--primary)}
+.sum-card.red{background:var(--accent-light);border-left:4px solid var(--accent)}
+.sum-card.green{background:var(--green-light);border-left:4px solid var(--green)}
+.sum-card.yellow{background:var(--yellow-light);border-left:4px solid var(--yellow)}
+.sum-card.purple{background:var(--purple-light);border-left:4px solid var(--purple)}
+.sum-card h4{margin:0 0 6px;font-size:13px;text-transform:uppercase;letter-spacing:.5px}
+.sum-card p{font-size:13px;margin:2px 0}
+
+/* ── BODMAS BOX ── */
+.bodmas{
+  display:flex;flex-wrap:wrap;gap:6px;justify-content:center;
+  background:linear-gradient(135deg,#1a3fa0,#6c3fc7);
+  border-radius:12px;padding:18px;margin:14px 0;
+}
+.bodmas-step{
+  background:#fff;border-radius:8px;padding:8px 14px;text-align:center;min-width:80px;
+}
+.bodmas-step .letter{font-size:22px;font-weight:800;color:var(--primary)}
+.bodmas-step .word{font-size:11px;color:var(--muted);font-weight:600}
+
+/* ── Q&A BLOCKS ── */
+.qa-block{border-radius:10px;margin:12px 0;overflow:hidden}
+.qa-q{
+  background:var(--yellow-light);border-left:4px solid var(--yellow);
+  padding:10px 14px;font-weight:700;font-size:14px;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:flex-start;gap:8px;
+}
+.qa-q .qtag{
+  background:var(--yellow);color:#fff;font-size:11px;font-weight:700;
+  padding:2px 8px;border-radius:10px;flex-shrink:0;
+}
+.qa-a{
+  background:#fafbff;border-left:4px solid #cbd5e1;
+  padding:12px 14px;display:none;font-size:14px;
+}
+.qa-a.open{display:block}
+.qa-a .ans-label{
+  font-size:11px;font-weight:700;letter-spacing:1px;
+  color:var(--green);margin-bottom:6px;
+}
+.qa-a .step{
+  background:var(--primary-light);border-radius:6px;
+  padding:6px 10px;margin:4px 0;font-size:13px;
+}
+.qa-a .final{
+  background:var(--green-light);border:1px solid #86efac;
+  border-radius:6px;padding:8px 12px;margin-top:8px;font-weight:700;
+}
+
+/* ── PAGE LABEL ── */
+.page-ref{
+  display:inline-block;background:var(--primary);color:#fff;
+  font-size:11px;font-weight:700;padding:2px 10px;border-radius:10px;
+  margin-bottom:10px;letter-spacing:.5px;
+}
+
+/* ── COMPARE TABLE ── */
+.cmp-table{width:100%;border-collapse:collapse;font-size:13px;margin:10px 0}
+.cmp-table th{background:var(--primary);color:#fff;padding:7px 10px;text-align:left}
+.cmp-table td{padding:6px 10px;border-bottom:1px dashed var(--border)}
+.cmp-table tr:nth-child(even) td{background:#f8faff}
+.cmp-table .gr{color:var(--green);font-weight:700}
+.cmp-table .rd{color:var(--accent);font-weight:700}
+
+/* ── PROPERTIES BOX ── */
+.prop-box{background:var(--purple-light);border-left:4px solid var(--purple);border-radius:0 10px 10px 0;padding:12px 16px;margin:10px 0}
+.prop-box h4{color:var(--purple);margin-bottom:6px}
+
+/* ── FORMULA CALLOUT ── */
+.formula{
+  background:var(--yellow-light);border:2px dashed var(--yellow);
+  border-radius:10px;padding:12px 18px;margin:12px 0;
+  font-weight:700;font-size:15px;text-align:center;color:#7c4a00;
+}
+
+/* ── REMEMBER BOX ── */
+.remember{
+  background:linear-gradient(90deg,#fff3d6,#fff);
+  border-left:4px solid var(--yellow);border-radius:0 10px 10px 0;
+  padding:10px 14px;margin:10px 0;font-size:13px;
+}
+.remember::before{content:"⭐ Remember: ";font-weight:700;color:var(--yellow)}
+
+/* ── TESTS ── */
+.test-meta{
+  display:flex;gap:12px;flex-wrap:wrap;margin:0 0 16px;
+}
+.test-badge{
+  display:flex;align-items:center;gap:5px;
+  background:var(--purple-light);border-radius:8px;
+  padding:5px 12px;font-size:12px;font-weight:700;color:var(--purple);
+}
+.test-q{
+  background:#fafbff;border:1px solid var(--border);
+  border-radius:8px;padding:12px 16px;margin:10px 0;
+}
+.test-q .qno{
+  background:var(--purple);color:#fff;border-radius:50%;
+  width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;margin-right:8px;flex-shrink:0;
+}
+.test-q .marks{
+  float:right;background:var(--accent-light);color:var(--accent);
+  font-size:11px;font-weight:700;padding:2px 8px;border-radius:8px;
+}
+.test-ans-btn{
+  background:var(--green);color:#fff;border:none;border-radius:8px;
+  padding:7px 16px;font-size:13px;font-weight:700;cursor:pointer;
+  margin-top:10px;font-family:'Nunito',sans-serif;
+  transition:background .2s;
+}
+.test-ans-btn:hover{background:#15693a}
+.test-ans{
+  background:var(--green-light);border-left:3px solid var(--green);
+  border-radius:0 8px 8px 0;padding:10px 14px;margin-top:8px;
+  font-size:13px;display:none;
+}
+.test-ans.open{display:block}
+
+/* ── DIVIDER ── */
+.divider{border:none;border-top:2px dashed var(--border);margin:20px 0}
+
+/* ── FULL MARKS BADGE ── */
+.full-test-header{
+  background:linear-gradient(135deg,#6c3fc7,#1a3fa0);
+  color:#fff;border-radius:10px;padding:16px 20px;margin-bottom:16px;
+}
+.full-test-header h3{color:#fff;font-size:17px;margin:0 0 4px}
+.full-test-header p{font-size:13px;opacity:.85;margin:0}
+
+/* ── RESPONSIVE ── */
+@media(max-width:520px){
+  .bodmas-step{min-width:60px;padding:6px 10px}
+  .bodmas-step .letter{font-size:18px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="topnav">
+  <a href="#summary">📋 Summary</a>
+  <a href="#keywords">🔑 Keywords</a>
+  <a href="#inchapter">📖 In-Chapter Q&A</a>
+  <a href="#exercise">📝 Exercise Solutions</a>
+  <a href="#tests">🧪 Practice Tests</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="badge">CLASS 7 · MATHS · GANITA PRAKASH · CBSE 2026-27</div>
+  <h1>Chapter 2: Arithmetic Expressions</h1>
+  <p>Complete notes, all solutions (in-chapter + exercise) and 7 practice tests — all in one place</p>
+</div>
+
+<div class="container">
+
+<!-- ══════════════════════════════════════════
+     SECTION 1: SUMMARY
+══════════════════════════════════════════ -->
+<div class="section s-summary" id="summary">
+  <div class="section-header open" onclick="toggleSection(this)">
+    <div class="icon">📋</div>
+    <h2>Chapter Summary</h2>
+    <span class="toggle">▼</span>
+  </div>
+  <div class="section-body open">
+
+    <h3>What is an Arithmetic Expression?</h3>
+    <p>An <strong>arithmetic expression</strong> is a combination of numbers and arithmetic operations (+, −, ×, ÷) that represents a value. Expressions can be simple like <code>3 + 5</code> or complex like <code>4 × 9 + 2 × 6 − 8 ÷ 4</code>.</p>
+
+    <div class="sum-grid">
+      <div class="sum-card blue">
+        <h4>Expression</h4>
+        <p>A mathematical phrase using numbers and operations. Has a value but no "=" sign alone.</p>
+        <p>E.g.: <code>5 × 23 + 5</code></p>
+      </div>
+      <div class="sum-card green">
+        <h4>Terms</h4>
+        <p>Parts of an expression separated by + or −. Multiplication/division groups form ONE term.</p>
+        <p>E.g.: <code>5 × 23</code> and <code>5</code> are two terms.</p>
+      </div>
+      <div class="sum-card yellow">
+        <h4>Equality (=)</h4>
+        <p>Two expressions are equal when they evaluate to the same number.</p>
+        <p>E.g.: <code>13 + 4 = 11 + 6 = 17</code></p>
+      </div>
+      <div class="sum-card red">
+        <h4>BODMAS Order</h4>
+        <p>The rule for evaluating mixed expressions correctly.</p>
+        <p>Brackets → Orders → ÷ → × → + → −</p>
+      </div>
+    </div>
+
+    <h3>BODMAS Rule — Order of Operations</h3>
+    <div class="bodmas">
+      <div class="bodmas-step"><div class="letter">B</div><div class="word">Brackets</div></div>
+      <div class="bodmas-step"><div class="letter">O</div><div class="word">Orders (powers)</div></div>
+      <div class="bodmas-step"><div class="letter">D</div><div class="word">Division</div></div>
+      <div class="bodmas-step"><div class="letter">M</div><div class="word">Multiplication</div></div>
+      <div class="bodmas-step"><div class="letter">A</div><div class="word">Addition</div></div>
+      <div class="bodmas-step"><div class="letter">S</div><div class="word">Subtraction</div></div>
+    </div>
+    <div class="remember">Division and Multiplication have equal priority — solve left to right. Same for Addition and Subtraction.</div>
+
+    <h3>Subtraction = Adding a Negative Number</h3>
+    <div class="formula">a − b = a + (−b)</div>
+    <p>Example: <code>83 − 14 = 83 + (−14) = 69</code>. This lets us treat every expression as a sum of terms (some positive, some negative).</p>
+
+    <h3>Properties of Addition in Expressions</h3>
+    <div class="sum-grid">
+      <div class="sum-card purple">
+        <h4>Commutative Property</h4>
+        <p>Order of terms doesn't matter for addition.</p>
+        <p><code>a + b = b + a</code></p>
+        <p>E.g.: (−3) + 7 = 7 + (−3) = 4</p>
+      </div>
+      <div class="sum-card blue">
+        <h4>Associative Property</h4>
+        <p>Grouping of terms doesn't matter for addition.</p>
+        <p><code>(a+b)+c = a+(b+c)</code></p>
+        <p>E.g.: {(−2)+(−5)}+(−7) = −14</p>
+      </div>
+    </div>
+
+    <h3>Distributive Property</h3>
+    <div class="formula">a × (b + c) = a × b + a × c</div>
+    <p>Example: <code>3 × (4 + 5) = 3 × 4 + 3 × 5 = 12 + 15 = 27</code></p>
+
+    <h3>Key Takeaways</h3>
+    <ul>
+      <li>An expression does <strong>not</strong> require a = sign; it is evaluated to get a value.</li>
+      <li>When expressions are equal in value, we connect them with =.</li>
+      <li>Brackets change the order of evaluation — always solve brackets first.</li>
+      <li>Subtracting <em>b</em> is the same as adding <em>(−b)</em>; so every expression with subtraction can be written as a sum of terms.</li>
+      <li>Terms of an expression can be added in <strong>any order</strong> due to commutative and associative properties.</li>
+      <li>When comparing two expressions, look for common parts and only compare the differences.</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 2: KEYWORDS
+══════════════════════════════════════════ -->
+<div class="section s-keywords" id="keywords">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="icon">🔑</div>
+    <h2>Keywords & Important Points</h2>
+    <span class="toggle">▼</span>
+  </div>
+  <div class="section-body">
+
+    <div class="kw-grid">
+      <div class="kw-card"><div class="term">Arithmetic Expression</div><div class="def">A combination of numbers and operations (+, −, ×, ÷) that has a value.</div></div>
+      <div class="kw-card"><div class="term">Term</div><div class="def">A single number or product/quotient of numbers in an expression, separated by + or −.</div></div>
+      <div class="kw-card"><div class="term">Value of Expression</div><div class="def">The single number you get after evaluating all operations.</div></div>
+      <div class="kw-card"><div class="term">Equality (=)</div><div class="def">Two expressions are equal when they have the same value.</div></div>
+      <div class="kw-card"><div class="term">BODMAS</div><div class="def">Rule for order: Brackets, Orders, Division, Multiplication, Addition, Subtraction.</div></div>
+      <div class="kw-card"><div class="term">Brackets</div><div class="def">(), {}, [] — force a part of an expression to be calculated first.</div></div>
+      <div class="kw-card"><div class="term">Additive Inverse</div><div class="def">The negative of a number. The additive inverse of 5 is −5.</div></div>
+      <div class="kw-card"><div class="term">Commutative Property</div><div class="def">a + b = b + a. Changing order does NOT change sum.</div></div>
+      <div class="kw-card"><div class="term">Associative Property</div><div class="def">(a+b)+c = a+(b+c). Changing grouping does NOT change sum.</div></div>
+      <div class="kw-card"><div class="term">Distributive Property</div><div class="def">a × (b+c) = a×b + a×c. Multiplication distributes over addition.</div></div>
+      <div class="kw-card"><div class="term">Token Model</div><div class="def">Visual model using positive (+) and negative (−) tokens to show integer operations.</div></div>
+      <div class="kw-card"><div class="term">Comparing Expressions</div><div class="def">Simplify by removing common terms from both sides, then compare the remainder.</div></div>
+    </div>
+
+    <hr class="divider">
+    <h3>⚡ Important Points at a Glance</h3>
+    <ul>
+      <li><strong>Subtraction as addition:</strong> a − b = a + (−b). Every expression is really a sum of terms.</li>
+      <li><strong>Multiplication/Division before Addition/Subtraction</strong> (unless brackets change the order).</li>
+      <li><strong>Brackets matter:</strong> <code>3 + 4 × 2 = 11</code> but <code>(3 + 4) × 2 = 14</code>. Big difference!</li>
+      <li><strong>Comparing trick:</strong> For 245 + 289 vs 246 + 285 — cancel the common part (246 + 285), then compare what's left: 289−285=4 vs 246−245=1, so left side is bigger.</li>
+      <li><strong>Remainder form:</strong> If 33 children play in groups of 5 → expression is <code>6 × 5 + 3</code>. Terms: (6×5) and 3.</li>
+      <li><strong>Sign rules in multiplication:</strong> (−) × (+) = negative; (−) × (−) = positive.</li>
+      <li><strong>Commutativity is NOT valid for subtraction:</strong> 8 − 3 ≠ 3 − 8.</li>
+    </ul>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 3: IN-CHAPTER QUESTIONS
+══════════════════════════════════════════ -->
+<div class="section s-inchapter" id="inchapter">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="icon">📖</div>
+    <h2>In-Chapter Questions & Solutions</h2>
+    <span class="toggle">▼</span>
+  </div>
+  <div class="section-body">
+
+    <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">Click on any question to reveal the solution.</p>
+
+    <!-- PAGE 24 -->
+    <div class="page-ref">Page 24</div>
+
+    <div class="qa-block">
+      <div class="qa-q" onclick="toggleQA(this)">
+        <span><span class="qtag">Example 1</span> Mallika spends ₹25 every day for lunch. Write the expression for total amount from Monday to Friday.</span>
+        <span>▼</span>
+      </div>
+      <div class="qa-a">
+        <div class="ans-label">✅ SOLUTION</div>
+        <p>Days = Monday to Friday = 5 days. Amount per day = ₹25.</p>
+        <div class="step">Expression = 5 × 25</div>
+        <div class="final">Value = 5 × 25 = ₹125</div>
+      </div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q" onclick="toggleQA(this)">
+        <span><span class="qtag">Try It</span> Choose your favourite number and write as many expressions as you can having that value.</span>
+        <span>▼</span>
+      </div>
+      <div class="qa-a">
+        <div class="ans-label">✅ SOLUTION</div>
+        <p>Let the favourite number be <strong>7</strong>. Some expressions:</p>
+        <div class="step">12 − 5 = 7</div>
+        <div class="step">20 − 13 = 7</div>
+        <div class="step">42 ÷ 6 = 7</div>
+        <div class="step">7 × 1 = 7</div>
+        <div class="step">3 + (9 − 5) = 7</div>
+        <div class="step">(26 − 13) − (10 − 4) = 7</div>
+        <p style="margin-top:6px;font-size:12px;color:var(--muted)">Any number can be expressed in infinitely many ways!</p>
+      </div>
+    </div>
+
+    <!-- PAGE 25 -->
+    <div class="page-ref" style="margin-top:16px">Page 25 — Figure it Out</div>
+
+    <div class="qa-block">
+      <div class="qa-q" onclick="toggleQA(this)">
+        <span><span class="qtag">Q1</span> Fill in the blanks: (a) 13+4 = ___+6 &nbsp; (b) 22+___ = 6×5 &nbsp; (c) 8×___ = 64÷2 &nbsp; (d) 34−___ = 25</span>
+        <span>▼</span>
+      </div>
+      <div class="qa-a">
+        <div class="ans-label">✅ SOLUTION</div>
+        <div class="step">(a) 13 + 4 = 17; so 17 = ___ + 6 → <strong>___ = 11</strong></div>
+        <div class="step">(b) 6 × 5 = 30; so 22 + ___ = 30 → <strong>___ = 8</strong></div>
+        <div class="step">(c) 64 ÷ 2 = 32; so 8 × ___ = 32 → <strong>___ = 4</strong></div>
+        <div class="step">(d) 34 − ___ = 25 → <strong>___ = 9</strong></div>
+      </div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q" onclick="toggleQA(this)">
+        <span><span class="qtag">Q2</span> Arrange in ascending order: (a) 67−19 &nbsp;(b) 67−20 &nbsp;(c) 35+25 &nbsp;(d) 5×11 &nbsp;(e) 120÷3</span>
+        <span>▼</span>
+      </div>
+      <div class="qa-a">
+        <div class="ans-label">✅ SOLUTION</div>
+        <table class="cmp-table">
+          <tr><th>Expression</th><th>Value</th></tr>
+          <tr><td>120 ÷ 3</td><td>40</td></tr>
+          <tr><td>67 − 20</td><td>47</td></tr>
+          <tr><td>67 − 19</td><td>48</td></tr>
+          <tr><td>5 × 11</td><td>55</td></tr>
+          <tr><td>35 + 25</td><td>60</td></tr>
+        </table>
+        <div class="final">Ascending order: 120÷3 &lt; 67−20 &lt; 67−19 &lt; 5×11 &lt; 35+25</div>
+      </div>
+    </div>
+
+    <!-- PAGE 26 -->
+    <div class="page-ref" style="margin-top:16px">Page 26 — Comparing without Calculation</div>
+
+    <div class="qa-block">
+      <div class="qa-q" onclick="toggleQA(this)">
+        <span><span class="qtag">Q</span> Use &gt;, &lt; or = to compare (without full calculation): (a) 245+289 __ 246+285 &nbsp; (b) 273−145 __ 272−144 &nbsp; (c) 364+587 __ 363+589 &nbsp; (d) 124+245 __ 129+245 &nbsp; (e) 213−77 __ 214−76</span>
+        <span>▼</span>
+      </div>
+      <div class="qa-a">
+        <div class="ans-label">✅ SOLUTION — Key Trick: Cancel common parts, compare what's left</div>
+        <div class="step">(a) 245+289 vs 246+285 → Diff: (289−285)=4 on left, (246−245)=1 on right → <strong class="gr">245+289 &gt; 246+285</strong></div>
+        <div class="step">(b) 273−145 vs 272−144 → 273−145 = 272+1−144−1 = 272−144+2 → <strong class="gr">273−145 &gt; 272−144</strong></div>
+        <div class="step">(c) 364+587 vs 363+589 → extra on left: +1; extra on right: +2 → <strong class="rd">364+587 &lt; 363+589</strong></div>
+        <div class="step">(d) 124+245 vs 129+245 → 245 is common; 124 &lt; 129 → <strong class="rd">124+245 &lt; 129+245</strong></div>
+        <div class="step">(e) 213−77 vs 214−76 → 213−77 = 213−76−1 and 214−76 = 213+1−76. Both simplify equally → <strong>213−77 = 214−76</strong></div>
+      </div>
+    </div>
+
+    <!-- PAGE 28 -->
+    <div class="page-ref" style="margin-top:16px">Page 28 — Subtraction as Addition</div>
+
+    <div class="qa-block">
+      <div class="qa-q" onclick="toggleQA(this)">
+        <span><span class="qtag">Q</span> Verify: subtracting a number = adding its inverse. Give examples.</span>
+        <span>▼</span>
+      </div>
+      <div class="qa-a">
+        <div class="ans-label">✅ SOLUTION</div>
+        <div class="step">17 − 9 = 17 + (−9) = 8 ✓</div>
+        <div class="step">8 − 5 = 8 + (−5) = 3 ✓</div>
+        <div class="step">12 − 4 + 6 × 3 = 12 + (−4) + 18 = 26 ✓</div>
+        <div class="final">Rule: a − b = a + (−b). The minus sign "belongs" to the term that follows it.</div>
+      </div>
+    </div>
+
+    <!-- PAGE 29 -->
+    <div class="page-ref" style="margin-top:16px">Page 29 — Commutativity of Addition</div>
+
+    <div class="qa-block">
+      <div class="qa-q" onclick="toggleQA(this)">
+        <span><span class="qtag">Q</span> Does changing the order of terms in addition change the value? Does it hold for negative numbers too?</span>
+        <span>▼</span>
+      </div>
+      <div class="qa-a">
+        <div class="ans-label">✅ SOLUTION</div>
+        <p><strong>No</strong>, changing the order does NOT change the value.</p>
+        <div class="step">Example 1: (−3) + (−9) = −12 and (−9) + (−3) = −12 ✓</div>
+        <div class="step">Example 2: (−5) + 7 = 2 and 7 + (−5) = 2 ✓</div>
+        <div class="final">This is the Commutative Property of Addition: a + b = b + a, works for all integers.</div>
+      </div>
+    </div>
+
+    <!-- PAGE 30 -->
+    <div class="page-ref" style="margin-top:16px">Page 30 — Associativity of Addition</div>
+
+    <div class="qa-block">
+      <div class="qa-q" onclick="toggleQA(this)">
+        <span><span class="qtag">Q</span> Does changing the grouping of terms in addition change the value? Show with negative numbers.</span>
+        <span>▼</span>
+      </div>
+      <div class="qa-a">
+        <div class="ans-label">✅ SOLUTION</div>
+        <p><strong>No</strong>, grouping doesn't change the value (Associative Property).</p>
+        <div class="step">LHS: {(−2)+(−5)}+(−7) = (−7)+(−7) = <strong>−14</strong></div>
+        <div class="step">RHS: (−2)+{(−5)+(−7)} = (−2)+(−12) = <strong>−14</strong> ✓</div>
+        <div class="final">Associative Property: (a+b)+c = a+(b+c)</div>
+      </div>
+    </div>
+
+    <!-- PAGE 31 -->
+    <div class="page-ref" style="margin-top:16px">Page 31 — Manasa's Calculation</div>
+
+    <div class="qa-block">
+      <div class="qa-q" onclick="toggleQA(this)">
+        <span><span class="qtag">Q</span> Manasa added 1342, 774, 8611, 1022 and got 11749. She forgot 9055. Does she need to start over?</span>
+        <span>▼</span>
+      </div>
+      <div class="qa-a">
+        <div class="ans-label">✅ SOLUTION</div>
+        <p><strong>No</strong>, she does NOT need to start over. Due to the Associative Property, she can simply add the missing number to her result.</p>
+        <div class="step">Correct total = 11,749 + 9,055 = <strong>20,804</strong></div>
+        <div class="final">Answer: 20,804</div>
+      </div>
+    </div>
+
+    <!-- PAGE 32 -->
+    <div class="page-ref" style="margin-top:16px">Page 32 — Dosa Problem</div>
+
+    <div class="qa-block">
+      <div class="qa-q" onclick="toggleQA(this)">
+        <span><span class="qtag">Q</span> 7 friends ordered dosas at ₹23 each with a ₹5 tip. Write expression and find total.</span>
+        <span>▼</span>
+      </div>
+      <div class="qa-a">
+        <div class="ans-label">✅ SOLUTION</div>
+        <div class="step">Expression = (7 × 23) + 5</div>
+        <div class="step">= 161 + 5</div>
+        <div class="final">Total = ₹166. Terms: (7 × 23) and 5</div>
+      </div>
+    </div>
+
+    <!-- PAGE 32 - Fire in Mountain -->
+    <div class="qa-block">
+      <div class="qa-q" onclick="toggleQA(this)">
+        <span><span class="qtag">Q</span> "Fire in the Mountain": 33 students, teacher calls '5'. Ruby writes 6×5+3. Why?</span>
+        <span>▼</span>
+      </div>
+      <div class="qa-a">
+        <div class="ans-label">✅ SOLUTION</div>
+        <p>33 ÷ 5 = 6 (quotient) remainder 3.</p>
+        <div class="step">6 complete groups of 5 formed → 6 × 5 = 30 students</div>
+        <div class="step">3 students left over who couldn't form a group → + 3</div>
+        <div class="final">Expression: 6 × 5 + 3 = 33. Terms: (6×5) and 3</div>
+      </div>
+    </div>
+
+    <!-- PAGE 33 -->
+    <div class="page-ref" style="margin-top:16px">Page 33</div>
+
+    <div class="qa-block">
+      <div class="qa-q" onclick="toggleQA(this)">
+        <span><span class="qtag">Q</span> If teacher called '4' or '7' (for 33 students), what expressions would Ruby write?</span>
+        <span>▼</span>
+      </div>
+      <div class="qa-a">
+        <div class="ans-label">✅ SOLUTION</div>
+        <div class="step">(i) Called '4': 33 ÷ 4 = quotient 8, remainder 1 → Expression: <strong>4 × 8 + 1</strong></div>
+        <div class="step">(ii) Called '7': 33 ÷ 7 = quotient 4, remainder 5 → Expression: <strong>7 × 4 + 5</strong></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 4: EXERCISE SOLUTIONS
+══════════════════════════════════════════ -->
+<div class="section s-exercise" id="exercise">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="icon">📝</div>
+    <h2>Exercise Solutions (End of Chapter)</h2>
+    <span class="toggle">▼</span>
+  </div>
+  <div class="section-body">
+
+    <p style="font-size:13px;color:var(--muted);margin-bottom:16px;">All "Figure it Out" exercises in book order. Click any question to see the solution.</p>
+
+    <!-- FIGURE IT OUT — PAGE 25 -->
+    <h3>Figure it Out — Page 25</h3>
+
+    <div class="qa-block">
+      <div class="qa-q" onclick="toggleQA(this)">
+        <span><span class="qtag">Q1</span> Fill in blanks: (a) 13+4=___+6 &nbsp;(b) 22+___=6×5 &nbsp;(c) 8×___=64÷2 &nbsp;(d) 34−___=25</span>
+        <span>▼</span>
+      </div>
+      <div class="qa-a">
+        <div class="ans-label">✅ SOLUTION</div>
+        <div class="step">(a) 13+4=17; 17=___+6 → <strong>___ = 11</strong></div>
+        <div class="step">(b) 6×5=30; 22+___=30 → <strong>___ = 8</strong></div>
+        <div class="step">(c) 64÷2=32; 8×___=32 → <strong>___ = 4</strong></div>
+        <div class="step">(d) 34−___=25 → <strong>___ = 9</strong></div>
+      </div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q" onclick="toggleQA(this)">
+        <span><span class="qtag">Q2</span> Arrange in ascending order: 67−19, 67−20, 35+25, 5×11, 120÷3</span>
+        <span>▼</span>
+      </div>
+      <div class="qa-a">
+        <div class="ans-label">✅ SOLUTION</div>
+        <div class="step">67−19=48; 67−20=47; 35+25=60; 5×11=55; 120÷3=40</div>
+        <div class="final">Order: 120÷3 &lt; 67−20 &lt; 67−19 &lt; 5×11 &lt; 35+25 (i.e., 40 &lt; 47 &lt; 48 &lt; 55 &lt; 60)</div>
+      </div>
+    </div>
+
+    <!-- FIGURE IT OUT — PAGE 34 -->
+    <h3>Figure it Out — Page 34</h3>
+
+    <div class="qa-block">
+      <div class="qa-q" onclick="toggleQA(this)">
+        <span><span class="qtag">Q1a</span> Find value of: 28 − 7 + 8</span>
+        <span>▼</span>
+      </div>
+      <div class="qa-a">
+        <div class="ans-label">✅ SOLUTION</div>
+        <div class="step">28 − 7 + 8 = 28 + (−7) + 8</div>
+        <div class="step">= 21 + 8</div>
+        <div class="final">= 29 &nbsp;|&nbsp; Terms: 28, (−7), 8</div>
+      </div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q" onclick="toggleQA(this)">
+        <span><span class="qtag">Q1b</span> Find value of: 39 − 2 × 6 + 11</span>
+        <span>▼</span>
+      </div>
+      <div class="qa-a">
+        <div class="ans-label">✅ SOLUTION</div>
+        <div class="step">= 39 + (−2×6) + 11 &nbsp; [multiplication first]</div>
+        <div class="step">= 39 + (−12) + 11</div>
+        <div class="step">= 27 + 11</div>
+        <div class="final">= 38 &nbsp;|&nbsp; Terms: 39, (−2×6), 11</div>
+      </div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q" onclick="toggleQA(this)">
+        <span><span class="qtag">Q1c</span> Find value of: 40 − 10 + 10 + 10</span>
+        <span>▼</span>
+      </div>
+      <div class="qa-a">
+        <div class="ans-label">✅ SOLUTION</div>
+        <div class="step">= 40 + (−10) + 10 + 10</div>
+        <div class="step">= 30 + 10 + 10 = 50</div>
+        <div class="final">= 50 &nbsp;|&nbsp; Terms: 40, (−10), 10, 10</div>
+      </div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q" onclick="toggleQA(this)">
+        <span><span class="qtag">Q1d</span> Find value of: 48 − 10 × 2 + 16 ÷ 2</span>
+        <span>▼</span>
+      </div>
+      <div class="qa-a">
+        <div class="ans-label">✅ SOLUTION</div>
+        <div class="step">= 48 + (−10×2) + (16÷2) &nbsp;[× and ÷ first]</div>
+        <div class="step">= 48 + (−20) + 8</div>
+        <div class="step">= 28 + 8</div>
+        <div class="final">= 36 &nbsp;|&nbsp; Terms: 48, (−10×2), (16÷2)</div>
+      </div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q" onclick="toggleQA(this)">
+        <span><span class="qtag">Q1e</span> Find value of: 6 × 3 − 4 × 8 × 5</span>
+        <span>▼</span>
+      </div>
+      <div class="qa-a">
+        <div class="ans-label">✅ SOLUTION</div>
+        <div class="step">= (6×3) + (−4×8×5) &nbsp;[multiplication first]</div>
+        <div class="step">= 18 + (−160)</div>
+        <div class="final">= −142 &nbsp;|&nbsp; Terms: (6×3), (−4×8×5)</div>
+      </div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q" onclick="toggleQA(this)">
+        <span><span class="qtag">Q2</span> Write story and find value: (a) 89+21−10 &nbsp;(b) 5×12−6 &nbsp;(c) 4×9+2×6</span>
+        <span>▼</span>
+      </div>
+      <div class="qa-a">
+        <div class="ans-label">✅ SOLUTION</div>
+        <div class="step">(a) Story: Ravi had 89 coins, got 21 more, gave away 10. <br>89 + 21 − 10 = 110 − 10 = <strong>100</strong></div>
+        <div class="step">(b) Story: 5 classrooms with 12 desks each; 6 desks broken and removed. <br>5 × 12 − 6 = 60 − 6 = <strong>54</strong></div>
+        <div class="step">(c) Story: 4 trays with 9 cupcakes + 2 trays with 6 cookies. <br>4 × 9 + 2 × 6 = 36 + 12 = <strong>48</strong></div>
+      </div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q" onclick="toggleQA(this)">
+        <span><span class="qtag">Q3a</span> Princess Elsa doubled 100 coins; Princess Anna has half of 100 coins. Total together?</span>
+        <span>▼</span>
+      </div>
+      <div class="qa-a">
+        <div class="ans-label">✅ SOLUTION</div>
+        <div class="step">Elsa = 100 × 2 = 200 coins</div>
+        <div class="step">Anna = 100 ÷ 2 = 50 coins</div>
+        <div class="step">Expression: 100 × 2 + 100 ÷ 2</div>
+        <div class="final">= 200 + 50 = 250 coins &nbsp;|&nbsp; Terms: (100×2) and (100÷2)</div>
+      </div>
+    </div>
+
+    <div class="qa-block">
+      <div class="qa-q" onclick="toggleQA(this)">
+        <span><span class="qtag">Q3b</span> Metro ticket: ₹40 for adult, ₹20 for child. Family: 2 adults + 3 children. Expression for total?</span>
+        <span>▼</span>
+      </div>
+      <div class="qa-a">
+        <div class="ans-label">✅ SOLUTION</div>
+        <div class="step">Expression = 2 × 40 + 3 × 20</div>
+        <div class="step">= 80 + 60</div>
+        <div class="final">= ₹140 &nbsp;|&nbsp; Terms: (2×40) and (3×20)</div>
+      </div>
+    </div>
+
+    <!-- FIGURE IT OUT — Comparing Expressions -->
+    <h3>Figure it Out — Comparison Questions (Page 36–38)</h3>
+
+    <div class="qa-block">
+      <div class="qa-q" onclick="toggleQA(this)">
+        <span><span class="qtag">Q</span> Fill in &lt;, &gt; or = (a) 83×42−18 __ 83×40−18 &nbsp;(b) 145−17×8 __ 145−17×6 &nbsp;(c) 23×48−35 __ 23×(48−35) &nbsp;(d) (16−11)×12 __ −11×12+16×12</span>
+        <span>▼</span>
+      </div>
+      <div class="qa-a">
+        <div class="ans-label">✅ SOLUTION</div>
+        <div class="step">(a) 83×42−18 vs 83×40−18: only 83×42 vs 83×40 differs. 42&gt;40 → LHS bigger. <strong class="gr">&gt;</strong></div>
+        <div class="step">(b) 145−17×8 vs 145−17×6: = 145−136=9 vs 145−102=43. 9&lt;43 → <strong class="rd">&lt;</strong></div>
+        <div class="step">(c) 23×48−35 = 1104−35=1069 vs 23×(48−35)=23×13=299. 1069&gt;299 → <strong class="gr">&gt;</strong></div>
+        <div class="step">(d) (16−11)×12 = 5×12=60 vs −11×12+16×12 = (16−11)×12=60. Equal → <strong>=</strong></div>
+      </div>
+    </div>
+
+    <!-- BRACKETS SECTION -->
+    <h3>Figure it Out — Using Brackets (Page 39–40)</h3>
+
+    <div class="qa-block">
+      <div class="qa-q" onclick="toggleQA(this)">
+        <span><span class="qtag">Q</span> Place brackets to make true: (a) 7+3×5=50 &nbsp;(b) 7+3×5=22 &nbsp;(c) 12−3×2+1=19 &nbsp;(d) 12−3×2+1=7</span>
+        <span>▼</span>
+      </div>
+      <div class="qa-a">
+        <div class="ans-label">✅ SOLUTION</div>
+        <div class="step">(a) (7+3) × 5 = 10 × 5 = <strong>50</strong> ✓</div>
+        <div class="step">(b) 7 + 3 × 5 = 7 + 15 = <strong>22</strong> ✓ (no brackets needed)</div>
+        <div class="step">(c) (12−3) × (2+1) = 9 × 3 = <strong>27</strong> ← or 12−3×(2+1)=12−9=3... try: <br>12−(3×2+1) = 12−7 = <strong>5</strong>. Actually: (12−3)×2+1 = 9×2+1 = 19 ✓</div>
+        <div class="step">(d) 12−3×(2+1) = 12−3×3 = 12−9 = <strong>3</strong>. Or: (12−3)×2−1 = 18−1=17...<br>12−(3×2+1) = 12−7 = <strong>5</strong>... try: 12−3×2+1 without brackets = 7 ✓ (no brackets needed!)</div>
+      </div>
+    </div>
+
+    <!-- DISTRIBUTIVE -->
+    <h3>Figure it Out — Distributive Property</h3>
+
+    <div class="qa-block">
+      <div class="qa-q" onclick="toggleQA(this)">
+        <span><span class="qtag">Q</span> Use distributive property to evaluate quickly: (a) 4×(10+2) &nbsp;(b) 8×(30−2) &nbsp;(c) 7×98</span>
+        <span>▼</span>
+      </div>
+      <div class="qa-a">
+        <div class="ans-label">✅ SOLUTION</div>
+        <div class="step">(a) 4×(10+2) = 4×10 + 4×2 = 40+8 = <strong>48</strong></div>
+        <div class="step">(b) 8×(30−2) = 8×30 − 8×2 = 240−16 = <strong>224</strong></div>
+        <div class="step">(c) 7×98 = 7×(100−2) = 700−14 = <strong>686</strong></div>
+        <div class="final">Distributive property: a×(b+c) = a×b + a×c</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     SECTION 5: PRACTICE TESTS
+══════════════════════════════════════════ -->
+<div class="section s-test" id="tests">
+  <div class="section-header" onclick="toggleSection(this)">
+    <div class="icon">🧪</div>
+    <h2>Practice Tests (5 × 10 Marks + 2 × 20 Marks)</h2>
+    <span class="toggle">▼</span>
+  </div>
+  <div class="section-body">
+
+    <!-- TEST 1 -->
+    <div class="full-test-header" style="background:linear-gradient(135deg,#1a7a3c,#2563eb)">
+      <h3>📋 Test 1 — Basics of Expressions &nbsp;|&nbsp; 10 Marks</h3>
+      <p>Topics: What is an expression, terms, writing expressions for situations</p>
+    </div>
+    <div class="test-meta">
+      <div class="test-badge">⏱ Time: 20 min</div>
+      <div class="test-badge">📊 Total: 10 Marks</div>
+      <div class="test-badge">📌 5 Questions</div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">1</span> Write an expression for: Priya has 15 pencils. She buys 3 more boxes of 8 pencils each. How many does she have now? Identify the terms.</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">Expression = 15 + 3 × 8<br>Value = 15 + 24 = <strong>39 pencils</strong><br>Terms: 15 and (3 × 8)</div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">2</span> Fill in the blank: 18 + ___ = 3 × 9</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">3 × 9 = 27<br>18 + ___ = 27 → <strong>___ = 9</strong></div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">3</span> Identify the terms in: 5 × 12 − 3 × 4 + 7</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">Terms: <strong>(5 × 12)</strong>, <strong>(−3 × 4)</strong>, and <strong>7</strong><br>(Remember: subtraction makes the term negative)</div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">4</span> Arrange in ascending order: 50−18, 4×8, 100÷4, 3×11</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">50−18=32; 4×8=32; 100÷4=25; 3×11=33<br>Ascending: <strong>100÷4 &lt; 50−18 = 4×8 &lt; 3×11</strong><br>(25 &lt; 32 = 32 &lt; 33)</div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">5</span> A class has 36 students. Teacher calls out '6'. Write the expression showing groups formed and students left over.</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">36 ÷ 6 = exactly 6 groups, remainder = 0<br>Expression: <strong>6 × 6 + 0 = 36</strong><br>Terms: (6 × 6) and 0</div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- TEST 2 -->
+    <div class="full-test-header" style="background:linear-gradient(135deg,#e63946,#6c3fc7)">
+      <h3>📋 Test 2 — BODMAS and Order of Operations &nbsp;|&nbsp; 10 Marks</h3>
+      <p>Topics: BODMAS rule, brackets, evaluating expressions</p>
+    </div>
+    <div class="test-meta">
+      <div class="test-badge">⏱ Time: 20 min</div>
+      <div class="test-badge">📊 Total: 10 Marks</div>
+      <div class="test-badge">📌 5 Questions</div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">1</span> Evaluate: 48 − 6 × 5 + 12 ÷ 4</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">Step 1 (× and ÷ first): 6×5=30; 12÷4=3<br>Step 2: 48 − 30 + 3<br>Step 3: 18 + 3 = <strong>21</strong></div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">2</span> Evaluate: (15 + 9) × 3 − 4 × 7</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">Step 1 (brackets): 15+9=24<br>Step 2 (× first): 24×3=72; 4×7=28<br>Step 3: 72 − 28 = <strong>44</strong></div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">3</span> Place brackets in 6 + 4 × 2 to get value 20.</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">Without brackets: 6 + 4×2 = 14 (not 20)<br>With brackets: <strong>(6 + 4) × 2 = 10 × 2 = 20</strong> ✓</div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">4</span> Without calculating fully, compare: 50 × 23 + 14 ___ 50 × 23 + 10</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">Common part: 50 × 23. Compare only +14 vs +10.<br>Since 14 &gt; 10: &nbsp;<strong>50 × 23 + 14 &gt; 50 × 23 + 10</strong></div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">5</span> Evaluate: 100 − 4 × {(5 + 3) − 2}</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">Step 1 (innermost bracket): 5+3=8<br>Step 2 (curly bracket): 8−2=6<br>Step 3 (×): 4×6=24<br>Step 4: 100−24 = <strong>76</strong></div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- TEST 3 -->
+    <div class="full-test-header" style="background:linear-gradient(135deg,#f4a31a,#e63946)">
+      <h3>📋 Test 3 — Properties of Addition &nbsp;|&nbsp; 10 Marks</h3>
+      <p>Topics: Commutative, Associative properties; subtraction as addition</p>
+    </div>
+    <div class="test-meta">
+      <div class="test-badge">⏱ Time: 20 min</div>
+      <div class="test-badge">📊 Total: 10 Marks</div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">1</span> Rewrite using additive inverse (no subtraction sign): 45 − 17 + 8 − 3</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans"><strong>45 + (−17) + 8 + (−3)</strong><br>Value = 45 − 17 + 8 − 3 = 33</div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">2</span> Rohan added 4 numbers and got 2500. He forgot one number: 375. Does he start over? What is the correct answer?</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">No! By Associative Property, just add the missing number.<br>Correct total = 2500 + 375 = <strong>2875</strong></div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">3</span> True or False with reason: (a + b) + c = a + (b + c)</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans"><strong>TRUE</strong> — This is the Associative Property of Addition. Grouping doesn't affect the sum. E.g., (2+3)+4 = 9 = 2+(3+4) ✓</div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">4</span> Check: (−5) + 9 = 9 + (−5). Which property does this show?</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">LHS = (−5) + 9 = 4; RHS = 9 + (−5) = 4. Both equal.<br>This shows the <strong>Commutative Property of Addition</strong>: a + b = b + a</div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">5</span> 40 students in a class. Teacher calls '9'. Write the expression for the game "Fire in the Mountain".</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">40 ÷ 9: quotient = 4, remainder = 4<br>Expression: <strong>9 × 4 + 4</strong><br>Terms: (9×4) and 4</div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- TEST 4 -->
+    <div class="full-test-header" style="background:linear-gradient(135deg,#6c3fc7,#1a3fa0)">
+      <h3>📋 Test 4 — Distributive Property & Comparing &nbsp;|&nbsp; 10 Marks</h3>
+      <p>Topics: Distributive property, comparison of expressions without calculation</p>
+    </div>
+    <div class="test-meta">
+      <div class="test-badge">⏱ Time: 20 min</div>
+      <div class="test-badge">📊 Total: 10 Marks</div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">1</span> Use distributive property: 6 × 104</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">6 × 104 = 6 × (100 + 4) = 6×100 + 6×4 = 600 + 24 = <strong>624</strong></div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">2</span> Compare without full calculation: 399 + 572 ___ 400 + 571</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">399 + 572 = 399 + 571 + 1 and 400 + 571 = 399 + 1 + 571<br>Both have same parts! → <strong>399 + 572 = 400 + 571</strong></div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">3</span> Evaluate using distributive property: 15 × 99</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">15 × 99 = 15 × (100 − 1) = 15×100 − 15×1 = 1500 − 15 = <strong>1485</strong></div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">4</span> Compare: 18 × 25 − 10 ___ 18 × 25 − 15</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">Common: 18 × 25. Compare −10 vs −15.<br>−10 &gt; −15, so: <strong>18 × 25 − 10 &gt; 18 × 25 − 15</strong></div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">5</span> Show that (16−11)×12 = 16×12 − 11×12. Which property is this?</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">LHS: (16−11)×12 = 5×12 = 60<br>RHS: 16×12 − 11×12 = 192 − 132 = 60 ✓<br>This is the <strong>Distributive Property</strong>: a×(b−c) = a×b − a×c</div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- TEST 5 -->
+    <div class="full-test-header" style="background:linear-gradient(135deg,#1a7a3c,#f4a31a)">
+      <h3>📋 Test 5 — Mixed Practice &nbsp;|&nbsp; 10 Marks</h3>
+      <p>Topics: All chapter concepts combined</p>
+    </div>
+    <div class="test-meta">
+      <div class="test-badge">⏱ Time: 20 min</div>
+      <div class="test-badge">📊 Total: 10 Marks</div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">1</span> Evaluate: {(24 + 6) ÷ 5} × 4 − 8</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">Step 1 (inner bracket): 24+6=30<br>Step 2 (curly): 30÷5=6<br>Step 3 (×): 6×4=24<br>Step 4: 24−8 = <strong>16</strong></div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">2</span> A shopkeeper sold 5 kg mangoes at ₹60/kg, 3 kg oranges at ₹40/kg, and gave a ₹10 discount. Write expression and find total bill.</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">Expression = 5 × 60 + 3 × 40 − 10<br>= 300 + 120 − 10<br>= <strong>₹410</strong><br>Terms: (5×60), (3×40), (−10)</div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">3</span> Without full calculation, which is larger: 245 − 67 + 12 OR 245 − 67 + 15?</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">Common part: 245 − 67. Compare +12 vs +15.<br>15 &gt; 12, so: <strong>245 − 67 + 15 is larger</strong></div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">4</span> Write three different expressions all equal to 24.</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">Many possible answers, e.g.:<br>• 6 × 4 = 24<br>• 30 − 6 = 24<br>• 48 ÷ 2 = 24<br>• 3 × (4 + 4) = 24<br>• 100 − 76 = 24</div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">5</span> Which property does this show? 7 × (8 + 5) = 7 × 8 + 7 × 5. Verify with numbers.</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans"><strong>Distributive Property</strong> of Multiplication over Addition.<br>LHS: 7 × 13 = 91<br>RHS: 56 + 35 = 91 ✓</div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- FULL TEST 1 — 20 MARKS -->
+    <div class="full-test-header">
+      <h3>📝 Full Length Test 1 &nbsp;|&nbsp; 20 Marks</h3>
+      <p>⏱ Time: 40 minutes &nbsp;|&nbsp; All topics from Chapter 2</p>
+    </div>
+    <div class="test-meta">
+      <div class="test-badge">📊 Section A: 8 Marks (1M each)</div>
+      <div class="test-badge">📊 Section B: 12 Marks (2M each)</div>
+    </div>
+
+    <h4 style="margin:12px 0 4px;color:var(--primary)">Section A — 1 Mark Each</h4>
+
+    <div class="test-q">
+      <span class="marks">1 Mark</span>
+      <div><span class="qno">1</span> The value of 8 × 3 + 4 − 6 is: (a) 22 &nbsp;(b) 26 &nbsp;(c) 72 &nbsp;(d) 18</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">8×3=24; 24+4=28; 28−6=<strong>22 → (a)</strong></div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">1 Mark</span>
+      <div><span class="qno">2</span> The number of terms in 5 × 6 + 3 − 2 × 4 is: (a) 3 &nbsp;(b) 4 &nbsp;(c) 5 &nbsp;(d) 2</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">Terms: (5×6), 3, (−2×4) → <strong>3 terms → (a)</strong></div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">1 Mark</span>
+      <div><span class="qno">3</span> a − b = a + (−b) uses which property? (a) Commutative &nbsp;(b) Additive inverse &nbsp;(c) Associative &nbsp;(d) Distributive</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans"><strong>(b) Additive Inverse</strong></div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">1 Mark</span>
+      <div><span class="qno">4</span> The value of (6 + 4) × (10 − 3) is:</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">= 10 × 7 = <strong>70</strong></div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">1 Mark</span>
+      <div><span class="qno">5</span> Which is TRUE? (a) 8−3=3−8 &nbsp;(b) 8+3=3+8 &nbsp;(c) 8÷4=4÷8 &nbsp;(d) 8×0=8</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans"><strong>(b) 8+3 = 3+8 = 11</strong> — Commutative property of addition</div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">1 Mark</span>
+      <div><span class="qno">6</span> Evaluate: 50 − 2 × 3 × 4</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">2×3×4=24; 50−24=<strong>26</strong></div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">1 Mark</span>
+      <div><span class="qno">7</span> What value of x makes 3 × x + 6 = 21?</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">3 × x = 21 − 6 = 15 → x = 15 ÷ 3 = <strong>5</strong></div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">1 Mark</span>
+      <div><span class="qno">8</span> Compare without calculation: 500 × 13 + 200 ___ 500 × 13 + 180</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">Common: 500×13. +200 &gt; +180 → <strong>&gt;</strong></div>
+    </div>
+
+    <h4 style="margin:12px 0 4px;color:var(--primary)">Section B — 2 Marks Each</h4>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">9</span> A train has 8 coaches. Each coach has 5 rows, each with 8 seats. A total of 12 seats are reserved. Write an expression for available seats and evaluate.</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">Expression = 8 × 5 × 8 − 12<br>= 320 − 12 = <strong>308 seats available</strong><br>Terms: (8×5×8) and (−12)</div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">10</span> Use distributive property to find: 24 × 102</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">24 × 102 = 24 × (100 + 2)<br>= 24 × 100 + 24 × 2<br>= 2400 + 48 = <strong>2448</strong></div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">11</span> Evaluate: 3 × {4 + (12 − 8) × 2} − 5</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">Inner: 12−8=4; 4×2=8; 4+8=12<br>3 × 12 − 5 = 36 − 5 = <strong>31</strong></div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">12</span> Write TWO different expressions that equal 100. Identify terms in each.</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">Example 1: 4 × 25 = 100. Terms: (4×25)<br>Example 2: 50 × 2 + 0 = 100. Terms: (50×2) and 0<br>Example 3: 120 − 4 × 5 = 120−20 = 100. Terms: 120 and (−4×5)</div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">13</span> 45 students in class. Teacher calls '8'. Write the expression for "Fire in Mountain" and identify its terms and value.</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">45 ÷ 8: quotient=5, remainder=5<br>Expression: <strong>8 × 5 + 5</strong><br>Value = 40 + 5 = 45 ✓<br>Terms: (8×5) and 5</div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">14</span> Prove that: (−4) + {(−7) + (−3)} = {(−4) + (−7)} + (−3). Name the property.</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">LHS: (−4)+{(−10)} = −14<br>RHS: {(−11)}+(−3) = −14 ✓<br><strong>Associative Property of Addition</strong></div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- FULL TEST 2 — 20 MARKS -->
+    <div class="full-test-header" style="background:linear-gradient(135deg,#e63946,#f4a31a)">
+      <h3>📝 Full Length Test 2 (Advanced) &nbsp;|&nbsp; 20 Marks</h3>
+      <p>⏱ Time: 40 minutes &nbsp;|&nbsp; Higher order thinking + all topics</p>
+    </div>
+    <div class="test-meta">
+      <div class="test-badge">📊 Section A: 6 Marks (1M)</div>
+      <div class="test-badge">📊 Section B: 8 Marks (2M)</div>
+      <div class="test-badge">📊 Section C: 6 Marks (3M)</div>
+    </div>
+
+    <h4 style="margin:12px 0 4px;color:var(--primary)">Section A — 1 Mark Each</h4>
+
+    <div class="test-q">
+      <span class="marks">1 Mark</span>
+      <div><span class="qno">1</span> What is the value of 9 × 0 + 5 × 1 − 2?</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">9×0=0; 5×1=5; 0+5−2=<strong>3</strong></div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">1 Mark</span>
+      <div><span class="qno">2</span> The expression for "Priya earns ₹x daily and saves ₹15 each day" for 30 days is ___.</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">Total savings = <strong>30 × 15</strong> or total earnings = 30 × x, savings = 30×15</div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">1 Mark</span>
+      <div><span class="qno">3</span> True/False: The number of terms in 3+4×5−6÷2 is 4.</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans"><strong>TRUE</strong>. Terms: 3, (4×5), (−6÷2) — wait, that's 3 terms. Actually recount: 3, (4×5), (−6÷2) = 3 terms. <strong>FALSE (3 terms, not 4)</strong></div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">1 Mark</span>
+      <div><span class="qno">4</span> Simplify: (−12) + 12 = ?</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans"><strong>0</strong> — 12 and (−12) are additive inverses.</div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">1 Mark</span>
+      <div><span class="qno">5</span> Which bracket is solved last in: [{(2+3)×4}−5]×2?</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">The <strong>square bracket [ ]</strong> is solved last (outermost).</div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">1 Mark</span>
+      <div><span class="qno">6</span> Without calculating: is 63 × 57 + 18 equal to, greater, or less than 63 × 57 + 20?</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">63×57 is common. +18 &lt; +20 → <strong>63×57+18 &lt; 63×57+20</strong></div>
+    </div>
+
+    <h4 style="margin:12px 0 4px;color:var(--primary)">Section B — 2 Marks Each</h4>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">7</span> Evaluate completely: 200 − 4 × {(36 ÷ 6) + 3 × 2}</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">36÷6=6; 3×2=6; 6+6=12<br>4×12=48<br>200−48=<strong>152</strong></div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">8</span> Place brackets to make TRUE: 3 + 5 × 4 − 2 = 30</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">Try: (3 + 5) × (4 − 2) = 8 × 2 = 16 ✗<br>Try: (3 + 5) × 4 − 2 = 32 − 2 = 30 ✓<br>Answer: <strong>(3 + 5) × 4 − 2 = 30</strong></div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">9</span> A school orders pens. Red pens: 12 boxes of 20; Blue pens: 8 boxes of 25; 14 pens lost. Write expression, find pens available.</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">Expression = 12×20 + 8×25 − 14<br>= 240 + 200 − 14<br>= <strong>426 pens</strong></div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">2 Marks</span>
+      <div><span class="qno">10</span> Verify: 17 × (13 − 8) = 17 × 13 − 17 × 8. Name the property and state it in words.</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">LHS: 17×5=85<br>RHS: 221−136=85 ✓<br><strong>Distributive Property</strong>: Multiplying a number by a difference gives the same result as multiplying separately and then subtracting.</div>
+    </div>
+
+    <h4 style="margin:12px 0 4px;color:var(--primary)">Section C — 3 Marks Each</h4>
+
+    <div class="test-q">
+      <span class="marks">3 Marks</span>
+      <div><span class="qno">11</span> (a) Evaluate 56 × 99 using distributive property. (b) Can you find a shortcut for ×101 too? Show with an example.</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">(a) 56×99 = 56×(100−1) = 5600−56 = <strong>5544</strong><br>(b) n×101 = n×(100+1) = 100n+n. Example: 43×101=4300+43=<strong>4343</strong></div>
+    </div>
+
+    <div class="test-q">
+      <span class="marks">3 Marks</span>
+      <div><span class="qno">12</span> Write a word problem whose answer is the expression 3 × 50 + 2 × 30 − 25. Then evaluate it.</div>
+      <button class="test-ans-btn" onclick="toggleAns(this)">Show Answer</button>
+      <div class="test-ans">Word Problem: "A fruit seller sells 3 kg of apples at ₹50/kg and 2 kg of grapes at ₹30/kg. A customer gets a ₹25 discount. How much does the customer pay?"<br>Expression: 3×50 + 2×30 − 25<br>= 150 + 60 − 25<br>= <strong>₹185</strong></div>
+    </div>
+
+  </div>
+</div>
+
+</div><!-- end container -->
+
+<script>
+function toggleSection(header) {
+  header.classList.toggle('open');
+  const body = header.nextElementSibling;
+  body.classList.toggle('open');
+}
+
+function toggleQA(qEl) {
+  const ans = qEl.nextElementSibling;
+  ans.classList.toggle('open');
+  const arr = qEl.querySelector('span:last-child');
+  if(arr) arr.textContent = ans.classList.contains('open') ? '▲' : '▼';
+}
+
+function toggleAns(btn) {
+  const ans = btn.nextElementSibling;
+  ans.classList.toggle('open');
+  btn.textContent = ans.classList.contains('open') ? 'Hide Answer' : 'Show Answer';
+}
+
+// Open summary by default
+document.addEventListener('DOMContentLoaded', () => {
+  // already open via HTML class
+});
+</script>
+</body>
+</html>
