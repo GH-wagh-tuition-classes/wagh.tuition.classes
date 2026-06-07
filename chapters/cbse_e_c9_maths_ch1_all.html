@@ -1,0 +1,2281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coordinate Geometry – Grade 9 | Complete Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Lora:ital,wght@0,400;0,600;0,700&family=DM+Sans:wght@300;400;500&family=DM+Mono&family=Source+Sans+3:wght@300;400;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════
+   SHARED BASE
+══════════════════════════════════════════════ */
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:#f7f3ee;color:#1c1a17;font-family:'Source Sans 3',sans-serif;font-weight:300;line-height:1.75;overflow-x:hidden;}
+
+/* ── MODE SWITCHER (TOP BAR) ── */
+.mode-bar{
+  background:#0f0e0c;
+  padding:0;
+  display:flex;
+  align-items:stretch;
+  justify-content:space-between;
+  position:sticky;top:0;z-index:200;
+  box-shadow:0 2px 12px rgba(0,0,0,0.35);
+}
+.mode-left{display:flex;align-items:center;gap:0;}
+.mode-logo{
+  padding:0 1.4rem;
+  font-family:'Playfair Display',serif;
+  font-size:.85rem;font-weight:700;
+  color:#f5c842;
+  white-space:nowrap;
+  border-right:1px solid #2a2820;
+  display:flex;align-items:center;
+}
+.mode-btn{
+  background:none;border:none;
+  color:#8a8070;
+  font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:500;
+  padding:0 1.5rem;height:50px;
+  cursor:pointer;
+  border-bottom:3px solid transparent;
+  white-space:nowrap;
+  transition:all .2s;
+  display:flex;align-items:center;gap:.4rem;
+}
+.mode-btn:hover{color:#f5c842;}
+.mode-btn.active{color:#f5c842;border-bottom-color:#e8850a;background:rgba(255,255,255,0.04);}
+.mode-print-btn{
+  background:#b5410e;color:#fff;border:none;
+  font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:600;
+  padding:0 1.2rem;cursor:pointer;
+  display:flex;align-items:center;gap:.4rem;
+  transition:background .2s;white-space:nowrap;
+  border-left:1px solid #8e2d08;
+}
+.mode-print-btn:hover{background:#8e2d08;}
+
+/* ── HEADER ── */
+header{
+  background:#1a1a2e;
+  padding:2.8rem 2rem 2.2rem;
+  position:relative;overflow:hidden;
+}
+header::before{content:'';position:absolute;top:-40px;right:-40px;width:280px;height:280px;border:50px solid #e8850a;border-radius:50%;opacity:.1;}
+header::after{content:'';position:absolute;bottom:-40px;left:8%;width:160px;height:160px;border:30px solid #f5c842;border-radius:50%;opacity:.08;}
+.hdr-inner{max-width:960px;margin:0 auto;position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1rem;}
+.hdr-badge{display:inline-block;background:#e8850a;color:#fff;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;padding:.25rem .8rem;border-radius:2px;margin-bottom:.7rem;}
+header h1{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,4vw,2.8rem);font-weight:900;color:#fff;line-height:1.1;margin-bottom:.4rem;}
+header h1 em{color:#f5c842;font-style:normal;}
+header p{color:#a09585;font-size:.92rem;max-width:520px;}
+.hdr-stats{display:flex;gap:1.5rem;flex-wrap:wrap;}
+.hdr-stat{text-align:center;}
+.hdr-stat .num{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:#f5c842;line-height:1;}
+.hdr-stat .lbl{font-size:.7rem;color:#7a6f5e;text-transform:uppercase;letter-spacing:.08em;margin-top:.2rem;}
+
+/* ══════════════════════════════════════════════
+   PANEL WRAPPERS
+══════════════════════════════════════════════ */
+.panel{display:none;}
+.panel.active{display:block;animation:fadeIn .3s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ══════════════════════════════════════════════
+   LESSON PANEL STYLES  (prefixed with L-)
+══════════════════════════════════════════════ */
+#lesson-panel{background:#fdf6ec;}
+
+.lesson-nav-wrap{
+  background:#1a1a2e;
+  border-top:1px solid #2e2e44;
+  padding:0 2rem;
+  overflow-x:auto;
+}
+.lesson-nav{display:flex;gap:0;max-width:960px;margin:0 auto;}
+.tab-btn{
+  background:none;border:none;
+  color:#7a7a9a;
+  font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:500;letter-spacing:.04em;
+  padding:.9rem 1.1rem;cursor:pointer;
+  border-bottom:3px solid transparent;white-space:nowrap;transition:all .2s;
+}
+.tab-btn:hover{color:#f5c842;}
+.tab-btn.active{color:#f5c842;border-bottom-color:#e8850a;}
+
+#lesson-panel main{max-width:960px;margin:0 auto;padding:2.5rem 2rem;}
+
+/* Lesson section show/hide */
+#lesson-panel .section{display:none;animation:rise .35s ease;}
+#lesson-panel .section.active{display:block;}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* Lesson-specific styles (from coordinate_geometry_lesson.html) */
+.section-title{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;margin-bottom:.4rem;color:#1a1a2e;}
+.section-title span{color:#e8850a;}
+.section-intro{color:#7a6f5e;font-size:.95rem;margin-bottom:2rem;border-left:3px solid #f5c842;padding-left:.9rem;}
+.card{background:#fff9f0;border:1px solid #e2d5bc;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:1.5rem;}
+.card h3{font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:.7rem;color:#0f7173;}
+.card p,.card li{font-size:.93rem;color:#3a3428;}
+.card ul{padding-left:1.2rem;}
+.card ul li{margin-bottom:.3rem;}
+.history-strip{background:linear-gradient(135deg,#1a1a2e 0%,#2d1b4e 100%);color:#fdf6ec;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:1.5rem;position:relative;overflow:hidden;}
+.history-strip::after{content:"📐";position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);font-size:2.5rem;opacity:.15;}
+.history-strip h3{font-family:'Playfair Display',serif;color:#f5c842;margin-bottom:.5rem;font-size:1rem;}
+.history-strip p{font-size:.88rem;color:#c5bbaa;line-height:1.6;}
+.timeline{display:flex;flex-direction:column;gap:0;margin:1.5rem 0;}
+.tl-item{display:flex;gap:1rem;align-items:flex-start;padding-bottom:1.2rem;position:relative;}
+.tl-item::before{content:'';position:absolute;left:2.1rem;top:2.2rem;bottom:0;width:2px;background:#e2d5bc;}
+.tl-item:last-child::before{display:none;}
+.tl-dot{min-width:44px;height:44px;border-radius:50%;background:#1a1a2e;color:#f5c842;font-family:'DM Mono',monospace;font-size:.65rem;display:flex;align-items:center;justify-content:center;font-weight:700;text-align:center;line-height:1.2;border:2px solid #e8850a;flex-shrink:0;}
+.tl-text strong{display:block;font-size:.9rem;color:#1a1a2e;}
+.tl-text span{font-size:.83rem;color:#7a6f5e;}
+.canvas-wrap{border:1px solid #e2d5bc;border-radius:8px;overflow:hidden;margin-bottom:1rem;background:#fff;position:relative;}
+canvas{display:block;width:100%;}
+.canvas-controls{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem;}
+.ctrl-btn{background:#1a1a2e;color:#fdf6ec;border:none;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:500;padding:.45rem 1rem;cursor:pointer;transition:background .2s;}
+.ctrl-btn:hover{background:#e8850a;}
+.ctrl-btn.active{background:#e8850a;}
+.quad-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem;}
+.quad-card{border-radius:8px;padding:1.1rem 1.3rem;border-left:5px solid;}
+.quad-card.q1{background:#e8f4f4;border-color:#0f7173;}
+.quad-card.q2{background:#fbeee8;border-color:#c1440e;}
+.quad-card.q3{background:#f3edf8;border-color:#6a3d8f;}
+.quad-card.q4{background:#e8f4ed;border-color:#1a6b3a;}
+.quad-card h4{font-family:'Playfair Display',serif;font-size:.95rem;margin-bottom:.25rem;}
+.quad-card p{font-size:.85rem;}
+.quad-card .sign{font-family:'DM Mono',monospace;font-size:1.1rem;font-weight:700;display:inline-block;margin-bottom:.2rem;}
+.formula-box{background:#1a1a2e;color:#fdf6ec;border-radius:8px;padding:1.4rem 1.8rem;margin-bottom:1.5rem;text-align:center;}
+.formula-box .label{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:#f5c842;margin-bottom:.6rem;font-family:'DM Mono',monospace;}
+.formula-box .formula{font-family:'DM Mono',monospace;font-size:clamp(.9rem,2.5vw,1.2rem);color:#fff;letter-spacing:.03em;}
+.formula-box .sub{font-size:.82rem;color:#b0a898;margin-top:.5rem;}
+.dist-demo{background:#fff9f0;border:1px solid #e2d5bc;border-radius:8px;padding:1.4rem 1.8rem;margin-bottom:1.5rem;}
+.dist-demo h3{font-family:'Playfair Display',serif;font-size:1.05rem;margin-bottom:1rem;color:#0f7173;}
+.input-row{display:flex;flex-wrap:wrap;gap:.6rem;align-items:center;margin-bottom:.8rem;}
+.input-row label{font-size:.82rem;color:#7a6f5e;min-width:24px;}
+.input-row input{width:68px;background:#fff;border:1px solid #e2d5bc;border-radius:4px;padding:.35rem .6rem;font-family:'DM Mono',monospace;font-size:.9rem;color:#1a1a2e;outline:none;}
+.input-row input:focus{border-color:#e8850a;}
+.calc-btn{background:#e8850a;color:#fff;border:none;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:500;padding:.45rem 1.2rem;cursor:pointer;transition:background .2s;}
+.calc-btn:hover{background:#c1440e;}
+.result-box{background:#1a1a2e;color:#f5c842;font-family:'DM Mono',monospace;font-size:1rem;border-radius:6px;padding:.7rem 1rem;margin-top:.8rem;min-height:2.8rem;display:flex;align-items:center;gap:.5rem;}
+.steps{font-size:.8rem;color:#b0a898;line-height:1.8;margin-top:.4rem;}
+.quiz-card{background:#fff9f0;border:1px solid #e2d5bc;border-radius:8px;padding:1.5rem 1.8rem;margin-bottom:1.2rem;}
+.quiz-card .q-num{font-family:'DM Mono',monospace;font-size:.7rem;color:#e8850a;text-transform:uppercase;letter-spacing:.08em;margin-bottom:.4rem;}
+.quiz-card .q-text{font-size:.95rem;font-weight:500;margin-bottom:1rem;}
+.options{display:flex;flex-direction:column;gap:.5rem;}
+.opt-btn{background:#fff;border:1.5px solid #e2d5bc;border-radius:6px;padding:.6rem 1rem;text-align:left;font-family:'DM Sans',sans-serif;font-size:.88rem;cursor:pointer;transition:all .2s;color:#1a1a2e;}
+.opt-btn:hover:not([disabled]){border-color:#e8850a;background:#fff9f0;}
+.opt-btn.correct{background:#e3f5e8;border-color:#1a6b3a;color:#1a6b3a;}
+.opt-btn.wrong{background:#fde8e8;border-color:#c1440e;color:#c1440e;}
+.feedback{font-size:.83rem;margin-top:.6rem;padding:.4rem .8rem;border-radius:4px;}
+.feedback.ok{background:#e3f5e8;color:#1a6b3a;}
+.feedback.bad{background:#fde8e8;color:#c1440e;}
+.score-bar{background:#1a1a2e;color:#fdf6ec;border-radius:8px;padding:1.2rem 1.8rem;display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:.8rem;}
+.score-bar span{font-size:.9rem;color:#b0a898;}
+.score-num{font-family:'Playfair Display',serif;font-size:1.8rem;color:#f5c842;}
+.summary-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;margin-bottom:1.5rem;}
+.sum-item{background:#fff9f0;border:1px solid #e2d5bc;border-radius:8px;padding:1.1rem 1.3rem;display:flex;gap:.8rem;align-items:flex-start;}
+.sum-icon{font-size:1.4rem;flex-shrink:0;}
+.sum-item strong{display:block;font-size:.85rem;margin-bottom:.2rem;color:#1a1a2e;}
+.sum-item p{font-size:.8rem;color:#7a6f5e;}
+
+/* ══════════════════════════════════════════════
+   SOLUTIONS PANEL STYLES
+══════════════════════════════════════════════ */
+#solutions-panel{background:#f7f3ee;}
+
+.solutions-nav-wrap{
+  background:#252320;
+  padding:0 2rem;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.5rem;
+  border-bottom:2px solid #b5410e;
+}
+.solutions-nav{display:flex;overflow-x:auto;gap:0;}
+.tab{background:none;border:none;border-bottom:3px solid transparent;color:#8a8070;font-family:'Source Sans 3',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.04em;padding:.85rem 1rem;cursor:pointer;white-space:nowrap;transition:all .2s;}
+.tab:hover{color:#c9860a;}
+.tab.active{color:#c9860a;border-bottom-color:#b5410e;}
+
+#solutions-panel main{max-width:960px;margin:0 auto;padding:2.5rem 1.5rem;}
+
+#solutions-panel .section{display:none;animation:rise .35s ease;}
+#solutions-panel .section.active{display:block;}
+
+.section-head{margin-bottom:2rem;border-left:4px solid #b5410e;padding-left:1rem;}
+.section-head h2{font-family:'Lora',serif;font-size:1.55rem;font-weight:700;margin-bottom:.2rem;}
+.section-head p{font-size:.88rem;color:#6b6356;}
+.qcard{background:#fff;border:1px solid #ddd5c4;border-radius:10px;margin-bottom:2rem;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.04);}
+.qcard-head{background:#1c1a17;color:#fff;padding:.9rem 1.4rem;display:flex;align-items:baseline;gap:.8rem;}
+.qnum{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#c9860a;text-transform:uppercase;flex-shrink:0;}
+.qtext{font-size:.92rem;font-weight:400;color:#e8dfd0;line-height:1.5;}
+.qcard-body{padding:1.3rem 1.4rem;}
+.ans-label{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#b5410e;margin-bottom:.5rem;display:block;}
+.ans-text{font-size:.92rem;color:#2e2a24;margin-bottom:.9rem;line-height:1.7;}
+.ans-text strong{color:#1a6b3a;}
+.ans-text code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:#f0ece5;padding:.1em .4em;border-radius:3px;color:#1c1a17;}
+.steps-box{background:#f0f7f4;border:1px solid #c8e0d8;border-radius:7px;padding:1rem 1.2rem;margin-bottom:.9rem;}
+.steps-box .step-title{font-family:'Lora',serif;font-size:.8rem;font-weight:600;color:#1a6b6e;margin-bottom:.5rem;text-transform:uppercase;letter-spacing:.06em;}
+.steps-box ol{padding-left:1.3rem;}
+.steps-box ol li,.steps-box p{font-size:.88rem;color:#2a3d38;line-height:1.7;}
+.formula-inline{background:#1c1a17;color:#c9860a;font-family:'JetBrains Mono',monospace;font-size:.88rem;padding:.6rem 1rem;border-radius:5px;display:inline-block;margin:.4rem 0;}
+.ans-final{background:#fef3e2;border-left:4px solid #c9860a;border-radius:0 6px 6px 0;padding:.6rem 1rem;font-size:.9rem;font-weight:600;color:#1c1a17;margin-top:.6rem;}
+.ans-final span{color:#b5410e;font-family:'JetBrains Mono',monospace;}
+.note-box{background:#fef8ec;border:1px solid #f0d890;border-radius:6px;padding:.7rem 1rem;font-size:.83rem;color:#5a4a10;margin-top:.6rem;}
+.note-box::before{content:"💡 ";}
+.sub-q{margin-bottom:.9rem;padding-bottom:.9rem;border-bottom:1px dashed #ddd5c4;}
+.sub-q:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.sub-label{font-family:'JetBrains Mono',monospace;font-size:.75rem;color:#1a6b6e;font-weight:600;margin-bottom:.3rem;}
+table{border-collapse:collapse;width:100%;margin:.7rem 0;font-size:.85rem;}
+th{background:#1c1a17;color:#c9860a;padding:.5rem .8rem;text-align:left;font-weight:600;}
+td{padding:.45rem .8rem;border-bottom:1px solid #ddd5c4;}
+tr:nth-child(even) td{background:#fafaf7;}
+.diagram-wrap{background:#fff;border:1px solid #ddd5c4;border-radius:8px;padding:1rem;margin:1rem 0;overflow-x:auto;}
+.diagram-wrap svg{display:block;max-width:100%;height:auto;}
+.diagram-caption{font-size:.78rem;color:#6b6356;text-align:center;margin-top:.4rem;font-style:italic;}
+.practice-section{background:#f0f4ff;border:1px solid #b8c8f0;border-radius:10px;padding:1.2rem 1.4rem;margin-top:1.2rem;}
+.practice-label{font-family:'JetBrains Mono',monospace;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:#2244aa;margin-bottom:.8rem;display:flex;align-items:center;gap:.5rem;}
+.practice-label::before{content:"✏️";}
+.pq{margin-bottom:.9rem;padding-bottom:.9rem;border-bottom:1px dashed #b8c8f0;}
+.pq:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.pq-num{font-family:'JetBrains Mono',monospace;font-size:.7rem;color:#2244aa;font-weight:600;margin-bottom:.25rem;}
+.pq-text{font-size:.88rem;color:#1c2a50;line-height:1.6;}
+.pq-hint{font-size:.78rem;color:#5566aa;margin-top:.3rem;padding-left:.8rem;border-left:2px solid #b8c8f0;}
+.toggle-ans-btn{background:none;border:1px solid #2244aa;color:#2244aa;border-radius:4px;font-size:.75rem;padding:.2rem .7rem;cursor:pointer;margin-top:.4rem;font-family:'Source Sans 3',sans-serif;}
+.toggle-ans-btn:hover{background:#2244aa;color:#fff;}
+.pq-ans{display:none;background:#fff;border-radius:5px;padding:.5rem .8rem;margin-top:.4rem;font-size:.82rem;color:#1a6b3a;border:1px solid #c8e0d8;}
+.pq-ans.open{display:block;}
+
+/* ══════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════ */
+@media(max-width:600px){
+  .quad-grid{grid-template-columns:1fr;}
+  .lesson-nav-wrap,.solutions-nav-wrap{padding:0 .5rem;}
+  #lesson-panel main,#solutions-panel main{padding:1.5rem 1rem;}
+  .mode-logo{display:none;}
+  .hdr-stats{display:none;}
+}
+
+/* ══════════════════════════════════════════════
+   PRINT
+══════════════════════════════════════════════ */
+@media print{
+  body{background:#fff;font-size:11pt;}
+  .mode-bar{display:none!important;}
+  header{background:#fff!important;border-bottom:2pt solid #1c1a17;padding:1rem 0;}
+  header h1{color:#1c1a17!important;font-size:18pt;}
+  header h1 em{color:#b5410e!important;}
+  .lesson-nav-wrap,.solutions-nav-wrap{display:none!important;}
+  .panel{display:block!important;}
+  .section{display:block!important;page-break-after:always;}
+  .section:last-child{page-break-after:avoid;}
+  .qcard{box-shadow:none;border:1pt solid #ccc;break-inside:avoid;margin-bottom:12pt;}
+  .qcard-head{background:#1c1a17!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .steps-box{background:#f5f5f5!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .ans-final{background:#fff8e8!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .practice-section{background:#f0f4ff!important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .toggle-ans-btn{display:none!important;}
+  .pq-ans{display:block!important;}
+  main{max-width:100%;padding:1rem 0;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══ TOP MODE SWITCHER ══ -->
+<div class="mode-bar">
+  <div class="mode-left">
+    <div class="mode-logo">📐 Ganita Manjari · Ch 1</div>
+    <button class="mode-btn active" id="btn-lesson" onclick="switchMode('lesson')">📖 Learn</button>
+    <button class="mode-btn" id="btn-solutions" onclick="switchMode('solutions')">✅ Solutions</button>
+  </div>
+  <button class="mode-print-btn" onclick="window.print()">🖨️ Print / PDF</button>
+</div>
+
+<!-- ══ HEADER ══ -->
+<header>
+  <div class="hdr-inner">
+    <div>
+      <div class="hdr-badge">Grade 9 · Mathematics · Chapter 1</div>
+      <h1>Orienting Yourself:<br><em>The Use of Coordinates</em></h1>
+      <p>Interactive lessons · SVG diagrams · Complete solutions · 75 practice questions</p>
+    </div>
+    <div class="hdr-stats">
+      <div class="hdr-stat"><div class="num">7</div><div class="lbl">Lesson Tabs</div></div>
+      <div class="hdr-stat"><div class="num">24</div><div class="lbl">Diagrams</div></div>
+      <div class="hdr-stat"><div class="num">75</div><div class="lbl">Practice Qs</div></div>
+      <div class="hdr-stat"><div class="num">7</div><div class="lbl">Quiz Qs</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════
+     LESSON PANEL
+══════════════════════════════════════ -->
+<div class="panel active" id="lesson-panel">
+  <div class="lesson-nav-wrap">
+    <nav class="lesson-nav" id="lesson-nav">
+      <button class="tab-btn active" onclick="showLesson('history', this)">📜 History</button>
+      <button class="tab-btn" onclick="showLesson('basics', this)">📌 Basics</button>
+      <button class="tab-btn" onclick="showLesson('quadrants', this)">🧭 Quadrants</button>
+      <button class="tab-btn" onclick="showLesson('plotting', this)">✏️ Plot Points</button>
+      <button class="tab-btn" onclick="showLesson('distance', this)">📏 Distance</button>
+      <button class="tab-btn" onclick="showLesson('quiz', this)">🧠 Quiz</button>
+      <button class="tab-btn" onclick="showLesson('summary', this)">📋 Summary</button>
+    </nav>
+  </div>
+  <main>
+<!-- HISTORY -->
+  <div class="section active" id="lsec-history">
+    <h2 class="section-title">The <span>Story</span> Behind Coordinates</h2>
+    <p class="section-intro">Coordinate geometry didn't appear from nowhere — it has thousands of years of history rooted right here in Bhārat.</p>
+
+    <div class="history-strip">
+      <h3>Did you know?</h3>
+      <p>The very first systematic use of grid-based thinking happened in the <strong style="color:var(--gold)">Sindhu-Sarasvatī Civilisation</strong> — city streets were laid out in precise North–South and East–West directions, 10 metres apart. A merchant could find any shop by simply counting grid units — a real coordinate system in practice!</p>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot">~3000<br>BCE</div>
+        <div class="tl-text">
+          <strong>Sindhu-Sarasvatī Civilisation</strong>
+          <span>Cities built on grid plans with streets running N–S and E–W at uniform distances — the first known use of grid-based coordinates on a large scale.</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">800<br>BCE</div>
+        <div class="tl-text">
+          <strong>Baudhāyana</strong>
+          <span>Used East–West and North–South lines for geometric constructions; developed the Baudhāyana–Pythagoras Theorem — the core tool for the distance formula.</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">4th c.<br>BCE</div>
+        <div class="tl-text">
+          <strong>Ujjayinī as Central Meridian</strong>
+          <span>Ancient Siddhāntas described Ujjayinī as the zero-longitude reference point from which all other locations were measured — an early origin point!</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">499<br>CE</div>
+        <div class="tl-text">
+          <strong>Āryabhaṭa</strong>
+          <span>Replaced Greek 'chords' with 'sines', making coordinate calculations far easier. Mapped the sky using Celestial Coordinates.</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">628<br>CE</div>
+        <div class="tl-text">
+          <strong>Brahmagupta</strong>
+          <span>Formalised zero and negative numbers as algebraic entities — without this, the four-quadrant Cartesian plane would be impossible.</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">~1100<br>CE</div>
+        <div class="tl-text">
+          <strong>Ömar Khayyām</strong>
+          <span>First mathematician to solve algebraic problems using geometry by interpreting them as coordinates in a plane.</span>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot">1637<br>CE</div>
+        <div class="tl-text">
+          <strong>René Descartes</strong>
+          <span>Formalised that any point in a 2-D plane can be defined by exactly two numbers — the distances from two perpendicular axes. The Cartesian plane is named after him.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BASICS -->
+  <div class="section" id="lsec-basics">
+    <h2 class="section-title">The <span>Basics</span></h2>
+    <p class="section-intro">Before we can plot anything, we need to understand the structure of the coordinate system.</p>
+
+    <div class="card">
+      <h3>What is a Coordinate System?</h3>
+      <p>A coordinate system is a structured framework — like the grid lines on graph paper — that lets us use <strong>numbers</strong> to describe the exact location of any point in space.</p>
+    </div>
+
+    <div class="card">
+      <h3>The Two Axes</h3>
+      <ul>
+        <li><strong>x-axis</strong> — the horizontal line</li>
+        <li><strong>y-axis</strong> — the vertical line</li>
+        <li>The two axes are <strong>perpendicular</strong> (at right angles) to each other</li>
+        <li>Their point of intersection is called the <strong>Origin O</strong>, with coordinates <code>(0, 0)</code></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Positive & Negative Directions</h3>
+      <ul>
+        <li>Right of O → <strong>positive x</strong></li>
+        <li>Left of O → <strong>negative x</strong></li>
+        <li>Above O → <strong>positive y</strong></li>
+        <li>Below O → <strong>negative y</strong></li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Reading Coordinates: P(x, y)</h3>
+      <p>A point <strong>P(x, y)</strong> tells us:</p>
+      <ul>
+        <li><strong>x</strong> = perpendicular distance of P from the y-axis (measured along x-axis)</li>
+        <li><strong>y</strong> = perpendicular distance of P from the x-axis (measured along y-axis)</li>
+      </ul>
+      <br>
+      <p><strong>Important:</strong> The order matters! P(3, 5) and P(5, 3) are <em>different</em> points. If x ≠ y, then (x, y) ≠ (y, x).</p>
+    </div>
+
+    <div class="card">
+      <h3>Special Points</h3>
+      <ul>
+        <li>A point on the <strong>x-axis</strong> has coordinates of the form <code>(x, 0)</code></li>
+        <li>A point on the <strong>y-axis</strong> has coordinates of the form <code>(0, y)</code></li>
+        <li>The <strong>origin</strong> is <code>(0, 0)</code></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- QUADRANTS -->
+  <div class="section" id="lsec-quadrants">
+    <h2 class="section-title">The Four <span>Quadrants</span></h2>
+    <p class="section-intro">The two coordinate axes divide the plane into four regions called quadrants. Knowing which quadrant a point is in tells you the signs of its coordinates.</p>
+
+    <div class="quad-grid">
+      <div class="quad-card q1">
+        <h4>Quadrant I</h4>
+        <div class="sign">( + , + )</div>
+        <p>x is positive, y is positive.<br>Example: (3, 4), (7, 2)</p>
+      </div>
+      <div class="quad-card q2">
+        <h4>Quadrant II</h4>
+        <div class="sign">( − , + )</div>
+        <p>x is negative, y is positive.<br>Example: (−5, 3), (−2, 8)</p>
+      </div>
+      <div class="quad-card q3">
+        <h4>Quadrant III</h4>
+        <div class="sign">( − , − )</div>
+        <p>x is negative, y is negative.<br>Example: (−4, −6), (−1, −9)</p>
+      </div>
+      <div class="quad-card q4">
+        <h4>Quadrant IV</h4>
+        <div class="sign">( + , − )</div>
+        <p>x is positive, y is negative.<br>Example: (5, −3), (2, −7)</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Memory Tip 🧠</h3>
+      <p>Go anti-clockwise starting from top-right: <strong>I → II → III → IV</strong>. Signs go: <strong>++, −+, −−, +−</strong>. Think of it as a cycle where x turns negative first (in Q II), then y (in Q III), then x turns positive again (in Q IV).</p>
+    </div>
+
+    <div class="card">
+      <h3>Points on the Axes</h3>
+      <p>Points that lie exactly on an axis do <strong>not</strong> belong to any quadrant. For example, (3, 0) is on the x-axis and (0, −4) is on the y-axis — neither is in a quadrant.</p>
+    </div>
+  </div>
+
+  <!-- PLOTTING -->
+  <div class="section" id="lsec-plotting">
+    <h2 class="section-title"><span>Plot</span> Points Interactively</h2>
+    <p class="section-intro">Click on the coordinate plane below to plot points, or use the preset examples from the textbook.</p>
+
+    <div class="canvas-controls">
+      <button class="ctrl-btn active" id="btn-plot" onclick="setMode('plot', this)">✏️ Plot Mode</button>
+      <button class="ctrl-btn" onclick="clearPoints()">🗑️ Clear All</button>
+      <button class="ctrl-btn" onclick="loadPreset()">📖 Load Textbook Points</button>
+    </div>
+
+    <div class="canvas-wrap">
+      <canvas id="plotCanvas" height="440"></canvas>
+    </div>
+    <div id="coordDisplay" style="font-family:'DM Mono',monospace;font-size:0.82rem;color:var(--muted);text-align:center;margin-top:-0.5rem;margin-bottom:1rem;">
+      Click anywhere on the plane to plot a point
+    </div>
+  </div>
+
+  <!-- DISTANCE -->
+  <div class="section" id="lsec-distance">
+    <h2 class="section-title">The <span>Distance</span> Formula</h2>
+    <p class="section-intro">How do we find the distance between two points that are NOT on the same axis? We use the Baudhāyana–Pythagoras Theorem!</p>
+
+    <div class="card">
+      <h3>The Key Idea</h3>
+      <p>Given two points A(x₁, y₁) and D(x₂, y₂), draw a right-angled triangle by drawing horizontal and vertical lines from each point. The legs of the triangle are:</p>
+      <ul style="margin-top:0.5rem;">
+        <li>Horizontal leg = |x₂ − x₁| (difference in x-coordinates)</li>
+        <li>Vertical leg = |y₂ − y₁| (difference in y-coordinates)</li>
+      </ul>
+      <p style="margin-top:0.5rem;">Then apply the Baudhāyana–Pythagoras Theorem to find the hypotenuse — that is the distance AD.</p>
+    </div>
+
+    <div class="formula-box">
+      <div class="label">Distance Formula</div>
+      <div class="formula">d = √[ (x₂ − x₁)² + (y₂ − y₁)² ]</div>
+      <div class="sub">Works for any two points in any quadrant. Negative values are fine — squaring removes the sign.</div>
+    </div>
+
+    <div class="card">
+      <h3>Textbook Example</h3>
+      <p>Find the distance between A(3, 4) and D(7, 1):</p>
+      <ul style="margin-top:0.5rem;">
+        <li>Horizontal: 7 − 3 = <strong>4</strong></li>
+        <li>Vertical: 4 − 1 = <strong>3</strong></li>
+        <li>Distance = √(4² + 3²) = √(16 + 9) = √25 = <strong>5 units</strong></li>
+      </ul>
+      <p style="margin-top:0.5rem;color:var(--muted);font-size:0.85rem;">This is a classic 3-4-5 Pythagorean triple!</p>
+    </div>
+
+    <div class="dist-demo">
+      <h3>🔢 Calculate Distance Yourself</h3>
+      <div class="input-row">
+        <label>A :</label>
+        <span style="font-size:0.8rem">(</span>
+        <input type="number" id="x1" value="3" placeholder="x₁">
+        <span style="font-size:0.8rem">,</span>
+        <input type="number" id="y1" value="4" placeholder="y₁">
+        <span style="font-size:0.8rem">)</span>
+      </div>
+      <div class="input-row">
+        <label>B :</label>
+        <span style="font-size:0.8rem">(</span>
+        <input type="number" id="x2" value="7" placeholder="x₂">
+        <span style="font-size:0.8rem">,</span>
+        <input type="number" id="y2" value="1" placeholder="y₂">
+        <span style="font-size:0.8rem">)</span>
+      </div>
+      <button class="calc-btn" onclick="calcDistance()">Calculate Distance</button>
+      <div class="result-box" id="distResult">— enter coordinates and click Calculate</div>
+      <div class="steps" id="distSteps"></div>
+    </div>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="section" id="lsec-quiz">
+    <h2 class="section-title">Quick <span>Quiz</span></h2>
+    <p class="section-intro">Test your understanding! Answer all questions and see your score.</p>
+
+    <div class="score-bar">
+      <div>
+        <span>Your Score</span><br>
+        <span class="score-num" id="scoreNum">0 / 7</span>
+      </div>
+      <button class="ctrl-btn" onclick="resetQuiz()">↺ Restart Quiz</button>
+    </div>
+
+    <div id="quizContainer"></div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section" id="lsec-summary">
+    <h2 class="section-title">Chapter <span>Summary</span></h2>
+    <p class="section-intro">All the key points from Chapter 1 at a glance.</p>
+
+    <div class="summary-grid">
+      <div class="sum-item">
+        <div class="sum-icon">📐</div>
+        <div>
+          <strong>Two Perpendicular Lines</strong>
+          <p>The x-axis (horizontal) and y-axis (vertical) form the coordinate system.</p>
+        </div>
+      </div>
+      <div class="sum-item">
+        <div class="sum-icon">🎯</div>
+        <div>
+          <strong>Origin O(0, 0)</strong>
+          <p>The point of intersection of both axes, where all measurements begin.</p>
+        </div>
+      </div>
+      <div class="sum-item">
+        <div class="sum-icon">🧭</div>
+        <div>
+          <strong>Four Quadrants</strong>
+          <p>The axes divide the plane into four quadrants: I(+,+), II(−,+), III(−,−), IV(+,−).</p>
+        </div>
+      </div>
+      <div class="sum-item">
+        <div class="sum-icon">📍</div>
+        <div>
+          <strong>Coordinates (x, y)</strong>
+          <p>x = distance from y-axis; y = distance from x-axis. Order matters!</p>
+        </div>
+      </div>
+      <div class="sum-item">
+        <div class="sum-icon">➡️</div>
+        <div>
+          <strong>Points on Axes</strong>
+          <p>x-axis: form (x, 0). y-axis: form (0, y). Origin: (0, 0).</p>
+        </div>
+      </div>
+      <div class="sum-item">
+        <div class="sum-icon">📏</div>
+        <div>
+          <strong>Distance Formula</strong>
+          <p>d = √[(x₂−x₁)² + (y₂−y₁)²] — from the Baudhāyana–Pythagoras Theorem.</p>
+        </div>
+      </div>
+      <div class="sum-item">
+        <div class="sum-icon">↔️</div>
+        <div>
+          <strong>Same-axis Distances</strong>
+          <p>Between (x₁,y) and (x₂,y): |x₂−x₁|. Between (x,y₁) and (x,y₂): |y₂−y₁|.</p>
+        </div>
+      </div>
+      <div class="sum-item">
+        <div class="sum-icon">🪞</div>
+        <div>
+          <strong>Reflection Preserves Distance</strong>
+          <p>When a shape is reflected in an axis, its side lengths remain unchanged.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="formula-box">
+      <div class="label">The Most Important Formula to Remember</div>
+      <div class="formula">d(A, B) = √[ (x₂ − x₁)² + (y₂ − y₁)² ]</div>
+      <div class="sub">This single formula lets you find the distance between ANY two points in the plane.</div>
+    </div>
+  </div>
+  </main>
+</div>
+
+<!-- ══════════════════════════════════════
+     SOLUTIONS PANEL
+══════════════════════════════════════ -->
+<div class="panel" id="solutions-panel">
+  <div class="solutions-nav-wrap">
+    <nav class="solutions-nav" id="solutions-nav">
+      <button class="tab active" onclick="show('ex11', this)">Exercise 1.1</button>
+      <button class="tab" onclick="show('ex12', this)">Exercise 1.2</button>
+      <button class="tab" onclick="show('eoc', this)">End-of-Chapter</button>
+    </nav>
+  </div>
+  <main>
+<!-- ════════════════════════════════════════════
+     EXERCISE SET 1.1
+════════════════════════════════════════════ -->
+<div class="section active" id="sec-ex11">
+<div class="section-head"><h2>Exercise Set 1.1</h2><p>Based on Fig. 1.3 — Reiaan's room with axes. Point O is the origin; scale 1 cm = 1 foot.</p></div>
+
+<!-- Q(i) -->
+<div class="qcard">
+<div class="qcard-head"><span class="qnum">Q (i)</span><span class="qtext">If D₁R₁ represents the door to Reiaan's room, how far is the door from the left wall (y-axis)? How far from the x-axis?</span></div>
+<div class="qcard-body">
+<span class="ans-label">Solution</span>
+
+<div class="diagram-wrap">
+<svg viewBox="0 0 380 220" width="380" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono, monospace" font-size="11">
+  <!-- grid -->
+  <defs><pattern id="g1" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M 25 0 L 0 0 0 25" fill="none" stroke="#e8dfc8" stroke-width="0.6"/></pattern></defs>
+  <rect width="380" height="220" fill="#fffdf9"/>
+  <rect width="380" height="220" fill="url(#g1)"/>
+  <!-- room boundary: 0,0 to 300,175 mapped to svg 20,20 to 350,200 -->
+  <!-- axes: origin at svg(20,200), 1 unit = 25px -->
+  <!-- x-axis -->
+  <line x1="15" y1="200" x2="365" y2="200" stroke="#1c1a17" stroke-width="2"/>
+  <text x="358" y="196" fill="#1c1a17" font-size="12" font-family="Lora,serif">x</text>
+  <!-- y-axis -->
+  <line x1="20" y1="205" x2="20" y2="8" stroke="#1c1a17" stroke-width="2"/>
+  <text x="23" y="14" fill="#1c1a17" font-size="12" font-family="Lora,serif">y</text>
+  <!-- tick labels x -->
+  <text x="43" y="213" fill="#888" font-size="9">2</text>
+  <text x="68" y="213" fill="#888" font-size="9">3</text>
+  <text x="93" y="213" fill="#888" font-size="9">4</text>
+  <text x="118" y="213" fill="#888" font-size="9">5</text>
+  <text x="143" y="213" fill="#888" font-size="9">6</text>
+  <text x="168" y="213" fill="#888" font-size="9">7</text>
+  <text x="193" y="213" fill="#888" font-size="9">8</text>
+  <text x="218" y="213" fill="#888" font-size="9">9</text>
+  <text x="240" y="213" fill="#888" font-size="9">10</text>
+  <text x="265" y="213" fill="#888" font-size="9">11</text>
+  <!-- tick labels y -->
+  <text x="4" y="177" fill="#888" font-size="9">1</text>
+  <text x="4" y="152" fill="#888" font-size="9">2</text>
+  <text x="4" y="127" fill="#888" font-size="9">3</text>
+  <text x="4" y="102" fill="#888" font-size="9">4</text>
+  <text x="4" y="77" fill="#888" font-size="9">5</text>
+  <!-- room walls -->
+  <rect x="20" y="25" width="300" height="175" fill="none" stroke="#1a6b6e" stroke-width="2.5" stroke-dasharray="none"/>
+  <!-- door D1 at x=9, R1 at x=11.5 on x-axis (y=0) -->
+  <!-- D1 svg x = 20 + 9*25 = 245, R1 svg x = 20 + 11.5*25 = 307.5 -->
+  <line x1="245" y1="196" x2="308" y2="196" stroke="#b5410e" stroke-width="4"/>
+  <circle cx="245" cy="200" r="4" fill="#b5410e"/>
+  <circle cx="308" cy="200" r="4" fill="#b5410e"/>
+  <text x="264" y="192" fill="#b5410e" font-size="10" font-weight="bold">D₁</text>
+  <text x="310" y="192" fill="#b5410e" font-size="10" font-weight="bold">R₁</text>
+  <!-- distance brace from y-axis to D1 -->
+  <line x1="20" y1="185" x2="245" y2="185" stroke="#c9860a" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="120" y="181" fill="#c9860a" font-size="10" font-weight="bold">9 ft from y-axis</text>
+  <!-- on x-axis arrow -->
+  <text x="200" y="170" fill="#1a6b6e" font-size="10">Door lies ON x-axis → 0 ft from x-axis</text>
+  <!-- origin label -->
+  <text x="23" y="213" fill="#888" font-size="9">O</text>
+  <!-- corner labels -->
+  <text x="22" y="22" fill="#1a6b6e" font-size="10">A</text>
+  <text x="315" y="22" fill="#1a6b6e" font-size="10">B</text>
+  <text x="315" y="210" fill="#1a6b6e" font-size="10">C</text>
+</svg>
+<p class="diagram-caption">Fig: Room floor plan. Red segment = door D₁R₁ on x-axis. Gold dashed = distance from y-axis (9 ft).</p>
+</div>
+
+<div class="steps-box"><div class="step-title">Reading off the figure</div><ol>
+<li>The left wall is the <strong>y-axis</strong> (x = 0).</li>
+<li>Door D₁ is at x ≈ 9, so it is <strong>9 feet from the y-axis</strong>.</li>
+<li>Both D₁ and R₁ lie on the x-axis, so the door is <strong>0 feet from the x-axis</strong>.</li>
+</ol></div>
+<div class="ans-final">Distance from left wall (y-axis): <span>9 ft</span> &nbsp;|&nbsp; Distance from x-axis: <span>0 ft</span></div>
+
+<div class="practice-section">
+<div class="practice-label">Practice Questions</div>
+<div class="pq"><div class="pq-num">P1.</div><div class="pq-text">A window W₁W₂ is placed on the right wall of Reiaan's room. W₁ is at (12, 3) and W₂ is at (12, 5). How far is this window from the x-axis? How far from the y-axis?</div><div class="pq-hint">Hint: Right wall is a vertical line. Distance from an axis = value of the relevant coordinate.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">W₁ is 3 ft from x-axis, W₂ is 5 ft from x-axis. Both are 12 ft from the y-axis (right wall is at x = 12).</div></div>
+<div class="pq"><div class="pq-num">P2.</div><div class="pq-text">A bookshelf corner is at B(0, 7). How far is it from the x-axis? Which wall does it touch?</div><div class="pq-hint">Hint: x = 0 means the point is on the y-axis.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">It is 7 ft from the x-axis. Since x = 0, it touches the left wall (y-axis).</div></div>
+<div class="pq"><div class="pq-num">P3.</div><div class="pq-text">A lamp post is placed at point L(5, 0). Describe exactly where it stands in the room.</div><div class="pq-hint">Hint: y = 0 means the point is on the x-axis.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">y = 0 means the lamp is on the x-axis (bottom wall / floor edge). It is 5 ft from the left wall (y-axis) and 0 ft from the x-axis (bottom wall).</div></div>
+</div>
+</div></div>
+
+<!-- Q(ii) -->
+<div class="qcard">
+<div class="qcard-head"><span class="qnum">Q (ii)</span><span class="qtext">What are the coordinates of D₁?</span></div>
+<div class="qcard-body">
+<span class="ans-label">Solution</span>
+<div class="ans-text">D₁ lies on the x-axis (y = 0). From the figure, the door starts at x = 9.</div>
+<div class="diagram-wrap">
+<svg viewBox="0 0 320 100" width="320" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono,monospace" font-size="11">
+  <rect width="320" height="100" fill="#fffdf9"/>
+  <line x1="10" y1="60" x2="310" y2="60" stroke="#1c1a17" stroke-width="2"/>
+  <text x="304" y="56" font-size="12" font-family="Lora,serif" fill="#1c1a17">x</text>
+  <!-- origin -->
+  <circle cx="20" cy="60" r="3" fill="#1c1a17"/>
+  <text x="15" y="75" fill="#888" font-size="10">O(0,0)</text>
+  <!-- ticks -->
+  <line x1="50" y1="56" x2="50" y2="64" stroke="#888" stroke-width="1"/><text x="47" y="73" fill="#888" font-size="9">1</text>
+  <line x1="80" y1="56" x2="80" y2="64" stroke="#888" stroke-width="1"/><text x="77" y="73" fill="#888" font-size="9">2</text>
+  <line x1="170" y1="56" x2="170" y2="64" stroke="#888" stroke-width="1"/><text x="162" y="73" fill="#888" font-size="9">...9</text>
+  <line x1="230" y1="56" x2="230" y2="64" stroke="#888" stroke-width="1"/><text x="219" y="73" fill="#888" font-size="9">11.5</text>
+  <!-- D1 point -->
+  <circle cx="170" cy="60" r="6" fill="#b5410e"/>
+  <text x="158" y="45" fill="#b5410e" font-size="11" font-weight="bold">D₁(9, 0)</text>
+  <!-- R1 point -->
+  <circle cx="230" cy="60" r="5" fill="#c9860a"/>
+  <text x="218" y="45" fill="#c9860a" font-size="11" font-weight="bold">R₁(11.5, 0)</text>
+  <!-- y=0 label -->
+  <text x="60" y="30" fill="#1a6b6e" font-size="10">Both points on x-axis → y-coordinate = 0</text>
+</svg>
+<p class="diagram-caption">Fig: D₁ and R₁ on the x-axis. y-coordinate = 0 for any point on the x-axis.</p>
+</div>
+<div class="ans-final">Coordinates of D₁ = <span>(9, 0)</span></div>
+<div class="note-box">Any point on the x-axis has y = 0. Its only variable coordinate is x, which gives its distance from the origin.</div>
+
+<div class="practice-section"><div class="practice-label">Practice Questions</div>
+<div class="pq"><div class="pq-num">P1.</div><div class="pq-text">A door hinge E₁ is at distance 4 ft from the origin along the positive x-axis. Write its coordinates.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">E₁ = (4, 0). On the x-axis, y is always 0.</div></div>
+<div class="pq"><div class="pq-num">P2.</div><div class="pq-text">Point F is on the y-axis, 6 ft above the origin. What are its coordinates?</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">F = (0, 6). On the y-axis, x is always 0.</div></div>
+<div class="pq"><div class="pq-num">P3.</div><div class="pq-text">Point G = (0, 0). What is special about this point?</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">G is the Origin — the intersection of both axes. It is 0 ft from both axes.</div></div>
+</div>
+</div></div>
+
+<!-- Q(iii) -->
+<div class="qcard">
+<div class="qcard-head"><span class="qnum">Q (iii)</span><span class="qtext">If R₁ = (11.5, 0), how wide is the door? Is it comfortable? Can a wheelchair user enter?</span></div>
+<div class="qcard-body">
+<span class="ans-label">Solution</span>
+<div class="diagram-wrap">
+<svg viewBox="0 0 360 120" width="360" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono,monospace" font-size="11">
+  <rect width="360" height="120" fill="#fffdf9"/>
+  <!-- x-axis -->
+  <line x1="10" y1="70" x2="350" y2="70" stroke="#1c1a17" stroke-width="2"/>
+  <!-- wall line (left wall = y-axis at x=20) -->
+  <line x1="20" y1="20" x2="20" y2="95" stroke="#1a6b6e" stroke-width="3"/>
+  <!-- door segment D1 to R1 -->
+  <!-- D1=9, R1=11.5. scale: origin at x=20, 1unit=24px. D1 svg_x=20+9*24=236, R1 svg_x=20+11.5*24=296 -->
+  <rect x="236" y="30" width="60" height="40" fill="#fef3e2" stroke="#b5410e" stroke-width="2"/>
+  <text x="252" y="55" fill="#b5410e" font-size="11" font-weight="bold">DOOR</text>
+  <line x1="236" y1="70" x2="236" y2="80" stroke="#b5410e" stroke-width="1.5"/>
+  <line x1="296" y1="70" x2="296" y2="80" stroke="#b5410e" stroke-width="1.5"/>
+  <line x1="236" y1="75" x2="296" y2="75" stroke="#b5410e" stroke-width="2" marker-end="url(#arr)" marker-start="url(#arrb)"/>
+  <defs>
+    <marker id="arr" markerWidth="6" markerHeight="6" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#b5410e"/></marker>
+    <marker id="arrb" markerWidth="6" markerHeight="6" refX="0" refY="3" orient="auto"><path d="M6,0 L0,3 L6,6 Z" fill="#b5410e"/></marker>
+  </defs>
+  <text x="248" y="92" fill="#b5410e" font-size="11" font-weight="bold">2.5 ft</text>
+  <!-- labels -->
+  <circle cx="236" cy="70" r="4" fill="#b5410e"/>
+  <text x="220" y="65" fill="#b5410e" font-size="10">D₁(9,0)</text>
+  <circle cx="296" cy="70" r="4" fill="#c9860a"/>
+  <text x="298" y="65" fill="#c9860a" font-size="10">R₁(11.5,0)</text>
+  <!-- width formula -->
+  <text x="30" y="30" fill="#1a6b6e" font-size="11">Width = 11.5 − 9 = 2.5 ft</text>
+  <!-- wheelchair note -->
+  <text x="30" y="108" fill="#6b6356" font-size="10">Wheelchair needs ≥ 3 ft → this door is too narrow</text>
+</svg>
+<p class="diagram-caption">Fig: Door D₁R₁ on x-axis. Width = difference in x-coordinates = 11.5 − 9 = 2.5 ft.</p>
+</div>
+<div class="steps-box"><div class="step-title">Calculation</div><ol>
+<li>D₁ = (9, 0), R₁ = (11.5, 0) — both on x-axis.</li>
+<li>Width = 11.5 − 9 = <strong>2.5 ft = 30 inches</strong>.</li>
+<li>Standard room door: 2.5–3 ft → just comfortable for regular use.</li>
+<li>Wheelchair requires ≥ 32–36 inches (≈ 2.7–3 ft) → <strong>2.5 ft is too narrow for a wheelchair</strong>.</li>
+</ol></div>
+<div class="ans-final">Width = <span>2.5 ft</span>. Just comfortable for regular use. <span>Not suitable</span> for wheelchair access.</div>
+
+<div class="practice-section"><div class="practice-label">Practice Questions</div>
+<div class="pq"><div class="pq-num">P1.</div><div class="pq-text">A school entrance has two pillars at P₁(2, 0) and P₂(6, 0). What is the width of the entrance? Is it wide enough for a wheelchair (needs ≥ 3 ft)?</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Width = 6 − 2 = 4 ft. Yes, 4 ft &gt; 3 ft, so it is wide enough for a wheelchair.</div></div>
+<div class="pq"><div class="pq-num">P2.</div><div class="pq-text">A bathroom door has ends at B₁(0, 2) and B₂(0, 4.5). What is the width of this door?</div><div class="pq-hint">Hint: Both points are on y-axis. Use difference of y-coordinates.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Width = |4.5 − 2| = 2.5 ft.</div></div>
+<div class="pq"><div class="pq-num">P3.</div><div class="pq-text">A garage door stretches from G₁(3, 0) to G₂(10, 0). A car is 7 ft wide. Can it fit through?</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Door width = 10 − 3 = 7 ft. The car is exactly 7 ft wide — it barely fits but there is no extra space. In practice a wider door of at least 8 ft is safer.</div></div>
+</div>
+</div></div>
+
+<!-- Q(iv) -->
+<div class="qcard">
+<div class="qcard-head"><span class="qnum">Q (iv)</span><span class="qtext">B₁(0,1.5) and B₂(0,4) are ends of bathroom door. Is it narrower or wider than the room door?</span></div>
+<div class="qcard-body">
+<span class="ans-label">Solution</span>
+<div class="diagram-wrap">
+<svg viewBox="0 0 320 180" width="320" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono,monospace" font-size="11">
+  <rect width="320" height="180" fill="#fffdf9"/>
+  <!-- y-axis -->
+  <line x1="60" y1="10" x2="60" y2="170" stroke="#1c1a17" stroke-width="2"/>
+  <text x="63" y="16" font-size="12" font-family="Lora,serif" fill="#1c1a17">y</text>
+  <!-- x-axis -->
+  <line x1="10" y1="155" x2="310" y2="155" stroke="#1c1a17" stroke-width="2"/>
+  <text x="304" y="151" font-size="12" font-family="Lora,serif" fill="#1c1a17">x</text>
+  <!-- tick y -->
+  <line x1="55" y1="118" x2="65" y2="118" stroke="#888" stroke-width="1"/><text x="38" y="122" fill="#888" font-size="10">1.5</text>
+  <line x1="55" y1="80" x2="65" y2="80" stroke="#888" stroke-width="1"/><text x="45" y="84" fill="#888" font-size="10">4</text>
+  <!-- bathroom door B1, B2 on y-axis. scale: origin at (60,155), 1unit=25px -->
+  <!-- B1=(0,1.5) svg=(60,155-1.5*25)=(60,117.5), B2=(0,4) svg=(60,155-4*25)=(60,55) -->
+  <rect x="35" y="55" width="25" height="62" fill="#fef3e2" stroke="#1a6b6e" stroke-width="2"/>
+  <text x="37" y="91" fill="#1a6b6e" font-size="10" font-weight="bold">BATH</text>
+  <circle cx="60" cy="118" r="4" fill="#1a6b6e"/>
+  <circle cx="60" cy="55" r="4" fill="#1a6b6e"/>
+  <text x="65" y="122" fill="#1a6b6e" font-size="10">B₁(0, 1.5)</text>
+  <text x="65" y="59" fill="#1a6b6e" font-size="10">B₂(0, 4)</text>
+  <!-- width brace -->
+  <line x1="100" y1="55" x2="100" y2="118" stroke="#c9860a" stroke-width="2" stroke-dasharray="4,3"/>
+  <text x="103" y="92" fill="#c9860a" font-size="10" font-weight="bold">2.5 ft</text>
+  <!-- comparison box -->
+  <rect x="150" y="50" width="155" height="60" rx="6" fill="#f0f7f4" stroke="#c8e0d8" stroke-width="1"/>
+  <text x="165" y="70" fill="#1a6b6e" font-size="11" font-weight="bold">Comparison</text>
+  <text x="160" y="87" fill="#1c1a17" font-size="10">Room door:    2.5 ft</text>
+  <text x="160" y="102" fill="#1c1a17" font-size="10">Bathroom door: 2.5 ft</text>
+  <text x="160" y="120" fill="#b5410e" font-size="10" font-weight="bold">Equal width!</text>
+  <!-- origin -->
+  <text x="63" y="168" fill="#888" font-size="9">O</text>
+</svg>
+<p class="diagram-caption">Fig: Bathroom door B₁B₂ on y-axis. Width = |4 − 1.5| = 2.5 ft — same as room door.</p>
+</div>
+<div class="steps-box"><div class="step-title">Calculation</div><ol>
+<li>B₁=(0,1.5), B₂=(0,4) — both on y-axis.</li>
+<li>Width = |4 − 1.5| = <strong>2.5 ft</strong></li>
+<li>Room door width = 2.5 ft (from Q iii).</li>
+</ol></div>
+<div class="ans-final">Bathroom door width = <span>2.5 ft</span> = Room door width. They are <span>equal</span>.</div>
+
+<div class="practice-section"><div class="practice-label">Practice Questions</div>
+<div class="pq"><div class="pq-num">P1.</div><div class="pq-text">A wardrobe door has one end at (0, 3) and the other at (0, 5.5), both on the y-axis. What is its width?</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Width = |5.5 − 3| = 2.5 ft.</div></div>
+<div class="pq"><div class="pq-num">P2.</div><div class="pq-text">Two doors are given: Door A from (4,0) to (7,0), and Door B from (0,1) to (0,3.8). Which door is wider?</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Door A width = 7 − 4 = 3 ft. Door B width = 3.8 − 1 = 2.8 ft. Door A is wider.</div></div>
+<div class="pq"><div class="pq-num">P3.</div><div class="pq-text">A window on the y-axis goes from (0, 6) to (0, 8.5). A ventilator on the x-axis goes from (2, 0) to (4, 0). Compare their widths.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Window width = 8.5 − 6 = 2.5 ft. Ventilator width = 4 − 2 = 2 ft. The window is wider by 0.5 ft.</div></div>
+</div>
+</div></div>
+</div><!-- end ex11 -->
+
+<!-- ════════════════════════════════════════════
+     EXERCISE SET 1.2
+════════════════════════════════════════════ -->
+<div class="section" id="sec-ex12">
+<div class="section-head"><h2>Exercise Set 1.2</h2><p>Based on Fig. 1.5 — scale 1 cm = 1 unit = 1 foot.</p></div>
+
+<!-- Q1 -->
+<div class="qcard">
+<div class="qcard-head"><span class="qnum">Q 1</span><span class="qtext">Three feet of study table at (8,9),(11,9),(11,7). (i) Fourth foot? (ii) Good spot? (iii) Width, length, height?</span></div>
+<div class="qcard-body">
+<span class="ans-label">Solution</span>
+<div class="diagram-wrap">
+<svg viewBox="0 0 380 260" width="380" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono,monospace" font-size="10">
+  <defs><pattern id="g2" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e8dfc8" stroke-width="0.5"/></pattern></defs>
+  <rect width="380" height="260" fill="#fffdf9"/>
+  <rect width="380" height="260" fill="url(#g2)"/>
+  <!-- origin at (20,240), scale 20px/unit -->
+  <!-- axes -->
+  <line x1="10" y1="240" x2="375" y2="240" stroke="#1c1a17" stroke-width="2"/>
+  <line x1="20" y1="250" x2="20" y2="8" stroke="#1c1a17" stroke-width="2"/>
+  <text x="368" y="236" font-size="12" font-family="Lora,serif" fill="#1c1a17">x</text>
+  <text x="23" y="14" font-size="12" font-family="Lora,serif" fill="#1c1a17">y</text>
+  <!-- grid labels x: 1..17 -->
+  <text x="37" y="252" fill="#aaa" font-size="8">1</text><text x="57" y="252" fill="#aaa" font-size="8">2</text>
+  <text x="77" y="252" fill="#aaa" font-size="8">3</text><text x="97" y="252" fill="#aaa" font-size="8">4</text>
+  <text x="117" y="252" fill="#aaa" font-size="8">5</text><text x="137" y="252" fill="#aaa" font-size="8">6</text>
+  <text x="157" y="252" fill="#aaa" font-size="8">7</text><text x="177" y="252" fill="#aaa" font-size="8">8</text>
+  <text x="197" y="252" fill="#aaa" font-size="8">9</text><text x="213" y="252" fill="#aaa" font-size="8">10</text>
+  <text x="233" y="252" fill="#aaa" font-size="8">11</text>
+  <!-- grid labels y: 1..11 -->
+  <text x="5" y="223" fill="#aaa" font-size="8">1</text><text x="5" y="203" fill="#aaa" font-size="8">2</text>
+  <text x="5" y="183" fill="#aaa" font-size="8">3</text><text x="5" y="163" fill="#aaa" font-size="8">4</text>
+  <text x="5" y="143" fill="#aaa" font-size="8">5</text><text x="5" y="123" fill="#aaa" font-size="8">6</text>
+  <text x="5" y="103" fill="#aaa" font-size="8">7</text><text x="5" y="83" fill="#aaa" font-size="8">8</text>
+  <text x="5" y="63" fill="#aaa" font-size="8">9</text>
+  <!-- room boundary: x:0-12, y:0-11 i.e. svg (20,240) to (260,20) approx -->
+  <rect x="20" y="20" width="240" height="220" fill="none" stroke="#1a6b6e" stroke-width="2"/>
+  <!-- table: (8,9),(11,9),(11,7),(8,7) -->
+  <!-- svg: x=20+8*20=180,y=240-9*20=60 ; x=20+11*20=240,y=240-9*20=60 ; (240,240-7*20=100) ; (180,100) -->
+  <rect x="180" y="60" width="60" height="40" fill="#fff3e0" stroke="#b5410e" stroke-width="2"/>
+  <!-- feet circles -->
+  <circle cx="180" cy="60" r="5" fill="#1a6b6e"/>
+  <circle cx="240" cy="60" r="5" fill="#1a6b6e"/>
+  <circle cx="240" cy="100" r="5" fill="#1a6b6e"/>
+  <circle cx="180" cy="100" r="5" fill="#b5410e" stroke="#fff" stroke-width="2"/>
+  <text x="183" y="82" fill="#b5410e" font-size="10" font-weight="bold">TABLE</text>
+  <!-- labels -->
+  <text x="165" y="56" fill="#1a6b6e" font-size="9">(8,9)</text>
+  <text x="242" y="56" fill="#1a6b6e" font-size="9">(11,9)</text>
+  <text x="242" y="112" fill="#1a6b6e" font-size="9">(11,7)</text>
+  <text x="155" y="112" fill="#b5410e" font-size="9" font-weight="bold">?(8,7)</text>
+  <!-- dimension arrows -->
+  <line x1="180" y1="48" x2="240" y2="48" stroke="#c9860a" stroke-width="1.5"/>
+  <text x="197" y="44" fill="#c9860a" font-size="10" font-weight="bold">3 ft</text>
+  <line x1="258" y1="60" x2="258" y2="100" stroke="#c9860a" stroke-width="1.5"/>
+  <text x="261" y="84" fill="#c9860a" font-size="10" font-weight="bold">2 ft</text>
+  <!-- O label -->
+  <text x="23" y="252" fill="#888" font-size="8">O</text>
+</svg>
+<p class="diagram-caption">Fig: Room plan with study table. Red dot = fourth foot (8,7). Gold = dimensions: 3 ft wide, 2 ft long.</p>
+</div>
+
+<div class="sub-q"><div class="sub-label">(i) Fourth foot</div>
+<div class="steps-box"><div class="step-title">Logic — completing the rectangle</div><ol>
+<li>A(8,9), B(11,9), C(11,7) given. AB is horizontal (y=9). BC is vertical (x=11).</li>
+<li>Fourth corner D: same x as A → x=8; same y as C → y=7.</li>
+</ol></div>
+<div class="ans-final">Fourth foot = <span>(8, 7)</span></div></div>
+
+<div class="sub-q"><div class="sub-label">(ii) Good spot?</div>
+<div class="ans-text">Table occupies x: 8–11, y: 7–9 — inside the room, not blocking any door or pathway. <strong>Yes, a good spot.</strong></div></div>
+
+<div class="sub-q"><div class="sub-label">(iii) Dimensions</div>
+<div class="steps-box"><div class="step-title">Calculations</div><ol>
+<li>Width (x-direction) = 11 − 8 = <strong>3 ft</strong></li>
+<li>Length (y-direction) = 9 − 7 = <strong>2 ft</strong></li>
+<li>Height: <strong>Cannot be found</strong> — not shown in a 2-D floor plan.</li>
+</ol></div>
+<div class="ans-final">Width = <span>3 ft</span>, Length = <span>2 ft</span>, Height = <span>not determinable from floor plan</span></div></div>
+
+<div class="practice-section"><div class="practice-label">Practice Questions</div>
+<div class="pq"><div class="pq-num">P1.</div><div class="pq-text">Three corners of a rectangular rug are at (2,3), (6,3), and (6,8). Find the fourth corner and the dimensions of the rug.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Fourth corner = (2,8). Width = 6−2 = 4 ft. Length = 8−3 = 5 ft.</div></div>
+<div class="pq"><div class="pq-num">P2.</div><div class="pq-text">A rectangular bed has corners at (1,2), (5,2), (5,9), and (1,9). What are its dimensions? Find its perimeter.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Width = 5−1 = 4 ft. Length = 9−2 = 7 ft. Perimeter = 2×(4+7) = 22 ft.</div></div>
+<div class="pq"><div class="pq-num">P3.</div><div class="pq-text">A square table has one corner at (3,4) and the opposite corner at (7,8). Find all four corners.</div><div class="pq-hint">Hint: Opposite corners of a square are diagonally opposite. The other two corners share one coordinate from each.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">The four corners are (3,4), (7,4), (7,8), and (3,8). Each side = 4 ft. This is a square. ✓</div></div>
+</div>
+</div></div>
+
+<!-- Q2 -->
+<div class="qcard">
+<div class="qcard-head"><span class="qnum">Q 2</span><span class="qtext">If bathroom door hinges at B₁ and opens into bedroom, will it hit the wardrobe? Suggest changes if door is wider.</span></div>
+<div class="qcard-body"><span class="ans-label">Solution</span>
+<div class="diagram-wrap">
+<svg viewBox="0 0 320 200" width="320" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono,monospace" font-size="10">
+  <rect width="320" height="200" fill="#fffdf9"/>
+  <!-- y-axis (left wall / bathroom wall) -->
+  <line x1="80" y1="10" x2="80" y2="190" stroke="#1c1a17" stroke-width="2.5"/>
+  <text x="83" y="16" font-size="12" font-family="Lora,serif" fill="#1c1a17">y-axis (left wall)</text>
+  <!-- x-axis -->
+  <line x1="20" y1="165" x2="310" y2="165" stroke="#1c1a17" stroke-width="1.5"/>
+  <!-- B1, B2 on y-axis. scale: origin at (80,165), 1unit=25px -->
+  <!-- B1=(0,1.5) svg=(80,165-1.5*25)=(80,127.5~128), B2=(0,4) svg=(80,165-4*25)=(80,65) -->
+  <circle cx="80" cy="128" r="5" fill="#1a6b6e"/>
+  <circle cx="80" cy="65" r="5" fill="#1a6b6e"/>
+  <text x="55" y="132" fill="#1a6b6e" font-size="9">B₁(0,1.5)</text>
+  <text x="55" y="69" fill="#1a6b6e" font-size="9">B₂(0,4)</text>
+  <!-- door arc from B1 hinge, radius 2.5 units = 62.5 px, swinging right -->
+  <path d="M80,65 A63,63 0 0,1 143,128" fill="#fef3e2" stroke="#b5410e" stroke-width="2" stroke-dasharray="8,4"/>
+  <text x="95" y="100" fill="#b5410e" font-size="9">Door arc</text>
+  <text x="85" y="113" fill="#b5410e" font-size="9">(r=2.5ft)</text>
+  <!-- wardrobe rectangle at approx x:0-2, y:0-3 in room (bedroom side) -->
+  <rect x="82" y="90" width="40" height="50" fill="#ffe0e0" stroke="#b5410e" stroke-width="1.5"/>
+  <text x="84" y="120" fill="#b5410e" font-size="9" font-weight="bold">WARD-</text>
+  <text x="84" y="131" fill="#b5410e" font-size="9" font-weight="bold">ROBE</text>
+  <!-- collision mark -->
+  <text x="125" y="92" fill="#b5410e" font-size="14" font-weight="bold">⚠</text>
+  <text x="155" y="105" fill="#b5410e" font-size="9">Collision!</text>
+  <!-- solutions text -->
+  <rect x="160" y="130" width="145" height="55" rx="5" fill="#f0f7f4" stroke="#c8e0d8" stroke-width="1"/>
+  <text x="165" y="145" fill="#1a6b6e" font-size="9" font-weight="bold">Solutions:</text>
+  <text x="165" y="158" fill="#1c1a17" font-size="9">1. Move wardrobe away</text>
+  <text x="165" y="170" fill="#1c1a17" font-size="9">2. Door opens inward</text>
+  <text x="165" y="182" fill="#1c1a17" font-size="9">3. Use sliding door</text>
+</svg>
+<p class="diagram-caption">Fig: Door arc (radius 2.5 ft from hinge B₁) sweeps into bedroom and may hit wardrobe near the wall.</p>
+</div>
+<div class="ans-text">Door swings in arc of radius 2.5 ft from B₁. Wardrobe near y-axis will be hit. If door is wider, the arc becomes larger — the wardrobe must move further from the wall or a sliding door used.</div>
+<div class="ans-final"><span>Yes, risk of hitting wardrobe.</span> Solutions: move wardrobe / open outward / use sliding door.</div>
+
+<div class="practice-section"><div class="practice-label">Practice Questions</div>
+<div class="pq"><div class="pq-num">P1.</div><div class="pq-text">A door of width 3 ft is hinged at point H(0, 2) on the y-axis and opens into a room. How far from the y-axis must furniture be placed to avoid being hit?</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">The door sweeps an arc of radius 3 ft. Furniture must be placed more than 3 ft from the y-axis (x &gt; 3).</div></div>
+<div class="pq"><div class="pq-num">P2.</div><div class="pq-text">A door is hinged at (4, 0) on the x-axis and is 2.5 ft wide. It opens upward (into the room in the positive y direction). What region does it sweep?</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">The door sweeps a quarter-circle arc of radius 2.5 ft centred at (4, 0). Any object within 2.5 ft of (4,0) in the y-direction may be hit.</div></div>
+<div class="pq"><div class="pq-num">P3.</div><div class="pq-text">Suggest two advantages of a sliding door over a hinged door from a coordinate geometry perspective.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">1. A sliding door moves along one axis only (e.g., parallel to x-axis) — no arc is swept. 2. It does not occupy any extra room space, so furniture can be placed right next to the wall.</div></div>
+</div>
+</div></div>
+
+<!-- Q3 condensed -->
+<div class="qcard">
+<div class="qcard-head"><span class="qnum">Q 3</span><span class="qtext">Reiaan's bathroom: corners O,F,R,P; shower area SHWR; spaces for washbasin (3×2) and toilet (2×3).</span></div>
+<div class="qcard-body"><span class="ans-label">Solution</span>
+<div class="diagram-wrap">
+<svg viewBox="0 0 280 240" width="280" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono,monospace" font-size="10">
+  <rect width="280" height="240" fill="#fffdf9"/>
+  <defs><pattern id="g3" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e8dfc8" stroke-width="0.5"/></pattern></defs>
+  <rect width="280" height="240" fill="url(#g3)"/>
+  <!-- origin at (120,200), scale 20px/unit, bathroom in negative x -->
+  <line x1="10" y1="200" x2="270" y2="200" stroke="#1c1a17" stroke-width="2"/>
+  <line x1="120" y1="210" x2="120" y2="10" stroke="#1c1a17" stroke-width="2"/>
+  <text x="263" y="196" font-size="12" font-family="Lora,serif" fill="#1c1a17">x</text>
+  <text x="123" y="16" font-size="12" font-family="Lora,serif" fill="#1c1a17">y</text>
+  <!-- bathroom: x:-4 to 0, y:0 to 6 -->
+  <!-- O=(0,0) svg=(120,200), F=(0,6) svg=(120,80), R=(-4,6) svg=(40,80), P=(-4,0) svg=(40,200) -->
+  <rect x="40" y="80" width="80" height="120" fill="#e8f4f4" stroke="#1a6b6e" stroke-width="2.5"/>
+  <!-- labels -->
+  <circle cx="120" cy="200" r="4" fill="#1a6b6e"/><text x="123" y="214" fill="#1a6b6e" font-size="9">O(0,0)</text>
+  <circle cx="120" cy="80" r="4" fill="#1a6b6e"/><text x="123" y="79" fill="#1a6b6e" font-size="9">F(0,6)</text>
+  <circle cx="40" cy="80" r="4" fill="#1a6b6e"/><text x="12" y="79" fill="#1a6b6e" font-size="9">R(−4,6)</text>
+  <circle cx="40" cy="200" r="4" fill="#1a6b6e"/><text x="8" y="213" fill="#1a6b6e" font-size="9">P(−4,0)</text>
+  <!-- shower SHWR: (-2,4) to (0,6) => svg (80,80) to (120,120) -->
+  <rect x="80" y="80" width="40" height="40" fill="#b3e5fc" stroke="#0277bd" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="82" y="104" fill="#0277bd" font-size="9" font-weight="bold">SHOWER</text>
+  <!-- washbasin: (0,0) to (-3,2) => svg (120,200) to (60,160) -->
+  <rect x="60" y="160" width="60" height="40" fill="#fff9c4" stroke="#c9860a" stroke-width="1.5"/>
+  <text x="66" y="183" fill="#c9860a" font-size="8">WASH-</text>
+  <text x="66" y="193" fill="#c9860a" font-size="8">BASIN</text>
+  <!-- toilet: (-3,0) to (-4,3) => svg (40,200) to (60,140) -->
+  <rect x="40" y="140" width="20" height="60" fill="#f3e5f5" stroke="#6a3d8f" stroke-width="1.5"/>
+  <text x="38" y="170" fill="#6a3d8f" font-size="8" transform="rotate(-90,42,170)">TOILET</text>
+  <!-- tick labels -->
+  <text x="103" y="210" fill="#aaa" font-size="8">-1</text>
+  <text x="83" y="210" fill="#aaa" font-size="8">-2</text>
+  <text x="63" y="210" fill="#aaa" font-size="8">-3</text>
+  <text x="43" y="210" fill="#aaa" font-size="8">-4</text>
+  <text x="105" y="182" fill="#aaa" font-size="8">1</text>
+  <text x="105" y="162" fill="#aaa" font-size="8">2</text>
+  <text x="105" y="142" fill="#aaa" font-size="8">3</text>
+  <text x="105" y="122" fill="#aaa" font-size="8">4</text>
+  <text x="105" y="102" fill="#aaa" font-size="8">5</text>
+  <text x="105" y="82" fill="#aaa" font-size="8">6</text>
+</svg>
+<p class="diagram-caption">Fig: Bathroom layout. Blue=shower, Yellow=washbasin, Purple=toilet. All in negative-x region.</p>
+</div>
+<div class="sub-q"><div class="sub-label">(i) Corners</div><div class="ans-final">O=<span>(0,0)</span>, F=<span>(0,6)</span>, R=<span>(−4,6)</span>, P=<span>(−4,0)</span></div></div>
+<div class="sub-q"><div class="sub-label">(ii) Shower SHWR</div><div class="ans-final">Shape: <span>Rectangle</span>. Corners: S(−2,4), H(0,4), W(0,6), R(−2,6)</div></div>
+<div class="sub-q"><div class="sub-label">(iii) Washbasin &amp; Toilet placements</div>
+<div class="ans-final">Washbasin (3×2 ft): corners (0,0),(−3,0),(−3,2),(0,2). &nbsp; Toilet (2×3 ft): corners (−3,0),(−4,0),(−4,3),(−3,3)</div></div>
+
+<div class="practice-section"><div class="practice-label">Practice Questions</div>
+<div class="pq"><div class="pq-num">P1.</div><div class="pq-text">A bathroom has corners at (0,0), (0,5), (−3,5), and (−3,0). What is its area?</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Width = 3, Height = 5. Area = 3 × 5 = 15 sq ft.</div></div>
+<div class="pq"><div class="pq-num">P2.</div><div class="pq-text">A 2×2 ft shower is to be placed in the corner at (−4,6) of the bathroom. What are the coordinates of its four corners?</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Corners: (−4,6), (−2,6), (−2,4), (−4,4). [Shower occupies x: −4 to −2, y: 4 to 6]</div></div>
+<div class="pq"><div class="pq-num">P3.</div><div class="pq-text">Can a 4×3 ft bathtub fit in the bathroom (x: −4 to 0, y: 0 to 6) alongside the existing washbasin (x: 0 to −3, y: 0 to 2) and toilet (x: −3 to −4, y: 0 to 3)?</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Remaining space after washbasin and toilet is limited. A 4×3 ft bathtub (12 sq ft) needs a 4 ft run along one wall, but the bathroom is only 4 ft wide (x: 0 to −4). It could fit at y: 3 to 6 level (above the toilet), occupying (−4,3) to (0,6) = 4×3 ft. Yes, it fits in that upper zone.</div></div>
+</div>
+</div></div>
+
+<!-- Q4 -->
+<div class="qcard">
+<div class="qcard-head"><span class="qnum">Q 4</span><span class="qtext">(i) Dining room 18×15 ft, length from P to A. Corners? (ii) 5×3 dining table centred — coordinates of feet.</span></div>
+<div class="qcard-body"><span class="ans-label">Solution</span>
+<div class="diagram-wrap">
+<svg viewBox="0 0 400 220" width="400" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono,monospace" font-size="10">
+  <rect width="400" height="220" fill="#fffdf9"/>
+  <defs><pattern id="g4" width="18" height="18" patternUnits="userSpaceOnUse"><path d="M 18 0 L 0 0 0 18" fill="none" stroke="#e8dfc8" stroke-width="0.4"/></pattern></defs>
+  <rect width="400" height="220" fill="url(#g4)"/>
+  <!-- origin at (180,60), scale 18px/unit. P=(-6.5,0)svg=(63,60), A=(11.5,0)svg=(387,60) -->
+  <!-- x-axis -->
+  <line x1="10" y1="60" x2="395" y2="60" stroke="#1c1a17" stroke-width="2"/>
+  <text x="388" y="56" font-size="12" font-family="Lora,serif" fill="#1c1a17">x</text>
+  <!-- y-axis -->
+  <line x1="180" y1="10" x2="180" y2="210" stroke="#1c1a17" stroke-width="2"/>
+  <text x="183" y="16" font-size="12" font-family="Lora,serif" fill="#1c1a17">y</text>
+  <!-- dining room: P(-6.5,0) to A(11.5,0) to B(11.5,-15) to C(-6.5,-15) -->
+  <!-- svg: P=(63,60), A=(387,60), B=(387,330)OOB so scale down. Use 10px/unit -->
+  <!-- Redo: origin(120,60), scale 13px/unit. P(-6.5,0)=(35,60), A(11.5,0)=(270,60) B(11.5,-15)=(270,255)OOB -->
+  <!-- Use scale 8px/unit. origin(120,60). P=(-6.5)=120-52=68,y=60; A=(11.5)=120+92=212,y=60; B=212,60+120=180; C=68,180 -->
+  <rect x="68" y="60" width="144" height="120" fill="#fff8e8" stroke="#c9860a" stroke-width="2"/>
+  <!-- corners -->
+  <circle cx="68" cy="60" r="4" fill="#c9860a"/>
+  <circle cx="212" cy="60" r="4" fill="#c9860a"/>
+  <circle cx="212" cy="180" r="4" fill="#c9860a"/>
+  <circle cx="68" cy="180" r="4" fill="#c9860a"/>
+  <text x="45" y="57" fill="#c9860a" font-size="9">P(−6.5,0)</text>
+  <text x="214" y="57" fill="#c9860a" font-size="9">A(11.5,0)</text>
+  <text x="214" y="188" fill="#c9860a" font-size="9">B(11.5,−15)</text>
+  <text x="25" y="188" fill="#c9860a" font-size="9">C(−6.5,−15)</text>
+  <!-- centre of dining room: (2.5,-7.5) svg=(120+20,60+60)=(140,120) -->
+  <circle cx="140" cy="120" r="3" fill="#b5410e"/>
+  <text x="143" y="119" fill="#b5410e" font-size="9">Centre(2.5,−7.5)</text>
+  <!-- dining table: (0,-9)to(5,-9)to(5,-6)to(0,-6). scale 8px/unit -->
+  <!-- (0,-9)=(120,60+72)=(120,132), (5,-9)=(160,132), (5,-6)=(160,108), (0,-6)=(120,108) -->
+  <rect x="120" y="108" width="40" height="24" fill="#fde8c8" stroke="#b5410e" stroke-width="2"/>
+  <text x="122" y="124" fill="#b5410e" font-size="9" font-weight="bold">TABLE</text>
+  <!-- table feet dots -->
+  <circle cx="120" cy="132" r="3" fill="#b5410e"/>
+  <circle cx="160" cy="132" r="3" fill="#b5410e"/>
+  <circle cx="160" cy="108" r="3" fill="#b5410e"/>
+  <circle cx="120" cy="108" r="3" fill="#b5410e"/>
+  <text x="95" y="137" fill="#b5410e" font-size="8">(0,−9)</text>
+  <text x="162" y="137" fill="#b5410e" font-size="8">(5,−9)</text>
+  <text x="162" y="106" fill="#b5410e" font-size="8">(5,−6)</text>
+  <text x="95" y="106" fill="#b5410e" font-size="8">(0,−6)</text>
+  <!-- dimension labels -->
+  <text x="115" y="55" fill="#1a6b6e" font-size="9">← 18 ft →</text>
+  <text x="218" y="120" fill="#1a6b6e" font-size="9">15 ft</text>
+</svg>
+<p class="diagram-caption">Fig: Dining room (gold) with centred 5×3 ft table (orange). Table feet at (0,−9),(5,−9),(5,−6),(0,−6).</p>
+</div>
+<div class="sub-q"><div class="sub-label">(i) Corners</div>
+<div class="steps-box"><div class="step-title">Setup</div><ol>
+<li>A = (11.5, 0); length 18 ft along x-axis: P = (11.5−18, 0) = (−6.5, 0).</li>
+<li>Width 15 ft in −y direction: B=(11.5,−15), C=(−6.5,−15).</li>
+</ol></div>
+<div class="ans-final">P=<span>(−6.5, 0)</span>, A=<span>(11.5, 0)</span>, B=<span>(11.5, −15)</span>, C=<span>(−6.5, −15)</span></div></div>
+
+<div class="sub-q"><div class="sub-label">(ii) Table feet (centred)</div>
+<div class="steps-box"><div class="step-title">Centring calculation</div><ol>
+<li>Centre x = (−6.5+11.5)/2 = <strong>2.5</strong></li>
+<li>Centre y = (0+(−15))/2 = <strong>−7.5</strong></li>
+<li>Table 5×3 ft: half-length=2.5, half-width=1.5</li>
+<li>Feet: (0,−9), (5,−9), (5,−6), (0,−6)</li>
+</ol></div>
+<div class="ans-final">Feet: <span>(0,−9), (5,−9), (5,−6), (0,−6)</span></div></div>
+
+<div class="practice-section"><div class="practice-label">Practice Questions</div>
+<div class="pq"><div class="pq-num">P1.</div><div class="pq-text">A rectangular hall has corners at (−5,0), (10,0), (10,−12), (−5,−12). Find the coordinates of its exact centre.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Centre x = (−5+10)/2 = 2.5; Centre y = (0+(−12))/2 = −6. Centre = (2.5, −6).</div></div>
+<div class="pq"><div class="pq-num">P2.</div><div class="pq-text">A 4×2 ft coffee table is centred at (3, −5). Write the coordinates of its four feet.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Half-length=2, half-width=1. Feet: (1,−4), (5,−4), (5,−6), (1,−6).</div></div>
+<div class="pq"><div class="pq-num">P3.</div><div class="pq-text">A dining room extends from (−8,0) to (7,0) along the x-axis and is 10 ft wide (negative y). A 6×3 ft table is centred in the room. Find the centre and the coordinates of the four table feet.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Room centre = ((−8+7)/2, (0+(−10))/2) = (−0.5, −5). Table half-lengths: 3 and 1.5. Feet: (−3.5,−3.5), (2.5,−3.5), (2.5,−6.5), (−3.5,−6.5).</div></div>
+</div>
+</div></div>
+</div><!-- end ex12 -->
+
+<!-- ════════════════════════════════════════════
+     END-OF-CHAPTER
+════════════════════════════════════════════ -->
+<div class="section" id="sec-eoc">
+<div class="section-head"><h2>End-of-Chapter Exercises</h2><p>Questions 1–16 including all starred ★ challenge problems — with diagrams.</p></div>
+
+<!-- Q1 -->
+<div class="qcard">
+<div class="qcard-head"><span class="qnum">Q 1</span><span class="qtext">What are the x-coordinate and y-coordinate of the point of intersection of the two axes?</span></div>
+<div class="qcard-body">
+<div class="diagram-wrap">
+<svg viewBox="0 0 200 140" width="200" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono,monospace" font-size="11">
+  <rect width="200" height="140" fill="#fffdf9"/>
+  <line x1="10" y1="70" x2="190" y2="70" stroke="#1c1a17" stroke-width="2"/>
+  <line x1="100" y1="10" x2="100" y2="130" stroke="#1c1a17" stroke-width="2"/>
+  <text x="183" y="66" font-size="12" font-family="Lora,serif">x</text>
+  <text x="103" y="16" font-size="12" font-family="Lora,serif">y</text>
+  <circle cx="100" cy="70" r="8" fill="#b5410e"/>
+  <text x="108" y="88" fill="#b5410e" font-size="11" font-weight="bold">O(0, 0)</text>
+  <text x="30" y="50" fill="#1a6b6e" font-size="10">x = 0</text>
+  <text x="115" y="50" fill="#1a6b6e" font-size="10">y = 0</text>
+  <text x="30" y="110" fill="#6b6356" font-size="9">Intersection = Origin</text>
+</svg>
+<p class="diagram-caption">The two axes meet at the Origin O(0,0).</p>
+</div>
+<div class="ans-final">x-coordinate = <span>0</span>, y-coordinate = <span>0</span>. The point is the Origin O(0,0).</div>
+<div class="practice-section"><div class="practice-label">Practice Questions</div>
+<div class="pq"><div class="pq-num">P1.</div><div class="pq-text">A point lies on both the x-axis and the y-axis simultaneously. What must its coordinates be?</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">(0, 0) — the Origin. It is the only point on both axes.</div></div>
+<div class="pq"><div class="pq-num">P2.</div><div class="pq-text">Point A is 4 units to the right of the origin on the x-axis. Point B is 3 units above the origin on the y-axis. Write the coordinates of A and B.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">A = (4, 0). B = (0, 3).</div></div>
+<div class="pq"><div class="pq-num">P3.</div><div class="pq-text">Name the quadrant (or axis/origin) for each point: (a) (5, 0) (b) (0, −3) (c) (0, 0) (d) (−1, −1)</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">(a) On x-axis. (b) On y-axis. (c) Origin. (d) Quadrant III.</div></div>
+</div>
+</div></div>
+
+<!-- Q2 -->
+<div class="qcard">
+<div class="qcard-head"><span class="qnum">Q 2</span><span class="qtext">Point W has x-coordinate = −5. Predict coordinates of H on the vertical line through W. Which quadrants?</span></div>
+<div class="qcard-body">
+<div class="diagram-wrap">
+<svg viewBox="0 0 260 200" width="260" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono,monospace" font-size="10">
+  <rect width="260" height="200" fill="#fffdf9"/>
+  <line x1="10" y1="100" x2="250" y2="100" stroke="#1c1a17" stroke-width="2"/>
+  <line x1="130" y1="10" x2="130" y2="190" stroke="#1c1a17" stroke-width="2"/>
+  <text x="243" y="96" font-size="12" font-family="Lora,serif">x</text>
+  <text x="133" y="16" font-size="12" font-family="Lora,serif">y</text>
+  <!-- vertical line x=-5. origin at (130,100), 1unit=20px. x=-5 svg=130-100=30 -->
+  <line x1="30" y1="10" x2="30" y2="190" stroke="#b5410e" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="2" y="25" fill="#b5410e" font-size="9">x=−5</text>
+  <!-- W point on x-axis -->
+  <circle cx="30" cy="100" r="5" fill="#1a6b6e"/>
+  <text x="33" y="114" fill="#1a6b6e" font-size="9">W(−5,0)</text>
+  <!-- H in Q2 -->
+  <circle cx="30" cy="45" r="5" fill="#c9860a"/>
+  <text x="33" y="44" fill="#c9860a" font-size="9">H(−5,y) Q II (y&gt;0)</text>
+  <!-- H in Q3 -->
+  <circle cx="30" cy="155" r="5" fill="#6a3d8f"/>
+  <text x="33" y="160" fill="#6a3d8f" font-size="9">H(−5,y) Q III (y&lt;0)</text>
+  <!-- quadrant labels -->
+  <text x="65" y="60" fill="#aaa" font-size="10">Q II</text>
+  <text x="170" y="60" fill="#aaa" font-size="10">Q I</text>
+  <text x="65" y="150" fill="#aaa" font-size="10">Q III</text>
+  <text x="170" y="150" fill="#aaa" font-size="10">Q IV</text>
+</svg>
+<p class="diagram-caption">Fig: Vertical line x=−5. H(−5,y) lies in Q II when y>0, Q III when y&lt;0.</p>
+</div>
+<table><tr><th>y value</th><th>Quadrant of H</th></tr>
+<tr><td>y &gt; 0</td><td>Quadrant II (x&lt;0, y&gt;0)</td></tr>
+<tr><td>y &lt; 0</td><td>Quadrant III (x&lt;0, y&lt;0)</td></tr>
+<tr><td>y = 0</td><td>On x-axis</td></tr></table>
+<div class="ans-final">H = <span>(−5, y)</span> for any y. Quadrant II or III depending on sign of y.</div>
+<div class="practice-section"><div class="practice-label">Practice Questions</div>
+<div class="pq"><div class="pq-num">P1.</div><div class="pq-text">Point K has y-coordinate = 4. On which horizontal line does it lie? Which quadrants can K be in?</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">K lies on horizontal line y=4. If x&gt;0 → Q I. If x&lt;0 → Q II. If x=0 → on y-axis.</div></div>
+<div class="pq"><div class="pq-num">P2.</div><div class="pq-text">All points with x-coordinate = 3: what is the name of the line they form? Can any of them be in Q II?</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">They form a vertical line x=3, parallel to the y-axis. No — Q II requires x &lt; 0, but here x=3 &gt; 0. They are all in Q I (y&gt;0) or Q IV (y&lt;0).</div></div>
+<div class="pq"><div class="pq-num">P3.</div><div class="pq-text">Two points share the same x-coordinate −7. One is in Q II and one is in Q III. Write one possible pair of coordinates.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Example: (−7, 5) in Q II and (−7, −3) in Q III. [Any y&gt;0 for Q II, any y&lt;0 for Q III]</div></div>
+</div>
+</div></div>
+
+<!-- Q3 -->
+<div class="qcard">
+<div class="qcard-head"><span class="qnum">Q 3</span><span class="qtext">R(3,0), A(0,−2), M(−5,−2), P(−5,2) joined in order. (i) Perpendicular sides (ii) Parallel to axis (iii) Mirror images</span></div>
+<div class="qcard-body">
+<div class="diagram-wrap">
+<svg viewBox="0 0 320 220" width="320" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono,monospace" font-size="10">
+  <rect width="320" height="220" fill="#fffdf9"/>
+  <defs><pattern id="g5" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e8dfc8" stroke-width="0.5"/></pattern></defs>
+  <rect width="320" height="220" fill="url(#g5)"/>
+  <!-- origin at (160,110), scale 20px -->
+  <line x1="10" y1="110" x2="310" y2="110" stroke="#1c1a17" stroke-width="2"/>
+  <line x1="160" y1="10" x2="160" y2="210" stroke="#1c1a17" stroke-width="2"/>
+  <text x="303" y="106" font-size="12" font-family="Lora,serif">x</text>
+  <text x="163" y="16" font-size="12" font-family="Lora,serif">y</text>
+  <!-- tick labels -->
+  <text x="178" y="122" fill="#aaa" font-size="8">1</text><text x="198" y="122" fill="#aaa" font-size="8">2</text>
+  <text x="218" y="122" fill="#aaa" font-size="8">3</text>
+  <text x="118" y="122" fill="#aaa" font-size="8">-2</text><text x="98" y="122" fill="#aaa" font-size="8">-3</text>
+  <text x="58" y="122" fill="#aaa" font-size="8">-5</text>
+  <text x="148" y="92" fill="#aaa" font-size="8">2</text><text x="148" y="72" fill="#aaa" font-size="8">3</text>
+  <text x="148" y="152" fill="#aaa" font-size="8">-2</text>
+  <!-- R=(3,0) svg=(220,110); A=(0,-2) svg=(160,150); M=(-5,-2)svg=(60,150); P=(-5,2)svg=(60,70) -->
+  <polygon points="220,110 160,150 60,150 60,70" fill="#fef3e2" stroke="#b5410e" stroke-width="2.5" fill-opacity="0.5"/>
+  <!-- vertices -->
+  <circle cx="220" cy="110" r="6" fill="#b5410e"/>
+  <circle cx="160" cy="150" r="6" fill="#1a6b6e"/>
+  <circle cx="60" cy="150" r="6" fill="#6a3d8f"/>
+  <circle cx="60" cy="70" r="6" fill="#c9860a"/>
+  <text x="224" y="108" fill="#b5410e" font-size="10" font-weight="bold">R(3,0)</text>
+  <text x="163" y="165" fill="#1a6b6e" font-size="10" font-weight="bold">A(0,−2)</text>
+  <text x="20" y="165" fill="#6a3d8f" font-size="10" font-weight="bold">M(−5,−2)</text>
+  <text x="20" y="68" fill="#c9860a" font-size="10" font-weight="bold">P(−5,2)</text>
+  <!-- right angle mark at M -->
+  <rect x="60" y="140" width="10" height="10" fill="none" stroke="#1c1a17" stroke-width="1.5"/>
+  <!-- AM horizontal annotation -->
+  <text x="100" y="165" fill="#1a6b6e" font-size="9">AM ∥ x-axis (y=−2)</text>
+  <!-- MP vertical annotation -->
+  <text x="28" y="110" fill="#c9860a" font-size="9" transform="rotate(-90,28,110)">MP ∥ y-axis (x=−5)</text>
+  <!-- mirror annotation -->
+  <line x1="160" y1="65" x2="160" y2="155" stroke="#aaa" stroke-width="1" stroke-dasharray="3,3"/>
+  <text x="165" y="80" fill="#888" font-size="8">x-axis</text>
+  <text x="165" y="175" fill="#888" font-size="8">M↔P mirror</text>
+</svg>
+<p class="diagram-caption">Fig: Quadrilateral RAMP. Right angle at M (AM⊥MP). AM horizontal, MP vertical. M and P are x-axis mirrors.</p>
+</div>
+<div class="sub-q"><div class="sub-label">(i) Perpendicular sides</div><div class="ans-final"><span>AM ⊥ MP</span> — AM is horizontal (slope 0), MP is vertical (undefined slope).</div></div>
+<div class="sub-q"><div class="sub-label">(ii) Parallel to axis</div><div class="ans-final">AM ∥ x-axis (both at y=−2). &nbsp; MP ∥ y-axis (both at x=−5).</div></div>
+<div class="sub-q"><div class="sub-label">(iii) Mirror images</div><div class="ans-final">M(−5,−2) and P(−5,2) — same x, y-values are negatives → mirror images in the <span>x-axis</span>.</div></div>
+
+<div class="practice-section"><div class="practice-label">Practice Questions</div>
+<div class="pq"><div class="pq-num">P1.</div><div class="pq-text">Plot A(4,3), B(−2,3), C(−2,−1). Find the fourth point D so that ABCD is a rectangle. Identify which sides are parallel to the axes.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">D = (4,−1). AB and CD are parallel to x-axis (y=3 and y=−1). BC and AD are parallel to y-axis (x=−2 and x=4).</div></div>
+<div class="pq"><div class="pq-num">P2.</div><div class="pq-text">Which pairs among (2,5), (2,−5), (−2,5), (−2,−5) are mirror images in the x-axis? In the y-axis?</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Mirror in x-axis (same x, opposite y): (2,5)↔(2,−5) and (−2,5)↔(−2,−5). Mirror in y-axis (opposite x, same y): (2,5)↔(−2,5) and (2,−5)↔(−2,−5).</div></div>
+<div class="pq"><div class="pq-num">P3.</div><div class="pq-text">For quadrilateral RAMP with R(3,0), A(0,−2), M(−5,−2), P(−5,2), find the perimeter. (Use the distance formula.)</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">RA=√(9+4)=√13. AM=5. MP=4. PR=√(64+4)=√68=2√17. Perimeter = √13 + 5 + 4 + 2√17 ≈ 3.61+5+4+8.25 ≈ 20.86 units.</div></div>
+</div>
+</div></div>
+
+<!-- Q4 -->
+<div class="qcard">
+<div class="qcard-head"><span class="qnum">Q 4</span><span class="qtext">Plot Z(5,−6). Construct right-angled triangle IZN and find all three side lengths.</span></div>
+<div class="qcard-body">
+<div class="diagram-wrap">
+<svg viewBox="0 0 280 220" width="280" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono,monospace" font-size="10">
+  <rect width="280" height="220" fill="#fffdf9"/>
+  <defs><pattern id="g6" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e8dfc8" stroke-width="0.5"/></pattern></defs>
+  <rect width="280" height="220" fill="url(#g6)"/>
+  <!-- origin at (80,80), scale 20px -->
+  <line x1="10" y1="80" x2="270" y2="80" stroke="#1c1a17" stroke-width="2"/>
+  <line x1="80" y1="10" x2="80" y2="210" stroke="#1c1a17" stroke-width="2"/>
+  <text x="263" y="76" font-size="12" font-family="Lora,serif">x</text>
+  <text x="83" y="16" font-size="12" font-family="Lora,serif">y</text>
+  <!-- Z=(5,-6) svg=(80+100,80+120)=(180,200). I=(5,0)svg=(180,80). N=(0,-6)svg=(80,200) -->
+  <polygon points="180,80 80,200 180,200" fill="#fef3e2" stroke="#b5410e" stroke-width="2" fill-opacity="0.6"/>
+  <!-- right angle at Z -->
+  <rect x="170" y="190" width="10" height="10" fill="none" stroke="#1c1a17" stroke-width="1.5"/>
+  <!-- vertices -->
+  <circle cx="180" cy="80" r="5" fill="#1a6b6e"/>
+  <circle cx="80" cy="200" r="5" fill="#c9860a"/>
+  <circle cx="180" cy="200" r="5" fill="#b5410e"/>
+  <text x="184" y="78" fill="#1a6b6e" font-size="10" font-weight="bold">I(5,0)</text>
+  <text x="40" y="210" fill="#c9860a" font-size="10" font-weight="bold">N(0,−6)</text>
+  <text x="184" y="210" fill="#b5410e" font-size="10" font-weight="bold">Z(5,−6)</text>
+  <!-- side labels -->
+  <text x="182" y="145" fill="#b5410e" font-size="10">IZ = 6</text>
+  <text x="115" y="210" fill="#c9860a" font-size="10">ZN = 5</text>
+  <text x="100" y="135" fill="#1a6b6e" font-size="10">IN = √61</text>
+  <!-- dashed construction lines -->
+  <line x1="80" y1="80" x2="80" y2="200" stroke="#aaa" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="80" y1="80" x2="180" y2="80" stroke="#aaa" stroke-width="1" stroke-dasharray="3,3"/>
+  <!-- axis labels -->
+  <text x="97" y="93" fill="#aaa" font-size="8">1</text><text x="117" y="93" fill="#aaa" font-size="8">2</text>
+  <text x="137" y="93" fill="#aaa" font-size="8">3</text><text x="157" y="93" fill="#aaa" font-size="8">4</text>
+  <text x="177" y="93" fill="#aaa" font-size="8">5</text>
+  <text x="67" y="102" fill="#aaa" font-size="8">-1</text><text x="67" y="122" fill="#aaa" font-size="8">-2</text>
+  <text x="67" y="142" fill="#aaa" font-size="8">-3</text><text x="67" y="162" fill="#aaa" font-size="8">-4</text>
+  <text x="67" y="182" fill="#aaa" font-size="8">-5</text><text x="67" y="202" fill="#aaa" font-size="8">-6</text>
+</svg>
+<p class="diagram-caption">Fig: Right-angled triangle IZN with right angle at Z(5,−6). Legs: IZ=6, ZN=5. Hypotenuse IN=√61.</p>
+</div>
+<div class="steps-box"><div class="step-title">Side lengths</div><ol>
+<li>I=(5,0), Z=(5,−6), N=(0,−6). Right angle at Z.</li>
+<li>IZ = |0−(−6)| = <strong>6 units</strong> (vertical leg)</li>
+<li>ZN = |5−0| = <strong>5 units</strong> (horizontal leg)</li>
+<li>IN = √(5²+6²) = √61 ≈ <strong>7.81 units</strong> (hypotenuse)</li>
+</ol></div>
+<div class="ans-final">IZ = <span>6</span>, ZN = <span>5</span>, IN = <span>√61 ≈ 7.81 units</span></div>
+<div class="practice-section"><div class="practice-label">Practice Questions</div>
+<div class="pq"><div class="pq-num">P1.</div><div class="pq-text">Plot K(4, −3). Using K and the origin O(0,0), construct a right-angled triangle. Find all three sides.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Use O(0,0), A(4,0), K(4,−3). OA=4, AK=3, OK=√(16+9)=5. (Classic 3-4-5 triangle!)</div></div>
+<div class="pq"><div class="pq-num">P2.</div><div class="pq-text">A right-angled triangle has its right angle at C(6, −8) and other vertices at A(6, 0) and B(0, −8). Find the hypotenuse AB.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">AC=8 (vertical), BC=6 (horizontal). AB=√(6²+8²)=√100=10 units.</div></div>
+<div class="pq"><div class="pq-num">P3.</div><div class="pq-text">Two points are P(−3, 4) and Q(5, −2). Find the distance PQ.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">PQ = √((5−(−3))²+(−2−4)²) = √(64+36) = √100 = 10 units.</div></div>
+</div>
+</div></div>
+
+<!-- Q5 -->
+<div class="qcard">
+<div class="qcard-head"><span class="qnum">Q 5</span><span class="qtext">What would a coordinate system without negative numbers look like? Could it locate all 2-D points?</span></div>
+<div class="qcard-body">
+<div class="diagram-wrap">
+<svg viewBox="0 0 300 180" width="300" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono,monospace" font-size="10">
+  <rect width="300" height="180" fill="#fffdf9"/>
+  <!-- left: only Q1 system -->
+  <rect x="10" y="10" width="120" height="120" fill="#e8f4f4" stroke="#1a6b6e" stroke-width="2"/>
+  <line x1="10" y1="130" x2="130" y2="130" stroke="#1c1a17" stroke-width="2"/>
+  <line x1="10" y1="10" x2="10" y2="130" stroke="#1c1a17" stroke-width="2"/>
+  <text x="14" y="75" fill="#1a6b6e" font-size="11" font-weight="bold">Q I only</text>
+  <text x="14" y="90" fill="#1a6b6e" font-size="9">(x≥0, y≥0)</text>
+  <text x="12" y="145" fill="#888" font-size="9">Without negatives</text>
+  <text x="12" y="158" fill="#b5410e" font-size="9">Only ¼ of plane!</text>
+  <!-- right: full 4-quadrant -->
+  <line x1="170" y1="90" x2="290" y2="90" stroke="#1c1a17" stroke-width="2"/>
+  <line x1="230" y1="20" x2="230" y2="160" stroke="#1c1a17" stroke-width="2"/>
+  <rect x="170" y="20" width="60" height="70" fill="#e8f4f4" stroke="#1a6b6e" stroke-width="1" fill-opacity="0.6"/>
+  <rect x="230" y="20" width="60" height="70" fill="#fbeee8" stroke="#b5410e" stroke-width="1" fill-opacity="0.4"/>
+  <rect x="170" y="90" width="60" height="70" fill="#f3edf8" stroke="#6a3d8f" stroke-width="1" fill-opacity="0.4"/>
+  <rect x="230" y="90" width="60" height="70" fill="#e8f4ed" stroke="#1a6b6a" stroke-width="1" fill-opacity="0.4"/>
+  <text x="174" y="58" fill="#1a6b6e" font-size="9">Q II</text>
+  <text x="245" y="58" fill="#b5410e" font-size="9">Q I</text>
+  <text x="174" y="128" fill="#6a3d8f" font-size="9">Q III</text>
+  <text x="245" y="128" fill="#1a6b3a" font-size="9">Q IV</text>
+  <text x="175" y="168" fill="#888" font-size="9">With negatives — full plane</text>
+</svg>
+<p class="diagram-caption">Without negatives: only Quadrant I is accessible. With negatives: all four quadrants.</p>
+</div>
+<div class="ans-final"><span>No</span> — without negatives only Quadrant I (¼ of the plane) can be described. Three quadrants are inaccessible.</div>
+<div class="practice-section"><div class="practice-label">Practice Questions</div>
+<div class="pq"><div class="pq-num">P1.</div><div class="pq-text">Which Indian mathematician's work made negative numbers in algebra possible, enabling the full four-quadrant plane?</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Brahmagupta (c. 628 CE) formalised zero and negative numbers as algebraic entities.</div></div>
+<div class="pq"><div class="pq-num">P2.</div><div class="pq-text">If a coordinate system only allowed integers (no fractions), what kind of points could NOT be plotted?</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Points with non-integer coordinates like (1.5, 3) or (√2, 0) could not be plotted exactly. Only lattice points (integer coordinates) would be accessible.</div></div>
+<div class="pq"><div class="pq-num">P3.</div><div class="pq-text">How many quadrants would exist if only the x-axis existed (no y-axis)?</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">With only the x-axis, we have a 1-D number line with 2 regions (positive and negative sides), not quadrants. Quadrants require two axes.</div></div>
+</div>
+</div></div>
+
+<!-- Q6 ★ -->
+<div class="qcard">
+<div class="qcard-head"><span class="qnum">★ Q 6</span><span class="qtext">Are M(−3,−4), A(0,0), G(6,8) collinear? Method without plotting?</span></div>
+<div class="qcard-body">
+<div class="diagram-wrap">
+<svg viewBox="0 0 300 220" width="300" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono,monospace" font-size="10">
+  <rect width="300" height="220" fill="#fffdf9"/>
+  <defs><pattern id="g7" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e8dfc8" stroke-width="0.5"/></pattern></defs>
+  <rect width="300" height="220" fill="url(#g7)"/>
+  <!-- origin at (120,140), scale 20px -->
+  <line x1="10" y1="140" x2="290" y2="140" stroke="#1c1a17" stroke-width="2"/>
+  <line x1="120" y1="10" x2="120" y2="210" stroke="#1c1a17" stroke-width="2"/>
+  <text x="283" y="136" font-size="12" font-family="Lora,serif">x</text>
+  <text x="123" y="16" font-size="12" font-family="Lora,serif">y</text>
+  <!-- M=(-3,-4) svg=(120-60,140+80)=(60,220)OOB use scale 15. origin(120,140) -->
+  <!-- M=(-3,-4)=(120-45,140+60)=(75,200); A=(0,0)=(120,140); G=(6,8)=(120+90,140-120)=(210,20) -->
+  <line x1="75" y1="200" x2="210" y2="20" stroke="#b5410e" stroke-width="2.5"/>
+  <circle cx="75" cy="200" r="6" fill="#1a6b6e"/><text x="40" y="208" fill="#1a6b6e" font-size="10" font-weight="bold">M(−3,−4)</text>
+  <circle cx="120" cy="140" r="6" fill="#c9860a"/><text x="124" y="135" fill="#c9860a" font-size="10" font-weight="bold">A(0,0)</text>
+  <circle cx="210" cy="20" r="6" fill="#6a3d8f"/><text x="214" y="19" fill="#6a3d8f" font-size="10" font-weight="bold">G(6,8)</text>
+  <!-- slope labels -->
+  <text x="130" y="185" fill="#b5410e" font-size="9">slope MA = 4/3</text>
+  <text x="148" y="90" fill="#b5410e" font-size="9">slope AG = 4/3</text>
+  <text x="130" y="200" fill="#1a6b6e" font-size="9">All slopes equal → collinear!</text>
+</svg>
+<p class="diagram-caption">Fig: M, A, G lie on the same straight line (all pairwise slopes = 4/3). The line passes through origin.</p>
+</div>
+<div class="steps-box"><div class="step-title">Method: Equal slopes → collinear</div><ol>
+<li>Slope MA = (0−(−4))/(0−(−3)) = 4/3</li>
+<li>Slope AG = (8−0)/(6−0) = 4/3</li>
+<li>Slope MG = (8−(−4))/(6−(−3)) = 12/9 = 4/3</li>
+<li>All equal → <strong>collinear</strong>.</li>
+</ol></div>
+<div class="ans-final">Yes, M, A, G are <span>collinear</span>. All pairwise slopes = <span>4/3</span>.</div>
+<div class="note-box">Alternative: Area of triangle = ½|x₁(y₂−y₃)+x₂(y₃−y₁)+x₃(y₁−y₂)| = 0 if collinear. Check: ½|−3(0−8)+0(8−(−4))+6(−4−0)| = ½|24+0−24| = 0 ✓</div>
+<div class="practice-section"><div class="practice-label">Practice Questions</div>
+<div class="pq"><div class="pq-num">P1.</div><div class="pq-text">Are P(1,2), Q(3,6), R(5,10) collinear? Use the slope method.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Slope PQ=(6−2)/(3−1)=2. Slope QR=(10−6)/(5−3)=2. Equal → Yes, collinear.</div></div>
+<div class="pq"><div class="pq-num">P2.</div><div class="pq-text">Check using the area method: are A(2,1), B(4,5), C(6,8) collinear?</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Area = ½|2(5−8)+4(8−1)+6(1−5)| = ½|−6+28−24| = ½|−2| = 1 ≠ 0. NOT collinear.</div></div>
+<div class="pq"><div class="pq-num">P3.</div><div class="pq-text">Three points K(0,0), L(a,b), M(2a,2b) — are they always collinear for any values of a and b (where a≠0)?</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Slope KL = b/a. Slope LM = (2b−b)/(2a−a) = b/a. Always equal → always collinear! M is just double the distance from the origin compared to L.</div></div>
+</div>
+</div></div>
+
+<!-- Q7 ★ -->
+<div class="qcard">
+<div class="qcard-head"><span class="qnum">★ Q 7</span><span class="qtext">Are R(−5,−1), B(−2,−5), C(4,−12) collinear?</span></div>
+<div class="qcard-body">
+<div class="diagram-wrap">
+<svg viewBox="0 0 300 200" width="300" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono,monospace" font-size="10">
+  <rect width="300" height="200" fill="#fffdf9"/>
+  <defs><pattern id="g8" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e8dfc8" stroke-width="0.5"/></pattern></defs>
+  <rect width="300" height="200" fill="url(#g8)"/>
+  <!-- scale 15px/unit, origin(180,40) -->
+  <line x1="10" y1="40" x2="290" y2="40" stroke="#1c1a17" stroke-width="2"/>
+  <line x1="180" y1="10" x2="180" y2="190" stroke="#1c1a17" stroke-width="2"/>
+  <text x="283" y="36" font-size="12" font-family="Lora,serif">x</text>
+  <text x="183" y="16" font-size="12" font-family="Lora,serif">y</text>
+  <!-- R=(-5,-1) svg=(180-75,40+15)=(105,55); B=(-2,-5)svg=(180-30,40+75)=(150,115); C=(4,-12)svg=(180+60,40+180)=(240,220)OOB -->
+  <!-- use scale 12. origin(180,30). R=(105,42); B=(156,90); C=(228,174) -->
+  <circle cx="105" cy="42" r="6" fill="#1a6b6e"/><text x="65" y="42" fill="#1a6b6e" font-size="10" font-weight="bold">R(−5,−1)</text>
+  <circle cx="156" cy="90" r="6" fill="#c9860a"/><text x="116" y="90" fill="#c9860a" font-size="10" font-weight="bold">B(−2,−5)</text>
+  <circle cx="228" cy="174" r="6" fill="#6a3d8f"/><text x="232" y="174" fill="#6a3d8f" font-size="10" font-weight="bold">C(4,−12)</text>
+  <!-- line RB -->
+  <line x1="75" y1="10" x2="175" y2="110" stroke="#b5410e" stroke-width="2" stroke-dasharray="5,3"/>
+  <!-- line BC -->
+  <line x1="156" y1="90" x2="248" y2="186" stroke="#1a6b6e" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="80" y="180" fill="#b5410e" font-size="9">slope RB = −4/3</text>
+  <text x="80" y="165" fill="#1a6b6e" font-size="9">slope BC = −7/6</text>
+  <text x="80" y="150" fill="#888" font-size="9">−4/3 ≠ −7/6 → NOT collinear</text>
+</svg>
+<p class="diagram-caption">Fig: R, B, C have different pairwise slopes — they do NOT lie on the same line.</p>
+</div>
+<div class="steps-box"><div class="step-title">Slope check</div><ol>
+<li>Slope RB = (−5−(−1))/(−2−(−5)) = −4/3</li>
+<li>Slope BC = (−12−(−5))/(4−(−2)) = −7/6</li>
+<li>−4/3 = −8/6 ≠ −7/6 → <strong>NOT collinear</strong></li>
+</ol></div>
+<div class="ans-final"><span>No</span>, R, B, C are NOT collinear. Slopes differ: <span>−4/3 ≠ −7/6</span>.</div>
+<div class="practice-section"><div class="practice-label">Practice Questions</div>
+<div class="pq"><div class="pq-num">P1.</div><div class="pq-text">Are A(−4,2), B(0,0), C(2,−1) collinear?</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Slope AB = (0−2)/(0−(−4)) = −1/2. Slope BC = (−1−0)/(2−0) = −1/2. Equal → Yes, collinear.</div></div>
+<div class="pq"><div class="pq-num">P2.</div><div class="pq-text">Find the value of k if P(1, k), Q(3, 2), R(7, 8) are collinear.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Slope QR = (8−2)/(7−3) = 3/2. Slope PQ must also = 3/2: (2−k)/(3−1) = 3/2 → 2−k=3 → k = −1.</div></div>
+<div class="pq"><div class="pq-num">P3.</div><div class="pq-text">Without using slope, use the area method to check if D(0,4), E(3,1), F(6,−2) are collinear.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Area = ½|0(1−(−2))+3(−2−4)+6(4−1)| = ½|0−18+18| = 0. Collinear ✓</div></div>
+</div>
+</div></div>
+
+<!-- Q8 ★ -->
+<div class="qcard">
+<div class="qcard-head"><span class="qnum">★ Q 8</span><span class="qtext">Using origin as vertex: (i) Right-angled isosceles triangle. (ii) Isosceles with one vertex in Q III, one in Q IV.</span></div>
+<div class="qcard-body">
+<div class="diagram-wrap">
+<svg viewBox="0 0 380 200" width="380" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono,monospace" font-size="10">
+  <rect width="380" height="200" fill="#fffdf9"/>
+  <defs><pattern id="g9" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e8dfc8" stroke-width="0.5"/></pattern></defs>
+  <rect width="380" height="200" fill="url(#g9)"/>
+  <!-- (i) origin at (80,120), scale 20px. O=(0,0)(80,120), A=(4,0)(160,120), B=(0,4)(80,40) -->
+  <line x1="10" y1="120" x2="175" y2="120" stroke="#1c1a17" stroke-width="1.5"/>
+  <line x1="80" y1="10" x2="80" y2="185" stroke="#1c1a17" stroke-width="1.5"/>
+  <polygon points="80,120 160,120 80,40" fill="#fef3e2" stroke="#b5410e" stroke-width="2" fill-opacity="0.7"/>
+  <rect x="80" y="110" width="10" height="10" fill="none" stroke="#1c1a17" stroke-width="1.5"/>
+  <circle cx="80" cy="120" r="5" fill="#1c1a17"/>
+  <circle cx="160" cy="120" r="5" fill="#b5410e"/>
+  <circle cx="80" cy="40" r="5" fill="#b5410e"/>
+  <text x="60" y="135" fill="#1c1a17" font-size="9">O(0,0)</text>
+  <text x="163" y="130" fill="#b5410e" font-size="9">A(4,0)</text>
+  <text x="83" y="38" fill="#b5410e" font-size="9">B(0,4)</text>
+  <text x="100" y="90" fill="#b5410e" font-size="9">AB=4√2</text>
+  <text x="22" y="78" fill="#1a6b6e" font-size="9">OA=OB=4</text>
+  <text x="22" y="92" fill="#1a6b6e" font-size="9">Right angle at O</text>
+  <text x="20" y="165" fill="#888" font-size="9">(i) Right-angled isosceles</text>
+  <!-- (ii) origin at (270,80), scale 18px. O(0,0)(270,80), P(-3,-4)(270-54,80+72)=(216,152), Q(3,-4)(270+54,80+72)=(324,152) -->
+  <line x1="200" y1="80" x2="370" y2="80" stroke="#1c1a17" stroke-width="1.5"/>
+  <line x1="270" y1="10" x2="270" y2="190" stroke="#1c1a17" stroke-width="1.5"/>
+  <polygon points="270,80 216,152 324,152" fill="#f0f4ff" stroke="#1a6b6e" stroke-width="2" fill-opacity="0.7"/>
+  <circle cx="270" cy="80" r="5" fill="#1c1a17"/>
+  <circle cx="216" cy="152" r="5" fill="#1a6b6e"/>
+  <circle cx="324" cy="152" r="5" fill="#1a6b6e"/>
+  <text x="273" y="78" fill="#1c1a17" font-size="9">O(0,0)</text>
+  <text x="188" y="162" fill="#1a6b6e" font-size="9">P(−3,−4)</text>
+  <text x="326" y="162" fill="#1a6b6e" font-size="9">Q(3,−4)</text>
+  <text x="248" y="125" fill="#6a3d8f" font-size="9">OP=OQ=5</text>
+  <text x="250" y="165" fill="#888" font-size="9">(ii) Isosceles, Q III &amp; Q IV</text>
+</svg>
+<p class="diagram-caption">Left: Right-angled isosceles △OAB with equal legs=4. Right: Isosceles △OPQ with equal sides=5.</p>
+</div>
+<div class="sub-q"><div class="sub-label">(i) Right-angled isosceles</div><div class="ans-final">O(0,0), A(4,0), B(0,4). OA=OB=4 (equal legs), right angle at O. AB=4√2.</div></div>
+<div class="sub-q"><div class="sub-label">(ii) Isosceles, vertices in Q III and Q IV</div><div class="ans-final">O(0,0), P(−3,−4) in Q III, Q(3,−4) in Q IV. OP=OQ=5 (isosceles). ✓</div></div>
+<div class="practice-section"><div class="practice-label">Practice Questions</div>
+<div class="pq"><div class="pq-num">P1.</div><div class="pq-text">Using the origin as one vertex, construct an equilateral-like isosceles triangle with the other two vertices at (−5,0) and (5,0). Find its apex.</div><div class="pq-hint">Hint: Apex is directly above origin for a symmetric isosceles triangle.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Any point (0, h) for h≠0 creates an isosceles triangle with base (−5,0) to (5,0). Example: apex at (0,5). Both equal sides = √(25+25)=5√2.</div></div>
+<div class="pq"><div class="pq-num">P2.</div><div class="pq-text">Verify that △OPQ with O(0,0), P(−3,−4), Q(3,−4) is isosceles but NOT equilateral.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">OP=√(9+16)=5. OQ=√(9+16)=5. PQ=6. Since OP=OQ≠PQ, it is isosceles but not equilateral.</div></div>
+<div class="pq"><div class="pq-num">P3.</div><div class="pq-text">Construct a right-angled isosceles triangle with the right angle at (3,2) and legs of length 4 parallel to the axes. Give all three vertices.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Right angle vertex: C(3,2). Two legs parallel to axes: A(7,2) and B(3,6). CA=CB=4, so isosceles. Angle at C = 90°.</div></div>
+</div>
+</div></div>
+
+<!-- Q9 ★ -->
+<div class="qcard">
+<div class="qcard-head"><span class="qnum">★ Q 9</span><span class="qtext">Table of (S, M, T): is M the midpoint of ST? Find the connection (midpoint formula).</span></div>
+<div class="qcard-body">
+<div class="diagram-wrap">
+<svg viewBox="0 0 340 120" width="340" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono,monospace" font-size="10">
+  <rect width="340" height="120" fill="#fffdf9"/>
+  <!-- Row 1: S(-3,0) M(0,0) T(3,0) -->
+  <line x1="20" y1="30" x2="160" y2="30" stroke="#1a6b6e" stroke-width="2"/>
+  <circle cx="20" cy="30" r="5" fill="#1a6b6e"/><text x="5" y="20" fill="#1a6b6e" font-size="9">S(−3,0)</text>
+  <circle cx="90" cy="30" r="5" fill="#b5410e"/><text x="78" y="20" fill="#b5410e" font-size="9">M(0,0)</text>
+  <circle cx="160" cy="30" r="5" fill="#1a6b6e"/><text x="148" y="20" fill="#1a6b6e" font-size="9">T(3,0)</text>
+  <text x="60" y="48" fill="#1a6b6e" font-size="9">Equal halves → Midpoint ✓</text>
+  <!-- Row 2: midpoint formula visual -->
+  <line x1="20" y1="85" x2="300" y2="85" stroke="#c9860a" stroke-width="2"/>
+  <circle cx="20" cy="85" r="5" fill="#c9860a"/><text x="5" y="75" fill="#c9860a" font-size="9">S(x₁,y₁)</text>
+  <circle cx="160" cy="85" r="5" fill="#b5410e"/><text x="135" y="75" fill="#b5410e" font-size="9">M = midpoint</text>
+  <circle cx="300" cy="85" r="5" fill="#c9860a"/><text x="278" y="75" fill="#c9860a" font-size="9">T(x₂,y₂)</text>
+  <text x="60" y="105" fill="#b5410e" font-size="9">xₘ = (x₁+x₂)/2</text>
+  <text x="180" y="105" fill="#b5410e" font-size="9">yₘ = (y₁+y₂)/2</text>
+</svg>
+<p class="diagram-caption">Midpoint M divides segment ST into two equal halves. Coordinates of M = average of coordinates of S and T.</p>
+</div>
+<table><tr><th>S</th><th>M</th><th>T</th><th>Midpoint check</th><th>Answer</th></tr>
+<tr><td>(−3,0)</td><td>(0,0)</td><td>(3,0)</td><td>((−3+3)/2,(0+0)/2)=(0,0)✓</td><td><strong>Yes</strong></td></tr>
+<tr><td>(2,3)</td><td>(3,4)</td><td>(4,5)</td><td>((2+4)/2,(3+5)/2)=(3,4)✓</td><td><strong>Yes</strong></td></tr>
+<tr><td>(0,0)</td><td>(0,5)</td><td>(0,−10)</td><td>((0+0)/2,(0−10)/2)=(0,−5)≠(0,5)</td><td><strong>No</strong></td></tr>
+<tr><td>(−8,7)</td><td>(0,−2)</td><td>(6,−3)</td><td>((−8+6)/2,(7−3)/2)=(−1,2)≠(0,−2)</td><td><strong>No</strong></td></tr></table>
+<div style="text-align:center;margin:0.8rem 0;"><span class="formula-inline">Midpoint M = ( (x₁+x₂)/2 , (y₁+y₂)/2 )</span></div>
+<div class="ans-final">The coordinates of the midpoint are the <span>averages</span> of the endpoint coordinates.</div>
+<div class="practice-section"><div class="practice-label">Practice Questions</div>
+<div class="pq"><div class="pq-num">P1.</div><div class="pq-text">Find the midpoint of segment joining A(6,−4) and B(−2,8).</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Midpoint = ((6−2)/2,(−4+8)/2) = (2, 2).</div></div>
+<div class="pq"><div class="pq-num">P2.</div><div class="pq-text">M(3,1) is the midpoint of P(x,y) and Q(7,5). Find P.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">(7+x)/2=3 → x=−1. (5+y)/2=1 → y=−3. P=(−1,−3).</div></div>
+<div class="pq"><div class="pq-num">P3.</div><div class="pq-text">The midpoint of the hypotenuse of a right triangle is always equidistant from all three vertices. If A(0,6), B(8,0), C(0,0), verify this using the midpoint of AB.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Midpoint M of AB = (4,3). MA=√(16+9)=5. MB=√(16+9)=5. MC=√(16+9)=5. All equal ✓.</div></div>
+</div>
+</div></div>
+
+<!-- Q10 ★ -->
+<div class="qcard">
+<div class="qcard-head"><span class="qnum">★ Q 10</span><span class="qtext">M(−7,1) is midpoint of A(3,−4) and B(x,y). Find B.</span></div>
+<div class="qcard-body">
+<div class="diagram-wrap">
+<svg viewBox="0 0 340 90" width="340" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono,monospace" font-size="10">
+  <rect width="340" height="90" fill="#fffdf9"/>
+  <line x1="20" y1="45" x2="320" y2="45" stroke="#c9860a" stroke-width="2"/>
+  <circle cx="245" cy="45" r="6" fill="#b5410e"/>
+  <circle cx="170" cy="45" r="6" fill="#c9860a"/>
+  <circle cx="95" cy="45" r="6" fill="#1a6b6e" stroke-dasharray="none"/>
+  <text x="230" y="36" fill="#b5410e" font-size="10" font-weight="bold">A(3,−4)</text>
+  <text x="155" y="36" fill="#c9860a" font-size="10" font-weight="bold">M(−7,1)</text>
+  <text x="55" y="36" fill="#1a6b6e" font-size="10" font-weight="bold">B(x,y)=?</text>
+  <line x1="95" y1="55" x2="170" y2="55" stroke="#1a6b6e" stroke-width="1.5"/>
+  <text x="120" y="70" fill="#1a6b6e" font-size="9">same distance</text>
+  <line x1="170" y1="55" x2="245" y2="55" stroke="#b5410e" stroke-width="1.5"/>
+  <text x="190" y="70" fill="#b5410e" font-size="9">as this</text>
+  <text x="20" y="82" fill="#888" font-size="9">Apply: M = (A+B)/2 → B = 2M − A</text>
+</svg>
+<p class="diagram-caption">M is the midpoint → B is the reflection of A through M: B = 2M − A.</p>
+</div>
+<div class="steps-box"><div class="step-title">Using midpoint formula</div><ol>
+<li>−7 = (3+x)/2 → x = −14−3 = <strong>−17</strong></li>
+<li>1 = (−4+y)/2 → y = 2+4 = <strong>6</strong></li>
+</ol></div>
+<div class="ans-final">B = <span>(−17, 6)</span></div>
+<div class="practice-section"><div class="practice-label">Practice Questions</div>
+<div class="pq"><div class="pq-num">P1.</div><div class="pq-text">M(2,−3) is the midpoint of C(7,1) and D(x,y). Find D.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">x=(2×2−7)=−3. y=(2×(−3)−1)=−7. D=(−3,−7).</div></div>
+<div class="pq"><div class="pq-num">P2.</div><div class="pq-text">A diameter of a circle has endpoints P(−4,3) and Q(6,−1). Find the centre of the circle.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Centre = midpoint = ((−4+6)/2,(3−1)/2) = (1,1).</div></div>
+<div class="pq"><div class="pq-num">P3.</div><div class="pq-text">The midpoint of segment EF is M(0,0). If E=(a,b), express the coordinates of F in terms of a and b.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">F = (−a, −b). [M=(0,0) means F is the reflection of E through the origin.]</div></div>
+</div>
+</div></div>
+
+<!-- Q11 ★ -->
+<div class="qcard">
+<div class="qcard-head"><span class="qnum">★ Q 11</span><span class="qtext">P, Q trisect AB (P closer to A). Find P and Q for A(4,7) and B(16,−2).</span></div>
+<div class="qcard-body">
+<div class="diagram-wrap">
+<svg viewBox="0 0 380 90" width="380" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono,monospace" font-size="10">
+  <rect width="380" height="90" fill="#fffdf9"/>
+  <line x1="20" y1="40" x2="360" y2="40" stroke="#c9860a" stroke-width="2.5"/>
+  <circle cx="20" cy="40" r="6" fill="#c9860a"/>
+  <circle cx="133" cy="40" r="6" fill="#b5410e"/>
+  <circle cx="247" cy="40" r="6" fill="#1a6b6e"/>
+  <circle cx="360" cy="40" r="6" fill="#c9860a"/>
+  <text x="5" y="30" fill="#c9860a" font-size="10" font-weight="bold">A(4,7)</text>
+  <text x="116" y="30" fill="#b5410e" font-size="10" font-weight="bold">P(8,4)</text>
+  <text x="234" y="30" fill="#1a6b6e" font-size="10" font-weight="bold">Q(12,1)</text>
+  <text x="344" y="30" fill="#c9860a" font-size="10" font-weight="bold">B(16,−2)</text>
+  <!-- equal segments -->
+  <text x="60" y="60" fill="#b5410e" font-size="9">AP = 1/3 AB</text>
+  <text x="175" y="60" fill="#1a6b6e" font-size="9">PQ = 1/3 AB</text>
+  <text x="286" y="60" fill="#c9860a" font-size="9">QB = 1/3 AB</text>
+  <!-- equal segment marks -->
+  <line x1="76" y1="44" x2="76" y2="36" stroke="#888" stroke-width="1.5"/>
+  <line x1="190" y1="44" x2="190" y2="36" stroke="#888" stroke-width="1.5"/>
+  <line x1="304" y1="44" x2="304" y2="36" stroke="#888" stroke-width="1.5"/>
+</svg>
+<p class="diagram-caption">P and Q divide AB into three equal parts: AP = PQ = QB = 1/3 of AB.</p>
+</div>
+<div class="steps-box"><div class="step-title">Section formula (1/3 and 2/3 from A)</div><ol>
+<li>P at 1/3 from A: x = 4 + (1/3)(16−4) = 4+4 = <strong>8</strong>; y = 7 + (1/3)(−2−7) = 7−3 = <strong>4</strong></li>
+<li>Q at 2/3 from A: x = 4 + (2/3)(12) = 4+8 = <strong>12</strong>; y = 7 + (2/3)(−9) = 7−6 = <strong>1</strong></li>
+</ol></div>
+<div class="ans-final">P = <span>(8, 4)</span> &nbsp;&nbsp; Q = <span>(12, 1)</span></div>
+<div class="practice-section"><div class="practice-label">Practice Questions</div>
+<div class="pq"><div class="pq-num">P1.</div><div class="pq-text">Find the trisection points of segment joining C(0,0) and D(9,12).</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">P (1/3 from C) = (3,4). Q (2/3 from C) = (6,8).</div></div>
+<div class="pq"><div class="pq-num">P2.</div><div class="pq-text">Point R divides segment from E(2,5) to F(14,−1) in the ratio 1:2 from E. Find R.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">R = (2+(1/3)(12), 5+(1/3)(−6)) = (6, 3).</div></div>
+<div class="pq"><div class="pq-num">P3.</div><div class="pq-text">AB is divided into 4 equal parts by points P, Q, R (P closest to A). If A=(0,0) and B=(8,12), find P, Q, R.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">P=(2,3), Q=(4,6), R=(6,9). Each is 1/4, 2/4, 3/4 of the way from A to B.</div></div>
+</div>
+</div></div>
+
+<!-- Q12 ★ -->
+<div class="qcard">
+<div class="qcard-head"><span class="qnum">★ Q 12</span><span class="qtext">(i) Show A(1,−8),B(−4,7),C(−7,−4) lie on circle K centred at O. Radius? (ii) D(−5,6),E(0,9) — inside/on/outside K?</span></div>
+<div class="qcard-body">
+<div class="diagram-wrap">
+<svg viewBox="0 0 300 260" width="300" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono,monospace" font-size="10">
+  <rect width="300" height="260" fill="#fffdf9"/>
+  <defs><pattern id="g10" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e8dfc8" stroke-width="0.5"/></pattern></defs>
+  <rect width="300" height="260" fill="url(#g10)"/>
+  <!-- origin at (150,140), scale 15px. Circle radius=√65≈8.06 units, svg=120.9px -->
+  <line x1="10" y1="140" x2="290" y2="140" stroke="#1c1a17" stroke-width="1.5"/>
+  <line x1="150" y1="10" x2="150" y2="255" stroke="#1c1a17" stroke-width="1.5"/>
+  <text x="283" y="136" font-size="12" font-family="Lora,serif">x</text>
+  <text x="153" y="16" font-size="12" font-family="Lora,serif">y</text>
+  <!-- circle centred at (150,140) radius 121px -->
+  <circle cx="150" cy="140" r="121" fill="none" stroke="#1a6b6e" stroke-width="2" stroke-dasharray="5,3"/>
+  <!-- A=(1,-8)svg=(165,260)approx, B=(-4,7)svg=(90,35), C=(-7,-4)svg=(45,200) -->
+  <!-- A=(1,-8): x=150+15=165, y=140+120=260 OOB. Scale 13. A=(163,244), B=(98,49), C=(59,192) -->
+  <circle cx="163" cy="243" r="6" fill="#b5410e"/>
+  <circle cx="98" cy="49" r="6" fill="#b5410e"/>
+  <circle cx="59" cy="192" r="6" fill="#b5410e"/>
+  <text x="166" y="250" fill="#b5410e" font-size="9" font-weight="bold">A(1,−8)</text>
+  <text x="100" y="45" fill="#b5410e" font-size="9" font-weight="bold">B(−4,7)</text>
+  <text x="15" y="200" fill="#b5410e" font-size="9" font-weight="bold">C(−7,−4)</text>
+  <!-- D=(-5,6)svg=(85,62); E=(0,9)svg=(150,23) -->
+  <circle cx="85" cy="62" r="5" fill="#6a3d8f"/>
+  <text x="60" y="58" fill="#6a3d8f" font-size="9">D(−5,6)</text>
+  <text x="65" y="70" fill="#6a3d8f" font-size="9">Inside</text>
+  <circle cx="150" cy="23" r="5" fill="#c9860a"/>
+  <text x="153" y="22" fill="#c9860a" font-size="9">E(0,9)</text>
+  <text x="153" y="33" fill="#c9860a" font-size="9">Outside</text>
+  <!-- radius label -->
+  <line x1="150" y1="140" x2="163" y2="243" stroke="#1a6b6e" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="160" y="190" fill="#1a6b6e" font-size="9">r=√65</text>
+  <!-- origin -->
+  <circle cx="150" cy="140" r="4" fill="#1c1a17"/>
+  <text x="153" y="155" fill="#888" font-size="9">O(0,0)</text>
+</svg>
+<p class="diagram-caption">Circle K centred at O with radius √65. Red dots (A,B,C) are ON the circle. D is inside; E is outside.</p>
+</div>
+<div class="sub-q"><div class="sub-label">(i) Radius</div>
+<div class="steps-box"><div class="step-title">Distances from O(0,0)</div><ol>
+<li>OA = √(1+64) = √65</li>
+<li>OB = √(16+49) = √65</li>
+<li>OC = √(49+16) = √65</li>
+</ol></div>
+<div class="ans-final">All on circle K. Radius = <span>√65 ≈ 8.06 units</span></div></div>
+<div class="sub-q"><div class="sub-label">(ii) D and E</div>
+<div class="steps-box"><div class="step-title">Compare to radius²=65</div><ol>
+<li>OD² = 25+36 = 61 &lt; 65 → D is <strong>inside</strong></li>
+<li>OE² = 0+81 = 81 &gt; 65 → E is <strong>outside</strong></li>
+</ol></div>
+<div class="ans-final">D(−5,6): <span>inside K</span>. &nbsp; E(0,9): <span>outside K</span>.</div></div>
+<div class="practice-section"><div class="practice-label">Practice Questions</div>
+<div class="pq"><div class="pq-num">P1.</div><div class="pq-text">A circle is centred at O(0,0) with radius 10. Does the point P(6,8) lie on, inside, or outside the circle?</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">OP=√(36+64)=√100=10. P lies ON the circle.</div></div>
+<div class="pq"><div class="pq-num">P2.</div><div class="pq-text">Find 3 points that lie on the circle centred at O with radius 5.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">(5,0), (0,5), (3,4) since √(9+16)=5, (−4,3), (−5,0) etc. Any (x,y) with x²+y²=25.</div></div>
+<div class="pq"><div class="pq-num">P3.</div><div class="pq-text">Circle K has centre O(0,0) and passes through A(1,−8). Does B(−4,7) lie on the same circle? (Show working.)</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">OA²=1+64=65. OB²=16+49=65. OA=OB=√65 → Yes, B lies on the same circle.</div></div>
+</div>
+</div></div>
+
+<!-- Q13 ★ -->
+<div class="qcard">
+<div class="qcard-head"><span class="qnum">★ Q 13</span><span class="qtext">Midpoints of sides of △ABC are D(5,1), E(6,5), F(0,3). Find A, B, C.</span></div>
+<div class="qcard-body">
+<div class="diagram-wrap">
+<svg viewBox="0 0 300 220" width="300" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono,monospace" font-size="10">
+  <rect width="300" height="220" fill="#fffdf9"/>
+  <defs><pattern id="g11" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e8dfc8" stroke-width="0.5"/></pattern></defs>
+  <rect width="300" height="220" fill="url(#g11)"/>
+  <!-- origin at (40,200), scale 20px. A=(1,7)=(60,60), B=(-1,-1)=(20,220)OOB -->
+  <!-- scale 18, origin(54,202). A(1,7)=(72,76), B(-1,-1)=(36,220)OOB -->
+  <!-- scale 22, origin(66,210). A(1,7)=(88,56), B(-1,-1)=(44,232)OOB -->
+  <!-- Shift origin to (80,195), scale 18. A(1,7)=(98,69), B(-1,-1)=(62,213), C(11,3)=(278,141) -->
+  <polygon points="98,69 62,213 278,141" fill="#fef3e2" stroke="#b5410e" stroke-width="2.5" fill-opacity="0.5"/>
+  <!-- midpoints: D=midBC=(5,1)=(80+5*18,195-1*18)=(170,177); E=midCA=(6,5)=(188,105); F=midAB=(0,3)=(80,141) -->
+  <line x1="170" y1="177" x2="188" y2="105" stroke="#1a6b6e" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="188" y1="105" x2="80" y2="141" stroke="#1a6b6e" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="80" y1="141" x2="170" y2="177" stroke="#1a6b6e" stroke-width="1" stroke-dasharray="3,2"/>
+  <!-- vertices -->
+  <circle cx="98" cy="69" r="7" fill="#b5410e"/><text x="102" y="67" fill="#b5410e" font-size="10" font-weight="bold">A(1,7)</text>
+  <circle cx="62" cy="213" r="7" fill="#b5410e"/><text x="30" y="213" fill="#b5410e" font-size="10" font-weight="bold">B(−1,−1)</text>
+  <circle cx="278" cy="141" r="7" fill="#b5410e"/><text x="281" y="140" fill="#b5410e" font-size="10" font-weight="bold">C(11,3)</text>
+  <!-- midpoints -->
+  <circle cx="170" cy="177" r="5" fill="#1a6b6e"/><text x="173" y="192" fill="#1a6b6e" font-size="9">D(5,1)</text>
+  <circle cx="188" cy="105" r="5" fill="#1a6b6e"/><text x="191" y="104" fill="#1a6b6e" font-size="9">E(6,5)</text>
+  <circle cx="80" cy="141" r="5" fill="#1a6b6e"/><text x="45" y="140" fill="#1a6b6e" font-size="9">F(0,3)</text>
+</svg>
+<p class="diagram-caption">△ABC (red) with midpoint triangle DEF (blue dashed). Given D,E,F — recover A,B,C.</p>
+</div>
+<div class="steps-box"><div class="step-title">System of equations — x-coordinates</div><ol>
+<li>D=mid(BC): x₂+x₃=10</li>
+<li>E=mid(CA): x₃+x₁=12</li>
+<li>F=mid(AB): x₁+x₂=0</li>
+<li>Sum: 2(x₁+x₂+x₃)=22 → total=11</li>
+<li>x₁=11−10=1, x₂=11−12=−1, x₃=11−0=11</li>
+</ol></div>
+<div class="steps-box"><div class="step-title">y-coordinates</div><ol>
+<li>y₂+y₃=2, y₃+y₁=10, y₁+y₂=6</li>
+<li>Total=9; y₁=9−2=7, y₂=9−10=−1, y₃=9−6=3</li>
+</ol></div>
+<div class="ans-final">A = <span>(1, 7)</span>, B = <span>(−1, −1)</span>, C = <span>(11, 3)</span></div>
+<div class="practice-section"><div class="practice-label">Practice Questions</div>
+<div class="pq"><div class="pq-num">P1.</div><div class="pq-text">The midpoints of the sides of a triangle are (2,0), (4,3), and (0,3). Find the vertices.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Let D(2,0)=mid(BC), E(4,3)=mid(CA), F(0,3)=mid(AB). x: x₂+x₃=4, x₃+x₁=8, x₁+x₂=0. Sum=12→total=6. x₁=2,x₂=−2,x₃=6. y: y₂+y₃=0, y₃+y₁=6, y₁+y₂=6. Sum=12→total=6. y₁=6,y₂=0,y₃=0. A=(2,6),B=(−2,0),C=(6,0).</div></div>
+<div class="pq"><div class="pq-num">P2.</div><div class="pq-text">Verify your answer to P1 by checking that the midpoints of BC, CA, AB give (2,0), (4,3), (0,3).</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">mid(BC)=((−2+6)/2,(0+0)/2)=(2,0)✓. mid(CA)=((6+2)/2,(0+6)/2)=(4,3)✓. mid(AB)=((2+(−2))/2,(6+0)/2)=(0,3)✓.</div></div>
+<div class="pq"><div class="pq-num">P3.</div><div class="pq-text">The midpoints of triangle PQR are M₁(1,2), M₂(3,4), M₃(5,0). Without solving fully, predict the x-coordinate of each vertex using the sum method.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">x-sum of midpoints: 1+3+5=9 → total of vertices = 9. Vertices x: (9−(2×3))=3, (9−(2×5))=−1, (9−(2×1))=7. So x-coordinates are 3, −1, 7.</div></div>
+</div>
+</div></div>
+
+<!-- Q14 -->
+<div class="qcard">
+<div class="qcard-head"><span class="qnum">Q 14</span><span class="qtext">City grid: 10 streets each direction, 200 m apart. How many intersections called (4,3)? How many called (3,4)?</span></div>
+<div class="qcard-body">
+<div class="diagram-wrap">
+<svg viewBox="0 0 280 240" width="280" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono,monospace" font-size="9">
+  <rect width="280" height="240" fill="#fffdf9"/>
+  <!-- city grid: 10 streets each direction, label 1-5 positive, 1-5 negative. Draw 11 lines each way -->
+  <!-- origin at (140,120), scale 20px. Streets at -5 to 5 -->
+  <!-- N-S streets (vertical) -->
+  <line x1="40" y1="15" x2="40" y2="225" stroke="#c8dde0" stroke-width="1.5"/>
+  <line x1="60" y1="15" x2="60" y2="225" stroke="#c8dde0" stroke-width="1.5"/>
+  <line x1="80" y1="15" x2="80" y2="225" stroke="#c8dde0" stroke-width="1.5"/>
+  <line x1="100" y1="15" x2="100" y2="225" stroke="#c8dde0" stroke-width="1.5"/>
+  <line x1="120" y1="15" x2="120" y2="225" stroke="#c8dde0" stroke-width="1.5"/>
+  <line x1="140" y1="15" x2="140" y2="225" stroke="#1c1a17" stroke-width="2"/>
+  <line x1="160" y1="15" x2="160" y2="225" stroke="#c8dde0" stroke-width="1.5"/>
+  <line x1="180" y1="15" x2="180" y2="225" stroke="#c8dde0" stroke-width="1.5"/>
+  <line x1="200" y1="15" x2="200" y2="225" stroke="#c8dde0" stroke-width="1.5"/>
+  <line x1="220" y1="15" x2="220" y2="225" stroke="#c8dde0" stroke-width="1.5"/>
+  <line x1="240" y1="15" x2="240" y2="225" stroke="#c8dde0" stroke-width="1.5"/>
+  <!-- E-W streets (horizontal) -->
+  <line x1="15" y1="20" x2="265" y2="20" stroke="#c8dde0" stroke-width="1.5"/>
+  <line x1="15" y1="40" x2="265" y2="40" stroke="#c8dde0" stroke-width="1.5"/>
+  <line x1="15" y1="60" x2="265" y2="60" stroke="#c8dde0" stroke-width="1.5"/>
+  <line x1="15" y1="80" x2="265" y2="80" stroke="#c8dde0" stroke-width="1.5"/>
+  <line x1="15" y1="100" x2="265" y2="100" stroke="#c8dde0" stroke-width="1.5"/>
+  <line x1="15" y1="120" x2="265" y2="120" stroke="#1c1a17" stroke-width="2"/>
+  <line x1="15" y1="140" x2="265" y2="140" stroke="#c8dde0" stroke-width="1.5"/>
+  <line x1="15" y1="160" x2="265" y2="160" stroke="#c8dde0" stroke-width="1.5"/>
+  <line x1="15" y1="180" x2="265" y2="180" stroke="#c8dde0" stroke-width="1.5"/>
+  <line x1="15" y1="200" x2="265" y2="200" stroke="#c8dde0" stroke-width="1.5"/>
+  <line x1="15" y1="220" x2="265" y2="220" stroke="#c8dde0" stroke-width="1.5"/>
+  <!-- intersection (4,3): N-S street 4 (x=4), E-W street 3 (y=3). x=4→svg=220, y=3→svg=60 -->
+  <circle cx="220" cy="60" r="8" fill="#b5410e" opacity="0.8"/>
+  <text x="224" y="56" fill="#b5410e" font-size="9" font-weight="bold">(4,3)</text>
+  <!-- intersection (3,4): N-S street 3 (x=3→200), E-W street 4 (y=4→80) -->
+  <circle cx="200" cy="80" r="8" fill="#1a6b6e" opacity="0.8"/>
+  <text x="204" y="76" fill="#1a6b6e" font-size="9" font-weight="bold">(3,4)</text>
+  <!-- axis labels -->
+  <text x="244" y="118" fill="#888" font-size="8">E→</text>
+  <text x="142" y="12" fill="#888" font-size="8">N↑</text>
+  <!-- scale note -->
+  <text x="20" y="235" fill="#888" font-size="8">1 square = 200m. Red=(4,3), Teal=(3,4).</text>
+</svg>
+<p class="diagram-caption">City grid. Intersection (4,3)=red: N-S street 4 meets E-W street 3. Intersection (3,4)=teal: different point!</p>
+</div>
+<div class="sub-q"><div class="sub-label">(ii)(a) How many intersections called (4,3)?</div><div class="ans-final">Exactly <span>1</span> — N-S street 4 and E-W street 3 meet at one unique point.</div></div>
+<div class="sub-q"><div class="sub-label">(ii)(b) How many intersections called (3,4)?</div><div class="ans-final">Exactly <span>1</span> — but it is a <span>different point</span> from (4,3). Order of coordinates matters!</div></div>
+<div class="note-box">This beautifully illustrates why (x,y) ≠ (y,x) — just like streets in a city, swapping the numbers gives a different location.</div>
+<div class="practice-section"><div class="practice-label">Practice Questions</div>
+<div class="pq"><div class="pq-num">P1.</div><div class="pq-text">In the same city grid, how many intersections are there in total if there are 10 N-S streets and 10 E-W streets?</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">10 × 10 = 100 intersections.</div></div>
+<div class="pq"><div class="pq-num">P2.</div><div class="pq-text">Are intersections (3,3) and (3,3) the same? What does this tell you about when (x,y) = (y,x)?</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Yes — they are the same intersection. This confirms (x,y)=(y,x) only when x=y. In a city: "3rd N-S and 3rd E-W" is one unique point.</div></div>
+<div class="pq"><div class="pq-num">P3.</div><div class="pq-text">What is the actual distance (in metres) between intersections (4,3) and (3,4) in the city grid (200m spacing)?</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Coordinate difference: (4−3, 3−4) = (1,−1) grid units = (200,−200) metres. Distance = √(200²+200²) = 200√2 ≈ 283 m.</div></div>
+</div>
+</div></div>
+
+<!-- Q15 -->
+<div class="qcard">
+<div class="qcard-head"><span class="qnum">Q 15</span><span class="qtext">Screen 800×600 px. Circle A centre(100,150) r=80. Circle B centre(250,230) r=100. Outside screen? Do they intersect?</span></div>
+<div class="qcard-body">
+<div class="diagram-wrap">
+<svg viewBox="0 0 380 240" width="380" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono,monospace" font-size="10">
+  <rect width="380" height="240" fill="#fffdf9"/>
+  <!-- screen: scale 800→340px so 1px=0.425. origin at (20,220). 800w→360px, 600h→255px scale 0.45 -->
+  <!-- screen rect: (20,20) to (380,230) but fit in viewBox. Scale: 360/800=0.45 -->
+  <!-- Circle A: centre(100*0.45+20, 220-150*0.45)=(65,152.5). r=80*0.45=36 -->
+  <!-- Circle B: centre(250*0.45+20,220-230*0.45)=(132.5,116.5). r=100*0.45=45 -->
+  <rect x="20" y="10" width="360" height="225" fill="#f0f8ff" stroke="#1a6b6e" stroke-width="2.5"/>
+  <text x="30" y="25" fill="#1a6b6e" font-size="9">Screen (800 × 600 px)</text>
+  <!-- Circle A -->
+  <circle cx="65" cy="152" r="36" fill="none" stroke="#b5410e" stroke-width="2"/>
+  <circle cx="65" cy="152" r="3" fill="#b5410e"/>
+  <text x="70" y="152" fill="#b5410e" font-size="9">A(100,150)</text>
+  <text x="32" y="140" fill="#b5410e" font-size="8">r=80</text>
+  <!-- Circle B -->
+  <circle cx="132" cy="116" r="45" fill="none" stroke="#1a6b6e" stroke-width="2"/>
+  <circle cx="132" cy="116" r="3" fill="#1a6b6e"/>
+  <text x="137" y="116" fill="#1a6b6e" font-size="9">B(250,230)</text>
+  <text x="90" y="75" fill="#1a6b6e" font-size="8">r=100</text>
+  <!-- distance line between centres -->
+  <line x1="65" y1="152" x2="132" y2="116" stroke="#c9860a" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="88" y="145" fill="#c9860a" font-size="9">d=170</text>
+  <!-- intersection region -->
+  <text x="200" y="80" fill="#6a3d8f" font-size="9">Sum of radii=180</text>
+  <text x="200" y="95" fill="#6a3d8f" font-size="9">d=170 &lt; 180</text>
+  <text x="200" y="110" fill="#6a3d8f" font-size="9">→ Circles intersect!</text>
+  <!-- check marks -->
+  <text x="200" y="140" fill="#1a6b3a" font-size="9">✓ A fully inside screen</text>
+  <text x="200" y="155" fill="#1a6b3a" font-size="9">✓ B fully inside screen</text>
+</svg>
+<p class="diagram-caption">Fig: Computer screen with circles A (red) and B (teal). Both fit within the screen. d=170 &lt; sum of radii=180 → they intersect.</p>
+</div>
+<div class="sub-q"><div class="sub-label">(i) Outside screen?</div>
+<div class="steps-box"><div class="step-title">Boundary checks</div><ol>
+<li>Circle A (100,150,r=80): left=20✓ right=180✓ bottom=70✓ top=230✓ → <strong>fully inside</strong></li>
+<li>Circle B (250,230,r=100): left=150✓ right=350✓ bottom=130✓ top=330✓ → <strong>fully inside</strong></li>
+</ol></div>
+<div class="ans-final"><span>Neither</span> circle lies outside the screen.</div></div>
+<div class="sub-q"><div class="sub-label">(ii) Do circles intersect?</div>
+<div class="steps-box"><div class="step-title">Distance between centres</div><ol>
+<li>d = √(150²+80²) = √(22500+6400) = √28900 = <strong>170 px</strong></li>
+<li>Sum of radii = 80+100 = <strong>180 px</strong></li>
+<li>Diff of radii = 20 px</li>
+<li>20 &lt; 170 &lt; 180 → circles <strong>intersect at two points</strong></li>
+</ol></div>
+<div class="ans-final">Yes, the circles <span>intersect</span> at two points (d=170 &lt; sum of radii=180).</div></div>
+<div class="practice-section"><div class="practice-label">Practice Questions</div>
+<div class="pq"><div class="pq-num">P1.</div><div class="pq-text">Circle X has centre (50,50) and radius 60 on an 800×600 screen. Does any part extend outside?</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Left: 50−60=−10 &lt; 0 → YES, it extends outside the left edge of the screen.</div></div>
+<div class="pq"><div class="pq-num">P2.</div><div class="pq-text">Two circles: Circle P centre(200,200) r=80, Circle Q centre(400,200) r=70. Do they intersect?</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">d=|400−200|=200. Sum of radii=150. d=200 &gt; 150 → circles do NOT intersect (they are separate).</div></div>
+<div class="pq"><div class="pq-num">P3.</div><div class="pq-text">Circle M has centre(300,300) r=100. Circle N has centre(300,350) r=100. Is N inside M, do they intersect, or are they separate?</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">d=50. Diff of radii=0. Since d=50 &lt; |r₁−r₂|=0 is false, and d=50 &lt; sum=200, they intersect. Actually d=50 &lt; 100=r: one circle is mostly inside the other (they intersect at two points since 0 &lt; d &lt; r₁+r₂).</div></div>
+</div>
+</div></div>
+
+<!-- Q16 -->
+<div class="qcard">
+<div class="qcard-head"><span class="qnum">Q 16</span><span class="qtext">Plot A(2,1), B(−1,2), C(−2,−1), D(1,−2). Is ABCD a square? Area?</span></div>
+<div class="qcard-body">
+<div class="diagram-wrap">
+<svg viewBox="0 0 280 240" width="280" xmlns="http://www.w3.org/2000/svg" font-family="JetBrains Mono,monospace" font-size="10">
+  <rect width="280" height="240" fill="#fffdf9"/>
+  <defs><pattern id="g12" width="25" height="25" patternUnits="userSpaceOnUse"><path d="M 25 0 L 0 0 0 25" fill="none" stroke="#e8dfc8" stroke-width="0.6"/></pattern></defs>
+  <rect width="280" height="240" fill="url(#g12)"/>
+  <!-- origin at (140,120), scale 40px/unit -->
+  <line x1="10" y1="120" x2="270" y2="120" stroke="#1c1a17" stroke-width="2"/>
+  <line x1="140" y1="10" x2="140" y2="230" stroke="#1c1a17" stroke-width="2"/>
+  <text x="263" y="116" font-size="12" font-family="Lora,serif">x</text>
+  <text x="143" y="16" font-size="12" font-family="Lora,serif">y</text>
+  <!-- tick labels -->
+  <text x="176" y="132" fill="#aaa" font-size="9">1</text><text x="216" y="132" fill="#aaa" font-size="9">2</text>
+  <text x="96" y="132" fill="#aaa" font-size="9">-1</text><text x="56" y="132" fill="#aaa" font-size="9">-2</text>
+  <text x="128" y="83" fill="#aaa" font-size="9">1</text><text x="128" y="43" fill="#aaa" font-size="9">2</text>
+  <text x="122" y="163" fill="#aaa" font-size="9">-1</text><text x="122" y="203" fill="#aaa" font-size="9">-2</text>
+  <!-- A(2,1)=(220,80), B(-1,2)=(100,40), C(-2,-1)=(60,160), D(1,-2)=(180,200) -->
+  <polygon points="220,80 100,40 60,160 180,200" fill="#fef3e2" stroke="#b5410e" stroke-width="2.5" fill-opacity="0.6"/>
+  <!-- diagonals -->
+  <line x1="220" y1="80" x2="60" y2="160" stroke="#1a6b6e" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <line x1="100" y1="40" x2="180" y2="200" stroke="#1a6b6e" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <!-- vertices -->
+  <circle cx="220" cy="80" r="6" fill="#b5410e"/>
+  <circle cx="100" cy="40" r="6" fill="#b5410e"/>
+  <circle cx="60" cy="160" r="6" fill="#b5410e"/>
+  <circle cx="180" cy="200" r="6" fill="#b5410e"/>
+  <text x="224" y="78" fill="#b5410e" font-size="10" font-weight="bold">A(2,1)</text>
+  <text x="75" y="38" fill="#b5410e" font-size="10" font-weight="bold">B(−1,2)</text>
+  <text x="20" y="165" fill="#b5410e" font-size="10" font-weight="bold">C(−2,−1)</text>
+  <text x="184" y="210" fill="#b5410e" font-size="10" font-weight="bold">D(1,−2)</text>
+  <!-- side labels -->
+  <text x="145" y="52" fill="#1a6b6e" font-size="9">AB=√10</text>
+  <text x="55" y="105" fill="#1a6b6e" font-size="9">BC=√10</text>
+  <text x="100" y="198" fill="#1a6b6e" font-size="9">CD=√10</text>
+  <text x="200" y="148" fill="#1a6b6e" font-size="9">DA=√10</text>
+  <!-- perpendicular diagonals note -->
+  <text x="120" y="115" fill="#6a3d8f" font-size="8">Diagonals ⊥</text>
+</svg>
+<p class="diagram-caption">ABCD: all sides = √10. Equal diagonals (2√5 each) that bisect each other perpendicularly → it's a SQUARE. Area = 10 sq units.</p>
+</div>
+<div class="steps-box"><div class="step-title">Side lengths — all equal</div><ol>
+<li>AB=BC=CD=DA = √((−1−2)²+(2−1)²) = √(9+1) = <strong>√10</strong></li>
+</ol></div>
+<div class="steps-box"><div class="step-title">Diagonals — equal and perpendicular</div><ol>
+<li>AC = √((−2−2)²+(−1−1)²) = √20 = 2√5</li>
+<li>BD = √((1−(−1))²+(−2−2)²) = √20 = 2√5 (equal ✓)</li>
+<li>Slope AC = (−1−1)/(−2−2) = 1/2. Slope BD = (−2−2)/(1−(−1)) = −2</li>
+<li>Product = (1/2)(−2) = −1 → perpendicular ✓</li>
+</ol></div>
+<div class="ans-final">ABCD is a <span>square</span>. Area = side² = (√10)² = <span>10 square units</span>.</div>
+<div class="practice-section"><div class="practice-label">Practice Questions</div>
+<div class="pq"><div class="pq-num">P1.</div><div class="pq-text">For square ABCD with A(2,1), B(−1,2), C(−2,−1), D(1,−2), find the perimeter and the length of a diagonal.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Side=√10. Perimeter=4√10≈12.65 units. Diagonal=2√5≈4.47 units.</div></div>
+<div class="pq"><div class="pq-num">P2.</div><div class="pq-text">Are P(0,2), Q(2,0), R(0,−2), S(−2,0) the vertices of a square? Prove using distances.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">PQ=√(4+4)=2√2. QR=2√2. RS=2√2. SP=2√2. All equal. Diagonal PR=4, QS=4. Equal diagonals. Also slopes of diagonals: PR is vertical (x=0), QS is horizontal (y=0) → perpendicular. YES, it is a square with side 2√2 and area=8.</div></div>
+<div class="pq"><div class="pq-num">P3.</div><div class="pq-text">A square has two adjacent vertices at (1,3) and (4,7). Find the other two vertices.</div><div class="pq-hint">Hint: Rotate the side vector 90° to get the perpendicular direction.</div><button class="toggle-ans-btn" onclick="tog(this)">Show Answer</button><div class="pq-ans">Vector AB=(3,4). Perpendicular vector=(−4,3). Other vertices: B+(−4,3)=(0,10) and A+(−4,3)=(−3,6). Four vertices: (1,3),(4,7),(0,10),(−3,6).</div></div>
+</div>
+</div></div>
+
+</div><!-- end eoc -->
+  </main>
+</div>
+
+<script>
+/* ── MODE SWITCHER ── */
+function switchMode(mode) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(mode + '-panel').classList.add('active');
+  document.getElementById('btn-' + mode).classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+  if (mode === 'lesson') {
+    const activeLessonSection = document.querySelector('#lesson-panel .section.active');
+    if (activeLessonSection && activeLessonSection.id === 'lsec-plotting') initCanvas();
+  }
+}
+
+/* ── LESSON JS ── */
+// ─── TAB NAVIGATION ───────────────────────────────────────
+function showLesson(id, btn) {
+  document.querySelectorAll('#lesson-panel .section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('#lesson-nav .tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('lsec-' + id).classList.add('active');
+  btn.classList.add('active');
+  if (id === 'plotting') initCanvas();
+}
+
+// ─── CANVAS PLOTTING ──────────────────────────────────────
+let points = [];
+let mode = 'plot';
+let canvasReady = false;
+
+function setMode(m, btn) {
+  mode = m;
+  document.querySelectorAll('.ctrl-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function clearPoints() {
+  points = [];
+  drawCanvas();
+  document.getElementById('coordDisplay').textContent = 'Click anywhere on the plane to plot a point';
+}
+
+function loadPreset() {
+  points = [
+    { x: 4.5, y: 0, label: 'B(4.5,0)' },
+    { x: 0, y: -4.5, label: 'G(0,−4.5)' },
+    { x: 0, y: 4, label: 'H(0,4)' },
+    { x: 3, y: -5, label: 'S(3,−5)' },
+    { x: -5, y: 3, label: 'Q(−5,3)' },
+    { x: 3, y: 4, label: 'A(3,4)' },
+    { x: 7, y: 1, label: 'D(7,1)' },
+    { x: 9, y: 6, label: 'M(9,6)' },
+  ];
+  drawCanvas();
+}
+
+const COLORS = ['#e8850a','#0f7173','#c1440e','#6a3d8f','#1a6b3a','#1a1a2e','#b07c2a','#0077b6'];
+
+function initCanvas() {
+  if (canvasReady) { drawCanvas(); return; }
+  canvasReady = true;
+  const canvas = document.getElementById('plotCanvas');
+  const wrap = canvas.parentElement;
+  canvas.width = wrap.clientWidth;
+  canvas.height = 440;
+  canvas.addEventListener('click', onCanvasClick);
+  canvas.addEventListener('mousemove', onCanvasMove);
+  drawCanvas();
+}
+
+function getTransform() {
+  const canvas = document.getElementById('plotCanvas');
+  const W = canvas.width, H = canvas.height;
+  const cx = W / 2, cy = H / 2;
+  const scale = Math.min(W, H) / 22;
+  return { cx, cy, scale };
+}
+
+function toCanvas(gx, gy) {
+  const { cx, cy, scale } = getTransform();
+  return { x: cx + gx * scale, y: cy - gy * scale };
+}
+
+function toGrid(cx_, cy_) {
+  const { cx, cy, scale } = getTransform();
+  return { x: (cx_ - cx) / scale, y: (cy - cy_) / scale };
+}
+
+function drawCanvas() {
+  const canvas = document.getElementById('plotCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height;
+  const { cx, cy, scale } = getTransform();
+
+  ctx.clearRect(0, 0, W, H);
+  ctx.fillStyle = '#fff';
+  ctx.fillRect(0, 0, W, H);
+
+  const maxX = Math.ceil(cx / scale) + 1;
+  const maxY = Math.ceil(cy / scale) + 1;
+
+  // Quadrant backgrounds
+  const qa = [
+    { x: cx, y: 0, w: W - cx, h: cy, color: '#f0faf9' },
+    { x: 0, y: 0, w: cx, h: cy, color: '#fef5f0' },
+    { x: 0, y: cy, w: cx, h: H - cy, color: '#f5f0fa' },
+    { x: cx, y: cy, w: W - cx, h: H - cy, color: '#f0f9f2' },
+  ];
+  qa.forEach(q => { ctx.fillStyle = q.color; ctx.fillRect(q.x, q.y, q.w, q.h); });
+
+  // Grid
+  ctx.strokeStyle = '#e8dfc8';
+  ctx.lineWidth = 0.8;
+  for (let i = -maxX; i <= maxX; i++) {
+    const px = toCanvas(i, 0).x;
+    ctx.beginPath(); ctx.moveTo(px, 0); ctx.lineTo(px, H); ctx.stroke();
+  }
+  for (let j = -maxY; j <= maxY; j++) {
+    const py = toCanvas(0, j).y;
+    ctx.beginPath(); ctx.moveTo(0, py); ctx.lineTo(W, py); ctx.stroke();
+  }
+
+  // Axes
+  ctx.strokeStyle = '#1a1a2e';
+  ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(0, cy); ctx.lineTo(W, cy); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(cx, 0); ctx.lineTo(cx, H); ctx.stroke();
+
+  // Tick labels
+  ctx.fillStyle = '#7a6f5e';
+  ctx.font = `${Math.max(9, scale * 0.55)}px DM Mono, monospace`;
+  ctx.textAlign = 'center';
+  for (let i = -maxX; i <= maxX; i++) {
+    if (i === 0) continue;
+    const px = toCanvas(i, 0).x;
+    if (px > 10 && px < W - 10) {
+      ctx.fillText(i, px, cy + scale * 0.6 + 4);
+    }
+  }
+  ctx.textAlign = 'right';
+  for (let j = -maxY; j <= maxY; j++) {
+    if (j === 0) continue;
+    const py = toCanvas(0, j).y;
+    if (py > 10 && py < H - 10) {
+      ctx.fillText(j, cx - 6, py + 4);
+    }
+  }
+
+  // Axis labels
+  ctx.fillStyle = '#1a1a2e';
+  ctx.font = `bold ${scale * 0.7}px Playfair Display, serif`;
+  ctx.textAlign = 'left';
+  ctx.fillText('x', W - 20, cy - 8);
+  ctx.textAlign = 'center';
+  ctx.fillText('y', cx + 10, 16);
+
+  // Quadrant labels
+  ctx.font = `bold ${scale * 0.65}px DM Sans, sans-serif`;
+  ctx.fillStyle = 'rgba(0,0,0,0.1)';
+  const ql = ['I', 'II', 'III', 'IV'];
+  const qpos = [
+    [cx + scale * 1.2, cy - scale * 1.2],
+    [cx - scale * 1.2, cy - scale * 1.2],
+    [cx - scale * 1.2, cy + scale * 1.5],
+    [cx + scale * 1.2, cy + scale * 1.5],
+  ];
+  qpos.forEach((p, i) => {
+    ctx.textAlign = 'center';
+    ctx.fillText(ql[i], p[0], p[1]);
+  });
+
+  // Origin
+  ctx.fillStyle = '#1a1a2e';
+  ctx.beginPath(); ctx.arc(cx, cy, 3.5, 0, Math.PI * 2); ctx.fill();
+  ctx.font = `${scale * 0.5}px DM Mono, monospace`;
+  ctx.textAlign = 'right';
+  ctx.fillText('O(0,0)', cx - 5, cy + scale * 0.55);
+
+  // Points
+  points.forEach((p, i) => {
+    const { x: px, y: py } = toCanvas(p.x, p.y);
+    const col = COLORS[i % COLORS.length];
+    ctx.beginPath(); ctx.arc(px, py, 6, 0, Math.PI * 2);
+    ctx.fillStyle = col; ctx.fill();
+    ctx.strokeStyle = '#fff'; ctx.lineWidth = 2; ctx.stroke();
+    ctx.fillStyle = col;
+    ctx.font = `bold ${scale * 0.52}px DM Sans, sans-serif`;
+    ctx.textAlign = 'left';
+    ctx.fillText(p.label || `(${+p.x.toFixed(1)},${+p.y.toFixed(1)})`, px + 8, py - 6);
+  });
+}
+
+function onCanvasClick(e) {
+  const canvas = document.getElementById('plotCanvas');
+  const rect = canvas.getBoundingClientRect();
+  const scaleX = canvas.width / rect.width;
+  const scaleY = canvas.height / rect.height;
+  const cx_ = (e.clientX - rect.left) * scaleX;
+  const cy_ = (e.clientY - rect.top) * scaleY;
+  const { x, y } = toGrid(cx_, cy_);
+  const rx = Math.round(x * 2) / 2;
+  const ry = Math.round(y * 2) / 2;
+  const label = `(${rx},${ry})`;
+  points.push({ x: rx, y: ry, label });
+  document.getElementById('coordDisplay').textContent = `Last plotted: ${label}  →  ${getQuadrant(rx, ry)}`;
+  drawCanvas();
+}
+
+function onCanvasMove(e) {
+  const canvas = document.getElementById('plotCanvas');
+  const rect = canvas.getBoundingClientRect();
+  const scaleX = canvas.width / rect.width;
+  const scaleY = canvas.height / rect.height;
+  const cx_ = (e.clientX - rect.left) * scaleX;
+  const cy_ = (e.clientY - rect.top) * scaleY;
+  const { x, y } = toGrid(cx_, cy_);
+  canvas.style.cursor = 'crosshair';
+}
+
+function getQuadrant(x, y) {
+  if (x === 0 && y === 0) return 'Origin';
+  if (x === 0) return 'On y-axis';
+  if (y === 0) return 'On x-axis';
+  if (x > 0 && y > 0) return 'Quadrant I (+,+)';
+  if (x < 0 && y > 0) return 'Quadrant II (−,+)';
+  if (x < 0 && y < 0) return 'Quadrant III (−,−)';
+  return 'Quadrant IV (+,−)';
+}
+
+window.addEventListener('resize', () => {
+  if (!canvasReady) return;
+  const canvas = document.getElementById('plotCanvas');
+  canvas.width = canvas.parentElement.clientWidth;
+  drawCanvas();
+});
+
+// ─── DISTANCE CALCULATOR ──────────────────────────────────
+function calcDistance() {
+  const x1 = parseFloat(document.getElementById('x1').value);
+  const y1 = parseFloat(document.getElementById('y1').value);
+  const x2 = parseFloat(document.getElementById('x2').value);
+  const y2 = parseFloat(document.getElementById('y2').value);
+  if ([x1, y1, x2, y2].some(isNaN)) {
+    document.getElementById('distResult').textContent = '⚠ Please enter valid numbers';
+    return;
+  }
+  const dx = x2 - x1, dy = y2 - y1;
+  const dx2 = dx * dx, dy2 = dy * dy;
+  const d = Math.sqrt(dx2 + dy2);
+  const dRound = Math.round(d * 1000) / 1000;
+  document.getElementById('distResult').textContent = `d = ${dRound} units`;
+  document.getElementById('distSteps').innerHTML =
+    `Step 1: x₂ − x₁ = ${x2} − ${x1} = <strong>${dx}</strong><br>` +
+    `Step 2: y₂ − y₁ = ${y2} − ${y1} = <strong>${dy}</strong><br>` +
+    `Step 3: (${dx})² + (${dy})² = ${dx2} + ${dy2} = <strong>${dx2 + dy2}</strong><br>` +
+    `Step 4: √${dx2 + dy2} = <strong>${dRound}</strong>`;
+}
+
+// ─── QUIZ ──────────────────────────────────────────────────
+const questions = [
+  {
+    q: "What are the coordinates of the Origin?",
+    opts: ["(1, 1)", "(0, 0)", "(1, 0)", "(0, 1)"],
+    ans: 1,
+    exp: "The origin is where both axes meet — at (0, 0)."
+  },
+  {
+    q: "In which quadrant does the point (−3, 5) lie?",
+    opts: ["Quadrant I", "Quadrant II", "Quadrant III", "Quadrant IV"],
+    ans: 1,
+    exp: "x is negative and y is positive → Quadrant II."
+  },
+  {
+    q: "What is the distance between points (0, 0) and (3, 4)?",
+    opts: ["7 units", "5 units", "√7 units", "12 units"],
+    ans: 1,
+    exp: "d = √(3² + 4²) = √(9 + 16) = √25 = 5 units (classic 3-4-5 triple!)."
+  },
+  {
+    q: "A point on the y-axis has coordinates of which form?",
+    opts: ["(x, 0)", "(0, y)", "(x, y)", "(0, 0)"],
+    ans: 1,
+    exp: "Any point on the y-axis is zero units from the y-axis, so x = 0 → (0, y)."
+  },
+  {
+    q: "If P(x, y) = P(y, x), which condition must be true?",
+    opts: ["x > 0", "y > 0", "x = y", "x ≠ y"],
+    ans: 2,
+    exp: "(x, y) = (y, x) only when x = y. Otherwise the two points are different."
+  },
+  {
+    q: "What sign do both coordinates have in Quadrant III?",
+    opts: ["Both positive", "Both negative", "x positive, y negative", "x negative, y positive"],
+    ans: 1,
+    exp: "Quadrant III: x < 0 and y < 0, so both coordinates are negative (−, −)."
+  },
+  {
+    q: "Which ancient Indian mathematician formalised zero and negative numbers, making the four-quadrant plane possible?",
+    opts: ["Āryabhaṭa", "Baudhāyana", "Brahmagupta", "Bhāskarāchārya"],
+    ans: 2,
+    exp: "Brahmagupta (c. 628 CE) formalised zero and negative numbers as algebraic entities."
+  },
+];
+
+let answered = new Array(questions.length).fill(null);
+let score = 0;
+
+function buildQuiz() {
+  const container = document.getElementById('quizContainer');
+  container.innerHTML = '';
+  questions.forEach((q, i) => {
+    const card = document.createElement('div');
+    card.className = 'quiz-card';
+    card.id = 'qcard-' + i;
+    card.innerHTML = `
+      <div class="q-num">Question ${i + 1} of ${questions.length}</div>
+      <div class="q-text">${q.q}</div>
+      <div class="options">
+        ${q.opts.map((o, j) =>
+          `<button class="opt-btn" id="opt-${i}-${j}" onclick="answer(${i}, ${j})">${o}</button>`
+        ).join('')}
+      </div>
+      <div class="feedback" id="fb-${i}" style="display:none"></div>
+    `;
+    container.appendChild(card);
+  });
+  updateScore();
+}
+
+function answer(qi, oi) {
+  if (answered[qi] !== null) return;
+  answered[qi] = oi;
+  const q = questions[qi];
+  const correct = oi === q.ans;
+  if (correct) score++;
+  const fb = document.getElementById('fb-' + qi);
+  fb.style.display = 'block';
+  fb.className = 'feedback ' + (correct ? 'ok' : 'bad');
+  fb.textContent = (correct ? '✅ Correct! ' : '❌ Not quite. ') + q.exp;
+  for (let j = 0; j < q.opts.length; j++) {
+    const btn = document.getElementById(`opt-${qi}-${j}`);
+    btn.disabled = true;
+    if (j === q.ans) btn.classList.add('correct');
+    else if (j === oi && !correct) btn.classList.add('wrong');
+  }
+  updateScore();
+}
+
+function updateScore() {
+  const done = answered.filter(a => a !== null).length;
+  document.getElementById('scoreNum').textContent = `${score} / ${questions.length}`;
+}
+
+function resetQuiz() {
+  answered = new Array(questions.length).fill(null);
+  score = 0;
+  buildQuiz();
+}
+
+buildQuiz();
+
+/* ── SOLUTIONS JS ── */
+function show(id, btn) {
+  document.querySelectorAll('#solutions-panel .section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('#solutions-nav .tab').forEach(b => b.classList.remove('active'));
+  document.getElementById('sec-' + id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+function tog(btn) {
+  const ans = btn.nextElementSibling;
+  ans.classList.toggle('open');
+  btn.textContent = ans.classList.contains('open') ? 'Hide Answer' : 'Show Answer';
+}
+</script>
+</body>
+</html>
