@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>GSEB Class 10 English Unit 1 — Against the Odds</title>
+    <style>
+        /* CSS Reset and Font Setup */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #fcfbfa; 
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #2c3e50;
+            color: #ffffff;
+            padding: 25px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 5px solid #3498db;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-title h1 { font-size: 2rem; color: #ecf0f1; }
+        .header-title p { font-size: 0.95rem; color: #bdc3c7; margin-top: 5px; }
+        .header-meta { text-align: right; }
+        .badge {
+            background-color: #3498db; 
+            color: white; 
+            padding: 5px 10px; 
+            border-radius: 5px; 
+            font-size: 0.85rem; 
+            font-weight: bold;
+        }
+
+        /* Container and Content Styling */
+        .container {
+            max-width: 950px; 
+            margin: 30px auto; 
+            padding: 0 20px;
+        }
+        
+        /* Interactive Panels */
+        .part-panel {
+            background: white; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05); 
+            margin-bottom: 15px; 
+            overflow: hidden;
+            border: 1px solid #e1e8ed;
+        }
+        
+        .part-title {
+            width: 100%; 
+            text-align: left; 
+            background: #ecf0f1; 
+            color: #2c3e50; 
+            padding: 18px 25px; 
+            font-size: 1.2rem; 
+            font-weight: 600; 
+            border: none; 
+            cursor: pointer; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            transition: background 0.3s ease;
+        }
+        
+        .part-title:hover { background: #e0e6ed; }
+        .part-title.active { background: #3498db; color: white; }
+        
+        .original-summary { display: none; padding: 25px; }
+        .original-summary.open { display: block; }
+        
+        /* Inner Content Styling */
+        .sub-heading {
+            color: #e74c3c;
+            font-size: 1.2rem;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #f1f2f6;
+            padding-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .sub-heading:first-child { margin-top: 0; }
+
+        .line-entry {
+            display: flex; 
+            flex-direction: column; 
+            margin-bottom: 20px; 
+            padding-bottom: 15px; 
+            border-bottom: 1px solid #eee;
+        }
+        
+        .en-container { display: flex; gap: 15px; align-items: flex-start; }
+        .line-num {
+            background: #f1f2f6; 
+            color: #7f8fa6; 
+            font-size: 0.85rem; 
+            padding: 5px 8px; 
+            border-radius: 4px; 
+            font-weight: bold; 
+            min-width: 40px; 
+            text-align: center;
+        }
+        .en-text { font-size: 1.1rem; color: #2c3e50; font-weight: 500; text-align: justify; }
+        .gu-text {
+            font-size: 1.05rem; 
+            color: #d35400; 
+            margin-top: 10px; 
+            margin-left: 55px; 
+            text-align: justify;
+        }
+        
+        /* Special class for non-numbered translated text (like Pre-Task) */
+        .gu-text.no-num {
+            margin-left: 0;
+        }
+
+        /* Lists and formatting */
+        ul.textbook-list { list-style-type: disc; margin-left: 40px; margin-bottom: 15px; }
+        ul.textbook-list li { margin-bottom: 8px; font-size: 1.05rem; }
+        
+        .question-box {
+            background-color: #f9f9f9;
+            padding: 15px 20px;
+            border-left: 4px solid #f39c12;
+            margin-bottom: 10px;
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        /* Solution Box Styling */
+        .solution-box {
+            background-color: #e8f8f5;
+            border-left: 4px solid #1abc9c;
+            padding: 15px 20px;
+            margin-bottom: 25px;
+            color: #0e6655;
+            font-size: 1.05rem;
+        }
+
+        .solution-box strong {
+            color: #16a085;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Voice Controls */
+        .part-controls { display: none; padding: 12px 25px; background: #f8f9fa; border-bottom: 1px solid #eee; }
+        .part-controls.open { display: flex; gap: 10px; }
+        
+        .btn-speak { 
+            background: #27ae60; 
+            color: white; 
+            border: none; 
+            padding: 8px 15px; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-size: 0.95rem; 
+            transition: 0.2s; 
+            font-weight: bold;
+        }
+        .btn-speak:hover { background: #2ecc71; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-title">
+            <h1>Unit 1: Against the Odds</h1>
+            <p>GSEB Standard 10 English (Second Language) - Full Textbook Content</p>
+        </div>
+        <div class="header-meta">
+            <span class="badge">Complete Solutions & Story</span>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <div class="part-panel">
+            <button class="part-title" onclick="toggleSection(this, 'sec1-content', 'sec1-controls')">
+                <span>1. Pre Task</span>
+                <span class="part-arrow">＋</span>
+            </button>
+            <div id="sec1-controls" class="part-controls">
+                <button class="btn-speak" onclick="speakOriginalPart('sec1-content', this)">🔊 Listen to Pre Task</button>
+            </div>
+            <div id="sec1-content" class="original-summary">
+                <h3 class="sub-heading">Read about Dashrath Manjhi</h3>
+                
+                <div class="line-entry">
+                    <div class="en-container">
+                        <span class="en-text">Dashrath Manjhi ran away from home at a young age and worked at Dhanbad's coal mines. He returned to his village, took up work, and married Falguni Devi. While crossing Gehlour Hills to bring him lunch, Falguni slipped and seriously injured herself. They could not reach her to the nearby hospital because there was no straight access to the town and which eventually led to her death.</span>
+                    </div>
+                    <div class="gu-text no-num">દશરથ માંઝી નાની ઉંમરે ઘરેથી ભાગી ગયા હતા અને ધનબાદની કોલસાની ખાણોમાં કામ કર્યું હતું. તેઓ તેમના ગામે પાછા ફર્યા, કામ શરૂ કર્યું અને ફાલ્ગુની દેવી સાથે લગ્ન કર્યા. તેમના માટે બપોરનું ભોજન લાવવા ગેહલૌરની ટેકરીઓ પાર કરતી વખતે, ફાલ્ગુની લપસી ગઈ અને તેને ગંભીર ઈજા થઈ. તેઓ તેને નજીકની હોસ્પિટલમાં પહોંચાડી શક્યા નહીં કારણ કે નગર સુધી પહોંચવા માટે કોઈ સીધો રસ્તો ન હતો, જેના કારણે અંતે તેનું મૃત્યુ થયું.</div>
+                </div>
+
+                <div class="line-entry">
+                    <div class="en-container">
+                        <span class="en-text">Manjhi was deeply disturbed and that very night decided to carve a path through the Gehlour Hills so that his village could have easier access to medical services. He carved a path 360 feet long, 25 feet deep in places and 30 feet wide to form a road through the rocks in Gehlour Hill. He quoted, "When I started hammering the hill, people called me a lunatic but that steeled my resolve."</span>
+                    </div>
+                    <div class="gu-text no-num">માંઝી ખૂબ જ વ્યથિત થયા અને તે જ રાત્રે તેમણે ગેહલૌરની ટેકરીઓમાંથી રસ્તો બનાવવાનું નક્કી કર્યું જેથી તેમના ગામને તબીબી સેવાઓ સરળતાથી મળી શકે. તેમણે ગેહલૌર હિલના ખડકોમાંથી રસ્તો બનાવવા માટે 360 ફૂટ લાંબો, અમુક જગ્યાએ 25 ફૂટ ઊંડો અને 30 ફૂટ પહોળો માર્ગ કોતરી કાઢ્યો. તેમણે કહ્યું, "જ્યારે મેં ટેકરી પર હથોડા મારવાનું શરૂ કર્યું, ત્યારે લોકો મને પાગલ કહેતા હતા, પરંતુ તેનાથી મારો સંકલ્પ વધુ મજબૂત થયો."</div>
+                </div>
+
+                <div class="line-entry">
+                    <div class="en-container">
+                        <span class="en-text">He completed the work in 22 years (1960-1982). This path reduced the distance between the Atri and Wazirganj sectors of the Gaya district from 55 km to 15 km. Later, Manjhi said, "Though most villagers taunted me at first, there were quite a few who lent me support later by giving me food and helping me buy my tools."</span>
+                    </div>
+                    <div class="gu-text no-num">તેમણે આ કામ 22 વર્ષમાં (1960-1982) પૂરું કર્યું. આ રસ્તાએ ગયા જિલ્લાના અત્રી અને વઝીરગંજ સેક્ટર વચ્ચેનું અંતર 55 કિમીથી ઘટાડીને 15 કિમી કરી દીધું. પાછળથી, માંઝીએ કહ્યું, "જોકે શરૂઆતમાં મોટાભાગના ગ્રામવાસીઓએ મને ટોણા માર્યા હતા, પરંતુ કેટલાક એવા પણ હતા જેમણે મને ભોજન આપીને અને મારા સાધનો ખરીદવામાં મદદ કરીને પાછળથી ટેકો આપ્યો હતો."</div>
+                </div>
+
+                <div class="line-entry">
+                    <div class="en-container">
+                        <span class="en-text">For his achievement, Manjhi became popularly known as the 'Mountain Man'. His name was also proposed by the Bihar government for the Padma Shri award in 2006. When a movie on his life was announced, Manjhi was on his deathbed. He put his thumb impression on an agreement and gave away "exclusive rights" to make a film on his life. The mountain man passed away on 17 August 2007, at the All India Institute of Medical Sciences (AIIMS), New Delhi.</span>
+                    </div>
+                    <div class="gu-text no-num">તેમની આ સિદ્ધિ માટે, માંઝી 'માઉન્ટેન મેન' તરીકે લોકપ્રિય થયા. બિહાર સરકાર દ્વારા 2006 માં પદ્મશ્રી એવોર્ડ માટે પણ તેમના નામનો પ્રસ્તાવ મૂકવામાં આવ્યો હતો. જ્યારે તેમના જીવન પર આધારિત ફિલ્મની જાહેરાત કરવામાં આવી, ત્યારે માંઝી મૃત્યુશૈયા પર હતા. તેમણે કરાર પર અંગૂઠાનું નિશાન લગાવ્યું અને તેમના જીવન પર ફિલ્મ બનાવવાના "વિશેષાધિકાર" આપી દીધા. 17 ઓગસ્ટ 2007 ના રોજ નવી દિલ્હીની ઓલ ઈન્ડિયા ઈન્સ્ટિટ્યૂટ ઓફ મેડિકલ સાયન્સ (AIIMS) ખાતે માઉન્ટેન મેનનું અવસાન થયું.</div>
+                </div>
+                
+                <h3 class="sub-heading">Textbook Questions</h3>
+                
+                <div class="question-box">
+                    <div class="en-text"><strong>1. Dashrath lost his wife. He was terribly disturbed. What would Manjhi have told himself that night?</strong></div>
+                    <ul class="en-text" style="list-style: none; margin-top: 10px; margin-left: 10px;">
+                        <li>a) Cruel God took away my wife. Now I hate God.</li>
+                        <li>b) I must do ‘Dharna’ against the government for pressing them to build a good road from Atri to Wazirgunj.</li>
+                        <li>c) I myself will start making a road through hills, whatever odds I have to face.</li>
+                        <li>d) I will unite the people of Atri and lead a procession to the authorities. Our demand will be: "Give us road, give us life."</li>
+                    </ul>
+                </div>
+                <div class="solution-box">
+                    <strong>Solution:</strong>
+                    The correct option is <strong>(c) I myself will start making a road through hills, whatever odds I have to face.</strong> Dashrath Manjhi's resolve was to personally carve a path so that no one else would suffer due to the lack of a road.
+                </div>
+
+                <div class="question-box">
+                    <div class="en-text"><strong>2. Are you moved and impressed by Dashrath's great deed? Write a message (30 words) in memory of this Mountain Man.</strong></div>
+                </div>
+                <div class="solution-box">
+                    <strong>Solution:</strong>
+                    O dear Dashrath! We salute you because your unwavering determination and tireless efforts against impossible odds carved a path of hope. You are a true inspiration, proving that individual will can move mountains.
+                </div>
+
+                <div class="question-box">
+                    <div class="en-text"><strong>3. What inspiration do we get from people like Manjhi? We should not ______________________. Instead we should ______________________.</strong></div>
+                </div>
+                <div class="solution-box">
+                    <strong>Solution:</strong>
+                    We should not <strong>wait for others or the government to solve our problems</strong>. Instead, we should <strong>take initiative and work hard to bring the change we wish to see</strong>.
+                </div>
+
+                <h3 class="sub-heading">P.2 Problem Solving</h3>
+                <div class="question-box">
+                    <div class="en-text"><strong>How would you solve these problems with minimum help from others?</strong></div>
+                    <ol class="en-text" style="margin-left: 25px; margin-top: 10px;">
+                        <li>Crossing a river</li>
+                        <li>Carrying your heavy friend to a hospital</li>
+                        <li>Staying for one rainy night in the forest</li>
+                        <li>Creating support for a very poor student</li>
+                    </ol>
+                </div>
+                <div class="solution-box">
+                    <strong>Solutions:</strong>
+                    <ol style="margin-left: 20px;">
+                        <li>Look for a shallow area, build a makeshift raft using logs, or find a fallen tree to use as a bridge.</li>
+                        <li>Use a sturdy wooden plank as a makeshift stretcher or a wheelbarrow/trolley if available to transport them safely.</li>
+                        <li>Find shelter under a thick canopy of trees or build a small lean-to shelter using large leaves and branches.</li>
+                        <li>Organize a small fundraising group in my society or school and donate my own old books and supplies.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="part-panel">
+            <button class="part-title" onclick="toggleSection(this, 'sec2-content', 'sec2-controls')">
+                <span>2. Read (Complete Chapter)</span>
+                <span class="part-arrow">＋</span>
+            </button>
+            <div id="sec2-controls" class="part-controls">
+                <button class="btn-speak" onclick="speakOriginalPart('sec2-content', this)">🔊 Listen to Chapter</button>
+            </div>
+            <div id="sec2-content" class="original-summary">
+                
+                <h3 class="sub-heading">I. Tracks to Taj Nagar</h3>
+                <div class="line-entry">
+                    <div class="en-container">
+                        <span class="line-num">1</span>
+                        <span class="en-text">For twenty-five years, residents of Taj Nagar village near Gurgaon lobbied for a railway station in their village. When their demand was not met, the villagers decided to take matters into their own hands. They pooled in twenty-one lakh rupees and built a railway station on their own.</span>
+                    </div>
+                    <div class="gu-text">પચીસ વર્ષોથી, ગુડગાંવ પાસેના તાજ નગર ગામના રહેવાસીઓએ તેમના ગામમાં રેલવે સ્ટેશન માટે માંગણી કરી હતી. જ્યારે તેમની માંગ સંતોષાઈ ન હતી, ત્યારે ગામલોકોએ બાબતોને પોતાના હાથમાં લેવાનું નક્કી કર્યું. તેઓએ એકવીસ લાખ રૂપિયા ભેગા કર્યા અને પોતાની જાતે રેલવે સ્ટેશન બનાવ્યું.</div>
+                </div>
+                <div class="line-entry">
+                    <div class="en-container">
+                        <span class="line-num">2</span>
+                        <span class="en-text">"We have a lot of people in the village who need to go to Gurugram, Delhi and Revari. There are students who go to colleges. Till now, we had to either go to Halimandi or Patli to catch a train. Both the stations are six kilometers away from Taj Nagar. We thought when the railway lines passed through the village, we would have a station here. But that didn't happen," said a villager.</span>
+                    </div>
+                    <div class="gu-text">"અમારા ગામમાં ઘણા એવા લોકો છે જેમને ગુરુગ્રામ, દિલ્હી અને રેવાડી જવાની જરૂર હોય છે. એવા વિદ્યાર્થીઓ પણ છે જે કોલેજ જાય છે. અત્યાર સુધી, અમારે ટ્રેન પકડવા માટે હાલીમંડી અથવા પાટલી જવું પડતું હતું. બંને સ્ટેશનો તાજ નગરથી છ કિલોમીટર દૂર છે. અમે વિચાર્યું કે જ્યારે રેલવે લાઇન ગામમાંથી પસાર થાય છે, તો અહીં એક સ્ટેશન હોવું જોઈએ. પરંતુ તેવું થયું નહીં," એક ગ્રામવાસીએ કહ્યું.</div>
+                </div>
+                <div class="line-entry">
+                    <div class="en-container">
+                        <span class="line-num">3</span>
+                        <span class="en-text">"So we raised the demand in 1982 and have been continuously asking for it, but the railways told us that they did not have funds. So, finally we decided to craft our own destiny," said Hukamchand, a member of the committee. As a result, the panchayat passed a resolution in 2008, saying that since the railway was not able to build a station for them, they would do it for themselves and with their own money! Soon, an eleven member team was formed and the team started collecting money from villagers.</span>
+                    </div>
+                    <div class="gu-text">"તેથી અમે 1982 માં માંગ ઉઠાવી અને સતત તેના માટે પૂછતા રહ્યા, પરંતુ રેલવેએ અમને કહ્યું કે તેમની પાસે ભંડોળ નથી. તેથી, આખરે અમે અમારું પોતાનું ભાગ્ય ઘડવાનું નક્કી કર્યું," સમિતિના સભ્ય હુકમચંદે કહ્યું. પરિણામે, 2008 માં પંચાયતે એક ઠરાવ પસાર કર્યો, જેમાં કહેવામાં આવ્યું કે રેલવે તેમના માટે સ્ટેશન બનાવી શકતી નથી, તેથી તેઓ પોતાના માટે અને પોતાના પૈસાથી તે બનાવશે! ટૂંક સમયમાં, અગિયાર સભ્યોની એક ટીમ બનાવવામાં આવી અને ટીમે ગ્રામવાસીઓ પાસેથી પૈસા એકત્રિત કરવાનું શરૂ કર્યું.</div>
+                </div>
+                <div class="line-entry">
+                    <div class="en-container">
+                        <span class="line-num">4</span>
+                        <span class="en-text">On 7 January 2010, as a result of their efforts, the first railway station in the country, on which the railway did not have to spend a single rupee, started operations.</span>
+                    </div>
+                    <div class="gu-text">7 જાન્યુઆરી 2010 ના રોજ, તેમના પ્રયત્નોના પરિણામે, દેશનું પ્રથમ રેલવે સ્ટેશન, જેના પર રેલવેએ એક પણ રૂપિયો ખર્ચ કરવો પડ્યો ન હતો, તેણે કામગીરી શરૂ કરી.</div>
+                </div>
+
+                <h3 class="sub-heading">II. Sitapur's Light</h3>
+                <div class="line-entry">
+                    <div class="en-container">
+                        <span class="line-num">5</span>
+                        <span class="en-text">In rural Uttar Pradesh, over sixty per cent of households are without power. Sitapur district is one such place with no power. A small social enterprise called Mera Gao Power (MGP) is trying to change things. They are putting two solar panels at a time. In just over a year, MGP has connected more than 3,500 customers to solar power mini-grids at a village level.</span>
+                    </div>
+                    <div class="gu-text">ગ્રામીણ ઉત્તર પ્રદેશમાં, 60% થી વધુ ઘરો વીજળી વગરના છે. સીતાપુર જિલ્લો પણ એક એવી જગ્યા છે જ્યાં વીજળી નથી. 'મેરા ગાઉં પાવર' (MGP) નામની એક નાની સામાજિક સંસ્થા પરિસ્થિતિ બદલવાનો પ્રયાસ કરી રહી છે. તેઓ એકસાથે બે સોલર પેનલ લગાવી રહ્યા છે. માત્ર એક વર્ષમાં, MGP એ 3,500 થી વધુ ગ્રાહકોને ગ્રામ્ય કક્ષાએ સોલર પાવર મિની-ગ્રીડ સાથે જોડ્યા છે.</div>
+                </div>
+                <div class="line-entry">
+                    <div class="en-container">
+                        <span class="line-num">6</span>
+                        <span class="en-text">Village by village, MGP is building a network of low-cost solar micro-grids that provide two LED lights and a mobile charging point to all paying households at a cost of twenty-five rupees per week. That is cheaper than kerosene which can cost almost double across a month. Solar power, as a 'smokeless' source of light, comes with added benefits to customer health.</span>
+                    </div>
+                    <div class="gu-text">ગામેગામ, MGP ઓછા ખર્ચે સોલર માઇક્રો-ગ્રીડનું નેટવર્ક બનાવી રહ્યું છે જે અઠવાડિયાના પચીસ રૂપિયાના દરે તમામ ચૂકવણી કરતા ઘરોને બે LED લાઈટ અને મોબાઈલ ચાર્જિંગ પોઈન્ટ આપે છે. તે કેરોસીન કરતા સસ્તું છે જેનો એક મહિનાનો ખર્ચ લગભગ બમણો થઈ શકે છે. ધુમાડારહિત પ્રકાશના સ્ત્રોત તરીકે સોલર પાવર ગ્રાહકના સ્વાસ્થ્ય માટે વધારાના ફાયદાઓ સાથે આવે છે.</div>
+                </div>
+                <div class="line-entry">
+                    <div class="en-container">
+                        <span class="line-num">7</span>
+                        <span class="en-text">Installing a micro-grid is a grand event in the village and everyone gets involved. In the village of Damdampurwa, the team maps the village, house by house, beneath the scorching mid-day sun, working out where to place each wire so as to connect customer to the power source. Some householders join in, while others look on, calling out orders or watching the curious proceedings wide-eyed.</span>
+                    </div>
+                    <div class="gu-text">ગામમાં માઈક્રો-ગ્રીડ લગાવવી એ એક મોટો પ્રસંગ છે અને દરેક તેમાં સામેલ થાય છે. દમદમપુરવા ગામમાં, બપોરના આકરા તડકામાં ટીમ ઘર-ઘર ફરીને ગામનો નકશો બનાવે છે, એ નક્કી કરવા કે ગ્રાહકને પાવર સોર્સ સાથે જોડવા માટે કયો વાયર ક્યાં મૂકવો. કેટલાક ઘરવાળાઓ જોડાય છે, જ્યારે અન્ય લોકો જોતા રહે છે, સૂચનાઓ આપે છે અથવા આ વિચિત્ર પ્રક્રિયાને આશ્ચર્યથી જુએ છે.</div>
+                </div>
+                <div class="line-entry">
+                    <div class="en-container">
+                        <span class="line-num">8</span>
+                        <span class="en-text">The roof of a sturdy, brick-walled house in each village is always chosen as the site for the panels and the battery. Azaz, one of the company's first electricians to be recruited from the local district block of Reusa, installs the panel in a southerly direction to capture as much sunlight as possible. "We are saving our environment with these lights, and there's no pollution in our homes either," says a farmer from the village.</span>
+                    </div>
+                    <div class="gu-text">દરેક ગામમાં પેનલ અને બેટરી માટે હંમેશા મજબૂત, ઈંટની દીવાલવાળા ઘરની છત પસંદ કરવામાં આવે છે. અઝાઝ, જે સ્થાનિક રેઉસા બ્લોકમાંથી ભરતી થયેલ કંપનીના પ્રથમ ઇલેક્ટ્રિશિયનોમાંનો એક છે, તે પેનલને દક્ષિણ દિશામાં લગાવે છે જેથી વધુમાં વધુ સૂર્યપ્રકાશ મેળવી શકાય. ગામના એક ખેડૂતે કહ્યું, "અમે આ લાઇટ્સથી અમારા પર્યાવરણને બચાવી રહ્યા છીએ, અને અમારા ઘરોમાં પણ કોઈ પ્રદૂષણ નથી."</div>
+                </div>
+                <div class="line-entry">
+                    <div class="en-container">
+                        <span class="line-num">9</span>
+                        <span class="en-text">"New businesses are starting to emerge amongst the customers too," says another. "In one village, customers are using the light to weave saris by night. In another, one man now has a night business making plastic tablecloths. It's nice to have light while we cook and eat. Our children are also studying more now!"</span>
+                    </div>
+                    <div class="gu-text">"ગ્રાહકોમાં નવા વ્યવસાયો પણ ઉભરી રહ્યા છે," બીજા એકે કહ્યું. "એક ગામમાં, ગ્રાહકો રાત્રે સાડી વણવા માટે પ્રકાશનો ઉપયોગ કરે છે. બીજા ગામમાં, એક માણસ હવે રાત્રે પ્લાસ્ટિકના ટેબલક્લોથ બનાવવાનો વ્યવસાય કરે છે. જ્યારે અમે રાંધીએ અને જમીએ ત્યારે પ્રકાશ હોય તે સારું છે. અમારા બાળકો પણ હવે વધુ અભ્યાસ કરી રહ્યા છે!"</div>
+                </div>
+
+                <h3 class="sub-heading">III. Palakkad's Public Library</h3>
+                <div class="line-entry">
+                    <div class="en-container">
+                        <span class="line-num">10</span>
+                        <span class="en-text">In Kerala, the Palakkad District Public Library has been up and running since September 2013. It is a fine modern library, a centre for information, knowledge, wisdom, cultural activities, research and reference. But it has recently been in the news for different reasons. A third of its thousand members are women. These women, supported by the shared space the library offered them, launched a women's unit in February 2014. The unit got together to discuss methods of empowering women.</span>
+                    </div>
+                    <div class="gu-text">કેરળમાં, પલક્કડ ડિસ્ટ્રિક્ટ પબ્લિક લાઇબ્રેરી સપ્ટેમ્બર 2013 થી કાર્યરત છે. તે એક સરસ આધુનિક પુસ્તકાલય છે, જે માહિતી, જ્ઞાન, ડહાપણ, સાંસ્કૃતિક પ્રવૃત્તિઓ, સંશોધન અને સંદર્ભ માટેનું કેન્દ્ર છે. પરંતુ તાજેતરમાં તે અલગ કારણોસર ચર્ચામાં છે. તેના હજાર સભ્યોમાંથી ત્રીજા ભાગની મહિલાઓ છે. પુસ્તકાલય દ્વારા આપવામાં આવેલી સહિયારી જગ્યાના સમર્થનથી, આ મહિલાઓએ ફેબ્રુઆરી 2014 માં મહિલા એકમ શરૂ કર્યું. આ એકમ મહિલાઓના સશક્તિકરણની પદ્ધતિઓ પર ચર્ચા કરવા એકઠું થયું.</div>
+                </div>
+                <div class="line-entry">
+                    <div class="en-container">
+                        <span class="line-num">11</span>
+                        <span class="en-text">The library opened its halls for film screening, workshops in home economics or gardening, child care or the arts, and for women to get help in managing family conflicts, legal disputes and professional problems. The secretary of the library pointed out that through reading, women would realize their own strength and forge a unity. It was noted that the lending libraries of earlier times were disappearing and the present rural reading rooms were too often full of only male readers.</span>
+                    </div>
+                    <div class="gu-text">લાઇબ્રેરીએ ફિલ્મ સ્ક્રીનિંગ, હોમ ઇકોનોમિક્સ અથવા બાગકામ, બાળ સંભાળ અથવા કળામાં વર્કશોપ, અને કૌટુંબિક તકરાર, કાનૂની વિવાદો અને વ્યાવસાયિક સમસ્યાઓના સંચાલનમાં મદદ મેળવવા માટે તેના હોલ ખોલ્યા. લાઇબ્રેરીના સેક્રેટરીએ ધ્યાન દોર્યું કે વાંચન દ્વારા, મહિલાઓને તેમની પોતાની શક્તિનો અહેસાસ થશે અને તેઓ એકતા બનાવશે. એવું નોંધવામાં આવ્યું હતું કે અગાઉના સમયની લાઇબ્રેરીઓ અદૃશ્ય થઈ રહી હતી અને વર્તમાન ગ્રામીણ વાંચન ખંડો ઘણીવાર માત્ર પુરુષ વાચકોથી ભરેલા હોય છે.</div>
+                </div>
+                <div class="line-entry">
+                    <div class="en-container">
+                        <span class="line-num">12</span>
+                        <span class="en-text">The unit discussed that if the once well-read women of Kerala continued to squander their hours in front of television, it would encourage a climate in which women are afraid to go out after dark. So, the unit has formulated plans on opening separate reading rooms for women. Palakkad's district library stands tall as a beacon to encourage women's empowerment through classes, clubs, workshops and reading rooms. And then, there are the books, which will provide the women the strength they need to make good use of these opportunities.</span>
+                    </div>
+                    <div class="gu-text">એકમે ચર્ચા કરી કે જો કેરળની સુશિક્ષિત મહિલાઓ ટેલિવિઝન સામે તેમનો સમય બગાડવાનું ચાલુ રાખશે, તો તે એવા વાતાવરણને પ્રોત્સાહન આપશે જેમાં મહિલાઓ અંધારું થયા પછી બહાર જવાથી ડરશે. તેથી, આ એકમે મહિલાઓ માટે અલગ વાંચન ખંડો ખોલવાની યોજનાઓ ઘડી છે. વર્ગો, ક્લબ, વર્કશોપ અને વાંચન ખંડો દ્વારા મહિલાઓના સશક્તિકરણને પ્રોત્સાહિત કરવા પલક્કડની ડિસ્ટ્રિક્ટ લાઇબ્રેરી એક દીવાદાંડી તરીકે ઊભી છે. અને પછી, પુસ્તકો છે, જે મહિલાઓને આ તકોનો સારો ઉપયોગ કરવા માટે જરૂરી શક્તિ પ્રદાન કરશે.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="part-panel">
+            <button class="part-title" onclick="toggleSection(this, 'sec3-content', 'sec3-controls')">
+                <span>3. Glossary</span>
+                <span class="part-arrow">＋</span>
+            </button>
+            <div id="sec3-controls" class="part-controls">
+                <button class="btn-speak" onclick="speakOriginalPart('sec3-content', this)">🔊 Listen to Glossary</button>
+            </div>
+            <div id="sec3-content" class="original-summary">
+                <ul class="textbook-list">
+                    <li><span class="en-text"><strong>Lobby (v):</strong> to try to persuade a politician or the government to do something</span></li>
+                    <li><span class="en-text"><strong>Pool in (v):</strong> to collect money from different people for a common purpose</span></li>
+                    <li><span class="en-text"><strong>Destiny (n):</strong> fate, the events that will necessarily happen</span></li>
+                    <li><span class="en-text"><strong>Resolution (n):</strong> an official decision that is made after a group or organization has voted</span></li>
+                    <li><span class="en-text"><strong>Enterprise (n):</strong> a business or an organization</span></li>
+                    <li><span class="en-text"><strong>Microgrid (n):</strong> a small-scale power grid that can operate independently</span></li>
+                    <li><span class="en-text"><strong>Sturdy (adj):</strong> physically strong and solid</span></li>
+                    <li><span class="en-text"><strong>Empower (v):</strong> to give power or authority to someone</span></li>
+                    <li><span class="en-text"><strong>Squander (v):</strong> to waste time, money, etc. in a reckless and foolish manner</span></li>
+                    <li><span class="en-text"><strong>Beacon (n):</strong> a light or fire set up high as a warning, signal, or celebration (here, a guiding light)</span></li>
+                    <li><span class="en-text"><strong>Formulate (v):</strong> to create or devise methodically</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="part-panel">
+            <button class="part-title" onclick="toggleSection(this, 'sec4-content', null)">
+                <span>4. Vocabulary</span>
+                <span class="part-arrow">＋</span>
+            </button>
+            <div id="sec4-content" class="original-summary">
+                <h3 class="sub-heading">V.1 Fill in the blanks choosing the correct words:</h3>
+                <div class="question-box">
+                    <em class="en-text">Words: (empower, resident, lobbied, pooled in, destiny)</em>
+                    <ol class="en-text" style="margin-left: 20px; padding-top: 10px;">
+                        <li>Raman is a ________ of Gujarat.</li>
+                        <li>The villagers ________ for a new hospital in their area for many years.</li>
+                        <li>All the friends ________ money to buy a birthday gift for their teacher.</li>
+                        <li>Education has the true power to ________ women in society.</li>
+                        <li>Hard work and dedication can change your ________.</li>
+                    </ol>
+                </div>
+                <div class="solution-box">
+                    <strong>Answers:</strong>
+                    <ol style="margin-left: 20px;">
+                        <li>resident</li>
+                        <li>lobbied</li>
+                        <li>pooled in</li>
+                        <li>empower</li>
+                        <li>destiny</li>
+                    </ol>
+                </div>
+
+                <h3 class="sub-heading">V.2 Match the Synonyms:</h3>
+                <div class="question-box">
+                    <table class="en-text" style="width: 100%; text-align: left;">
+                        <tr>
+                            <th>Part A</th>
+                            <th>Part B</th>
+                        </tr>
+                        <tr><td>1. Destiny</td><td>A. Business</td></tr>
+                        <tr><td>2. Enterprise</td><td>B. Gathered/Collected</td></tr>
+                        <tr><td>3. Pooled in</td><td>C. Waste</td></tr>
+                        <tr><td>4. Squander</td><td>D. Fate</td></tr>
+                    </table>
+                </div>
+                <div class="solution-box">
+                    <strong>Answers:</strong>
+                    <ul style="list-style-type: none; padding-left: 0;">
+                        <li>1 - D (Destiny = Fate)</li>
+                        <li>2 - A (Enterprise = Business)</li>
+                        <li>3 - B (Pooled in = Gathered/Collected)</li>
+                        <li>4 - C (Squander = Waste)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="part-panel">
+            <button class="part-title" onclick="toggleSection(this, 'sec5-content', null)">
+                <span>5. Comprehension</span>
+                <span class="part-arrow">＋</span>
+            </button>
+            <div id="sec5-content" class="original-summary">
+                <h3 class="sub-heading">C.1 Answer the following questions in short:</h3>
+                
+                <div class="question-box">
+                    <p class="en-text">Q1. Why did the villagers of Taj Nagar collect money?</p>
+                </div>
+                <div class="solution-box">
+                    <strong>Answer:</strong>
+                    The villagers of Taj Nagar collected money to build a railway station in their village themselves, as the railway authorities had refused to build one citing a lack of funds, despite the villagers lobbying for it for 25 years.
+                </div>
+
+                <div class="question-box">
+                    <p class="en-text">Q2. How does Mera Gao Power (MGP) help the people of Sitapur?</p>
+                </div>
+                <div class="solution-box">
+                    <strong>Answer:</strong>
+                    MGP helps the people of Sitapur by providing low-cost solar-powered microgrids. For just 25 rupees per week, they provide two LED lights and a mobile charging point to rural households, giving them a cheaper, smokeless alternative to kerosene.
+                </div>
+
+                <div class="question-box">
+                    <p class="en-text">Q3. Why is the Palakkad's District Public Library unique for women?</p>
+                </div>
+                <div class="solution-box">
+                    <strong>Answer:</strong>
+                    It is unique because one-third of its members are women, and it launched a dedicated women's unit. It provides separate reading rooms for them and organizes workshops, classes, and clubs to discuss women's empowerment and resolve conflicts safely.
+                </div>
+                
+                <h3 class="sub-heading">C.2 True or False:</h3>
+                <div class="question-box">
+                    <ul class="textbook-list en-text" style="list-style-type: none; margin-left: 0;">
+                        <li>1. The government gave 21 lakh rupees for the Taj Nagar station.</li>
+                        <li>2. Solar power is cheaper than kerosene.</li>
+                        <li>3. Palakkad Library encourages women to watch TV instead of reading.</li>
+                        <li>4. The solar panels in Sitapur are installed in a southerly direction.</li>
+                    </ul>
+                </div>
+                <div class="solution-box">
+                    <strong>Answers:</strong>
+                    <ul style="list-style-type: none; padding-left: 0;">
+                        <li>1. <strong>False</strong> (The villagers collected the money themselves).</li>
+                        <li>2. <strong>True</strong> (It costs 25 Rs per week, which is cheaper than kerosene).</li>
+                        <li>3. <strong>False</strong> (It encourages women to read and stop squandering time in front of the TV).</li>
+                        <li>4. <strong>True</strong> (To capture as much sunlight as possible).</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="part-panel">
+            <button class="part-title" onclick="toggleSection(this, 'sec6-content', null)">
+                <span>6. Language Practice</span>
+                <span class="part-arrow">＋</span>
+            </button>
+            <div id="sec6-content" class="original-summary">
+                <h3 class="sub-heading">L.1 Focus on Functions: 'Since', 'For', and 'How Long'</h3>
+                <div class="question-box" style="border-left-color: #3498db;">
+                    <p class="en-text"><strong>Rules:</strong></p>
+                    <ul class="textbook-list en-text">
+                        <li>Use <strong>FOR</strong> to show a period or duration of time (e.g., for 5 years, for 2 months, for a long time).</li>
+                        <li>Use <strong>SINCE</strong> to show a specific starting point in time (e.g., since 2013, since Monday, since morning).</li>
+                        <li>Use <strong>HOW LONG</strong> to ask questions about the duration of an action.</li>
+                    </ul>
+                </div>
+
+                <h3 class="sub-heading">L.2 Fill in the blanks with 'Since' or 'For':</h3>
+                <div class="question-box">
+                    <ol class="en-text" style="margin-left: 20px;">
+                        <li>The residents of Taj Nagar lobbied for a station _____ twenty-five years.</li>
+                        <li>The Palakkad library has been running _____ September 2013.</li>
+                        <li>Mr. Patel has been teaching English _____ morning.</li>
+                        <li>They have been saving money _____ three months.</li>
+                        <li>I haven't seen my friend _____ last Monday.</li>
+                    </ol>
+                </div>
+                <div class="solution-box">
+                    <strong>Answers:</strong>
+                    <ol style="margin-left: 20px;">
+                        <li><strong>for</strong> (Duration of 25 years)</li>
+                        <li><strong>since</strong> (Specific point: September 2013)</li>
+                        <li><strong>since</strong> (Specific point: morning)</li>
+                        <li><strong>for</strong> (Duration of three months)</li>
+                        <li><strong>since</strong> (Specific point: last Monday)</li>
+                    </ol>
+                </div>
+                
+                <h3 class="sub-heading">L.3 Frame Questions using 'How Long':</h3>
+                <div class="question-box">
+                    <p class="en-text">1. Amit has been reading this book for two hours. (Ask a question)</p>
+                    <p class="en-text">2. She has been living in Surat since 2015. (Ask a question)</p>
+                </div>
+                <div class="solution-box">
+                    <strong>Answers:</strong>
+                    <p>1. How long has Amit been reading this book?</p>
+                    <p>2. How long has she been living in Surat?</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="part-panel">
+            <button class="part-title" onclick="toggleSection(this, 'sec7-content', null)">
+                <span>7. Writing</span>
+                <span class="part-arrow">＋</span>
+            </button>
+            <div id="sec7-content" class="original-summary">
+                <h3 class="sub-heading">W.1 Short Note Writing</h3>
+                <div class="question-box">
+                    <strong class="en-text">Topic: Palakkad's District Public Library</strong>
+                    <p class="en-text"><small>Points: Established in Kerala - September 2013 - unique feature: one-third members are women - women's unit formed in Feb 2014 - special reading rooms - empowerment activities like film screening, workshops, and child care.</small></p>
+                </div>
+                <div class="solution-box">
+                    <strong>Solution (Short Note):</strong>
+                    <p>The Palakkad District Public Library, established in Kerala in September 2013, is a modern center of knowledge. It is highly unique because one-third of its 1,000 members are women. Recognizing this, the library launched a special women's unit in February 2014. It provides separate, safe reading rooms for women so they don't squander time watching television. The library also empowers them by organizing film screenings, workshops in home economics, gardening, and child care, helping women gain confidence and strength to resolve their conflicts.</p>
+                </div>
+
+                <div class="question-box">
+                    <strong class="en-text">Topic: Tracks to Taj Nagar</strong>
+                    <p class="en-text"><small>Points: Need for a railway station - villager's demand - railway's response - collecting funds - constructing the station - first of its kind.</small></p>
+                </div>
+                <div class="solution-box">
+                    <strong>Solution (Short Note):</strong>
+                    <p>For twenty-five years, the residents of Taj Nagar, a village near Gurugram, lobbied for a railway station as they had to travel six kilometers to Halimandi or Patli to catch a train. When the railways refused citing a lack of funds, the villagers decided to take matters into their own hands. In 2008, the panchayat passed a resolution, and an eleven-member team was formed. They pooled twenty-one lakh rupees. On January 7, 2010, the country's first railway station built entirely with people's money started operations.</p>
+                </div>
+
+                <h3 class="sub-heading">W.2 Report Writing</h3>
+                <div class="question-box">
+                    <p class="en-text"><strong>Question:</strong> Write a brief report (around 60-80 words) on how your village or society managed a "Clean-up Drive" independently without waiting for the municipality, showing the spirit of "Against the Odds".</p>
+                </div>
+                <div class="solution-box">
+                    <strong>Solution (Report):</strong>
+                    <p><strong>Independent Clean-Up Drive by Gokuldham Society</strong></p>
+                    <p><em>April 15, Ahmedabad:</em></p>
+                    <p>For months, the residents of Gokuldham Society faced severe garbage disposal issues. When the local municipality ignored repeated complaints, the residents decided to take matters into their own hands. On Sunday morning, over 50 members, including children and senior citizens, pooled money to buy gloves, brooms, and dustbins. In just five hours of united effort, they cleared the entire society compound and the adjoining street. The society has now set up its own waste-segregation system, proving that unity and determination can solve any problem without waiting for external help.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleSection(btn, sectionId, controlsId) {
+            const sec = document.getElementById(sectionId);
+            const controls = controlsId ? document.getElementById(controlsId) : null;
+            const isOpen = sec.classList.contains('open');
+            
+            const panel = btn.closest('.container');
+            if(panel){
+                panel.querySelectorAll('.original-summary').forEach(s => s.classList.remove('open'));
+                panel.querySelectorAll('.part-controls').forEach(c => c.classList.remove('open'));
+                panel.querySelectorAll('.part-title').forEach(b => {
+                    b.classList.remove('active'); 
+                    const a = b.querySelector('.part-arrow'); 
+                    if(a) a.textContent = '＋';
+                });
+            }
+            if(sec && !isOpen){
+                sec.classList.add('open');
+                if(controls) controls.classList.add('open');
+                btn.classList.add('active');
+                const arrow = btn.querySelector('.part-arrow'); 
+                if(arrow) arrow.textContent = '−';
+            }
+        }
+
+        function speakOriginalPart(sectionId, btnElement) {
+            window.speechSynthesis.cancel();
+            const section = document.getElementById(sectionId);
+            if(!section) return;
+            
+            // Collects all English text mapped properly
+            const combined = [...section.querySelectorAll('.en-text')]
+                .map(n => n.innerText.trim())
+                .join('. ');
+            
+            if(!combined) return;
+            
+            const u = new SpeechSynthesisUtterance(combined);
+            const voices = window.speechSynthesis.getVoices();
+            const v = voices.find(x => x.lang && x.lang.startsWith('en'));
+            if(v) u.voice = v;
+            u.rate = 0.85; 
+            u.pitch = 1.05;
+            
+            const old = btnElement.innerText;
+            btnElement.innerText = '⏹ Stop Voice';
+            
+            btnElement.onclick = function() {
+                window.speechSynthesis.cancel();
+                btnElement.innerText = old;
+                btnElement.onclick = function() { speakOriginalPart(sectionId, btnElement); };
+            };
+            
+            u.onend = function() {
+                btnElement.innerText = old;
+                btnElement.onclick = function() { speakOriginalPart(sectionId, btnElement); };
+            };
+            
+            window.speechSynthesis.speak(u);
+        }
+    </script>
+</body>
+</html>
