@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Class 5 English Marigold — WAGH Tuition Classes</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* CSS Reset and Font Setup */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Nunito', 'Segoe UI', sans-serif; }
+        body { background-color: #fcfbfa; color: #2c3e50; line-height: 1.7; font-size: 18px; transition: background 0.3s, color 0.3s; }
+        
+        /* Top Branding */
+        .brand-strip { background: linear-gradient(135deg, #111827, #2c3e50); color: #fff; padding: 15px 40px; font-weight: 800; letter-spacing: 0.8px; text-align: center; font-size: 1.4rem; border-bottom: 5px solid #f39c12; }
+        
+        /* Tab Navigation */
+        .tabbar { position: sticky; top: 0; z-index: 50; background: #fff; padding: 15px 16px; display: flex; gap: 12px; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.08); flex-wrap: wrap; transition: background 0.3s; }
+        .tab-btn { border: 2px solid #d5dbdb; background: #f8fafc; color: #2c3e50; padding: 10px 22px; border-radius: 999px; font-weight: 800; font-size: 1.1rem; cursor: pointer; transition: all 0.2s ease; }
+        .tab-btn:hover { background: #e2e8f0; transform: scale(1.05); }
+        .tab-btn.active { background: #e67e22; color: #fff; border-color: #d35400; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* General Layout */
+        .container { max-width: 950px; margin: 40px auto; padding: 0 20px; animation: fadeIn 0.4s ease;}
+        .section-header { color: #2c3e50; border-left: 8px solid #e67e22; padding-left: 15px; margin: 20px 0 30px 0; font-size: 2rem; font-weight: 900; }
+        
+        /* Accordions (Main Chapters) */
+        .accordion-card { background: #fff; border: 3px solid #e5e7eb; border-radius: 18px; margin: 25px 0; overflow: hidden; box-shadow: 0 6px 15px rgba(0,0,0,0.05); transition: border-color 0.3s; }
+        .accordion-card:hover { border-color: #3498db; }
+        .accordion-head { width: 100%; border: 0; background: #3498db; color: #fff; padding: 20px 25px; font-size: 1.4rem; font-weight: 800; display: flex; justify-content: space-between; align-items: center; cursor: pointer; text-align: left; }
+        .accordion-card.open .accordion-head { background: #2980b9; }
+        .accordion-body { display: none; padding: 30px; background: #fff; }
+        .accordion-card.open > .accordion-body { display: block; animation: fadeIn 0.3s; }
+
+        /* Poem Specific Elements (Section 1) */
+        .part-title { width: 100%; background-color: #34495e; color: #ffffff; padding: 15px 20px; border-radius: 12px; font-size: 1.3rem; font-weight: 800; display: flex; align-items: center; justify-content: space-between; border: none; cursor: pointer; text-align: left; margin-top: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: background 0.2s; }
+        .part-title:hover { background-color: #2c3e50; }
+        .part-title.active { border-radius: 12px 12px 0 0; background-color: #2c3e50; }
+        .part-arrow { font-size: 1.4rem; font-weight: 900; }
+
+        .part-controls { background-color: #eaeded; padding: 15px 20px; border-left: 3px solid #d5dbdb; border-right: 3px solid #d5dbdb; display: none; gap: 15px; align-items: center; }
+        .action-btn { background-color: #ffffff; color: #2c3e50; border: 2px solid #bdc3c7; padding: 10px 20px; border-radius: 8px; font-size: 1.1rem; font-weight: 800; cursor: pointer; transition: all 0.2s; }
+        .action-btn:hover { background-color: #f1f3f5; transform: translateY(-2px); }
+        .action-btn.play-btn { background-color: #3498db; color: white; border-color: #2980b9; }
+        .action-btn.play-btn:hover { background-color: #2980b9; }
+
+        .summary-section { display: none; background-color: #ffffff; padding: 15px 25px 25px 25px; border-radius: 0 0 12px 12px; box-shadow: 0 6px 15px rgba(0,0,0,0.05); margin-bottom: 25px; border: 3px solid #eef2f5; border-top: none; }
+        .line-entry { padding: 15px 0; border-bottom: 2px dashed #e2e8f0; }
+        .line-entry:last-child { border-bottom: none; }
+
+        .en-container { background-color: #f4f9fd; border-left: 6px solid #3498db; padding: 15px 20px; border-radius: 8px; margin-bottom: 10px; }
+        .en-text { font-size: 1.25rem; color: #2c3e50; font-weight: 800; }
+        .line-num { font-weight: 900; color: #3498db; margin-right: 10px; font-size: 1.1rem; }
+
+        .drawer-content { display: none; animation: fadeIn 0.3s; margin-left: 15px; }
+        .gu-box { background-color: #fdfaf4; border-left: 6px solid #f39c12; padding: 12px 18px; border-radius: 8px; font-weight: 700; font-size: 1.15rem; margin-bottom: 8px; color: #d35400; }
+        .analysis-box { background-color: #f8f9fa; padding: 12px 18px; border-radius: 8px; font-size: 1.15rem; border-left: 6px solid #27ae60; color: #1e8449; font-weight: 700; }
+
+        /* Tables (For New Words) */
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 2px solid #e2e8f0; padding: 15px; text-align: left; font-size: 1.15rem; }
+        th { background: #f4f9fd; color: #2c3e50; font-weight: 900; }
+        td { color: #34495e; font-weight: 700; }
+
+        /* Q&A Formatting */
+        .qa-box { background: #fdf2e9; border: 3px dashed #f39c12; padding: 20px; border-radius: 12px; margin-bottom: 25px; }
+        .question { font-weight: 800; color: #d35400; font-size: 1.3rem; margin-bottom: 12px; }
+        .answer { background: #eafaf1; border-left: 6px solid #2ecc71; padding: 15px; border-radius: 8px; color: #1e8449; font-weight: 700; margin-bottom: 10px; font-size: 1.15rem; }
+        
+        /* Interactive Inputs & Buttons */
+        .btn-check { background: #2ecc71; color: white; padding: 10px 20px; border: none; border-radius: 10px; font-weight: 800; cursor: pointer; font-size: 1.1rem; margin-top: 10px; transition: 0.2s; box-shadow: 0 4px 6px rgba(46, 204, 113, 0.3); }
+        .btn-check:hover { background: #27ae60; transform: translateY(-2px); }
+        .btn-check:active { transform: translateY(0); }
+        
+        /* Say Aloud Grid */
+        .say-aloud-grid { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 15px; }
+        .word-bubble { display: flex; align-items: center; gap: 8px; background: #f4f6f7; padding: 12px 25px; border-radius: 30px; border: 3px solid #bdc3c7; cursor: pointer; font-size: 1.3rem; font-weight: 800; user-select: none; transition: all 0.2s; }
+        .word-bubble:hover { transform: scale(1.05); }
+        .word-bubble.circled { border: 4px solid #e74c3c; background: #fadbd8; color: #c0392b; }
+        .speaker-icon { font-size: 1.4rem; cursor: pointer; }
+        
+        /* Word Building Match */
+        .rhyme-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; margin-top: 15px; }
+        .rhyme-box { background: #fff; border: 3px solid #bdc3c7; border-radius: 12px; padding: 15px; text-align: center; font-size: 1.25rem; font-weight: 800; cursor: pointer; transition: 0.3s; }
+        .rhyme-box:hover { transform: translateY(-3px); box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
+        .rhyme-box.correct { background: #a9dfbf; border-color: #27ae60; color: #145a32; }
+        .rhyme-box.wrong { background: #f5b7b1; border-color: #c0392b; color: #78281f; }
+
+        .fill-blank { width: 140px; padding: 8px; font-size: 1.2rem; font-weight: 700; border: 3px solid #bdc3c7; border-radius: 8px; text-align: center; color: #2c3e50; }
+        .fill-blank:focus { outline: none; border-color: #3498db; }
+        .fill-blank.correct { background: #abebc6; border-color: #2ecc71; color: #1e8449; }
+        
+        /* Fun Time - Ice Cream Drawing & Sorting */
+        #drawing-board { border: 4px dashed #3498db; background: #fff; cursor: crosshair; border-radius: 15px; touch-action: none; width: 100%; max-width: 450px; height: 350px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .kulfi-list { list-style: none; padding: 0; }
+        .kulfi-list li { margin-bottom: 12px; display: flex; align-items: center; gap: 15px; background: #fdfaf4; padding: 15px; border-radius: 10px; border: 2px solid #e5e7eb; font-weight: 700; font-size: 1.15rem; }
+        .kulfi-input { width: 50px; text-align: center; font-size: 1.3rem; font-weight: 800; padding: 8px; border-radius: 8px; border: 3px solid #bdc3c7; color: #2c3e50; }
+        .kulfi-input:focus { outline: none; border-color: #e67e22; }
+        .flavor-box { display: inline-block; width: 90px; height: 90px; border-radius: 15px; border: 3px solid #2c3e50; margin: 10px; text-align: center; line-height: 84px; font-weight: 800; font-size: 1.1rem; cursor: pointer; background: white; user-select: none; transition: 0.2s; }
+        .flavor-box:hover { transform: scale(1.1); }
+        
+        /* Text Area */
+        .report-area { width: 100%; height: 180px; padding: 18px; font-size: 1.2rem; font-weight: 600; border: 3px solid #bdc3c7; border-radius: 12px; resize: vertical; margin-top: 15px; color: #2c3e50; }
+        .report-area:focus { outline: none; border-color: #3498db; }
+
+        /* Emphasized Text for Kids */
+        .kid-hint { font-size: 1.05rem; color: #7f8c8d; font-weight: 700; margin-left: 10px; }
+
+        /* Dark Mode Updates */
+        body.dark-mode { background-color: #111827; color: #e5e7eb; }
+        .dark-mode .accordion-card, .dark-mode .accordion-body, .dark-mode .rhyme-box { background: #1f2937; border-color: #374151; }
+        .dark-mode .qa-box { background: #374151; border-color: #d35400; }
+        .dark-mode .answer { background: #064e3b; color: #a7f3d0; border-color: #10b981; }
+        .dark-mode .word-bubble { background: #374151; border-color: #4b5563; color: white; }
+        .dark-mode .kulfi-list li { background: #374151; border-color: #4b5563; }
+        .dark-mode .fill-blank, .dark-mode .kulfi-input, .dark-mode .report-area { background: #111827; color: white; border-color: #4b5563; }
+        .dark-mode .kid-hint { color: #9ca3af; }
+        
+        /* Dark Mode for Poem specific */
+        .dark-mode .part-title { background-color: #374151; }
+        .dark-mode .part-title.active, .dark-mode .part-title:hover { background-color: #1f2937; }
+        .dark-mode .part-controls { background-color: #374151; border-color: #4b5563; }
+        .dark-mode .action-btn { background-color: #4b5563; color: #f9fafb; border-color: #6b7280; }
+        .dark-mode .action-btn:hover { background-color: #6b7280; }
+        .dark-mode .action-btn.play-btn { background-color: #2563eb; border-color: #1d4ed8; }
+        .dark-mode .summary-section { background-color: #1f2937; border-color: #374151; }
+        .dark-mode .line-entry { border-bottom-color: #4b5563; }
+        .dark-mode .en-container { background-color: #374151; border-left-color: #3b82f6; }
+        .dark-mode .en-text { color: #f9fafb; }
+        .dark-mode .gu-box { background-color: #451a03; border-left-color: #f59e0b; color: #fcd34d; }
+        .dark-mode .analysis-box { background-color: #064e3b; border-left-color: #10b981; color: #6ee7b7; }
+        .dark-mode th { background: #374151; color: #f9fafb; border-color: #4b5563; }
+        .dark-mode td { color: #e5e7eb; border-color: #4b5563; }
+    </style>
+</head>
+<body>
+
+    <header class="brand-strip">WAGH Tuition Classes</header>
+
+    <div class="tabbar">
+        <button class="tab-btn active" id="btn-poem">🍦 Unit 1: Ice-cream Man</button>
+        <button class="tab-btn" id="darkModeToggle" onclick="toggleDarkMode()">🌙 Night Mode</button>
+    </div>
+
+    <div class="container">
+        <div class="section-header">Unit 1: Ice-cream Man</div>
+
+        <div class="accordion-card">
+            <button class="accordion-head" onclick="toggleAccordion(this)">
+                <span>📖 1. Read and Recite</span><span>＋</span>
+            </button>
+            <div class="accordion-body">
+                <p style="font-size: 1.2rem; font-weight: 700; margin-bottom: 15px; color: #7f8c8d;">
+                    <em>Read the poem by Rachel Field. Tap the stanzas below to see translations in Gujarati and Hindi, and to hear the pronunciation!</em>
+                </p>
+
+                <div>
+                    <button class="part-title" onclick="togglePart(this)">
+                        <span>🍦 Stanza 1</span><span class="part-arrow">＋</span>
+                    </button>
+                    <div class="part-controls">
+                        <button class="action-btn play-btn" onclick="speakPart('stz1', this)">🔊 Listen</button>
+                        <button class="action-btn" onclick="toggleTranslations('stz1', this)">🌐 Show Gujarati & Hindi</button>
+                    </div>
+                    <div id="stz1" class="summary-section">
+                        <div class="line-entry">
+                            <div class="en-container"><span class="en-text"><span class="line-num">Line 1:</span> When summer's in the city,</span></div>
+                            <div class="drawer-content">
+                                <div class="gu-box">જ્યારે શહેરમાં ઉનાળો હોય છે,</div>
+                                <div class="analysis-box">जब शहर में गर्मी होती है,</div>
+                            </div>
+                        </div>
+                        <div class="line-entry">
+                            <div class="en-container"><span class="en-text"><span class="line-num">Line 2:</span> And brick's a blaze of heat,</span></div>
+                            <div class="drawer-content">
+                                <div class="gu-box">અને ઈંટો ગરમીથી ભડકે બળે છે,</div>
+                                <div class="analysis-box">और ईंटें गर्मी से धधकती हैं,</div>
+                            </div>
+                        </div>
+                        <div class="line-entry">
+                            <div class="en-container"><span class="en-text"><span class="line-num">Line 3:</span> The Ice-cream Man with his little cart</span></div>
+                            <div class="drawer-content">
+                                <div class="gu-box">આઈસ્ક્રીમ વાળો તેની નાની ગાડી સાથે</div>
+                                <div class="analysis-box">आइसक्रीम वाला अपनी छोटी गाड़ी के साथ</div>
+                            </div>
+                        </div>
+                        <div class="line-entry">
+                            <div class="en-container"><span class="en-text"><span class="line-num">Line 4:</span> Goes trundling down the street.</span></div>
+                            <div class="drawer-content">
+                                <div class="gu-box">શેરીમાં ગબડતો ગબડતો જાય છે.</div>
+                                <div class="analysis-box">सड़क पर लुढ़कता हुआ जाता है।</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <button class="part-title" onclick="togglePart(this)">
+                        <span>🍦 Stanza 2</span><span class="part-arrow">＋</span>
+                    </button>
+                    <div class="part-controls">
+                        <button class="action-btn play-btn" onclick="speakPart('stz2', this)">🔊 Listen</button>
+                        <button class="action-btn" onclick="toggleTranslations('stz2', this)">🌐 Show Gujarati & Hindi</button>
+                    </div>
+                    <div id="stz2" class="summary-section">
+                        <div class="line-entry">
+                            <div class="en-container"><span class="en-text"><span class="line-num">Line 5:</span> Beneath his round umbrella,</span></div>
+                            <div class="drawer-content">
+                                <div class="gu-box">તેની ગોળ છત્રી નીચે,</div>
+                                <div class="analysis-box">उसके गोल छाते के नीचे,</div>
+                            </div>
+                        </div>
+                        <div class="line-entry">
+                            <div class="en-container"><span class="en-text"><span class="line-num">Line 6:</span> Oh, what a joyful sight,</span></div>
+                            <div class="drawer-content">
+                                <div class="gu-box">અરે, કેવું આનંદદાયક દ્રશ્ય છે,</div>
+                                <div class="analysis-box">ओह, क्या आनंददायक दृश्य है,</div>
+                            </div>
+                        </div>
+                        <div class="line-entry">
+                            <div class="en-container"><span class="en-text"><span class="line-num">Line 7:</span> To see him fill the cones with mounds</span></div>
+                            <div class="drawer-content">
+                                <div class="gu-box">તેને કોનમાં ઢગલાબંધ આઈસ્ક્રીમ ભરતો જોવો</div>
+                                <div class="analysis-box">उसे कोन में आइसक्रीम के ढेर भरते देखना</div>
+                            </div>
+                        </div>
+                        <div class="line-entry">
+                            <div class="en-container"><span class="en-text"><span class="line-num">Line 8:</span> Of cooling brown or white:</span></div>
+                            <div class="drawer-content">
+                                <div class="gu-box">ઠંડા કથ્થઈ અથવા સફેદ રંગના:</div>
+                                <div class="analysis-box">ठंडे भूरे या सफेद रंग के:</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <button class="part-title" onclick="togglePart(this)">
+                        <span>🍦 Stanza 3</span><span class="part-arrow">＋</span>
+                    </button>
+                    <div class="part-controls">
+                        <button class="action-btn play-btn" onclick="speakPart('stz3', this)">🔊 Listen</button>
+                        <button class="action-btn" onclick="toggleTranslations('stz3', this)">🌐 Show Gujarati & Hindi</button>
+                    </div>
+                    <div id="stz3" class="summary-section">
+                        <div class="line-entry">
+                            <div class="en-container"><span class="en-text"><span class="line-num">Line 9:</span> Vanilla, chocolate, strawberry,</span></div>
+                            <div class="drawer-content">
+                                <div class="gu-box">વેનીલા, ચોકલેટ, સ્ટ્રોબેરી,</div>
+                                <div class="analysis-box">वैनिला, चॉकलेट, स्ट्रॉबेरी,</div>
+                            </div>
+                        </div>
+                        <div class="line-entry">
+                            <div class="en-container"><span class="en-text"><span class="line-num">Line 10:</span> Or chilly things to drink</span></div>
+                            <div class="drawer-content">
+                                <div class="gu-box">અથવા પીવા માટેની ઠંડી વસ્તુઓ</div>
+                                <div class="analysis-box">या पीने के लिए ठंडी चीजें</div>
+                            </div>
+                        </div>
+                        <div class="line-entry">
+                            <div class="en-container"><span class="en-text"><span class="line-num">Line 11:</span> From bottles full of frosty-fizz,</span></div>
+                            <div class="drawer-content">
+                                <div class="gu-box">ઠંડા અને ફીણવાળા પીણાંથી ભરેલી બોટલોમાંથી,</div>
+                                <div class="analysis-box">ठंडे और झागदार ड्रिंक से भरी बोतलों से,</div>
+                            </div>
+                        </div>
+                        <div class="line-entry">
+                            <div class="en-container"><span class="en-text"><span class="line-num">Line 12:</span> Green, orange, white, or pink.</span></div>
+                            <div class="drawer-content">
+                                <div class="gu-box">લીલો, નારંગી, સફેદ અથવા ગુલાબી.</div>
+                                <div class="analysis-box">हरा, नारंगी, सफेद या गुलाबी।</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <button class="part-title" onclick="togglePart(this)">
+                        <span>🍦 Stanza 4</span><span class="part-arrow">＋</span>
+                    </button>
+                    <div class="part-controls">
+                        <button class="action-btn play-btn" onclick="speakPart('stz4', this)">🔊 Listen</button>
+                        <button class="action-btn" onclick="toggleTranslations('stz4', this)">🌐 Show Gujarati & Hindi</button>
+                    </div>
+                    <div id="stz4" class="summary-section">
+                        <div class="line-entry">
+                            <div class="en-container"><span class="en-text"><span class="line-num">Line 13:</span> His cart might be a flower bed,</span></div>
+                            <div class="drawer-content">
+                                <div class="gu-box">તેની ગાડી કદાચ ફૂલોની ક્યારી હોઈ શકે,</div>
+                                <div class="analysis-box">उसकी गाड़ी शायद फूलों की क्यारी हो सकती है,</div>
+                            </div>
+                        </div>
+                        <div class="line-entry">
+                            <div class="en-container"><span class="en-text"><span class="line-num">Line 14:</span> Of roses and sweet peas,</span></div>
+                            <div class="drawer-content">
+                                <div class="gu-box">ગુલાબ અને મીઠા વટાણાની,</div>
+                                <div class="analysis-box">गुलाब और मीठे मटर की,</div>
+                            </div>
+                        </div>
+                        <div class="line-entry">
+                            <div class="en-container"><span class="en-text"><span class="line-num">Line 15:</span> The way the children cluster round</span></div>
+                            <div class="drawer-content">
+                                <div class="gu-box">જે રીતે બાળકો તેની આસપાસ એકઠા થાય છે</div>
+                                <div class="analysis-box">जिस तरह से बच्चे उसके चारों ओर इकट्ठा होते हैं</div>
+                            </div>
+                        </div>
+                        <div class="line-entry">
+                            <div class="en-container"><span class="en-text"><span class="line-num">Line 16:</span> As thick as honeybees.</span></div>
+                            <div class="drawer-content">
+                                <div class="gu-box">મધમાખીઓની જેમ ગાઢ રીતે.</div>
+                                <div class="analysis-box">मधुमक्खियों की तरह घने रूप में।</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-card">
+            <button class="accordion-head" onclick="toggleAccordion(this)">
+                <span>📚 2. New Words (શબ્દાર્થ)</span><span>＋</span>
+            </button>
+            <div class="accordion-body">
+                <table>
+                    <tr>
+                        <th>English Word</th>
+                        <th>Meaning in English</th>
+                        <th>Gujarati Meaning</th>
+                    </tr>
+                    <tr>
+                        <td><strong>blaze</strong></td>
+                        <td>bright flame or fire</td>
+                        <td>ભડકો / તેજસ્વી પ્રકાશ</td>
+                    </tr>
+                    <tr>
+                        <td><strong>trundling</strong></td>
+                        <td>moving on small broad wheels</td>
+                        <td>નાના પૈડાં પર ગબડતું</td>
+                    </tr>
+                    <tr>
+                        <td><strong>mounds</strong></td>
+                        <td>heap, pile</td>
+                        <td>ઢગલો</td>
+                    </tr>
+                    <tr>
+                        <td><strong>frosty-fizz</strong></td>
+                        <td>chilled drink making a hissing, bubbling sound</td>
+                        <td>ઠંડુ ફીણવાળું પીણું</td>
+                    </tr>
+                    <tr>
+                        <td><strong>cluster</strong></td>
+                        <td>gather around, group of similar things</td>
+                        <td>ઝૂમખું / એકઠું થવું</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="accordion-card">
+            <button class="accordion-head" onclick="toggleAccordion(this)">
+                <span>🤔 3. Reading is Fun</span><span>＋</span>
+            </button>
+            <div class="accordion-body">
+                <div class="qa-box">
+                    <div class="question">Q1. In which season is ice cream popular?</div>
+                    <div class="answer">Answer: Ice cream is popular in summer season.</div>
+                </div>
+                <div class="qa-box">
+                    <div class="question">Q2. Who feels joyful on seeing the Ice-cream Man?</div>
+                    <div class="answer">Answer: The children feel joyful on seeing the Ice-cream Man.</div>
+                </div>
+                <div class="qa-box">
+                    <div class="question">Q3. Name the different flavours of ice cream the Ice-cream Man has in his cart.</div>
+                    <div class="answer">Answer: The Ice-cream Man has vanilla, chocolate, and strawberry flavours in his cart.</div>
+                </div>
+                <div class="qa-box">
+                    <div class="question">Q4. What are the two things that the Ice-cream Man is selling?</div>
+                    <div class="answer">Answer: The Ice-cream Man is selling ice cream and chilled drinks (frosty-fizz).</div>
+                </div>
+                <div class="qa-box">
+                    <div class="question">Q5. What is the ice-cream cart compared to in the poem?</div>
+                    <div class="answer">Answer: The ice-cream cart is compared to a flower bed of roses and sweet peas.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-card">
+            <button class="accordion-head" onclick="toggleAccordion(this)">
+                <span>✍️ 4. Let's Write</span><span>＋</span>
+            </button>
+            <div class="accordion-body">
+                <div class="qa-box">
+                    <div class="question">Q1. Having an ice cream on a hot summer day is exciting and enjoyable. Write about some of the exciting and enjoyable things that one can do in the winter season.</div>
+                    <div style="font-size: 4rem; text-align: center; margin: 10px 0;">⛄ ❄️ 🧤</div>
+                    <div class="answer">Answer: We can play in the snow, go ice skating, build a snowman, sit near a bonfire, and drink hot chocolate or hot soup.</div>
+                </div>
+
+                <div class="qa-box">
+                    <div class="question">Q2. List as many summer activities as you can.</div>
+                    <div style="font-size: 4rem; text-align: center; margin: 10px 0;">🏊‍♂️ 🏖️ 🥤</div>
+                    <div class="answer">Answer: Swimming, going to the beach, drinking cold lassi and juices, playing indoor games like Ludo, and eating lots of ice cream!</div>
+                </div>
+
+                <div class="qa-box">
+                    <div class="question">Q3. Now group these activities into indoor and outdoor activities.</div>
+                    <div class="answer">
+                        <strong>🏠 Indoor:</strong> Playing Ludo, Carrom, reading storybooks, drawing.<br><br>
+                        <strong>🏏 Outdoor:</strong> Swimming, going to the park, playing cricket.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-card">
+            <button class="accordion-head" onclick="toggleAccordion(this)">
+                <span>🗣️ 5. Say Aloud (Pronunciation)</span><span>＋</span>
+            </button>
+            <div class="accordion-body">
+                <p style="margin-bottom: 15px; font-size: 1.2rem; font-weight: 700;"><strong>Instruction:</strong> Listen to the words. Circle the words where you get a <strong>'zzz'</strong> sound by clicking on them!</p>
+                
+                <div class="say-aloud-grid">
+                    <div class="word-bubble" onclick="toggleCircle(this, false)"><span>price</span> <span class="speaker-icon" onclick="playWord('price', event)">🔊</span></div>
+                    <div class="word-bubble" onclick="toggleCircle(this, true)"><span>prize</span> <span class="speaker-icon" onclick="playWord('prize', event)">🔊</span></div>
+                    <div class="word-bubble" onclick="toggleCircle(this, true)"><span>maze</span> <span class="speaker-icon" onclick="playWord('maze', event)">🔊</span></div>
+                    <div class="word-bubble" onclick="toggleCircle(this, false)"><span>face</span> <span class="speaker-icon" onclick="playWord('face', event)">🔊</span></div>
+                    <div class="word-bubble" onclick="toggleCircle(this, false)"><span>rice</span> <span class="speaker-icon" onclick="playWord('rice', event)">🔊</span></div>
+                    <div class="word-bubble" onclick="toggleCircle(this, true)"><span>rise</span> <span class="speaker-icon" onclick="playWord('rise', event)">🔊</span></div>
+                    <div class="word-bubble" onclick="toggleCircle(this, true)"><span>blaze</span> <span class="speaker-icon" onclick="playWord('blaze', event)">🔊</span></div>
+                    <div class="word-bubble" onclick="toggleCircle(this, true)"><span>fizz</span> <span class="speaker-icon" onclick="playWord('fizz', event)">🔊</span></div>
+                    <div class="word-bubble" onclick="toggleCircle(this, true)"><span>lazy</span> <span class="speaker-icon" onclick="playWord('lazy', event)">🔊</span></div>
+                    <div class="word-bubble" onclick="toggleCircle(this, false)"><span>lacy</span> <span class="speaker-icon" onclick="playWord('lacy', event)">🔊</span></div>
+                    <div class="word-bubble" onclick="toggleCircle(this, true)"><span>daisy</span> <span class="speaker-icon" onclick="playWord('daisy', event)">🔊</span></div>
+                    <div class="word-bubble" onclick="toggleCircle(this, true)"><span>crazy</span> <span class="speaker-icon" onclick="playWord('crazy', event)">🔊</span></div>
+                </div>
+                <p id="circle-feedback" style="color: #e74c3c; font-weight: 800; font-size: 1.2rem; margin-top: 20px; text-align: center; height: 30px;"></p>
+            </div>
+        </div>
+
+        <div class="accordion-card">
+            <button class="accordion-head" onclick="toggleAccordion(this)">
+                <span>👂 6. Let's Listen</span><span>＋</span>
+            </button>
+            <div class="accordion-body">
+                <div class="qa-box">
+                    <div class="question">Q1. Listen and tell the sounds that these words in the poem produce.</div>
+                    <ul style="list-style: none; font-size: 1.2rem; font-weight: 700;">
+                        <li style="margin-bottom: 15px;">🛒 <strong>cart:</strong> <button class="btn-check" onclick="alert('Answer: trundling sound (gud-gud)')">Show Answer</button></li>
+                        <li>🥤 <strong>drinks:</strong> <button class="btn-check" onclick="alert('Answer: frosty-fizz sound (shhh-shhh)')">Show Answer</button></li>
+                    </ul>
+                </div>
+
+                <div class="qa-box">
+                    <div class="question">Q2. What are some of the different sounds you hear when the ice-cream man comes?</div>
+                    <div style="font-size: 4rem; text-align: center; margin: 10px 0;">🔔 🍦 🚶‍♂️</div>
+                    <div class="answer" style="display:none;" id="ans-listen-2">Answer: We hear the ringing of a bell (ting-ting), the sound of the cart wheels, and the ice-cream man calling out flavors.</div>
+                    <button class="btn-check" onclick="document.getElementById('ans-listen-2').style.display='block'; this.style.display='none';">✨ Reveal Answer</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-card">
+            <button class="accordion-head" onclick="toggleAccordion(this)">
+                <span>📋 7. Find out and write a report</span><span>＋</span>
+            </button>
+            <div class="accordion-body">
+                <div style="background: #fdfaf4; padding: 20px; border-radius: 12px; border: 2px solid #ccc; margin-bottom: 25px;">
+                    <h3 style="color: #2980b9; font-size: 1.4rem; font-weight: 900; margin-bottom: 10px;">🐄 Example: Report on Uncle Lal's Farm</h3>
+                    <p style="font-size: 1.15rem;"><em>Father took me to visit Uncle Lal's dairy farm. I saw all of Uncle Lal's cows. He has fifty cows. They eat grass in the big green farms. In the evening the farmers bring them to the barn to be milked. Uncle Lal sells his milk in the city.</em></p>
+                    <p style="margin-top:15px; font-size: 1.2rem;"><strong>Things to do when writing a report:</strong></p>
+                    <ul style="margin-left: 25px; font-weight: 600; font-size: 1.1rem; line-height: 1.8;">
+                        <li>✏️ Think of a good title. Write it correctly.</li>
+                        <li>🎯 Keep to your subject.</li>
+                        <li>🔢 Tell things in the right order.</li>
+                        <li>✨ Make your paper look neat.</li>
+                    </ul>
+                </div>
+
+                <div class="qa-box">
+                    <div class="question">Now, write a report on different brands of ice creams available in your area.</div>
+                    <p style="font-weight: 600; font-size: 1.1rem; color: #555; margin-bottom: 10px;">You may use the following clues: Start with a short introduction, list the brands (Amul, Vadilal, etc.), say which are the common flavors, and find out which is the most popular.</p>
+                    <textarea class="report-area" id="student-report" placeholder="Start typing your awesome report here..."></textarea>
+                    <button class="btn-check" onclick="submitReport()">💾 Save My Report</button>
+                    <p id="report-msg" style="color: #27ae60; font-weight: 800; font-size: 1.2rem; margin-top: 15px;"></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-card">
+            <button class="accordion-head" onclick="toggleAccordion(this)">
+                <span>🧩 8. Word Building</span><span>＋</span>
+            </button>
+            <div class="accordion-body">
+                <div class="qa-box">
+                    <div class="question">Q1. Colour the boxes that have rhyming words. (Click the pairs that rhyme!)</div>
+                    <div class="rhyme-grid">
+                        <div class="rhyme-box" onclick="checkRhyme(this, false)">city<br>cart</div>
+                        <div class="rhyme-box" onclick="checkRhyme(this, true)">heat<br>street</div>
+                        <div class="rhyme-box" onclick="checkRhyme(this, true)">blows<br>goes</div>
+                        <div class="rhyme-box" onclick="checkRhyme(this, false)">do<br>go</div>
+                        <div class="rhyme-box" onclick="checkRhyme(this, true)">hard<br>yard</div>
+                        <div class="rhyme-box" onclick="checkRhyme(this, false)">bowl<br>doll</div>
+                        <div class="rhyme-box" onclick="checkRhyme(this, true)">label<br>table</div>
+                        <div class="rhyme-box" onclick="checkRhyme(this, true)">sky<br>my</div>
+                        <div class="rhyme-box" onclick="checkRhyme(this, true)">play<br>obey</div>
+                        <div class="rhyme-box" onclick="checkRhyme(this, true)">race<br>face</div>
+                        <div class="rhyme-box" onclick="checkRhyme(this, true)">write<br>night</div>
+                    </div>
+                </div>
+
+                <div class="qa-box">
+                    <div class="question">Q2. What do the following words describe in the poem? (Type your answer)</div>
+                    <p style="margin: 15px 0; font-weight: 800; font-size: 1.2rem;">joyful <input type="text" class="fill-blank" oninput="checkBlank(this, 'sight')"> <span class="kid-hint">(Hint: s _ g h t)</span></p>
+                    <p style="margin: 15px 0; font-weight: 800; font-size: 1.2rem;">little <input type="text" class="fill-blank" oninput="checkBlank(this, 'cart')"> <span class="kid-hint">(Hint: c _ r t)</span></p>
+                    <p style="margin: 15px 0; font-weight: 800; font-size: 1.2rem;">round <input type="text" class="fill-blank" oninput="checkBlank(this, 'umbrella')"> <span class="kid-hint">(Hint: u m b r _ l l a)</span></p>
+                </div>
+                
+                <div class="qa-box">
+                    <div class="question">Q3. What are the describing words used in the poem for the following?</div>
+                    <p style="margin: 15px 0; font-weight: 800; font-size: 1.2rem;"><input type="text" class="fill-blank" oninput="checkBlank(this, 'cooling')"> mounds <span class="kid-hint">(Hint: c _ o l i n g)</span></p>
+                    <p style="margin: 15px 0; font-weight: 800; font-size: 1.2rem;"><input type="text" class="fill-blank" oninput="checkBlank(this, 'vanilla, chocolate, strawberry')"> flavour <span class="kid-hint">(Hint: v_n_lla...)</span></p>
+                    <p style="margin: 15px 0; font-weight: 800; font-size: 1.2rem;"><input type="text" class="fill-blank" oninput="checkBlank(this, 'thick')"> cluster <span class="kid-hint">(Hint: t _ i c k)</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-card">
+            <button class="accordion-head" onclick="toggleAccordion(this)">
+                <span>🎈 9. Fun Time</span><span>＋</span>
+            </button>
+            <div class="accordion-body">
+                
+                <div class="qa-box">
+                    <div class="question">Q1. Colour the boxes with the colours of the flavours. (Click to reveal color!)</div>
+                    <div style="margin-top: 15px;">
+                        <div class="flavor-box" onclick="this.style.background='#8d6e63'; this.style.color='white'; this.style.borderColor='#5d4037'">Chocolate</div>
+                        <div class="flavor-box" onclick="this.style.background='#fff9c4'; this.style.borderColor='#fbc02d'">Vanilla</div>
+                        <div class="flavor-box" onclick="this.style.background='#ffb74d'; this.style.borderColor='#e65100'">Orange</div>
+                        <div class="flavor-box" onclick="this.style.background='#f48fb1'; this.style.borderColor='#c2185b'">Strawberry</div>
+                        <div class="flavor-box" onclick="this.style.background='#81c784'; this.style.borderColor='#2e7d32'">Pista</div>
+                    </div>
+                </div>
+
+                <div class="qa-box">
+                    <div class="question">Q2. Draw and colour your dream ice cream.</div>
+                    <p style="font-weight: 600; font-size: 1.15rem; margin-bottom: 15px;">Describe it using interesting words like huge, colorful, creamy, nutty. Use your finger or mouse to draw below!</p>
+                    <div style="text-align: center;">
+                        <canvas id="drawing-board" width="450" height="350"></canvas>
+                        <br>
+                        <button class="btn-check" style="background: #e74c3c; margin-top: 15px;" onclick="clearCanvas()">🗑️ Clear Drawing</button>
+                    </div>
+                </div>
+
+                <div class="qa-box">
+                    <div class="question">Q3. Have you ever eaten kulfi? The following sentences describe how it is served, but they are not in the correct order.</div>
+                    <div style="font-size: 4rem; text-align: center; margin: 10px 0;">🍨 🥄</div>
+                    <p style="font-weight: 800; font-size: 1.15rem; margin-bottom: 15px;">Write the correct numbers (1 to 4) in the boxes:</p>
+                    <ul class="kulfi-list">
+                        <li><input type="number" class="kulfi-input" id="k1" min="1" max="4"> He scoops out the kulfi on a plate.</li>
+                        <li><input type="number" class="kulfi-input" id="k2" min="1" max="4"> Then he pours some sweet syrup over it and serves it.</li>
+                        <li><input type="number" class="kulfi-input" id="k3" min="1" max="4"> The kulfi-walla takes the kulfi mould out of the pitcher.</li>
+                        <li><input type="number" class="kulfi-input" id="k4" min="1" max="4"> He arranges some falooda around it.</li>
+                    </ul>
+                    <button class="btn-check" onclick="checkKulfi()">✅ Check My Order</button>
+                    <p id="kulfi-feedback" style="font-weight: 900; font-size: 1.3rem; margin-top:15px;"></p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Tab & Accordion Management
+        function toggleAccordion(btn) {
+            const card = btn.parentElement;
+            card.classList.toggle('open');
+            const span = btn.querySelectorAll('span')[1];
+            span.textContent = card.classList.contains('open') ? '−' : '＋';
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const btn = document.getElementById('darkModeToggle');
+            btn.innerText = document.body.classList.contains('dark-mode') ? "☀️ Day Mode" : "🌙 Night Mode";
+        }
+
+        // --- 1. Poem & Translation Logic ---
+        function togglePart(btn) {
+            const controls = btn.nextElementSibling;
+            const content = controls.nextElementSibling;
+            const arrow = btn.querySelector('.part-arrow');
+            const isActive = btn.classList.contains('active');
+
+            if (!isActive) {
+                btn.classList.add('active');
+                controls.style.display = 'flex';
+                content.style.display = 'block';
+                if(arrow) arrow.textContent = '−';
+            } else {
+                btn.classList.remove('active');
+                controls.style.display = 'none';
+                content.style.display = 'none';
+                if(arrow) arrow.textContent = '＋';
+            }
+        }
+
+        function toggleTranslations(sectionId, btn) {
+            const section = document.getElementById(sectionId);
+            const drawers = section.querySelectorAll('.drawer-content');
+            const isCurrentlyHidden = drawers.length > 0 && (drawers[0].style.display === 'none' || drawers[0].style.display === '');
+            
+            drawers.forEach(drawer => {
+                drawer.style.display = isCurrentlyHidden ? 'block' : 'none';
+            });
+            
+            if (isCurrentlyHidden) {
+                btn.innerText = "🌐 Hide Gujarati & Hindi";
+            } else {
+                btn.innerText = "🌐 Show Gujarati & Hindi";
+            }
+        }
+
+        let currentUtterance = null;
+        function speakPart(sectionId, btn) {
+            if (currentUtterance) {
+                window.speechSynthesis.cancel();
+                currentUtterance = null;
+                document.querySelectorAll('.play-btn').forEach(b => {
+                    b.innerText = b.innerText.replace("⏹ Stop", "🔊 Listen");
+                });
+                if(btn.innerText.includes("Stop")) return; 
+            }
+
+            const section = document.getElementById(sectionId);
+            if(!section) return;
+            
+            const textNodes = section.querySelectorAll('.en-text');
+            let textToSpeak = Array.from(textNodes).map(node => {
+                return node.innerText.replace(/Line \d+:/, '').trim();
+            }).join('. ');
+
+            if(!textToSpeak) return;
+
+            currentUtterance = new SpeechSynthesisUtterance(textToSpeak);
+            
+            const voices = window.speechSynthesis.getVoices();
+            const engVoice = voices.find(v => v.lang.startsWith('en'));
+            if(engVoice) currentUtterance.voice = engVoice;
+            
+            currentUtterance.rate = 0.85; 
+            
+            const originalText = btn.innerText;
+            btn.innerText = "⏹ Stop";
+            
+            currentUtterance.onend = () => {
+                btn.innerText = originalText;
+                currentUtterance = null;
+            };
+            
+            window.speechSynthesis.speak(currentUtterance);
+        }
+
+        // --- 5. Say Aloud Logic ---
+        function playWord(word, event) {
+            event.stopPropagation(); 
+            const utterance = new SpeechSynthesisUtterance(word);
+            utterance.rate = 0.85; 
+            window.speechSynthesis.speak(utterance);
+        }
+
+        function toggleCircle(element, hasZSound) {
+            element.classList.toggle('circled');
+            const msg = document.getElementById('circle-feedback');
+            if(element.classList.contains('circled')) {
+                if(hasZSound) {
+                    msg.style.color = '#27ae60';
+                    msg.innerText = "🌟 Correct! That word has a 'zzz' sound.";
+                } else {
+                    msg.style.color = '#e74c3c';
+                    msg.innerText = "Oops! Try saying it out loud again. No 'zzz' sound here.";
+                    setTimeout(() => element.classList.remove('circled'), 1500);
+                }
+            } else {
+                msg.innerText = "";
+            }
+        }
+
+        // --- 7. Report Writing Logic ---
+        function submitReport() {
+            const text = document.getElementById('student-report').value;
+            const msg = document.getElementById('report-msg');
+            if(text.trim().length > 10) {
+                msg.innerText = "🌟 Wonderful! Your amazing report has been saved.";
+                msg.style.color = '#27ae60';
+            } else {
+                msg.innerText = "Come on! Write a little bit more to complete your report!";
+                msg.style.color = '#e74c3c';
+            }
+        }
+
+        // --- 8. Word Building Logic ---
+        function checkRhyme(element, isRhyme) {
+            if (isRhyme) {
+                element.classList.add('correct');
+            } else {
+                element.classList.add('wrong');
+                setTimeout(() => element.classList.remove('wrong'), 1000);
+            }
+        }
+
+        function checkBlank(inputElem, correctWord) {
+            const val = inputElem.value.toLowerCase().trim();
+            if (val === correctWord || (correctWord.includes(',') && val.length > 5 && correctWord.includes(val))) {
+                inputElem.classList.add('correct');
+            } else {
+                inputElem.classList.remove('correct');
+            }
+        }
+
+        // --- 9. Fun Time Logic ---
+        const canvas = document.getElementById('drawing-board');
+        const ctx = canvas.getContext('2d');
+        let painting = false;
+
+        function startPosition(e) { painting = true; draw(e); }
+        function endPosition() { painting = false; ctx.beginPath(); }
+        
+        function draw(e) {
+            if (!painting) return;
+            e.preventDefault();
+            const rect = canvas.getBoundingClientRect();
+            let clientX = e.clientX || e.touches[0].clientX;
+            let clientY = e.clientY || e.touches[0].clientY;
+            
+            ctx.lineWidth = 6;
+            ctx.lineCap = "round";
+            ctx.strokeStyle = document.body.classList.contains('dark-mode') ? "#f1f2f6" : "#e056fd";
+
+            ctx.lineTo(clientX - rect.left, clientY - rect.top);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(clientX - rect.left, clientY - rect.top);
+        }
+
+        canvas.addEventListener('mousedown', startPosition);
+        canvas.addEventListener('mouseup', endPosition);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('touchstart', startPosition);
+        canvas.addEventListener('touchend', endPosition);
+        canvas.addEventListener('touchmove', draw);
+
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function checkKulfi() {
+            const v1 = document.getElementById('k1').value;
+            const v2 = document.getElementById('k2').value;
+            const v3 = document.getElementById('k3').value;
+            const v4 = document.getElementById('k4').value;
+            const feedback = document.getElementById('kulfi-feedback');
+
+            if(v1=="2" && v2=="4" && v3=="1" && v4=="3") {
+                feedback.innerText = "🎉 Excellent! You made the perfect Kulfi!";
+                feedback.style.color = "#27ae60";
+            } else {
+                feedback.innerText = "🤔 Not quite right. Try ordering them again!";
+                feedback.style.color = "#e74c3c";
+            }
+        }
+    </script>
+</body>
+</html>
