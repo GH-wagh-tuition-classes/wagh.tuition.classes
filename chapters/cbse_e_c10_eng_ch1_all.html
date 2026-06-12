@@ -1,0 +1,2011 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Class 10 English Chapter 1 — WAGH Tuition Classes</title><style>
+        /* CSS Reset and Font Setup */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #fcfbfa; 
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #2c3e50;
+            color: #ffffff;
+            padding: 25px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 5px solid #3498db;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-title h1 { font-size: 2rem; color: #ecf0f1; }
+        .header-title p { font-size: 0.95rem; color: #bdc3c7; margin-top: 5px; }
+        .header-meta { text-align: right; }
+        .badge {
+            background-color: #3498db; color: white; padding: 6px 14px;
+            border-radius: 20px; font-size: 0.8rem; font-weight: bold;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .author-name { display: block; margin-top: 8px; font-style: italic; color: #ecf0f1; font-size: 0.95rem; }
+
+        /* Container Layout */
+        .container { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        .section-header { color: #2c3e50; border-left: 5px solid #3498db; padding-left: 15px; margin: 40px 0 20px 0; font-size: 1.7rem; }
+
+        /* Section/Part Level Styling */
+        .part-title {
+            width: 100%;
+            background-color: #34495e; color: #ffffff; padding: 15px 20px;
+            border-radius: 8px; font-size: 1.25rem; margin-top: 18px;
+            font-weight: 600; display: flex; align-items: center; justify-content: space-between; gap: 10px;
+            border: none; cursor: pointer; text-align: left;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+        }
+
+        .part-title:hover { background-color: #2c3e50; }
+        .part-title.active { border-radius: 8px 8px 0 0; background-color: #2c3e50; }
+        .part-arrow { font-size: 1.1rem; font-weight: 800; }
+
+        /* Part Level Controls (The New Buttons) */
+        .part-controls {
+            background-color: #eaeded;
+            padding: 12px 20px;
+            border-left: 1px solid #d5dbdb;
+            border-right: 1px solid #d5dbdb;
+            display: none;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .part-controls.open { display: flex; }
+
+        .action-btn {
+            background-color: #ffffff; color: #2c3e50; border: 1px solid #bdc3c7;
+            padding: 8px 16px; border-radius: 5px; font-size: 0.9rem; font-weight: 600;
+            cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; gap: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .action-btn:hover { background-color: #f1f3f5; transform: translateY(-1px); }
+        .action-btn.play-btn { background-color: #3498db; color: white; border-color: #2980b9; }
+        .action-btn.play-btn:hover { background-color: #2980b9; }
+
+        /* Summary Content Area */
+        .summary-section {
+            background-color: #ffffff; padding: 8px 24px 22px 24px;
+            border-radius: 0 0 8px 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+            margin-bottom: 30px; border: 1px solid #eef2f5; border-top: none;
+        }
+
+        .line-entry { padding-top: 8px; padding-bottom: 8px; border-bottom: 1px dashed #e2e8f0; }
+        .line-entry:last-child { border-bottom: none; padding-bottom: 4px; }
+
+        .en-container {
+            background-color: #f4f9fd; border-left: 4px solid #3498db;
+            padding: 9px 14px; border-radius: 6px; margin-bottom: 5px;
+        }
+
+        .en-text { font-size: 1.03rem; color: #2c3e50; line-height: 1.5; }
+        .line-num { font-weight: 700; color: #3498db; margin-right: 5px; }
+
+        /* Drawers (Hidden by default) */
+        .drawer-content {
+            display: none; /* Controlled by Part Button */
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+        .gu-box {
+            background-color: #fdfaf4; border-left: 4px solid #f39c12;
+            padding: 8px 14px; border-radius: 6px; font-weight: 500;
+            font-size: 0.98rem; margin-bottom: 5px; color: #d35400;
+        }
+
+        .analysis-box {
+            background-color: #f8f9fa; padding: 8px 14px; border-radius: 6px;
+            font-size: 0.94rem; border-left: 4px solid #95a5a6; color: #34495e;
+        }
+
+        .device-badge {
+            background-color: #e74c3c; color: white; padding: 2px 8px;
+            border-radius: 4px; font-size: 0.75rem; font-weight: bold;
+            margin-right: 8px; text-transform: uppercase;
+        }
+
+
+
+        /* Oral Comprehension Check */
+        .oral-check {
+            background: #fff8e1;
+            border-left: 5px solid #f39c12;
+            padding: 12px 16px;
+            margin: 12px 0 4px 0;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.04);
+        }
+
+        .oral-check h3 {
+            color: #d35400;
+            margin-bottom: 8px;
+            font-size: 1.15rem;
+        }
+
+        .oral-item {
+            background: #ffffff;
+            border: 1px solid #f3d27a;
+            border-radius: 7px;
+            padding: 10px 12px;
+            margin: 8px 0;
+        }
+
+        .oral-question {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 6px;
+        }
+
+        .oral-btn {
+            background: #f39c12;
+            color: #ffffff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 4px;
+        }
+
+        .oral-answer {
+            display: none;
+            margin-top: 8px;
+            background: #e8f5e9;
+            border-left: 4px solid #2ecc71;
+            padding: 10px 12px;
+            border-radius: 6px;
+            color: #1e5631;
+        }
+
+        .oral-answer .gu-answer {
+            margin-top: 5px;
+            color: #0f5132;
+            font-weight: 500;
+        }
+
+        /* Images */
+        .story-illustration {
+            width: 100%; margin: 20px 0; border-radius: 8px; overflow: hidden;
+            border: 1px solid #e2e8f0; box-shadow: 0 4px 10px rgba(0,0,0,0.04); background-color: #eaeded;
+        }
+        .story-img { width: 100%; max-height: 380px; object-fit: cover; display: block; }
+        .img-caption { padding: 10px 15px; background-color: #ffffff; text-align: center; font-size: 0.9rem; font-style: italic; color: #7f8c8d; }
+
+        /* Footer */
+        footer { text-align: center; padding: 30px; color: #7f8c8d; font-size: 0.9rem; margin-top: 60px; border-top: 1px solid #e5e7eb; background-color: #ffffff; }
+
+        
+        .header-center { text-align: center; width: 100%; }
+        .header-center .badge { display: inline-block; margin-bottom: 14px; }
+        .header-center .author-name { display: block; margin-top: 6px; font-style: normal; font-size: 1.35rem; font-weight: 700; color: #ecf0f1; }
+        .header-center .chapter-line { font-size: 1.65rem; }
+
+        @media (max-width: 900px) {
+            header { flex-direction: column; text-align: center; gap: 15px; }
+            .part-controls { flex-direction: column; align-items: stretch; }
+            .action-btn { justify-content: center; }
+        }
+    
+
+        /* Collapsible Oral Comprehension Check - compact story flow */
+        .oral-check {
+            background: transparent;
+            border-left: none;
+            padding: 0;
+            margin: 8px 0 10px 0;
+            box-shadow: none;
+        }
+        .occ-toggle-btn {
+            width: 100%;
+            background: #fff8e1;
+            color: #d35400;
+            border: 1px solid #f39c12;
+            border-left: 5px solid #f39c12;
+            padding: 10px 14px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.98rem;
+            cursor: pointer;
+            text-align: left;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+        .occ-toggle-btn:hover {
+            background: #fff3cd;
+        }
+        .occ-panel {
+            display: none;
+            background: #fffdf7;
+            border: 1px solid #f3d27a;
+            border-top: none;
+            padding: 10px 12px;
+            border-radius: 0 0 8px 8px;
+            animation: fadeIn 0.25s ease-in-out;
+        }
+        .occ-panel h3 {
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+        }
+
+
+.brand-strip{background:linear-gradient(135deg,#111827,#2c3e50);color:#fff;padding:12px 40px;font-weight:800;letter-spacing:.6px;text-align:center;font-size:1.15rem;border-bottom:4px solid #f39c12}.tabbar{position:sticky;top:0;z-index:50;background:#fff;padding:12px 16px;display:flex;gap:10px;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,.08);flex-wrap:wrap}.tab-btn{border:1px solid #d5dbdb;background:#f8fafc;color:#2c3e50;padding:11px 18px;border-radius:999px;font-weight:700;cursor:pointer}.tab-btn.active{background:#3498db;color:#fff;border-color:#2980b9}.tab-panel{display:none}.tab-panel.active{display:block}.chapter-intro{background:#ffffff;border:1px solid #e5e7eb;border-radius:14px;padding:22px;box-shadow:0 8px 20px rgba(0,0,0,.04);margin-bottom:22px}.accordion-card{background:#fff;border:1px solid #e5e7eb;border-radius:12px;margin:14px 0;overflow:hidden;box-shadow:0 4px 10px rgba(0,0,0,.035)}.accordion-head{width:100%;border:0;background:#34495e;color:#fff;padding:15px 18px;font-size:1.08rem;font-weight:800;display:flex;justify-content:space-between;align-items:center;cursor:pointer;text-align:left}.accordion-card.open .accordion-head{background:#2c3e50}.accordion-body{display:none;padding:18px 20px;background:#fff}.accordion-card.open>.accordion-body{display:block}.clean-list,.question-list{padding-left:22px}.question-list li{margin:10px 0;background:#f8fafc;border-left:4px solid #3498db;padding:10px 12px;border-radius:6px}.topic-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}.mini-card{background:#f8fafc;border:1px solid #e5e7eb;border-radius:10px;padding:14px}.poem-card{text-align:center}.poem-card h2{font-size:2rem;color:#2c3e50;margin-bottom:2px}.poet{color:#7f8c8d;font-weight:700;text-transform:uppercase;letter-spacing:1px}.poem-text{display:inline-block;text-align:left;background:#f4f9fd;border-left:5px solid #3498db;padding:18px 24px;margin:18px auto;border-radius:10px;font-size:1.13rem;line-height:1.85}.word-bank{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:12px 0}.word-bank span{background:#fff8e1;border:1px solid #f39c12;padding:8px 12px;border-radius:999px}.note{background:#e8f5e9;border-left:4px solid #27ae60;padding:12px;border-radius:8px;text-align:left}.story-zone .container{margin:0;padding:0}.story-zone .section-header{margin-top:0}@media(max-width:700px){.brand-strip{padding:12px 16px}.tabbar{justify-content:stretch}.tab-btn{flex:1 1 100%}.container{margin:22px auto}.accordion-head{font-size:1rem}.poem-text{font-size:1rem;width:100%}}
+.lesson-back{display:none!important}
+.back-lessons-floating{position:fixed;bottom: 20px;left: 20px;z-index:9999;display:none;align-items:center;justify-content:center;gap:8px;border:1px solid #d5dbdb;background:#f8fafc;color:#2c3e50;padding:11px 18px;border-radius:999px;font-weight:900;cursor:pointer;box-shadow:0 8px 22px rgba(0,0,0,.18)}
+.back-lessons-floating:hover{background:#edf2f7;transform:translateY(-1px)}
+.back-lessons-floating.show{display:inline-flex}
+.dark-mode .back-lessons-floating{background:#1f2937;color:#e5e7eb;border-color:#374151}
+.lesson-info{background:#ffffff;border:1px solid #e5e7eb;border-radius:14px;padding:18px 20px;box-shadow:0 8px 20px rgba(0,0,0,.04);margin-bottom:22px}
+.lesson-info h2{margin-bottom:8px;color:#2c3e50}.lesson-info p{margin:4px 0;color:#526272}.dark-mode .lesson-info{background:#1f2937!important;color:#e5e7eb!important;border-color:#374151!important}.dark-mode .lesson-info h2{color:#f9fafb!important}.dark-mode .lesson-info p{color:#cbd5e1!important}
+
+
+/* Enhanced app-home, progress, MCQ, and night mode additions */
+.app-home{max-width:1180px;margin:28px auto;padding:0 18px}
+.home-hero{background:#fffdf8;border:1px solid #e7ddc7;border-radius:18px;padding:24px;box-shadow:0 8px 22px rgba(41,55,70,.08);margin-bottom:22px;text-align:center}.night-hero{padding:18px;background:transparent;border:none;box-shadow:none;margin-bottom:10px}
+.home-hero h2{color:#2c3e50;font-size:1.9rem}.home-hero p{color:#65717c;margin-top:8px}
+.home-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.home-card{background:#fff;border:1px solid #e2e8f0;border-radius:18px;padding:20px;box-shadow:0 7px 18px rgba(0,0,0,.06);cursor:pointer;transition:.2s;text-align:left;position:relative;overflow:hidden}.home-card:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(0,0,0,.1)}.home-card:before{content:"";position:absolute;top:0;left:0;right:0;height:6px;background:#3498db}.home-card.poem:before{background:#e67e22}.home-card.fire:before{background:#e74c3c}.home-card h3{font-size:1.3rem;color:#26394b}.home-card p{margin:8px 0 15px;color:#687786}.open-lesson{display:inline-block;border:none;background:#2c3e50;color:#fff;border-radius:8px;padding:9px 12px;font-weight:700}.portal-hidden{display:none!important}.top-toolbox{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}.tool-btn{border:none;border-radius:999px;background:#34495e;color:white;padding:9px 14px;font-weight:800;cursor:pointer}.tool-btn.on{background:#f1c40f;color:#1d2b3a}.night-toggle{border:none;border-radius:999px;background:#2c3e50;color:#fff;padding:12px 22px;font-weight:900;font-size:1rem;cursor:pointer;box-shadow:0 7px 18px rgba(44,62,80,.18);display:inline-flex;align-items:center;gap:9px}.night-toggle.on{background:#f1c40f;color:#1d2b3a}.dark-mode{background:#111827;color:#e5e7eb}.dark-mode header,.dark-mode .brand-strip{background:#0f172a}.dark-mode .home-card,.dark-mode .chapter-intro,.dark-mode .accordion-card,.dark-mode .summary-section,.dark-mode .enhanced-card,.dark-mode .poem-card,.dark-mode footer{background:#1f2937!important;color:#e5e7eb!important;border-color:#374151!important}.dark-mode .home-card h3,.dark-mode .chapter-intro h2,.dark-mode .section-header,.dark-mode .device strong{color:#f9fafb!important}.dark-mode .home-card p,.dark-mode .progress-text,.dark-mode .note{color:#cbd5e1!important}.dark-mode .en-container{background:#172033;border-left-color:#60a5fa}.dark-mode .en-text{color:#e5e7eb}.dark-mode .gu-box{background:#2d2418;color:#fbbf24}.dark-mode .analysis-box,.dark-mode .device,.dark-mode .mcq-option{background:#111827;color:#d1d5db;border-color:#374151}.dark-mode .answer{background:#13251b;color:#bbf7d0}.dark-mode .tabbar,.dark-mode .progress-wrap{background:#111827}.progress-wrap{max-width:1180px;margin:18px auto 0;padding:0 18px}.progress-shell{height:13px;background:#edf2f7;border-radius:999px;overflow:hidden}.progress-bar{height:100%;width:0;background:linear-gradient(90deg,#3498db,#2ecc71);transition:.3s}.progress-text{font-weight:800;color:#2c3e50;margin-top:7px;text-align:center}.complete-btn,.show-ans,.notes-btn{border:none;border-radius:8px;padding:8px 12px;margin:8px 6px 6px 0;font-weight:800;cursor:pointer}.complete-btn{background:#e8fff0;color:#146b35}.completed-section>.accordion-head{border-left:5px solid #2ecc71}.show-ans{background:#dff3ff;color:#11608a}.notes-btn{background:#2c3e50;color:#fff}.answer{display:none;background:#ecfff0;border-left:4px solid #2ecc71;border-radius:8px;padding:10px 12px;margin:8px 0;color:#225e35}.enhanced-card{background:#fff;border:1px solid #e6eaf0;border-radius:10px;padding:13px;margin:10px 0}.mcq-option{display:block;width:100%;text-align:left;margin:7px 0;padding:10px;border:1px solid #dce3ea;border-radius:8px;background:#fff;cursor:pointer}.mcq-option.correct{background:#dcffe6;border-color:#2ecc71}.mcq-option.wrong{background:#ffe1df;border-color:#e74c3c}.backtop{position:fixed;right:16px;bottom:16px;background:#3498db;color:#fff;border:none;border-radius:999px;width:46px;height:46px;font-size:20px;font-weight:900;box-shadow:0 7px 18px rgba(0,0,0,.2);cursor:pointer;z-index:100}.device-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.device{background:#fbfbfb;border:1px solid #e5e7eb;border-radius:10px;padding:12px}.device strong{color:#2c3e50}@media(max-width:860px){.home-cards,.device-grid{grid-template-columns:1fr}.home-hero h2{font-size:1.45rem}}
+
+/* Sticky lesson section tabs */
+.lesson-section-tabs{
+  position:sticky;
+  top:0;
+  z-index:70;
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding:12px 8px;
+  margin:0 0 16px 0;
+  background:rgba(252,251,250,.96);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid #e5e7eb;
+  scrollbar-width:thin;
+}
+.lesson-section-tabs::-webkit-scrollbar{height:6px}
+.lesson-section-tabs::-webkit-scrollbar-thumb{background:#cbd5e1;border-radius:999px}
+.section-tab-btn{
+  flex:0 0 auto;
+  border:1px solid #d5dbdb;
+  background:#ffffff;
+  color:#2c3e50;
+  padding:10px 15px;
+  border-radius:999px;
+  font-weight:900;
+  cursor:pointer;
+  box-shadow:0 4px 12px rgba(0,0,0,.06);
+  white-space:nowrap;
+}
+.section-tab-btn.active{
+  background:#3498db;
+  color:#ffffff;
+  border-color:#2980b9;
+}
+.dark-mode .lesson-section-tabs{background:rgba(17,24,39,.96);border-bottom-color:#374151}
+.dark-mode .section-tab-btn{background:#1f2937;color:#e5e7eb;border-color:#374151}
+.dark-mode .section-tab-btn.active{background:#60a5fa;color:#0f172a;border-color:#60a5fa}
+@media(max-width:700px){.lesson-section-tabs{top:0;padding:10px 4px}.section-tab-btn{padding:9px 12px;font-size:.9rem}}
+
+/* Cleaner lesson accordion behavior */
+.accordion-card.story-card .accordion-head{
+  background:linear-gradient(135deg,#f39c12,#e67e22);
+  color:#fff;
+  box-shadow:0 8px 18px rgba(243,156,18,.22);
+}
+.accordion-card.story-card.open .accordion-head{
+  background:linear-gradient(135deg,#e67e22,#d35400);
+}
+.section-tab-btn.story-tab{
+  background:linear-gradient(135deg,#fff3cd,#ffe0a3);
+  border-color:#f39c12;
+  color:#7a4a00;
+}
+.section-tab-btn.story-tab.active{
+  background:linear-gradient(135deg,#f39c12,#e67e22);
+  border-color:#e67e22;
+  color:#fff;
+}
+.dark-mode .section-tab-btn.story-tab{
+  background:#3b2a12;
+  border-color:#f59e0b;
+  color:#fbbf24;
+}
+.dark-mode .section-tab-btn.story-tab.active{
+  background:linear-gradient(135deg,#f59e0b,#d97706);
+  color:#111827;
+}
+
+/* Story sub-tabs: Original Story and Line-by-Line Translation */
+.story-mode-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 18px 0;padding:10px;background:#f8fafc;border:1px solid #e5e7eb;border-radius:14px;position:sticky;top:54px;z-index:45}
+.story-mode-btn{border:1px solid #d5dbdb;background:#ffffff;color:#2c3e50;padding:10px 16px;border-radius:999px;font-weight:900;cursor:pointer;box-shadow:0 3px 10px rgba(0,0,0,.05)}
+.story-mode-btn.active{background:#3498db;color:#ffffff;border-color:#2980b9}
+.story-mode-panel{display:none}.story-mode-panel.active{display:block}.story-help{margin:-8px 0 18px;color:#7f8c8d;font-weight:600}.original-summary{display:none}.original-summary.open{display:block}.original-controls{display:none}.original-controls.open{display:flex}.story-mode-panel .summary-section{margin-bottom:22px}.dark-mode .story-mode-tabs{background:#111827;border-color:#374151}.dark-mode .story-mode-btn{background:#1f2937;color:#e5e7eb;border-color:#374151}.dark-mode .story-mode-btn.active{background:#60a5fa;color:#0f172a;border-color:#60a5fa}@media(max-width:700px){.story-mode-tabs{top:0}.story-mode-btn{flex:1 1 100%;}}
+
+/* Updated Original Story: continuous reading mode */
+#storyOriginalMode .original-part-heading{
+    background:#34495e;
+    color:#fff;
+    padding:14px 18px;
+    border-radius:8px 8px 0 0;
+    margin:22px 0 0 0;
+    font-size:1.18rem;
+    font-weight:800;
+}
+#storyOriginalMode .original-summary{
+    display:block !important;
+    margin-bottom:18px;
+    border-top:none;
+    border-radius:0 0 8px 8px;
+}
+#storyOriginalMode .original-controls,
+#storyOriginalMode .part-title,
+#storyOriginalMode .part-toggle{
+    display:none !important;
+}
+.dark-mode #storyOriginalMode .original-part-heading{
+    background:#0f172a;
+    color:#f8fafc;
+}
+
+/* Grammar section enhancement only */
+.grammar-unit{background:#ffffff;border:1px solid #e5e7eb;border-radius:12px;padding:16px;margin:14px 0;box-shadow:0 4px 12px rgba(0,0,0,.035)}
+.grammar-unit h3{color:#2c3e50;margin-bottom:10px;font-size:1.18rem}
+.grammar-explain{background:#f4f9fd;border-left:5px solid #3498db;padding:12px 14px;border-radius:8px;margin:10px 0}
+.grammar-answer{background:#ecfff0;border-left:5px solid #2ecc71;padding:12px 14px;border-radius:8px;margin:10px 0}
+.grammar-infographic{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:12px 0}
+.grammar-chip{background:#fff8e1;border:1px solid #f39c12;border-radius:12px;padding:12px;text-align:center;font-weight:800;color:#7a4a00}
+.grammar-flow{display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;margin:12px 0}
+.grammar-flow span{background:#f8fafc;border:1px solid #d5dbdb;border-radius:999px;padding:9px 13px;font-weight:800}
+.grammar-flow b{font-size:1.2rem;color:#3498db}
+.grammar-table{width:100%;border-collapse:collapse;margin:12px 0;overflow:hidden;border-radius:10px}
+.grammar-table th,.grammar-table td{border:1px solid #dce3ea;padding:10px;text-align:left;vertical-align:top}
+.grammar-table th{background:#f4f9fd;color:#2c3e50}
+.grammar-mini-title{font-weight:900;color:#34495e;margin-top:12px}
+.dark-mode .grammar-unit{background:#1f2937!important;color:#e5e7eb!important;border-color:#374151!important}
+.dark-mode .grammar-unit h3,.dark-mode .grammar-table th{color:#f9fafb!important}
+.dark-mode .grammar-explain{background:#172033;color:#e5e7eb;border-left-color:#60a5fa}
+.dark-mode .grammar-answer{background:#13251b;color:#bbf7d0}
+.dark-mode .grammar-chip{background:#3b2a12;color:#fbbf24;border-color:#f59e0b}
+.dark-mode .grammar-flow span{background:#111827;color:#e5e7eb;border-color:#374151}
+.dark-mode .grammar-table th{background:#111827}
+.dark-mode .grammar-table td,.dark-mode .grammar-table th{border-color:#374151}
+
+
+/* Speaking Listening Writing section enhancement only */
+.slw-unit{background:#ffffff;border:1px solid #e5e7eb;border-radius:12px;padding:16px;margin:14px 0;box-shadow:0 4px 12px rgba(0,0,0,.035)}
+.slw-unit h3{color:#2c3e50;margin-bottom:10px;font-size:1.18rem}
+.slw-prompt{background:#f4f9fd;border-left:5px solid #3498db;padding:12px 14px;border-radius:8px;margin:10px 0}
+.slw-answer{background:#ecfff0;border-left:5px solid #2ecc71;padding:12px 14px;border-radius:8px;margin:10px 0}
+.slw-tip{background:#fff8e1;border-left:5px solid #f39c12;padding:12px 14px;border-radius:8px;margin:10px 0;color:#6b4300}
+.slw-flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:12px 0}
+.slw-step{background:#f8fafc;border:1px solid #d5dbdb;border-radius:12px;padding:12px;text-align:center;font-weight:800;color:#2c3e50}
+.slw-table{width:100%;border-collapse:collapse;margin:12px 0}
+.slw-table th,.slw-table td{border:1px solid #dce3ea;padding:10px;text-align:left;vertical-align:top}
+.slw-table th{background:#f4f9fd;color:#2c3e50}
+.poster-box{border:2px dashed #3498db;border-radius:14px;padding:18px;text-align:center;background:#f8fbff;margin:12px 0}
+.poster-box h2{color:#1d4ed8;margin-bottom:8px}
+.poster-points{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin-top:12px}
+.poster-points div{background:#ffffff;border:1px solid #dce3ea;border-radius:10px;padding:10px;font-weight:700}
+.dark-mode .slw-unit{background:#1f2937!important;color:#e5e7eb!important;border-color:#374151!important}
+.dark-mode .slw-unit h3,.dark-mode .slw-table th{color:#f9fafb!important}
+.dark-mode .slw-prompt{background:#172033;color:#e5e7eb;border-left-color:#60a5fa}
+.dark-mode .slw-answer{background:#13251b;color:#bbf7d0}
+.dark-mode .slw-tip{background:#3b2a12;color:#fbbf24;border-left-color:#f59e0b}
+.dark-mode .slw-step,.dark-mode .poster-points div{background:#111827;color:#e5e7eb;border-color:#374151}
+.dark-mode .slw-table th{background:#111827}
+.dark-mode .slw-table td,.dark-mode .slw-table th{border-color:#374151}
+.dark-mode .poster-box{background:#111827;border-color:#60a5fa}
+
+
+.exam-answer{background:#ecfff0;border-left:5px solid #2ecc71;padding:12px 14px;border-radius:8px;margin:10px 0}
+.exam-point{background:#f4f9fd;border-left:5px solid #3498db;padding:12px 14px;border-radius:8px;margin:10px 0}
+
+
+/* Money Order Activity section enhancement only */
+.mo-unit{background:#ffffff;border:1px solid #e5e7eb;border-radius:12px;padding:16px;margin:14px 0;box-shadow:0 4px 12px rgba(0,0,0,.035)}
+.mo-unit h3{color:#2c3e50;margin-bottom:10px;font-size:1.18rem}
+.mo-prompt{background:#f4f9fd;border-left:5px solid #3498db;padding:12px 14px;border-radius:8px;margin:10px 0}
+.mo-answer{background:#ecfff0;border-left:5px solid #2ecc71;padding:12px 14px;border-radius:8px;margin:10px 0}
+.mo-tip{background:#fff8e1;border-left:5px solid #f39c12;padding:12px 14px;border-radius:8px;margin:10px 0;color:#6b4300}
+.mo-flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:12px 0}
+.mo-step{background:#f8fafc;border:1px solid #d5dbdb;border-radius:12px;padding:12px;text-align:center;font-weight:800;color:#2c3e50}
+.mo-table{width:100%;border-collapse:collapse;margin:12px 0}
+.mo-table th,.mo-table td{border:1px solid #dce3ea;padding:10px;text-align:left;vertical-align:top}
+.mo-table th{background:#f4f9fd;color:#2c3e50}
+.money-order-form{background:#fffef8;border:2px solid #2c3e50;border-radius:12px;padding:16px;margin:16px 0;box-shadow:0 6px 18px rgba(0,0,0,.08);font-family:Arial,sans-serif}
+.mo-form-title{text-align:center;font-weight:900;font-size:1.25rem;color:#111827;border-bottom:2px solid #2c3e50;padding-bottom:8px;margin-bottom:12px;text-transform:uppercase}
+.mo-form-subtitle{text-align:center;font-size:.9rem;color:#475569;margin-bottom:12px}
+.mo-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mo-field{border:1px solid #94a3b8;border-radius:8px;padding:8px;background:#ffffff;min-height:54px}
+.mo-label{display:block;font-size:.78rem;font-weight:900;color:#475569;text-transform:uppercase;margin-bottom:4px}
+.mo-value{font-size:1rem;font-weight:800;color:#111827}
+.mo-wide{grid-column:1/-1}
+.mo-three{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.mo-section-title{background:#2c3e50;color:#fff;padding:7px 10px;border-radius:7px;font-weight:900;margin:14px 0 8px}
+.mo-stamp{border:2px dashed #64748b;border-radius:10px;min-height:70px;display:flex;align-items:center;justify-content:center;color:#64748b;font-weight:800;background:#f8fafc}
+.mo-note-small{font-size:.82rem;color:#475569;margin-top:8px;text-align:center}
+.dark-mode .mo-unit{background:#1f2937!important;color:#e5e7eb!important;border-color:#374151!important}
+.dark-mode .mo-unit h3,.dark-mode .mo-table th{color:#f9fafb!important}
+.dark-mode .mo-prompt{background:#172033;color:#e5e7eb;border-left-color:#60a5fa}
+.dark-mode .mo-answer{background:#13251b;color:#bbf7d0}
+.dark-mode .mo-tip{background:#3b2a12;color:#fbbf24;border-left-color:#f59e0b}
+.dark-mode .mo-step{background:#111827;color:#e5e7eb;border-color:#374151}
+.dark-mode .mo-table th{background:#111827}
+.dark-mode .mo-table td,.dark-mode .mo-table th{border-color:#374151}
+.dark-mode .money-order-form{background:#111827;border-color:#60a5fa;color:#e5e7eb}
+.dark-mode .mo-field{background:#0f172a;border-color:#374151}
+.dark-mode .mo-label{color:#cbd5e1}
+.dark-mode .mo-value{color:#f8fafc}
+.dark-mode .mo-stamp{background:#0f172a;color:#cbd5e1;border-color:#475569}
+@media(max-width:700px){.mo-grid,.mo-three{grid-template-columns:1fr}.mo-wide{grid-column:auto}}
+
+
+/* Translation accordion: one part open at a time */
+#storyTranslationMode .summary-section{display:none;}
+
+
+/* Added exam-prep sections only */
+.prep-card{background:#ffffff;border:1px solid #e5e7eb;border-radius:12px;padding:16px;margin:14px 0;box-shadow:0 4px 12px rgba(0,0,0,.035)}
+.prep-card h3{color:#2c3e50;margin-bottom:10px;font-size:1.18rem}
+.prep-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:12px 0}
+.prep-mini{background:#f8fafc;border:1px solid #e5e7eb;border-radius:12px;padding:14px}
+.prep-mini h4{margin-bottom:8px;color:#2c3e50}
+.prep-note{background:#f4f9fd;border-left:5px solid #3498db;padding:12px 14px;border-radius:8px;margin:10px 0}
+.prep-answer{background:#ecfff0;border-left:5px solid #2ecc71;padding:12px 14px;border-radius:8px;margin:10px 0}
+.prep-tip{background:#fff8e1;border-left:5px solid #f39c12;padding:12px 14px;border-radius:8px;margin:10px 0;color:#6b4300}
+.prep-table{width:100%;border-collapse:collapse;margin:12px 0}
+.prep-table th,.prep-table td{border:1px solid #dce3ea;padding:10px;text-align:left;vertical-align:top}
+.prep-table th{background:#f4f9fd;color:#2c3e50}
+.mcq-box{border:1px solid #e5e7eb;border-radius:12px;padding:14px;margin:12px 0;background:#fff}
+.mcq-box strong{color:#2c3e50}
+.mcq-options{margin-top:8px;padding-left:20px}
+.mcq-solution{background:#ecfff0;border-left:4px solid #2ecc71;padding:9px 11px;border-radius:8px;margin-top:8px}
+.dark-mode .prep-card,.dark-mode .prep-mini,.dark-mode .mcq-box{background:#1f2937!important;color:#e5e7eb!important;border-color:#374151!important}
+.dark-mode .prep-card h3,.dark-mode .prep-mini h4,.dark-mode .prep-table th,.dark-mode .mcq-box strong{color:#f9fafb!important}
+.dark-mode .prep-note{background:#172033;color:#e5e7eb;border-left-color:#60a5fa}
+.dark-mode .prep-answer,.dark-mode .mcq-solution{background:#13251b;color:#bbf7d0}
+.dark-mode .prep-tip{background:#3b2a12;color:#fbbf24;border-left-color:#f59e0b}
+.dark-mode .prep-table th{background:#111827}
+.dark-mode .prep-table td,.dark-mode .prep-table th{border-color:#374151}
+
+
+/* Dust of Snow updates only */
+.dust-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 16px 0;padding:10px;background:#f8fafc;border:1px solid #e5e7eb;border-radius:14px}
+.dust-tab-btn{border:1px solid #d5dbdb;background:#fff;color:#2c3e50;padding:10px 16px;border-radius:999px;font-weight:900;cursor:pointer}
+.dust-tab-btn.active{background:#3498db;color:#fff;border-color:#2980b9}
+.dust-panel{display:none}.dust-panel.active{display:block}
+.dust-line{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:14px;margin:12px 0}
+.dust-en{background:#f4f9fd;border-left:5px solid #3498db;padding:10px 12px;border-radius:8px;font-weight:800;margin-bottom:8px}
+.dust-gu{display:none;background:#fff8e1;border-left:5px solid #f39c12;padding:10px 12px;border-radius:8px;margin:8px 0;color:#7a4a00}
+.dust-hi{display:none;background:#fef2f2;border-left:5px solid #ef4444;padding:10px 12px;border-radius:8px;margin:8px 0;color:#7f1d1d}
+.dust-toggle-row{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.dust-lang-btn{border:0;border-radius:999px;padding:8px 13px;font-weight:900;cursor:pointer;background:#34495e;color:#fff}
+.dust-qa,.dust-device,.dust-mcq{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:14px;margin:12px 0}
+.dust-answer{background:#ecfff0;border-left:5px solid #2ecc71;padding:10px 12px;border-radius:8px;margin-top:8px}
+.dust-note{background:#f4f9fd;border-left:5px solid #3498db;padding:12px 14px;border-radius:8px;margin:10px 0}
+.dark-mode .dust-tabs,.dark-mode .dust-line,.dark-mode .dust-qa,.dark-mode .dust-device,.dark-mode .dust-mcq{background:#1f2937!important;color:#e5e7eb!important;border-color:#374151!important}
+.dark-mode .dust-tab-btn{background:#111827;color:#e5e7eb;border-color:#374151}
+.dark-mode .dust-tab-btn.active{background:#60a5fa;color:#0f172a}
+.dark-mode .dust-en,.dark-mode .dust-note{background:#172033;color:#e5e7eb;border-left-color:#60a5fa}
+.dark-mode .dust-gu{background:#3b2a12;color:#fbbf24}
+.dark-mode .dust-hi{background:#3b1515;color:#fecaca}
+.dark-mode .dust-answer{background:#13251b;color:#bbf7d0}
+
+
+.fire-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 16px 0;padding:10px;background:#f8fafc;border:1px solid #e5e7eb;border-radius:14px}
+.fire-tab-btn{border:1px solid #d5dbdb;background:#fff;color:#2c3e50;padding:10px 16px;border-radius:999px;font-weight:900;cursor:pointer}
+.fire-tab-btn.active{background:#e74c3c;color:#fff;border-color:#c0392b}
+.fire-panel{display:none}.fire-panel.active{display:block}.fire-line,.fire-qa,.fire-device,.fire-mcq{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:14px;margin:12px 0}
+.fire-en{background:#fff5f5;border-left:5px solid #e74c3c;padding:10px 12px;border-radius:8px;font-weight:800;margin-bottom:8px}
+.fire-gu{display:none;background:#fff8e1;border-left:5px solid #f39c12;padding:10px 12px;border-radius:8px;margin:8px 0;color:#7a4a00}
+.fire-hi{display:none;background:#f4f9fd;border-left:5px solid #3498db;padding:10px 12px;border-radius:8px;margin:8px 0;color:#1f4e79}
+.fire-toggle-row{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.fire-lang-btn,.fire-check{border:0;border-radius:999px;padding:8px 13px;font-weight:900;cursor:pointer;background:#34495e;color:#fff}
+.fire-answer{background:#ecfff0;border-left:5px solid #2ecc71;padding:10px 12px;border-radius:8px;margin-top:8px}.fire-note{background:#f4f9fd;border-left:5px solid #3498db;padding:12px 14px;border-radius:8px;margin:10px 0}
+.fire-option{display:block;width:100%;text-align:left;margin:7px 0;padding:10px;border:1px solid #dce3ea;border-radius:8px;background:#fff;cursor:pointer}.fire-option.correct{background:#dcffe6;border-color:#2ecc71}.fire-option.wrong{background:#ffe1df;border-color:#e74c3c}.fire-option.selected{outline:2px solid #3498db}.fire-check{border-radius:8px;background:#e74c3c;margin-top:8px}.fire-result{display:none;margin-top:8px;padding:9px 11px;border-radius:8px;background:#f4f9fd;border-left:4px solid #3498db}
+.dark-mode .fire-tabs,.dark-mode .fire-line,.dark-mode .fire-qa,.dark-mode .fire-device,.dark-mode .fire-mcq{background:#1f2937!important;color:#e5e7eb!important;border-color:#374151!important}.dark-mode .fire-tab-btn,.dark-mode .fire-option{background:#111827;color:#e5e7eb;border-color:#374151}.dark-mode .fire-tab-btn.active{background:#ef4444;color:#fff}.dark-mode .fire-en{background:#3b1515;color:#fecaca;border-left-color:#ef4444}.dark-mode .fire-gu{background:#3b2a12;color:#fbbf24}.dark-mode .fire-hi,.dark-mode .fire-note{background:#172033;color:#e5e7eb;border-left-color:#60a5fa}.dark-mode .fire-answer{background:#13251b;color:#bbf7d0}
+
+</style></head><body><button class="back-lessons-floating" id="backLessonsBtn" onclick="goHome()">← Back to Lessons</button><div class="brand-strip">WAGH Tuition Classes</div><header><div class="header-meta header-center"><span class="badge">CBSE CLASS 10 ENGLISH</span><span class="author-name">First Flight</span><span class="author-name chapter-line">Chapter 1</span></div></header><section class="app-home" id="appHome"><div class="home-hero night-hero"><button aria-label="Toggle night mode" class="night-toggle" id="nightModeBtn" onclick="toggleNightMode()"><span class="moon">🌙</span><span>Night Mode: OFF</span></button></div><div class="home-cards"><div class="home-card" onclick="openLessonCard('letter')"><h3>🌾 A Letter to God</h3><p>Story by G. L. Fuentes — faith, irony, nature and human kindness.</p><span class="open-lesson">Open Lesson</span></div><div class="home-card poem" onclick="openLessonCard('dust')"><h3>❄️ Dust of Snow</h3><p>Poem by Robert Frost — small moments can change our mood.</p><span class="open-lesson">Open Poem</span></div><div class="home-card fire" onclick="openLessonCard('fire')"><h3>🔥 Fire and Ice</h3><p>Poem by Robert Frost — desire, hatred and destruction.</p><span class="open-lesson">Open Poem</span></div></div></section><div class="progress-wrap"><div class="progress-shell"><div class="progress-bar" id="progressBar"></div></div><div class="progress-text" id="progressText">Progress: 0 sections completed</div></div><nav aria-hidden="true" class="tabbar portal-hidden"></nav><main class="container portal-hidden"><section class="tab-panel active" id="letter"><div class="lesson-info"><h2>🌾 A Letter to God</h2><p><strong>Author:</strong> G. L. Fuentes</p><p><strong>Theme:</strong> Faith, Hope, Nature, Human Kindness and Irony</p></div>
+<div class="accordion-card">
+<button class="accordion-head" onclick="toggleAccordion(this)"><span>🌱 Before You Read</span><span>＋</span></button>
+<div class="accordion-body">
+<div class="prep-card">
+  <h3>Connect with the Chapter</h3>
+  <div class="prep-grid">
+    <div class="prep-mini"><h4>🌾 Farmer’s Life</h4><p>Farmers depend on land, rain and crops. One natural disaster can affect the whole family.</p></div>
+    <div class="prep-mini"><h4>💰 Crop and Income</h4><p>For Lencho, rain means a good harvest, and a good harvest means food and money.</p></div>
+    <div class="prep-mini"><h4>🙏 Faith and Hope</h4><p>The story asks us to think about faith in God and trust in good human beings.</p></div>
+    <div class="prep-mini"><h4>✉️ Letter Writing</h4><p>Lencho writes a letter to God because he believes deeply that God will help him.</p></div>
+  </div>
+  <div class="prep-note">
+    <strong>Quick Think:</strong>
+    <ul class="clean-list">
+      <li>What would a farmer feel if his crop was destroyed?</li>
+      <li>Can faith give courage in difficult situations?</li>
+      <li>Should we also trust helpful people around us?</li>
+    </ul>
+  </div>
+</div>
+</div>
+</div>
+<div class="accordion-card">
+<button class="accordion-head" onclick="toggleAccordion(this)"><span>📮 Activity: Money Order</span><span>＋</span></button>
+<div class="accordion-body">
+<div class="mo-unit">
+  <h3>1. Before Filling the Money Order Form</h3>
+  <div class="mo-prompt">
+    NCERT first asks students to understand how money is sent through a post office and to discuss words such as <strong>counter, counter clerk, appropriate, acknowledgement, counterfoil</strong> and <strong>record</strong>.
+  </div>
+  <table class="mo-table">
+    <tr><th>Word</th><th>Meaning</th></tr>
+    <tr><td>Counter</td><td>A service desk in a post office or bank.</td></tr>
+    <tr><td>Counter clerk</td><td>The person who receives forms and money at the counter.</td></tr>
+    <tr><td>Appropriate</td><td>Suitable or correct for a particular purpose.</td></tr>
+    <tr><td>Acknowledgement</td><td>A written proof that money or a document has been received.</td></tr>
+    <tr><td>Counterfoil</td><td>A part of a form or receipt kept as a record.</td></tr>
+    <tr><td>Record</td><td>Official written information kept for future reference.</td></tr>
+  </table>
+</div>
+
+<div class="mo-unit">
+  <h3>2. How Money Order Works</h3>
+  <div class="mo-flow">
+    <div class="mo-step">1. Fill Form</div>
+    <div class="mo-step">2. Pay Amount</div>
+    <div class="mo-step">3. Post Office Sends</div>
+    <div class="mo-step">4. Receiver Signs</div>
+    <div class="mo-step">5. Acknowledgement Returns</div>
+  </div>
+  <div class="mo-tip"><strong>Exam Understanding:</strong> This activity connects directly with the story because Lencho receives money through the post office.</div>
+</div>
+
+<div class="mo-unit">
+  <h3>3. Filled Money Order Form — NCERT Style</h3>
+  <div class="money-order-form">
+    <div class="mo-form-title">Money Order Form</div>
+    <div class="mo-form-subtitle">Sample filled form for classroom activity</div>
+
+    <div class="mo-section-title">Money Order Details</div>
+    <div class="mo-grid">
+      <div class="mo-field"><span class="mo-label">Amount in figures</span><div class="mo-value">₹100</div></div>
+      <div class="mo-field"><span class="mo-label">Amount in words</span><div class="mo-value">Rupees One Hundred Only</div></div>
+      <div class="mo-field"><span class="mo-label">Payee / Receiver Name</span><div class="mo-value">Rohan Patel</div></div>
+      <div class="mo-field"><span class="mo-label">Sender Name</span><div class="mo-value">Dharmesh Wagh</div></div>
+      <div class="mo-field mo-wide"><span class="mo-label">Payee Address</span><div class="mo-value">24, Shanti Society, Surat, Gujarat</div></div>
+      <div class="mo-field mo-wide"><span class="mo-label">Sender Address</span><div class="mo-value">WAGH Tuition Classes, Surat, Gujarat</div></div>
+    </div>
+
+    <div class="mo-section-title">Space for Communication</div>
+    <div class="mo-field mo-wide"><span class="mo-label">Message</span><div class="mo-value">Dear Rohan, please use this money to buy your English notebook. Study well.</div></div>
+
+    <div class="mo-section-title">Official Use / Acknowledgement</div>
+    <div class="mo-three">
+      <div class="mo-field"><span class="mo-label">Post Office</span><div class="mo-value">Surat H.O.</div></div>
+      <div class="mo-field"><span class="mo-label">Date</span><div class="mo-value">07-06-2026</div></div>
+      <div class="mo-stamp">POST OFFICE STAMP</div>
+    </div>
+    <div class="mo-grid" style="margin-top:10px;">
+      <div class="mo-field"><span class="mo-label">Sender Signature</span><div class="mo-value">Dharmesh Wagh</div></div>
+      <div class="mo-field"><span class="mo-label">Receiver Signature</span><div class="mo-value">Rohan Patel</div></div>
+    </div>
+    <div class="mo-note-small">This is a classroom sample based on the format shown in the NCERT chapter activity.</div>
+  </div>
+</div>
+
+<div class="mo-unit">
+  <h3>4. NCERT Activity Questions — Solved</h3>
+  <div class="mo-prompt">
+    After studying the money order form, NCERT asks students to complete statements about who signs the form, who receives acknowledgement and how the communication space is used.
+  </div>
+  <div class="mo-answer">
+    <strong>(i)</strong> In addition to the sender, the form has to be signed by the <strong>receiver / payee</strong>.
+  </div>
+  <div class="mo-answer">
+    <strong>(ii)</strong> The <strong>Acknowledgement</strong> section of the form is sent back by the post office to the <strong>sender</strong> after the <strong>receiver / payee</strong> signs it.
+  </div>
+  <div class="mo-answer">
+    <strong>(iii)</strong> The <strong>Space for Communication</strong> section is used for writing a short message from the sender to the receiver.
+  </div>
+  <div class="mo-answer">
+    <strong>(iv)</strong> The form has six sections. The sender needs to fill out the main money order details and communication sections, while the receiver signs the acknowledgement/receipt section after receiving the money.
+  </div>
+</div>
+</div>
+</div>
+<div class="accordion-card story-card">
+<button class="accordion-head" onclick="toggleAccordion(this)"><span>📘 A Letter to God (Translation)</span><span>＋</span></button>
+<div class="accordion-body story-zone">
+<div class="story-mode-tabs">
+<button class="story-mode-btn active" onclick="switchStoryMode(this,'storyTranslationMode')">🔄 Line-by-Line Translation</button>
+</div>
+<div class="story-mode-panel active" id="storyTranslationMode">
+<h2 class="section-header">📖 Complete Story Line-by-Line Breakdown</h2>
+<p style="margin-top:-15px; margin-bottom:30px; color:#7f8c8d; font-size:1rem;">
+            💡 <strong>How to use:</strong> Use the buttons at the top of each part to listen to the engaging story narration or to reveal the Gujarati translations and literary analysis for the whole section.
+        </p>
+<button class="part-title part-toggle" onclick="togglePart(this)"><span>🌾 Part 1: Lencho's House and His Hopes</span><span class="part-arrow">＋</span></button>
+<div class="part-controls">
+<button class="action-btn play-btn" onclick="speakPart('part1-content', this)">🔊 Listen to Part 1</button>
+<button class="action-btn" onclick="toggleTranslations('part1-content', this)">📖 Show Gujarati &amp; Analysis</button>
+</div>
+<section class="summary-section" id="part1-content">
+<div class="story-illustration">
+<img alt="A cottage on a rolling hill crest" class="story-img" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
+<div class="img-caption">Visualizing Section 1: Lencho's solitary house perched on the crest of a low hill overlooking his fields.</div>
+</img></div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 1:</span> THE house — the only one in the entire valley — sat on the crest of a low hill.</span></div>
+<div class="drawer-content">
+<div class="gu-box">ઘર — સમગ્ર ખીણમાં એકમાત્ર — એક નીચી ટેકરીની ટોચ પર આવેલું હતું.</div>
+<div class="analysis-box"><strong>Teacher Insight:</strong> <em>Crest:</em> Highest point of a hill. Establishes Lencho's physical isolation.</div>
+</div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 2:</span> From this height one could see the river and the field of ripe corn dotted with the flowers that always promised a good harvest.</span></div>
+<div class="drawer-content">
+<div class="gu-box">આ ઊંચાઈ પરથી કોઈ પણ નદી અને પાકેલા મકાઈના ખેતરને જોઈ શકતું હતું, જે એવા ફૂલોથી ઘેરાયેલું હતું જે હંમેશા સારા પાકની ખાતરી આપતા હતા.</div>
+</div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 3:</span> The only thing the earth needed was a downpour or at least a shower.</span></div>
+<div class="drawer-content">
+<div class="gu-box">પૃથ્વીને માત્ર એક ભારે વરસાદ અથવા ઓછામાં ઓછા એક હળવા વરસાદના ઝાપટાની જરૂર હતી.</div>
+<div class="analysis-box"><strong>Synonyms:</strong> <em>Downpour:</em> Heavy rain | <em>Shower:</em> Light rain.</div>
+</div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 4:</span> Throughout the morning Lencho — who knew his fields intimately — had done nothing else but see the sky towards the north-east.</span></div>
+<div class="drawer-content">
+<div class="gu-box">આખી સવાર લેન્ચોએ — જે તેના ખેતરોને ખૂબ નજીકથી ઓળખતો હતો — ઉત્તર-પૂર્વ તરફના આકાશને જોવા સિવાય બીજું કંઈ કર્યું ન હતું.</div>
+</div>
+</div>
+</section>
+<button class="part-title part-toggle" onclick="togglePart(this)"><span>🌧️ Part 2: The Arrival of Rain and the Metaphors</span><span class="part-arrow">＋</span></button>
+<div class="part-controls">
+<button class="action-btn play-btn" onclick="speakPart('part2-content', this)">🔊 Listen to Part 2</button>
+<button class="action-btn" onclick="toggleTranslations('part2-content', this)">📖 Show Gujarati &amp; Analysis</button>
+</div>
+<section class="summary-section" id="part2-content">
+<div class="story-illustration">
+<img alt="Storm clouds with heavy rain droplets" class="story-img" src="https://images.unsplash.com/photo-1534274988757-a28bf1a57c17?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
+<div class="img-caption">Visualizing Section 2: Rain clouds rolling over the valley fields.</div>
+</img></div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 5:</span> “Now we’re really going to get some water, woman.”</span></div>
+<div class="drawer-content"><div class="gu-box">"હવે આપણને ખરેખર થોડું પાણી મળવાનું છે, સ્ત્રી (પત્ની)."</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 6:</span> The woman, who was preparing supper, replied, “Yes, God willing.”</span></div>
+<div class="drawer-content">
+<div class="gu-box">સ્ત્રી, જે સાંજનું ભોજન બનાવી રહી હતી, તેણે જવાબ આપ્યો, "હા, જો ભગવાનની ઈચ્છા હશે તો."</div>
+<div class="analysis-box"><strong>Vocabulary:</strong> <em>Supper:</em> Evening meal.</div>
+</div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 7:</span> The older boys were working in the field, while the smaller ones were playing near the house until the woman called to them all, “Come for dinner.”</span></div>
+<div class="drawer-content"><div class="gu-box">મોટા છોકરાઓ ખેતરમાં કામ કરી રહ્યા હતા, જ્યારે નાના છોકરાઓ ઘરની નજીક રમી રહ્યા હતા, ત્યાં સુધી કે સ્ત્રીએ તે બધાને બૂમ પાડી, "જમવા માટે આવી જાઓ."</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 8:</span> It was during the meal that, just as Lencho had predicted, big drops of rain began to fall.</span></div>
+<div class="drawer-content"><div class="gu-box">ભોજન દરમિયાન જ, લેન્ચોએ ભવિષ્યવાણી કરી હતી તેમ જ, વરસાદના મોટા ટીપાં પડવા લાગ્યા.</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 9:</span> In the north-east huge mountains of clouds could be seen approaching.</span></div>
+<div class="drawer-content">
+<div class="gu-box">उत्तर-પૂર્વમાં વાદળોના વિશાળ પર્વતો આવતા જોઈ શકાતા હતા.</div>
+<div class="analysis-box"><span class="device-badge">Metaphor</span> Clouds are directly compared to massive mountains due to their volume.</div>
+</div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 10:</span> The air was fresh and sweet.</span></div>
+<div class="drawer-content"><div class="gu-box">હવા તાજી અને મધુર હતી.</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 11:</span> The man went out for no other reason than to have the pleasure of feeling the rain on his body, and when he returned he exclaimed...</span></div>
+<div class="drawer-content"><div class="gu-box">તે માણસ પોતાના શરીર પર વરસાદ અનુભવવાનો આનંદ માણવા સિવાય બીજા કોઈ કારણ વગર બહાર ગયો, અને જ્યારે તે પાછો ફર્યો ત્યારે તે આશ્ચર્યથી બોલી ઉઠ્યો...</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 12:</span> “These aren’t raindrops falling from the sky, they are new coins. The big drops are ten cent pieces and the little ones are fives.”</span></div>
+<div class="drawer-content">
+<div class="gu-box">"આ આકાશમાંથી પડી રહેલા વરસાદના ટીપાં નથી, તેઓ નવા સિક્કા છે. મોટા ટીપાં દસ સેન્ટના સિક્કા છે અને નાના ટીપાં પાંચના છે."</div>
+<div class="analysis-box"><span class="device-badge">Extended Metaphor</span> <strong>Raindrops = New Coins.</strong> Rain guarantees a successful harvest bringing direct economic wealth.</div>
+</div>
+</div>
+</section>
+<button class="part-title part-toggle" onclick="togglePart(this)"><span>❄️ Part 3: The Destruction of the Harvest</span><span class="part-arrow">＋</span></button>
+<div class="part-controls">
+<button class="action-btn play-btn" onclick="speakPart('part3-content', this)">🔊 Listen to Part 3</button>
+<button class="action-btn" onclick="toggleTranslations('part3-content', this)">📖 Show Gujarati &amp; Analysis</button>
+</div>
+<section class="summary-section" id="part3-content">
+<div class="story-illustration">
+<img alt="Violent frozen hail storms hitting crops" class="story-img" src="https://images.unsplash.com/photo-1518173946687-a4c8a3b1f98e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
+<div class="img-caption">Visualizing Section 3: The violent hailstorm stripping the landscape white.</div>
+</img></div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 13:</span> With a satisfied expression he regarded the field of ripe corn with its flowers, draped in a curtain of rain.</span></div>
+<div class="drawer-content">
+<div class="gu-box">એક સંતોષકારક ભાવ સાથે તેણે તેના ફૂલોવાળા પાકેલા મકાઈના ખેતરને જોયું, જે વરસાદની ચાદર (પડદા) માં લપેટાયેલું હતું.</div>
+<div class="analysis-box"><span class="device-badge">Metaphor</span> <em>"Curtain of rain"</em> compares sheets of falling rain to a hanging cloth layer.</div>
+</div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 14:</span> But suddenly a strong wind began to blow and along with the rain very large hailstones began to fall.</span></div>
+<div class="drawer-content"><div class="gu-box">પરંતુ અચાનક જોરદાર પવન ફૂંકાવા લાગ્યો અને વરસાદની સાથે ખૂબ મોટા કરા પડવા લાગ્યા.</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 15:</span> These truly did resemble new silver coins.</span></div>
+<div class="drawer-content">
+<div class="gu-box">આ કરા ખરેખર નવા ચાંદીના સિક્કા જેવા દેખાતા હતા.</div>
+<div class="analysis-box"><span class="device-badge">Irony</span> Shiny white frozen ice elements look like silver coins but represent financial loss.</div>
+</div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 16:</span> The boys, exposing themselves to the rain, ran out to collect the frozen pearls.</span></div>
+<div class="drawer-content">
+<div class="gu-box">છોકરાઓ, વરસાદમાં બહાર ખુલ્લા આવીને, થીજી ગયેલા મોતી (કરા) એકઠા કરવા બહાર દોડી ગયા.</div>
+<div class="analysis-box"><span class="device-badge">Metaphor</span> <em>"Frozen pearls"</em> compares round, cold white hailstones to precious sea jewels.</div>
+</div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 17:</span> “It’s really getting bad now,” exclaimed the man. “I hope it passes quickly.”</span></div>
+<div class="drawer-content"><div class="gu-box">"હવે ખરેખર પરિસ્થિતિ બગડી રહી છે," લેન્ચોએ ચિંતાથી કહ્યું. "હું આશા રાખું છું કે આ ઝડપથી પસાર થઈ જાય."</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 18:</span> It did not pass quickly.</span></div>
+<div class="drawer-content"><div class="gu-box">તે ઝડપથી પસાર ન થયું.</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 19:</span> For an hour the hail rained on the house, the garden, the hillside, the cornfield, on the whole valley.</span></div>
+<div class="drawer-content"><div class="gu-box">એક કલાક સુધી ઘર પર, બગીચા પર, ટેકરીની બાજુ પર, મકાઈના ખેતરમાં, આખી ખીણ પર કરા વરસતા રહ્યા.</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 20:</span> The field was white, as if covered with salt.</span></div>
+<div class="drawer-content">
+<div class="gu-box">ખેતર આખું સફેદ થઈ ગયું હતું, જાણે મીઠાથી ઢંકાયેલું ન હોય!</div>
+<div class="analysis-box"><span class="device-badge">Simile</span> <em>"as if covered with salt"</em> emphasizes the barrenness left behind by the storm.</div>
+</div>
+</div>
+</section>
+<button class="part-title part-toggle" onclick="togglePart(this)"><span>🍂 Part 4: Lencho’s Despair and Deep Faith</span><span class="part-arrow">＋</span></button>
+<div class="part-controls">
+<button class="action-btn play-btn" onclick="speakPart('part4-content', this)">🔊 Listen to Part 4</button>
+<button class="action-btn" onclick="toggleTranslations('part4-content', this)">📖 Show Gujarati &amp; Analysis</button>
+</div>
+<section class="summary-section" id="part4-content">
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 21:</span> Not a leaf remained on the trees.</span></div>
+<div class="drawer-content"><div class="gu-box">વૃક્ષો પર એક પણ પાંદડું બચ્યું ન હતું.</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 22:</span> The corn was totally destroyed.</span></div>
+<div class="drawer-content"><div class="gu-box">મકાઈનો પાક સંપૂર્ણપણે નાશ પામ્યો હતો.</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 23:</span> The flowers were gone from the plants.</span></div>
+<div class="drawer-content"><div class="gu-box">છોડ પરથી ફૂલો જતા રહ્યા હતા (ખરી પડ્યા હતા).</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 24:</span> Lencho’s soul was filled with sadness.</span></div>
+<div class="drawer-content"><div class="gu-box">લેન્ચોનો આત્મા ઉદાસીથી ભરાઈ ગયો.</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 25:</span> When the storm had passed, he stood in the middle of the field and said to his sons...</span></div>
+<div class="drawer-content"><div class="gu-box">જ્યારે વાવાઝોડું પસાર થઈ ગયું, ત્યારે તે ખેતરની વચ્ચે ઊભો રહ્યો અને તેણે તેના પુત્રોને કહ્યું...</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 26:</span> “A plague of locusts would have left more than this.”</span></div>
+<div class="drawer-content">
+<div class="gu-box">"તીડનું આક્રમણ (ટોળું) પણ આના કરતાં વધુ છોડી ગયું હોત."</div>
+<div class="analysis-box"><strong>Core Concept:</strong> <em>Locusts:</em> Large insects traveling in big swarms that eat crops (તીડ). A biological pest leaves a baseline behind, whereas climate elements leave nothing.</div>
+</div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 27:</span> “The hail has left nothing.”</span></div>
+<div class="drawer-content"><div class="gu-box">"કરાએ કંઈ બાકી રાખ્યું નથી."</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 28:</span> “This year we will have no corn.”</span></div>
+<div class="drawer-content"><div class="gu-box">"આ વર્ષે આપણી પાસે કોઈ મકાઈ નહીં હોય."</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 29:</span> That night was a sorrowful one.</span></div>
+<div class="drawer-content"><div class="gu-box">તે રાત્રિ ખૂબ જ દુઃખદાયક (શૉકભરી) હતી.</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 30:</span> “All our work, for nothing.”</span></div>
+<div class="drawer-content"><div class="gu-box">"આપણી બધી જ મહેનત નકામી ગઈ."</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 31:</span> “There’s no one who can help us.”</span></div>
+<div class="drawer-content"><div class="gu-box">"એવું કોઈ નથી જે આપણી મદદ કરી શકે."</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 32:</span> “We’ll all go hungry this year.”</span></div>
+<div class="drawer-content"><div class="gu-box">"આ વર્ષે આપણે બધા ભૂખ્યા રહીશું."</div></div>
+</div>
+<div class="oral-check"><button class="occ-toggle-btn" onclick="toggleOCC(this)">📝 Oral Comprehension Check (4 Questions)</button><div class="occ-panel">
+<h3>📝 Oral Comprehension Check</h3>
+<div class="oral-item">
+<div class="oral-question"><strong>1.</strong> What did Lencho hope for?</div>
+<button class="oral-btn" onclick="toggleOralAnswer(this)">Show Answer</button>
+<div class="oral-answer">
+                        Lencho hoped for a downpour or at least a shower of rain so that his field of ripe corn would give a good harvest.
+                        <div class="gu-answer">લેન્ચોએ સારા પાક માટે ભારે વરસાદ અથવા ઓછામાં ઓછા વરસાદના ઝાપટાની આશા રાખી હતી.</div>
+</div>
+</div>
+<div class="oral-item">
+<div class="oral-question"><strong>2.</strong> Why did Lencho say the raindrops were like “new coins”?</div>
+<button class="oral-btn" onclick="toggleOralAnswer(this)">Show Answer</button>
+<div class="oral-answer">
+                        Lencho called the raindrops “new coins” because the rain would help his crop grow and bring him money after a good harvest.
+                        <div class="gu-answer">વરસાદ સારો પાક આપશે અને પાકથી પૈસા મળશે, તેથી લેન્ચોએ વરસાદના ટીપાંને “નવા સિક્કા” કહ્યા.</div>
+</div>
+</div>
+<div class="oral-item">
+<div class="oral-question"><strong>3.</strong> How did the rain change? What happened to Lencho’s fields?</div>
+<button class="oral-btn" onclick="toggleOralAnswer(this)">Show Answer</button>
+<div class="oral-answer">
+                        The rain changed into a hailstorm with strong wind and large hailstones. Lencho’s cornfield was completely destroyed.
+                        <div class="gu-answer">વરસાદ જોરદાર પવન અને મોટા કરા સાથે કરાવૃષ્ટિમાં બદલાયો. લેન્ચોનું મકાઈનું ખેતર સંપૂર્ણ નાશ પામ્યું.</div>
+</div>
+</div>
+<div class="oral-item">
+<div class="oral-question"><strong>4.</strong> What were Lencho’s feelings when the hail stopped?</div>
+<button class="oral-btn" onclick="toggleOralAnswer(this)">Show Answer</button>
+<div class="oral-answer">
+                        Lencho was filled with sadness and despair because the hail had destroyed everything and he feared his family would go hungry.
+                        <div class="gu-answer">કરાવૃષ્ટિ બંધ થયા પછી લેન્ચો ખૂબ દુઃખી અને નિરાશ થયો, કારણ કે બધો પાક નાશ પામ્યો હતો.</div>
+</div>
+</div>
+</div></div>
+</section>
+<button class="part-title part-toggle" onclick="togglePart(this)"><span>✉️ Part 5: The Only Hope and The Decision</span><span class="part-arrow">＋</span></button>
+<div class="part-controls">
+<button class="action-btn play-btn" onclick="speakPart('part5-content', this)">🔊 Listen to Part 5</button>
+<button class="action-btn" onclick="toggleTranslations('part5-content', this)">📖 Show Gujarati &amp; Analysis</button>
+</div>
+<section class="summary-section" id="part5-content">
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 33:</span> But in the hearts of all who lived in that solitary house in the middle of the valley, there was a single hope: help from God.</span></div>
+<div class="drawer-content">
+<div class="gu-box">પરંતુ ખીણની વચ્ચે આવેલા તે એકાંત ઘરમાં રહેતા તમામ લોકોના હૃદયમાં એકમાત્ર આશા હતી: ભગવાન તરફથી મદદ.</div>
+<div class="analysis-box"><strong>Vocabulary:</strong> <em>Solitary:</em> Isolated, single (એકાંત).</div>
+</div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 34:</span> “Don’t be so upset, even though this seems like a total loss.”</span></div>
+<div class="drawer-content"><div class="gu-box">"ભલે આ બધું જ ગુમાવી દીધું હોય એવું લાગે, છતાં આટલા બધા પરેશાન (ઉદાસ) ન થાઓ."</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 35:</span> “Remember, no one dies of hunger.”</span></div>
+<div class="drawer-content"><div class="gu-box">"યાદ રાખો, ભૂખથી કોઈ મરતું નથી."</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 36:</span> “That’s what they say: no one dies of hunger.”</span></div>
+<div class="drawer-content"><div class="gu-box">"લોકો આવું જ કહે છે: ભૂખથી કોઈ મરતું નથી."</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 37:</span> All through the night, Lencho thought only of his one hope: the help of God, whose eyes, as he had been instructed, see everything, even what is deep in one’s conscience.</span></div>
+<div class="drawer-content">
+<div class="gu-box">આખી રાત દરમિયાન, લેન્ચોએ માત્ર પોતાની એકમાત્ર આશા વિશે જ વિચાર્યું: ભગવાનની મદદ, જેમ કે તેને શીખવવામાં આવ્યું હતું કે ભગવાનની આંખો બધું જ જુએ છે, માણસના અંતરાત્માના ઊંડાણમાં શું છે તે પણ.</div>
+<div class="analysis-box"><strong>Vocabulary:</strong> <em>Conscience:</em> Inner moral filter of right and wrong (અંતરાત્મા).</div>
+</div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 38:</span> Lencho was an ox of a man, working like an animal in the fields, but still he knew how to write.</span></div>
+<div class="drawer-content">
+<div class="gu-box">લેન્ચો એક બળદ જેવો માણસ હતો, ખેતરોમાં પ્રાણીની જેમ સખત મજૂરી કરતો હતો, છતાં તે જાણતો હતો કે કેવી રીતે લખવું.</div>
+<div class="analysis-box"><span class="device-badge">Metaphor</span> <strong>Ox of a man:</strong> Expresses manual endurance. He can perform exhausting work, yet remains literate.</div>
+</div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 39:</span> The following Sunday, at daybreak, he began to write a letter which he himself would carry to town and place in the mail.</span></div>
+<div class="drawer-content"><div class="gu-box">પછીના રવિવારે, પરોઢિયે (સવારના સમયે), તેણે એક પત્ર લખવાનું શરૂ કર્યું જે તે પોતે શહેરમાં લઈ જશે અને ટપાલમાં નાખશે.</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 40:</span> It was nothing less than a letter to God.</span></div>
+<div class="drawer-content"><div class="gu-box">તે ભગવાનને લખેલા પત્રથી કંઈ ઓછું ન હતું.</div></div>
+</div>
+</section>
+<button class="part-title part-toggle" onclick="togglePart(this)"><span>🏢 Part 6: Lencho at the Post Office</span><span class="part-arrow">＋</span></button>
+<div class="part-controls">
+<button class="action-btn play-btn" onclick="speakPart('part6-content', this)">🔊 Listen to Part 6</button>
+<button class="action-btn" onclick="toggleTranslations('part6-content', this)">📖 Show Gujarati &amp; Analysis</button>
+</div>
+<section class="summary-section" id="part6-content">
+<div class="story-illustration">
+<img alt="An envelope dropped into a local mailbox" class="story-img" src="https://images.unsplash.com/photo-1572021335469-31706a17aaef?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
+<div class="img-caption">Visualizing Section 6: Dropping the mail into the town sorting box.</div>
+</img></div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 41:</span> God, he wrote, “if you don’t help me, my family and I will go hungry this year.”</span></div>
+<div class="drawer-content"><div class="gu-box">ભગવાન, તેણે લખ્યું, "જો તમે મને મદદ નહીં કરો, તો મારો પરિવાર અને હું આ વર્ષે ભૂખ્યા રહીશું."</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 42:</span> “I need a hundred pesos in order to sow my field again and to live until the crop comes, because the hailstorm...”</span></div>
+<div class="drawer-content">
+<div class="gu-box">"મારે મારા ખેતરમાં ફરીથી વાવણી કરવા માટે અને નવો પાક ન આવે ત્યાં સુધી જીવવા માટે સો પેસોની જરૂર છે, કારણ કે આ કરાના વાવાઝોડાએ..."</div>
+<div class="analysis-box"><strong>Context:</strong> <em>Pesos:</em> Currency (પેસો) | <em>Sow:</em> To plant seeds (વાવણી કરવી).</div>
+</div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 43:</span> He wrote ‘To God’ on the envelope, put the letter inside and, still troubled, went to town.</span></div>
+<div class="drawer-content"><div class="gu-box">તેણે પરબિડીયા (કવર) પર 'ભગવાનને' (To God) એવું સરનામું લખ્યું, પત્ર અંદર મૂક્યો અને, હજી પણ ચિંતિત અવસ્થામાં, શહેર તરફ ગયો.</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 44:</span> At the post office, he placed a stamp on the letter and dropped it into the mailbox.</span></div>
+<div class="drawer-content"><div class="gu-box">પોસ્ટ ઓફિસે પહોંચીને, તેણે પત્ર પર ટિકિટ લગાવી અને તેને ટપાલની પેટીમાં નાખી દીધો.</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 45:</span> One of the employees, who was a postman and also helped at the post office, went to his boss laughing heartily and showed him the letter to God.</span></div>
+<div class="drawer-content"><div class="gu-box">કર્મચારીઓમાંથી એક, જે ટપાલી હતો અને પોસ્ટ ઓફિસના અન્ય કામોમાં પણ મદદ કરતો હતો, તે પોતાના બોસ (પોસ્ટમાસ્ટર) પાસે દિલથી હસતો હસતો ગયો અને તેને ભગવાનના નામે લખાયેલો પત્ર બતાવ્યો.</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 46:</span> Never in his career as a postman had he known that address.</span></div>
+<div class="drawer-content"><div class="gu-box">એક ટપાલી તરીકેની તેની આખી કારકિર્દીમાં તેણે ક્યારેય આ સરનામું જોયું કે જાણ્યું ન હતું.</div></div>
+</div>
+</section>
+<button class="part-title part-toggle" onclick="togglePart(this)"><span>👨‍💼 Part 7: Character Sketch of the Postmaster</span><span class="part-arrow">＋</span></button>
+<div class="part-controls">
+<button class="action-btn play-btn" onclick="speakPart('part7-content', this)">🔊 Listen to Part 7</button>
+<button class="action-btn" onclick="toggleTranslations('part7-content', this)">📖 Show Gujarati &amp; Analysis</button>
+</div>
+<section class="summary-section" id="part7-content">
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 47:</span> The postmaster — a fat, amiable fellow — also broke out laughing, but almost immediately he turned serious and, tapping the letter on his desk, commented...</span></div>
+<div class="drawer-content">
+<div class="gu-box">પોસ્ટમાસ્ટર — એક જાડા, મળતાવડા (દયાળુ) માણસ — પણ મોટેથી હસી પડ્યા, પરંતુ તરત જ તેઓ ગંભીર થઈ ગયા અને પત્રેને પોતાના ટેબલ પર પછાડતા (થપથપાવતા) બોલ્યા...</div>
+<div class="analysis-box"><strong>Character Focus:</strong> <em>Amiable:</em> Friendly, warm-natured (મળતાવડું/દયાળુ). This character trait underpins his structural empathy.</div>
+</div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 48:</span> “What faith! I wish I had the faith of the man who wrote this letter. Starting up a correspondence with God!”</span></div>
+<div class="drawer-content">
+<div class="gu-box">"કેવી અખંડ આસ્થા! કાશ મારામાં પણ એ માણસ જેટલી જ શ્રદ્ધા હોત જેણે આ પત્ર લખ્યો છે. ભગવાન સાથે પત્રવ્યવહાર શરૂ કરવો!"</div>
+<div class="analysis-box"><strong>Vocabulary:</strong> <em>Correspondence:</em> Written trade of letters (પત્રવ્યવહાર).</div>
+</div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 49:</span> So, in order not to shake the writer’s faith in God, the postmaster came up with an idea: answer the letter.</span></div>
+<div class="drawer-content"><div class="gu-box">તેથી, પત્ર લખનારની ભગવાન પરની શ્રદ્ધા ડગી ન જાય તે માટે, પોસ્ટમાસ્ટરને એક વિચાર આવ્યો: આ પત્રનો જવાબ આપવો.</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 50:</span> But when he opened it, it was evident that to answer it he needed something more than goodwill, ink and paper.</span></div>
+<div class="drawer-content"><div class="gu-box">પરંતુ જ્યારે તેણે પત્ર ખોલ્યો, ત્યારે એ સ્પષ્ટ થઈ ગયું કે તેનો જવાબ આપવા માટે તેને સદ્ભાવના, શાહી અને કાગળ કરતાં કંઈક વધુ વસ્તુની જરૂર હતી.</div></div>
+</div>
+</section>
+<button class="part-title part-toggle" onclick="togglePart(this)"><span>🤝 Part 8: An Act of Charity</span><span class="part-arrow">＋</span></button>
+<div class="part-controls">
+<button class="action-btn play-btn" onclick="speakPart('part8-content', this)">🔊 Listen to Part 8</button>
+<button class="action-btn" onclick="toggleTranslations('part8-content', this)">📖 Show Gujarati &amp; Analysis</button>
+</div>
+<section class="summary-section" id="part8-content">
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 51:</span> But he stuck to his resolution: he asked for money from his employees, he himself gave part of his salary, and several friends of his were obliged to give something ‘for an act of charity’.</span></div>
+<div class="drawer-content"><div class="gu-box">પરંતુ તેઓ પોતાના સંકલ્પ પર અડગ રહ્યા: તેમણે તેમના કર્મચારીઓ પાસેથી પૈસા માંગ્યા, તેમણે પોતે પણ પોતાના પગારનો એક ભાગ આપ્યો, અને તેમના કેટલાય મિત્રો 'પુણ્યના કામ' (દાન) માટે કંઈક આપવા માટે રાજીખુશીથી બંધાયા.</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 52:</span> It was impossible for him to gather together the hundred pesos, so he was able to send the farmer only a little more than half.</span></div>
+<div class="drawer-content"><div class="gu-box">તેમની માટે એકસાથે સો પેસો ભેગા કરવા અશક્ય હતા, તેથી તેઓ ખેડૂતને માત્ર અડધા કરતાં થોડા વધારે પૈસા મોકલવામાં જ સક્ષમ રહ્યા.</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 53:</span> He put the money in an envelope addressed to Lencho and with it a letter containing only a single word as a signature: God.</span></div>
+<div class="drawer-content"><div class="gu-box">તેમણે પૈસાને લેન્ચોના સરનામાવાળા પરબિડીયામાં મૂક્યા અને તેની સાથે એક પત્ર મૂક્યો જેમાં સહી તરીકે માત્ર એક જ શબ્દ લખ્યો હતો: ભગવાન (God).</div></div>
+</div>
+<div class="oral-check"><button class="occ-toggle-btn" onclick="toggleOCC(this)">📝 Oral Comprehension Check (3 Questions)</button><div class="occ-panel">
+<h3>📝 Oral Comprehension Check</h3>
+<div class="oral-item">
+<div class="oral-question"><strong>1.</strong> Who or what did Lencho have faith in? What did he do?</div>
+<button class="oral-btn" onclick="toggleOralAnswer(this)">Show Answer</button>
+<div class="oral-answer">
+                        Lencho had complete faith in God. He wrote a letter to God asking for a hundred pesos to sow his field again and live until the next crop came.
+                        <div class="gu-answer">લેન્ચોને ભગવાન પર પૂર્ણ શ્રદ્ધા હતી. તેણે ભગવાનને પત્ર લખીને સો પેસો માગ્યા.</div>
+</div>
+</div>
+<div class="oral-item">
+<div class="oral-question"><strong>2.</strong> Who read the letter?</div>
+<button class="oral-btn" onclick="toggleOralAnswer(this)">Show Answer</button>
+<div class="oral-answer">
+                        The postmaster read Lencho’s letter after the postman showed it to him.
+                        <div class="gu-answer">ટપાલીએ પત્ર પોસ્ટમાસ્ટરને બતાવ્યો અને પોસ્ટમાસ્ટરે પત્ર વાંચ્યો.</div>
+</div>
+</div>
+<div class="oral-item">
+<div class="oral-question"><strong>3.</strong> What did the postmaster do then?</div>
+<button class="oral-btn" onclick="toggleOralAnswer(this)">Show Answer</button>
+<div class="oral-answer">
+                        The postmaster decided to answer the letter so that Lencho’s faith in God would not be shaken. He collected money and sent Lencho a little more than half of the hundred pesos, signing the letter as “God”.
+                        <div class="gu-answer">પોસ્ટમાસ્ટરે લેન્ચોની શ્રદ્ધા ન ડગે તે માટે પૈસા ભેગા કર્યા અને “God” તરીકે સહી કરીને પત્ર મોકલ્યો.</div>
+</div>
+</div>
+</div></div>
+</section>
+<button class="part-title part-toggle" onclick="togglePart(this)"><span>📬 Part 9: Lencho’s Arrival and Unmoved Faith</span><span class="part-arrow">＋</span></button>
+<div class="part-controls">
+<button class="action-btn play-btn" onclick="speakPart('part9-content', this)">🔊 Listen to Part 9</button>
+<button class="action-btn" onclick="toggleTranslations('part9-content', this)">📖 Show Gujarati &amp; Analysis</button>
+</div>
+<section class="summary-section" id="part9-content">
+<div class="story-illustration">
+<img alt="Post office desk counter with staff" class="story-img" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
+<div class="img-caption">Visualizing Section 9: Lencho collection desk interaction.</div>
+</img></div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 54:</span> The following Sunday Lencho came a bit earlier than usual to ask if there was a letter for him.</span></div>
+<div class="drawer-content"><div class="gu-box">પછીના રવિવારે લેન્ચો તેના સામાન્ય સમય કરતાં થોડો વહેલો એ પૂછવા માટે આવ્યો કે શું તેના માટે કોઈ પત્ર આવ્યો છે.</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 55:</span> It was the postman himself who handed the letter to him while the postmaster, experiencing the contentment of a man who has performed a good deed, looked on from his office.</span></div>
+<div class="drawer-content"><div class="gu-box">તે ટપાલી પોતે જ હતો જેણે લેન્ચોને પત્ર હાથમાં આપ્યો, જ્યારે પોસ્ટમાસ્ટર, એક સારું કાર્ય કરનાર વ્યક્તિના સંતોષનો અનુભવ કરતાં, પોતાની ઓફિસમાંથી જોઈ રહ્યા હતા.</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 56:</span> Lencho showed not the slightest surprise on seeing the money; such was his confidence...</span></div>
+<div class="drawer-content">
+<div class="gu-box">પૈસે જોઈને લેન્ચોએ જરાય આશ્ચર્ય દર્શાવ્યું નહીં; આવી તો તેની અડગ શ્રદ્ધા (આત્મવિશ્વાસ) હતી...</div>
+<div class="analysis-box"><strong>Psychological Marker:</strong> Lack of surprise highlights blind, unblinking vertical belief profiles.</div>
+</div>
+</div>
+</section>
+<button class="part-title part-toggle" onclick="togglePart(this)"><span>😠 Part 10: The Distrust and Anger</span><span class="part-arrow">＋</span></button>
+<div class="part-controls">
+<button class="action-btn play-btn" onclick="speakPart('part10-content', this)">🔊 Listen to Part 10</button>
+<button class="action-btn" onclick="toggleTranslations('part10-content', this)">📖 Show Gujarati &amp; Analysis</button>
+</div>
+<section class="summary-section" id="part10-content">
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 57:</span> ...but he became angry when he counted the money.</span></div>
+<div class="drawer-content"><div class="gu-box">...પરંતુ જ્યારે તેણે પૈસા ગણ્યા ત્યારે તે ગુસ્સે થઈ ગયો.</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 58:</span> God could not have made a mistake, nor could he have denied Lencho what he had requested.</span></div>
+<div class="drawer-content"><div class="gu-box">ભગવાન ક્યારેય ભૂલ કરી શકે નહીં, અને લેન્ચોએ જે વિનંતી કરી હતી તે આપવાની ના પણ પાડી શકે નહીં.</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 59:</span> Immediately, Lencho went up to the window to ask for paper and ink.</span></div>
+<div class="drawer-content"><div class="gu-box">તરત જ, લેન્ચો કાગળ અને શાહી માંગવા માટે બારી પાસે ગયો.</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 60:</span> On the public writing-table, he started to write, with much wrinkling of his brow, caused by the effort he had to make to express his ideas.</span></div>
+<div class="drawer-content"><div class="gu-box">જાહેર લેખન-ટેબલ પર, તેણે પોતાની ભમરો સંકોચીને લખવાનું શરૂ કર્યું, જે તેના વિચારોને વ્યક્ત કરવા માટે કરવા પડતા પ્રયત્નોને કારણે થતું હતું.</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 61:</span> When he finished, he went to the window to buy a stamp which he licked and then affixed to the envelope with a blow of his fist.</span></div>
+<div class="drawer-content"><div class="gu-box">જ્યારે તેણે લખવાનું પૂરું કર્યું, ત્યારે તે ટિકિટ ખરીદવા બારી પાસે ગયો, જેને તેણે જીભથી ભીની કરી (ચાટી) અને પછી પોતાની મુઠ્ઠીના ફટકાથી પરબિડીયા પર ચોંટાડી દીધી.</div></div>
+</div>
+</section>
+<button class="part-title part-toggle" onclick="togglePart(this)"><span>🏛️ Part 11: The Climax and Cruel Irony</span><span class="part-arrow">＋</span></button>
+<div class="part-controls">
+<button class="action-btn play-btn" onclick="speakPart('part11-content', this)">🔊 Listen to Part 11</button>
+<button class="action-btn" onclick="toggleTranslations('part11-content', this)">📖 Show Gujarati &amp; Analysis</button>
+</div>
+<section class="summary-section" id="part11-content">
+<div class="story-illustration">
+<img alt="A classic mailbox outside" class="story-img" src="https://images.unsplash.com/photo-1594488651083-023b9345031b?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
+<div class="img-caption">Visualizing Section 11: The structural delivery of the final letter to the sorting system.</div>
+</img></div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 62:</span> The moment the letter fell into the mailbox the postmaster went to open it.</span></div>
+<div class="drawer-content"><div class="gu-box">જે ક્ષણે પત્ર ટપાલપેટીમાં પડ્યો, તે જ ક્ષણે પોસ્ટમાસ્ટર તેને ખોલવા માટે દોડી ગયા.</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 63:</span> It said: “God: Of the money that I asked for, only seventy pesos reached me.”</span></div>
+<div class="drawer-content"><div class="gu-box">તેમાં લખ્યું હતું: "ભગવાન: મેં જે પૈસા માંગ્યા હતા, તેમાંથી માત્ર સિત્તેર પેસો જ મારા સુધી પહોંચ્યા છે."</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 64:</span> “Send me the rest, since I need it very much.”</span></div>
+<div class="drawer-content"><div class="gu-box">"મને બાકીના પૈસા મોકલી આપો, કારણ કે મને તેની ખૂબ જ જરૂર છે."</div></div>
+</div>
+<div class="line-entry">
+<div class="en-container"><span class="en-text"><span class="line-num">Line 65:</span> “But don’t send it to me through the mail, because the post office employees are a bunch of crooks. Lencho.”</span></div>
+<div class="drawer-content">
+<div class="gu-box">"પરંતુ તે મને ટપાલ દ્વારા ન મોકલતા, કારણ કે પોસ્ટ ઓફિસના કર્મચારીઓ લુચ્ચાઓની ટોળકી (ઠગ લોકો) છે. લેન્ચો."</div>
+<div class="analysis-box"><span class="device-badge">Situational Irony</span> <strong>Bunch of crooks:</strong> Represents the tragic disconnect in horizontal trust profiles between humans.</div>
+</div>
+</div>
+<div class="oral-check"><button class="occ-toggle-btn" onclick="toggleOCC(this)">📝 Oral Comprehension Check (2 Questions)</button><div class="occ-panel">
+<h3>📝 Oral Comprehension Check</h3>
+<div class="oral-item">
+<div class="oral-question"><strong>1.</strong> Was Lencho surprised to find a letter for him with money in it?</div>
+<button class="oral-btn" onclick="toggleOralAnswer(this)">Show Answer</button>
+<div class="oral-answer">
+                        No, Lencho was not surprised because he had complete confidence that God would help him.
+                        <div class="gu-answer">ના, લેન્ચો આશ્ચર્યચકિત થયો નહોતો, કારણ કે તેને વિશ્વાસ હતો કે ભગવાન તેને મદદ કરશે.</div>
+</div>
+</div>
+<div class="oral-item">
+<div class="oral-question"><strong>2.</strong> What made him angry?</div>
+<button class="oral-btn" onclick="toggleOralAnswer(this)">Show Answer</button>
+<div class="oral-answer">
+                        He became angry because he had asked for a hundred pesos but received only seventy pesos. He thought the post office employees had taken the rest.
+                        <div class="gu-answer">તે ગુસ્સે થયો કારણ કે તેણે સો પેસો માગ્યા હતા, પણ તેને માત્ર સિત્તેર પેસો મળ્યા.</div>
+</div>
+</div>
+</div></div>
+</section>
+</div>
+</div>
+</div>
+
+<div class="accordion-card">
+<button class="accordion-head" onclick="toggleAccordion(this)"><span>🎭 Character Sketches</span><span>＋</span></button>
+<div class="accordion-body">
+<div class="prep-grid">
+  <div class="prep-mini">
+    <h4>👤 Lencho</h4>
+    <p>Lencho is a hardworking farmer. He is simple, honest and deeply faithful. He believes God sees everything and can help him in difficulty.</p>
+    <div class="prep-tip"><strong>Exam Point:</strong> His strength is faith; his weakness is blind distrust of people.</div>
+  </div>
+  <div class="prep-mini">
+    <h4>👨‍💼 The Postmaster</h4>
+    <p>The postmaster is kind, sympathetic and generous. He respects Lencho’s faith and collects money to help him.</p>
+    <div class="prep-tip"><strong>Exam Point:</strong> He represents human kindness and compassion.</div>
+  </div>
+  <div class="prep-mini">
+    <h4>📬 Post Office Employees</h4>
+    <p>The employees first laugh at the letter, but later help Lencho by contributing money. They are cooperative and charitable.</p>
+    <div class="prep-tip"><strong>Exam Point:</strong> They are the real helpers, though Lencho calls them crooks.</div>
+  </div>
+</div>
+</div>
+</div>
+<div class="accordion-card">
+<button class="accordion-head" onclick="toggleAccordion(this)"><span>❓ Questions</span><span>＋</span></button>
+<div class="accordion-body">
+<div class="enhanced-card" style="border-left:5px solid #3498db;">
+<h3>📚 Thinking About the Text</h3>
+<p style="margin-top:6px;color:#5b6773;"><strong>Instruction:</strong> These are the textbook questions from <em>Thinking About the Text</em>. Click <strong>Show Answer</strong> to study the solution.</p>
+</div>
+
+<div class="enhanced-card">
+<h3>📖 Question 1</h3>
+<p><strong>Who does Lencho have complete faith in? Which sentences in the story tell you this?</strong></p>
+<button class="show-ans" onclick="toggleAns(this)">Show Answer</button>
+<div class="answer">
+<p>Lencho has complete faith in God. He believes that God sees everything and can help him in his difficulty.</p>
+<p>The sentences that show this are: <strong>“there was a single hope: help from God”</strong> and <strong>“God,” he wrote, “if you don’t help me, my family and I will go hungry this year.”</strong></p>
+<p><strong>💡 Exam Point:</strong> This answer shows Lencho’s deep, unquestioning faith in God.</p>
+</div>
+</div>
+
+<div class="enhanced-card">
+<h3>📖 Question 2</h3>
+<p><strong>Why does the postmaster send money to Lencho? Why does he sign the letter ‘God’?</strong></p>
+<button class="show-ans" onclick="toggleAns(this)">Show Answer</button>
+<div class="answer">
+<p>The postmaster sends money to Lencho because he is deeply impressed by Lencho’s faith. He does not want Lencho’s faith in God to be shaken.</p>
+<p>He signs the letter <strong>“God”</strong> because he wants Lencho to believe that the help has come from God himself.</p>
+<p><strong>💡 Exam Point:</strong> The postmaster is kind, sensitive and respectful of Lencho’s faith.</p>
+</div>
+</div>
+
+<div class="enhanced-card">
+<h3>📖 Question 3</h3>
+<p><strong>Did Lencho try to find out who had sent the money to him? Why/Why not?</strong></p>
+<button class="show-ans" onclick="toggleAns(this)">Show Answer</button>
+<div class="answer">
+<p>No, Lencho did not try to find out who had sent the money to him.</p>
+<p>He was so confident in his faith that he believed the money had been sent by God. He showed no surprise when he saw the money because he expected God to help him.</p>
+<p><strong>💡 Exam Point:</strong> Lencho’s reaction proves the strength of his faith, but also shows his simplicity and innocence.</p>
+</div>
+</div>
+
+<div class="enhanced-card">
+<h3>📖 Question 4</h3>
+<p><strong>Who does Lencho think has taken the rest of the money? What is the irony in the situation?</strong></p>
+<button class="show-ans" onclick="toggleAns(this)">Show Answer</button>
+<div class="answer">
+<p>Lencho thinks that the post office employees have taken the rest of the money.</p>
+<p>The irony is that the post office employees and the postmaster were the very people who collected and sent money to help him. Instead of being grateful to them, Lencho calls them <strong>“a bunch of crooks.”</strong></p>
+<p><strong>💡 Exam Point:</strong> This is situational irony because the reality is opposite to what Lencho believes.</p>
+</div>
+</div>
+
+<div class="enhanced-card">
+<h3>📖 Question 5</h3>
+<p><strong>Are there people like Lencho in the real world? What kind of a person would you say he is?</strong></p>
+<button class="show-ans" onclick="toggleAns(this)">Show Answer</button>
+<div class="answer">
+<p>Yes, there are people like Lencho in the real world. Such people are simple, hardworking and deeply faithful. They may trust God completely but may not understand the kindness of people around them.</p>
+<p>Lencho can be described as <strong>naive</strong>, <strong>unquestioning</strong>, <strong>hardworking</strong> and <strong>faithful</strong>. He is not greedy because he asks only for the amount he needs to sow his field again and support his family.</p>
+<p><strong>💡 Exam Point:</strong> Use words like <em>naive</em>, <em>unquestioning</em>, <em>hardworking</em> and <em>faithful</em> to describe Lencho.</p>
+</div>
+</div>
+
+<div class="enhanced-card">
+<h3>📖 Question 6</h3>
+<p><strong>There are two kinds of conflict in the story: between humans and nature, and between humans themselves. How are these conflicts illustrated?</strong></p>
+<button class="show-ans" onclick="toggleAns(this)">Show Answer</button>
+<div class="answer">
+<p>The conflict between humans and nature is shown when the hailstorm destroys Lencho’s entire crop. Lencho works hard in his field, but nature ruins his efforts in a short time.</p>
+<p>The conflict between humans themselves is shown through Lencho’s distrust of the post office employees. They help him by collecting money, but Lencho believes they have stolen the remaining thirty pesos.</p>
+<p><strong>💡 Exam Point:</strong> The story shows both the destructive power of nature and the misunderstanding that can arise between human beings.</p>
+</div>
+</div>
+
+<button class="complete-btn" onclick="markComplete('letter-questions',this)">Mark completed ✅</button>
+
+<div class="prep-card">
+  <h3>🌟 Value-Based Questions</h3>
+  <div class="prep-answer"><strong>Q1. What do we learn from Lencho’s faith?</strong><br>We learn that faith gives courage in difficult situations. However, faith should also be balanced with gratitude and trust in good human beings.</div>
+  <div class="prep-answer"><strong>Q2. Why should we help people in need?</strong><br>Helping others shows humanity. The postmaster and his employees helped Lencho without expecting anything in return.</div>
+  <div class="prep-answer"><strong>Q3. Was the postmaster a role model? Explain.</strong><br>Yes. He respected Lencho’s faith and took practical action to help him. His kindness teaches us compassion and generosity.</div>
+</div>
+</div>
+</div>
+<div class="accordion-card">
+<button class="accordion-head" onclick="toggleAccordion(this)"><span>🧠 Grammar</span><span>＋</span></button>
+<div class="accordion-body">
+<div class="grammar-unit">
+  <h3>I. Storm Vocabulary</h3>
+  <div class="grammar-explain">
+    NCERT first introduces storm-related words after the hailstorm in the story. These words help students understand different kinds of violent weather.
+  </div>
+  <div class="grammar-infographic">
+    <div class="grammar-chip">Storm = bad weather</div>
+    <div class="grammar-chip">Hailstorm = ice balls falling</div>
+    <div class="grammar-chip">Cyclone = circular tropical storm</div>
+    <div class="grammar-chip">Gale = extremely strong wind</div>
+  </div>
+  <div class="grammar-answer">
+    <strong>Solved Answers:</strong>
+    <table class="grammar-table">
+      <tr><th>No.</th><th>Description</th><th>Answer</th></tr>
+      <tr><td>1</td><td>A violent tropical storm in which strong winds move in a circle</td><td><strong>Cyclone</strong></td></tr>
+      <tr><td>2</td><td>An extremely strong wind</td><td><strong>Gale</strong></td></tr>
+      <tr><td>3</td><td>A violent tropical storm with very strong winds</td><td><strong>Typhoon</strong></td></tr>
+      <tr><td>4</td><td>A violent storm whose centre is a cloud in the shape of a funnel</td><td><strong>Tornado</strong></td></tr>
+      <tr><td>5</td><td>A violent storm with very strong winds, especially in the western Atlantic Ocean</td><td><strong>Hurricane</strong></td></tr>
+      <tr><td>6</td><td>A very strong wind that moves very fast in a spinning movement and causes damage</td><td><strong>Whirlwind</strong></td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="grammar-unit">
+  <h3>II. The Word “Hope”</h3>
+  <div class="grammar-explain">
+    NCERT shows that the same word can work differently in different sentences. In this chapter, <strong>hope</strong> is used both as a verb and as a noun.
+  </div>
+  <div class="grammar-flow">
+    <span>I hope it passes quickly</span><b>→</b><span>hope = verb</span>
+  </div>
+  <div class="grammar-flow">
+    <span>There was a single hope</span><b>→</b><span>hope = noun</span>
+  </div>
+  <div class="grammar-answer">
+    <strong>Match the sentences with meanings:</strong>
+    <table class="grammar-table">
+      <tr><th>No.</th><th>Sentence</th><th>Meaning</th></tr>
+      <tr><td>1</td><td>I hope so.</td><td>A feeling that something good will probably happen.</td></tr>
+      <tr><td>2</td><td>I hope you don’t mind my saying this...</td><td>A polite way of showing concern that what you say should not offend the other person.</td></tr>
+      <tr><td>3</td><td>This discovery will give new hope...</td><td>A feeling/chance that something good will probably happen.</td></tr>
+      <tr><td>4</td><td>We were hoping against hope...</td><td>Wishing for something although it is very unlikely.</td></tr>
+      <tr><td>5</td><td>I called early in the hope of speaking to her...</td><td>Wanting something to happen and thinking it possible.</td></tr>
+      <tr><td>6</td><td>Everybody had given up hope...</td><td>Stopped believing that this good thing would happen.</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="grammar-unit">
+  <h3>III. Relative Clauses</h3>
+  <div class="grammar-explain">
+    A relative clause gives extra information about a person, thing, or place. In the chapter, NCERT highlights <strong>non-defining relative clauses</strong>, which are usually separated by commas or dashes.
+  </div>
+  <div class="grammar-infographic">
+    <div class="grammar-chip">who → person</div>
+    <div class="grammar-chip">whom → person as object</div>
+    <div class="grammar-chip">whose → possession</div>
+    <div class="grammar-chip">which → thing/place</div>
+  </div>
+  <div class="grammar-answer">
+    <strong>Solved Sentences:</strong>
+    <table class="grammar-table">
+      <tr><th>No.</th><th>Joined Sentence</th></tr>
+      <tr><td>1</td><td>I often go to Mumbai, <strong>which</strong> is the commercial capital of India.</td></tr>
+      <tr><td>2</td><td>My mother, <strong>who</strong> cooks very well, is going to host a TV show on cooking.</td></tr>
+      <tr><td>3</td><td>These sportspersons, <strong>whose</strong> performance has been excellent, are going to meet the President.</td></tr>
+      <tr><td>4</td><td>Lencho prayed to God, <strong>whose</strong> eyes see into our minds.</td></tr>
+      <tr><td>5</td><td>This man, <strong>whom</strong> I trusted, cheated me.</td></tr>
+    </table>
+  </div>
+  <div class="grammar-explain">
+    <strong>Hidden Relative Clause:</strong><br>
+    The house — the only one in the entire valley — sat on the crest of a low hill.<br>
+    = The house — <strong>which was</strong> the only one in the entire valley — sat on the crest of a low hill.
+  </div>
+</div>
+
+<div class="grammar-unit">
+  <h3>IV. Using Negatives for Emphasis</h3>
+  <div class="grammar-explain">
+    Negative words like <strong>no, not, nothing, never</strong> usually show absence. But sometimes they are used to emphasize an idea strongly.
+  </div>
+  <div class="grammar-flow">
+    <span>The trees lost all leaves</span><b>→</b><span>Not a leaf remained</span>
+  </div>
+  <div class="grammar-flow">
+    <span>He only looked at the sky</span><b>→</b><span>He had done nothing else</span>
+  </div>
+  <div class="grammar-answer">
+    <strong>Find sentences from the story:</strong>
+    <table class="grammar-table">
+      <tr><th>No.</th><th>Idea</th><th>Sentence from the Story</th></tr>
+      <tr><td>1</td><td>The trees lost all their leaves.</td><td><strong>Not a leaf remained on the trees.</strong></td></tr>
+      <tr><td>2</td><td>The letter was addressed to God himself.</td><td><strong>It was nothing less than a letter to God.</strong></td></tr>
+      <tr><td>3</td><td>The postman saw this address for the first time in his career.</td><td><strong>Never in his career as a postman had he known that address.</strong></td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="grammar-unit">
+  <h3>V. Metaphors</h3>
+  <div class="grammar-explain">
+    A metaphor compares two things directly. A quality of one thing is transferred to another. NCERT asks students to identify metaphors from the story and explain the quality compared.
+  </div>
+  <div class="grammar-infographic">
+    <div class="grammar-chip">Clouds → Mountains</div>
+    <div class="grammar-chip">Raindrops → Coins</div>
+    <div class="grammar-chip">Hailstones → Frozen Pearls</div>
+    <div class="grammar-chip">Lencho → Ox of a Man</div>
+  </div>
+  <div class="grammar-answer">
+    <strong>Solved Metaphor Table:</strong>
+    <table class="grammar-table">
+      <tr><th>Object</th><th>Metaphor</th><th>Quality or Feature Compared</th></tr>
+      <tr><td>Clouds</td><td>Huge mountains of clouds</td><td>The mass or hugeness of mountains</td></tr>
+      <tr><td>Raindrops</td><td>New coins</td><td>The rain would bring a good harvest and money</td></tr>
+      <tr><td>Hailstones</td><td>New silver coins / frozen pearls</td><td>Round shape, whiteness and shine</td></tr>
+      <tr><td>Locusts</td><td>A plague of locusts</td><td>Great destruction like an epidemic</td></tr>
+      <tr><td>Lencho</td><td>An ox of a man</td><td>Strength, toughness and hard work</td></tr>
+    </table>
+  </div>
+</div>
+
+<div class="grammar-unit">
+  <h3>Quick Revision</h3>
+  <div class="grammar-infographic">
+    <div class="grammar-chip">Storm words build vocabulary</div>
+    <div class="grammar-chip">Hope can be noun or verb</div>
+    <div class="grammar-chip">Relative clauses add information</div>
+    <div class="grammar-chip">Negatives can create emphasis</div>
+    <div class="grammar-chip">Metaphors transfer qualities</div>
+  </div>
+</div>
+</div></div>
+</div>
+</div>
+<div class="accordion-card">
+<button class="accordion-head" onclick="toggleAccordion(this)"><span>🎤 Speaking / Listening / Writing</span><span>＋</span></button>
+<div class="accordion-body">
+<div class="slw-unit">
+  <h3>1. Speaking</h3>
+  <div class="slw-prompt"><strong>NCERT Task:</strong> Have you ever been in great difficulty and felt that only a miracle could help you? How was your problem solved? Speak about this in class with your teacher.</div>
+  <div class="slw-flow"><div class="slw-step">Problem</div><div class="slw-step">Feeling</div><div class="slw-step">Help / Solution</div><div class="slw-step">Lesson Learnt</div></div>
+  <div class="slw-answer"><strong>Model Speaking Answer:</strong><br>Once, I was in great difficulty before my examination because I had lost my notebook. I felt very worried because all my important notes were in it. At that moment, I felt that only a miracle could help me. Then one of my classmates shared his notes with me, and my teacher also guided me. I studied carefully and performed well in the exam. This incident taught me that help may come through kind people around us, so we should keep faith and also value human support.</div>
+  <div class="slw-tip"><strong>Speaking Tip:</strong> Speak in four steps: situation, problem, solution and lesson.</div>
+</div>
+<div class="slw-unit">
+  <h3>2. Listening</h3>
+  <div class="slw-prompt"><strong>NCERT Task:</strong> Listen to the letter read by your teacher/audio and fill in the table.</div>
+  <div class="slw-answer"><strong>Solved Listening Table:</strong>
+    <table class="slw-table">
+      <tr><th>Question / Prompt</th><th>Answer</th></tr>
+      <tr><td>Who is writing to whom?</td><td>Jaya is writing to Arti.</td></tr>
+      <tr><td>Where and when were they last together?</td><td>They were together at Bangalore last year.</td></tr>
+      <tr><td>The writer apologises because</td><td>She has not written for a very long time.</td></tr>
+      <tr><td>The writer has sent this to the reader</td><td>A letter.</td></tr>
+      <tr><td>The writer sent it in the month of</td><td>January 2006.</td></tr>
+      <tr><td>The reason for not writing earlier</td><td>Jaya had moved house.</td></tr>
+      <tr><td>Sarah goes to</td><td>‘Little Feet’ school.</td></tr>
+    </table>
+  </div>
+  <div class="slw-tip"><strong>Listening Tip:</strong> While listening, focus on names, places, dates and reasons first.</div>
+</div>
+<div class="slw-unit">
+  <h3>3. Writing</h3>
+  <div class="slw-prompt"><strong>NCERT Task:</strong> Design a poster for your area on how to save water during summer and when water is available in excess.</div>
+  <div class="poster-box">
+    <h2>💧 SAVE WATER, SAVE LIFE 💧</h2>
+    <p><strong>Every Drop Counts!</strong></p>
+    <div class="poster-points"><div>Repair leaking taps</div><div>Use bucket instead of shower</div><div>Store rainwater</div><div>Reuse water for plants</div><div>Do not waste drinking water</div><div>Harvest rainwater in society</div></div>
+    <p style="margin-top:14px;"><strong>Water saved today is life saved tomorrow.</strong></p>
+  </div>
+  <div class="slw-answer"><strong>Model Writing Answer:</strong><br>Water is one of the most precious resources on Earth. During summer, we should use water carefully by repairing leaking taps, using buckets instead of showers and avoiding unnecessary wastage. When water is available in excess during the rainy season, we should collect and store it through rainwater harvesting. We can also reuse water for gardening and cleaning. If every person saves even a little water daily, our area can avoid water shortage.</div>
+  <div class="slw-tip"><strong>Writing Tip:</strong> A good poster should have a bold heading, short slogans, clear points and a strong message.</div>
+</div>
+</div>
+</div>
+
+<div class="accordion-card">
+<button class="accordion-head" onclick="toggleAccordion(this)"><span>🎯 Themes & Literary Devices</span><span>＋</span></button>
+<div class="accordion-body">
+<div class="prep-card">
+  <h3>Major Themes</h3>
+  <table class="prep-table">
+    <tr><th>Theme</th><th>Explanation</th></tr>
+    <tr><td>Faith</td><td>Lencho has complete faith in God and believes that God will help him.</td></tr>
+    <tr><td>Hope</td><td>Even after the hailstorm destroys his crop, Lencho hopes for help.</td></tr>
+    <tr><td>Human Kindness</td><td>The postmaster and employees collect money for Lencho.</td></tr>
+    <tr><td>Nature’s Power</td><td>Rain brings hope, but hail destroys the crop.</td></tr>
+    <tr><td>Irony</td><td>Lencho calls the helpers “crooks”.</td></tr>
+  </table>
+</div>
+<div class="prep-card">
+  <h3>Literary Devices</h3>
+  <table class="prep-table">
+    <tr><th>Device</th><th>Example</th><th>Effect</th></tr>
+    <tr><td>Metaphor</td><td>Raindrops are called new coins.</td><td>Shows that rain means money and prosperity for Lencho.</td></tr>
+    <tr><td>Simile</td><td>The field was white, as if covered with salt.</td><td>Shows the destructive effect of hail.</td></tr>
+    <tr><td>Imagery</td><td>Fresh air, huge clouds, hail-covered field.</td><td>Creates clear pictures in the reader’s mind.</td></tr>
+    <tr><td>Irony</td><td>Lencho blames the post office employees.</td><td>The readers know they were the people who helped him.</td></tr>
+  </table>
+</div>
+</div>
+</div>
+<div class="accordion-card"><button class="accordion-head" onclick="toggleAccordion(this)"><span>🧪 MCQ Practice</span><span>＋</span></button><div class="accordion-body">
+<div class="mcq-box"><strong>1. What did Lencho hope for?</strong><ol class="mcq-options"><li>Snow</li><li>Rain</li><li>Wind</li><li>Sunlight</li></ol><div class="mcq-solution">Answer: Rain. He needed rain for his crop.</div></div>
+<div class="mcq-box"><strong>2. What destroyed Lencho’s crop?</strong><ol class="mcq-options"><li>Locusts</li><li>Drought</li><li>Hailstorm</li><li>Fire</li></ol><div class="mcq-solution">Answer: Hailstorm. It completely destroyed the field.</div></div>
+<div class="mcq-box"><strong>3. How much money did Lencho ask God for?</strong><ol class="mcq-options"><li>70 pesos</li><li>50 pesos</li><li>100 pesos</li><li>10 pesos</li></ol><div class="mcq-solution">Answer: 100 pesos.</div></div>
+<div class="mcq-box"><strong>4. Who helped Lencho by collecting money?</strong><ol class="mcq-options"><li>The postmaster and employees</li><li>His neighbours</li><li>His sons</li><li>The village head</li></ol><div class="mcq-solution">Answer: The postmaster and employees.</div></div>
+<div class="mcq-box"><strong>5. What is the main irony of the story?</strong><ol class="mcq-options"><li>Lencho became rich</li><li>God wrote a letter</li><li>Lencho called his helpers crooks</li><li>The rain never came</li></ol><div class="mcq-solution">Answer: Lencho called his helpers crooks.</div></div>
+<div class="mcq-box"><strong>6. “An ox of a man” means Lencho was...</strong><ol class="mcq-options"><li>lazy</li><li>weak</li><li>strong and hardworking</li><li>uneducated only</li></ol><div class="mcq-solution">Answer: strong and hardworking.</div></div>
+<div class="mcq-box"><strong>7. The postmaster signed the letter as...</strong><ol class="mcq-options"><li>Postmaster</li><li>God</li><li>Friend</li><li>Employee</li></ol><div class="mcq-solution">Answer: God.</div></div>
+<div class="mcq-box"><strong>8. What quality of the postmaster is shown in the story?</strong><ol class="mcq-options"><li>Cruelty</li><li>Kindness</li><li>Greed</li><li>Jealousy</li></ol><div class="mcq-solution">Answer: Kindness.</div></div>
+</div></div>
+<div class="accordion-card"><button class="accordion-head" onclick="toggleAccordion(this)"><span>🎯 Exam Corner</span><span>＋</span></button><div class="accordion-body">
+<div class="exam-answer">
+<h3>✅ Model Answer</h3>
+<p><strong>Lencho was a simple farmer who had immense faith in God.</strong> After a severe hailstorm destroyed his entire crop, he faced the danger of starvation. Believing that God would help him, he wrote a letter asking for one hundred pesos. The postmaster and his employees collected money and sent it to him in God's name. However, when Lencho received only seventy pesos, he believed that God could never make a mistake. He thought the remaining money had been stolen by the post office employees and wrote another letter asking God to send the rest directly. This incident highlights Lencho's unwavering faith and creates irony in the story.</p>
+</div>
+<div class="exam-point">
+<strong>💡 Exam Tip:</strong> Mention faith, the hailstorm, the letter to God, the postmaster's kindness, and the irony at the end for full marks.
+</div>
+</div></div>
+<div class="accordion-card"><button class="accordion-head" onclick="toggleAccordion(this)"><span>⬇️ Download Notes</span><span>＋</span></button><div class="accordion-body"><button class="notes-btn" onclick="downloadNotes('letter')">Download A Letter to God Notes</button></div></div>
+</section><section class="tab-panel" id="dust"><div class="lesson-info"><h2>❄️ Dust of Snow</h2><p><strong>Poet:</strong> Robert Frost</p><p><strong>Theme:</strong> A small natural moment can change our mood.</p></div>
+<div class="accordion-card">
+<button class="accordion-head" onclick="toggleAccordion(this)"><span>❄️ Poem</span><span>＋</span></button>
+<div class="accordion-body">
+<div class="dust-tabs">
+<button class="dust-tab-btn active" onclick="switchDustTab(this,'dustOriginalPoem')">📘 Original Poem</button>
+<button class="dust-tab-btn" onclick="switchDustTab(this,'dustTranslationPanel')">🔄 Line-by-Line Translation</button>
+</div>
+<div class="dust-panel active" id="dustOriginalPoem">
+
+<div class="poem-card">
+  <h2>Dust of Snow</h2>
+  <div class="poet">Robert Frost</div>
+  <div class="poem-text">
+    The way a crow<br>
+    Shook down on me<br>
+    The dust of snow<br>
+    From a hemlock tree<br><br>
+    Has given my heart<br>
+    A change of mood<br>
+    And saved some part<br>
+    Of a day I had rued.
+  </div>
+  <div class="note" style="margin-top:14px;">
+    <strong>Glossary:</strong>
+    <div class="word-bank">
+      <span><strong>Dust of snow</strong> — fine particles of snow</span>
+      <span><strong>Hemlock</strong> — a poisonous tree</span>
+      <span><strong>Rued</strong> — regretted</span>
+      <span><strong>Shook down</strong> — caused to fall</span>
+      <span><strong>Change of mood</strong> — change in feeling</span>
+    </div>
+  </div>
+</div>
+
+</div>
+<div class="dust-panel" id="dustTranslationPanel">
+<div class="dust-toggle-row">
+<button class="dust-lang-btn" onclick="toggleDustLang('gu')">ગુજરાતી Meaning</button>
+<button class="dust-lang-btn" onclick="toggleDustLang('hi')">Hindi Meaning</button>
+</div>
+<div class="dust-line"><div class="dust-en">Line 1: The way a crow</div><div class="dust-gu">જે રીતે એક કાગડાએ...</div><div class="dust-hi">जिस तरह एक कौए ने...</div></div>
+<div class="dust-line"><div class="dust-en">Line 2: Shook down on me</div><div class="dust-gu">મારા ઉપર હલાવીને નીચે પાડ્યું...</div><div class="dust-hi">मुझ पर झाड़कर गिराया...</div></div>
+<div class="dust-line"><div class="dust-en">Line 3: The dust of snow</div><div class="dust-gu">બરફનો નાનો ધૂળિયો / હળવો પડ...</div><div class="dust-hi">बर्फ की हल्की धूल / परत...</div></div>
+<div class="dust-line"><div class="dust-en">Line 4: From a hemlock tree</div><div class="dust-gu">હેમલોક વૃક્ષ પરથી...</div><div class="dust-hi">हेमलॉक वृक्ष से...</div></div>
+<div class="dust-line"><div class="dust-en">Line 5: Has given my heart</div><div class="dust-gu">મારા હૃદયને આપ્યો છે...</div><div class="dust-hi">मेरे हृदय को दिया है...</div></div>
+<div class="dust-line"><div class="dust-en">Line 6: A change of mood</div><div class="dust-gu">મનોભાવમાં બદલાવ...</div><div class="dust-hi">मूड में बदलाव...</div></div>
+<div class="dust-line"><div class="dust-en">Line 7: And saved some part</div><div class="dust-gu">અને થોડો ભાગ બચાવી લીધો...</div><div class="dust-hi">और कुछ हिस्सा बचा लिया...</div></div>
+<div class="dust-line"><div class="dust-en">Line 8: Of a day I had rued.</div><div class="dust-gu">એવા દિવસનો, જેના માટે મને પસ્તાવો હતો / જે ખરાબ પસાર થઈ રહ્યો હતો.</div><div class="dust-hi">उस दिन का, जिस पर मुझे पछतावा था / जो खराब जा रहा था।</div></div>
+<div class="dust-note"><strong>Simple Explanation:</strong> A small natural incident changed the poet’s sad mood and saved part of his day.</div>
+</div>
+</div>
+</div><div class="accordion-card">
+<button class="accordion-head" onclick="toggleAccordion(this)"><span>❓ Questions</span><span>＋</span></button>
+<div class="accordion-body">
+<div class="dust-qa"><strong>Q1. What is a “dust of snow”? What does the poet say has changed his mood? How has the poet’s mood changed?</strong><div class="dust-answer">“Dust of snow” means the fine particles of snow. The poet says that the dust of snow falling on him from a hemlock tree changed his mood. His mood changed from sadness and regret to freshness and positivity.</div></div>
+<div class="dust-qa"><strong>Q2. How does Frost present nature in this poem?</strong><div class="dust-answer">Robert Frost presents nature in an unusual way. He does not use traditionally beautiful objects like flowers, birds or sunshine. Instead, he uses a crow, a hemlock tree and snow. These simple and even gloomy natural objects bring a positive change in the poet’s mood.</div></div>
+<div class="dust-qa"><strong>(i) What birds are usually named in poems? Is a crow often mentioned? What image comes to mind?</strong><div class="dust-answer">Birds like nightingales, skylarks, cuckoos and doves are usually named in poems. A crow is not usually used as a beautiful poetic bird. It often suggests harsh sound, black colour, commonness or sadness.</div></div>
+<div class="dust-qa"><strong>(ii) What is a hemlock tree? Why doesn’t the poet write about a more beautiful tree?</strong><div class="dust-answer">A hemlock is a poisonous tree. The poet chooses it instead of a beautiful tree to show that even ordinary or negative-looking things in nature can bring joy and change.</div></div>
+<div class="dust-qa"><strong>(iii) What do the crow and hemlock represent? What does the dust of snow stand for?</strong><div class="dust-answer">The crow and hemlock generally represent sorrow, sadness and negativity. The dust of snow stands for a small, pure and refreshing natural moment that changes the poet’s mood.</div></div>
+</div>
+</div><div class="accordion-card">
+<button class="accordion-head" onclick="toggleAccordion(this)"><span>🎨 Poetic Devices</span><span>＋</span></button>
+<div class="accordion-body">
+<div class="dust-note"><strong>What are Poetic Devices?</strong><br>Poetic devices are special techniques used by poets to make a poem more beautiful, meaningful and expressive. They help create sound, imagery, rhythm and deeper meaning.</div>
+<div class="dust-device"><strong>1. Alliteration</strong><br>Repetition of the same consonant sound.<div class="dust-answer">Example: “Has given my heart” — the /h/ sound is repeated.</div></div>
+<div class="dust-device"><strong>2. Symbolism</strong><br>When an object represents a deeper idea.<div class="dust-answer">Crow and hemlock symbolize sadness or negativity. Dust of snow symbolizes a refreshing change.</div></div>
+<div class="dust-device"><strong>3. Imagery</strong><br>Words that create a picture in the reader’s mind.<div class="dust-answer">The image of a crow shaking snow from a hemlock tree is clear and visual.</div></div>
+<div class="dust-device"><strong>4. Contrast</strong><br>Opposite ideas placed together.<div class="dust-answer">Negative symbols like crow and hemlock create a positive change in the poet’s mood.</div></div>
+<div class="dust-device"><strong>5. Rhyme Scheme</strong><br>The pattern of rhyming words at the end of lines.<div class="dust-answer">The rhyme scheme is <strong>abab cdcd</strong>.</div></div>
+</div>
+</div><div class="accordion-card">
+<button class="accordion-head" onclick="toggleAccordion(this)"><span>🧪 MCQ Practice</span><span>＋</span></button>
+<div class="accordion-body">
+<div class="dust-mcq"><strong>1. Who is the poet of “Dust of Snow”?</strong><ol class="mcq-options"><li>G. L. Fuentes</li><li>Robert Frost</li><li>William Wordsworth</li><li>Leslie Norris</li></ol><div class="mcq-solution">Answer: Robert Frost.</div></div>
+<div class="dust-mcq"><strong>2. What changed the poet’s mood?</strong><ol class="mcq-options"><li>A crow shaking dust of snow</li><li>A sunny morning</li><li>A flower</li><li>A river</li></ol><div class="mcq-solution">Answer: A crow shaking dust of snow.</div></div>
+<div class="dust-mcq"><strong>3. From which tree did the snow fall?</strong><ol class="mcq-options"><li>Oak</li><li>Pine</li><li>Hemlock</li><li>Neem</li></ol><div class="mcq-solution">Answer: Hemlock tree.</div></div>
+<div class="dust-mcq"><strong>4. What does the crow usually symbolize?</strong><ol class="mcq-options"><li>Joy</li><li>Sadness or negativity</li><li>Beauty</li><li>Luxury</li></ol><div class="mcq-solution">Answer: Sadness or negativity.</div></div>
+<div class="dust-mcq"><strong>5. What does the poem mainly show?</strong><ol class="mcq-options"><li>Nature can change our mood</li><li>Snow is dangerous</li><li>Crows are beautiful singers</li><li>Hemlock is useful food</li></ol><div class="mcq-solution">Answer: Nature can change our mood.</div></div>
+<div class="dust-mcq"><strong>6. What is the rhyme scheme of the poem?</strong><ol class="mcq-options"><li>aabb ccdd</li><li>abab cdcd</li><li>abba cddc</li><li>abcd abcd</li></ol><div class="mcq-solution">Answer: abab cdcd.</div></div>
+<div class="dust-mcq"><strong>7. “Has given my heart” is an example of...</strong><ol class="mcq-options"><li>Alliteration</li><li>Simile</li><li>Hyperbole</li><li>Personification</li></ol><div class="mcq-solution">Answer: Alliteration.</div></div>
+<div class="dust-mcq"><strong>8. The word “rued” means...</strong><ol class="mcq-options"><li>Enjoyed</li><li>Regretted</li><li>Started</li><li>Forgot</li></ol><div class="mcq-solution">Answer: Regretted.</div></div>
+</div>
+</div><div class="accordion-card"><button class="accordion-head" onclick="toggleAccordion(this)"><span>🎯 Exam Corner</span><span>＋</span></button><div class="accordion-body"><div class="enhanced-card"><b>Short:</b> How did the crow change the poet’s mood?</div><div class="enhanced-card"><b>Theme:</b> Nature can bring sudden healing.</div><button class="complete-btn" onclick="markComplete('dust-exam',this)">Mark completed ✅</button></div></div>
+<div class="accordion-card"><button class="accordion-head" onclick="toggleAccordion(this)"><span>⬇️ Download Notes</span><span>＋</span></button><div class="accordion-body"><button class="notes-btn" onclick="downloadNotes('dust')">Download Dust of Snow Notes</button></div></div>
+</section><section class="tab-panel" id="fire"><div class="lesson-info"><h2>🔥 Fire and Ice</h2><p><strong>Poet:</strong> Robert Frost</p><p><strong>Theme:</strong> Desire and hatred can both destroy.</p></div>
+<div class="accordion-card">
+<button class="accordion-head" onclick="toggleAccordion(this)"><span>🔥 Poem</span><span>＋</span></button>
+<div class="accordion-body">
+<div class="fire-tabs"><button class="fire-tab-btn active" onclick="switchFireTab(this,'fireOriginalPoem')">📘 Original Poem</button><button class="fire-tab-btn" onclick="switchFireTab(this,'fireTranslationPanel')">🔄 Line-by-Line Translation</button></div>
+<div class="fire-panel active" id="fireOriginalPoem">
+
+<div class="poem-card">
+  <h2>Fire and Ice</h2>
+  <div class="poet">Robert Frost</div>
+  <div class="poem-text">
+    Some say the world will end in fire,<br>
+    Some say in ice.<br>
+    From what I’ve tasted of desire<br>
+    I hold with those who favour fire.<br><br>
+    But if it had to perish twice,<br>
+    I think I know enough of hate<br>
+    To say that for destruction ice<br>
+    Is also great<br>
+    And would suffice.
+  </div>
+  <div class="note" style="margin-top:14px;">
+    <strong>Glossary:</strong>
+    <div class="word-bank">
+      <span><strong>Fire</strong> — desire, greed, passion</span>
+      <span><strong>Ice</strong> — hatred, coldness, cruelty</span>
+      <span><strong>Perish</strong> — die / be destroyed</span>
+      <span><strong>Desire</strong> — strong wish or greed</span>
+      <span><strong>Suffice</strong> — be enough</span>
+    </div>
+  </div>
+  <div class="note" style="margin-top:14px;">
+    <strong>Simple Explanation:</strong>
+    The poet says that some people believe the world will end because of fire, while others believe it will end because of ice.
+    Here, fire stands for desire, greed and uncontrolled passion. Ice stands for hatred, coldness and cruelty.
+    Robert Frost suggests that both desire and hatred are powerful enough to destroy the world.
+  </div>
+</div>
+
+</div>
+<div class="fire-panel" id="fireTranslationPanel">
+<div class="fire-toggle-row"><button class="fire-lang-btn" onclick="toggleFireLang('gu')">ગુજરાતી Meaning</button><button class="fire-lang-btn" onclick="toggleFireLang('hi')">Hindi Meaning</button></div>
+<div class="fire-line"><div class="fire-en">Line 1: Some say the world will end in fire,</div><div class="fire-gu">કેટલાક લોકો કહે છે કે દુનિયાનો અંત અગ્નિથી થશે.</div><div class="fire-hi">कुछ लोग कहते हैं कि दुनिया का अंत आग से होगा।</div></div>
+<div class="fire-line"><div class="fire-en">Line 2: Some say in ice.</div><div class="fire-gu">કેટલાક કહે છે કે દુનિયાનો અંત બરફથી થશે.</div><div class="fire-hi">कुछ लोग कहते हैं कि दुनिया का अंत बर्फ से होगा।</div></div>
+<div class="fire-line"><div class="fire-en">Line 3: From what I’ve tasted of desire</div><div class="fire-gu">મેં ઇચ્છા / લાલચનો અનુભવ કર્યો છે, તેના આધારે...</div><div class="fire-hi">मैंने इच्छा / लालसा का जो अनुभव किया है, उसके आधार पर...</div></div>
+<div class="fire-line"><div class="fire-en">Line 4: I hold with those who favour fire.</div><div class="fire-gu">હું તે લોકો સાથે સહમત છું જે અગ્નિને કારણ માને છે.</div><div class="fire-hi">मैं उन लोगों से सहमत हूँ जो आग को कारण मानते हैं।</div></div>
+<div class="fire-line"><div class="fire-en">Line 5: But if it had to perish twice,</div><div class="fire-gu">પરંતુ જો દુનિયાને બે વાર નાશ પામવું પડે...</div><div class="fire-hi">लेकिन यदि दुनिया को दो बार नष्ट होना पड़े...</div></div>
+<div class="fire-line"><div class="fire-en">Line 6: I think I know enough of hate</div><div class="fire-gu">મને લાગે છે કે હું દ્વેષ વિશે પૂરતું જાણું છું.</div><div class="fire-hi">मुझे लगता है कि मैं घृणा के बारे में पर्याप्त जानता हूँ।</div></div>
+<div class="fire-line"><div class="fire-en">Line 7: To say that for destruction ice</div><div class="fire-gu">એટલું કહેવા માટે કે વિનાશ માટે બરફ પણ...</div><div class="fire-hi">यह कहने के लिए कि विनाश के लिए बर्फ भी...</div></div>
+<div class="fire-line"><div class="fire-en">Line 8: Is also great</div><div class="fire-gu">ખૂબ શક્તિશાળી છે.</div><div class="fire-hi">बहुत शक्तिशाली है।</div></div>
+<div class="fire-line"><div class="fire-en">Line 9: And would suffice.</div><div class="fire-gu">અને દુનિયાના વિનાશ માટે પૂરતી છે.</div><div class="fire-hi">और दुनिया के विनाश के लिए पर्याप्त है।</div></div>
+<div class="fire-note"><strong>Simple Explanation:</strong> Fire represents desire, greed and uncontrolled passion. Ice represents hatred, coldness and cruelty. Both can destroy the world.</div>
+</div></div></div><div class="accordion-card">
+<button class="accordion-head" onclick="toggleAccordion(this)"><span>❓ Questions</span><span>＋</span></button>
+<div class="accordion-body">
+<div class="fire-qa"><strong>Q1. There are many ideas about how the world will “end”. Do you think the world will end someday? Have you ever thought what would happen if the sun got so hot that it burst, or grew colder and colder?</strong><div class="fire-answer">This is an open-ended thinking question. Scientifically, the world may end someday because everything in the universe changes with time. If the sun became extremely hot, life on Earth would burn. If it became colder and colder, Earth would freeze. The poet uses these possibilities symbolically to discuss human desire and hatred.</div></div>
+<div class="fire-qa"><strong>Q2. For Frost, what do “fire” and “ice” stand for?</strong><div class="fire-answer">In the poem, “fire” stands for desire, greed, anger and uncontrolled passion. “Ice” stands for hatred, coldness, cruelty and lack of human feelings. Both are destructive.</div></div>
+<div class="fire-qa"><strong>Q3. What is the rhyme scheme of the poem? How does it help in bringing out the contrasting ideas in the poem?</strong><div class="fire-answer">The rhyme scheme is <strong>aba abc bcb</strong>. The short and sharp rhyme pattern makes the poem powerful and memorable. It also helps present two contrasting ideas — fire and ice — in a compact way.</div></div>
+</div></div><div class="accordion-card">
+<button class="accordion-head" onclick="toggleAccordion(this)"><span>🎨 Poetic Devices</span><span>＋</span></button>
+<div class="accordion-body">
+<div class="fire-note"><strong>What are Poetic Devices?</strong><br>Poetic devices are special techniques used by poets to make a poem more beautiful, meaningful and powerful.</div>
+<div class="fire-device"><strong>1. Symbolism</strong><div class="fire-answer">Fire symbolizes desire and greed. Ice symbolizes hatred and emotional coldness.</div></div>
+<div class="fire-device"><strong>2. Metaphor</strong><div class="fire-answer">Fire and ice are metaphors for destructive human emotions.</div></div>
+<div class="fire-device"><strong>3. Alliteration</strong><div class="fire-answer">“Some say” repeats the /s/ sound.</div></div>
+<div class="fire-device"><strong>4. Imagery</strong><div class="fire-answer">Burning fire and freezing ice create strong visual images.</div></div>
+<div class="fire-device"><strong>5. Rhyme Scheme</strong><div class="fire-answer">The rhyme scheme is <strong>aba abc bcb</strong>.</div></div>
+</div></div><div class="accordion-card"><button class="accordion-head" onclick="toggleAccordion(this)"><span>🧪 MCQ Practice</span><span>＋</span></button><div class="accordion-body"><div class="fire-mcq"><strong>1. Who is the poet of “Fire and Ice”?</strong><button class="fire-option">G. L. Fuentes</button><button class="fire-option">Robert Frost</button><button class="fire-option">Walt Whitman</button><button class="fire-option">Leslie Norris</button><button class="fire-check" onclick="checkFireMCQ(this,1)">Check Answer</button><div class="fire-result" data-exp="Robert Frost wrote the poem."></div></div><div class="fire-mcq"><strong>2. What does fire symbolize?</strong><button class="fire-option">Peace</button><button class="fire-option">Desire and greed</button><button class="fire-option">Friendship</button><button class="fire-option">Knowledge</button><button class="fire-check" onclick="checkFireMCQ(this,1)">Check Answer</button><div class="fire-result" data-exp="Fire symbolizes desire, greed and passion."></div></div><div class="fire-mcq"><strong>3. What does ice symbolize?</strong><button class="fire-option">Love</button><button class="fire-option">Hope</button><button class="fire-option">Hatred and coldness</button><button class="fire-option">Faith</button><button class="fire-check" onclick="checkFireMCQ(this,2)">Check Answer</button><div class="fire-result" data-exp="Ice symbolizes hatred and emotional coldness."></div></div><div class="fire-mcq"><strong>4. What is the rhyme scheme?</strong><button class="fire-option">aabb ccdd</button><button class="fire-option">abab cdcd</button><button class="fire-option">aba abc bcb</button><button class="fire-option">abba cddc</button><button class="fire-check" onclick="checkFireMCQ(this,2)">Check Answer</button><div class="fire-result" data-exp="The rhyme scheme is aba abc bcb."></div></div><div class="fire-mcq"><strong>5. Which two emotions are mainly discussed?</strong><button class="fire-option">Love and kindness</button><button class="fire-option">Desire and hatred</button><button class="fire-option">Hope and faith</button><button class="fire-option">Fear and joy</button><button class="fire-check" onclick="checkFireMCQ(this,1)">Check Answer</button><div class="fire-result" data-exp="The poem focuses on desire and hatred."></div></div><div class="fire-mcq"><strong>6. “Some say” is an example of...</strong><button class="fire-option">Simile</button><button class="fire-option">Alliteration</button><button class="fire-option">Hyperbole</button><button class="fire-option">Irony</button><button class="fire-check" onclick="checkFireMCQ(this,1)">Check Answer</button><div class="fire-result" data-exp="The /s/ sound is repeated."></div></div><div class="fire-mcq"><strong>7. The word “perish” means...</strong><button class="fire-option">To grow</button><button class="fire-option">To shine</button><button class="fire-option">To die or be destroyed</button><button class="fire-option">To freeze only</button><button class="fire-check" onclick="checkFireMCQ(this,2)">Check Answer</button><div class="fire-result" data-exp="Perish means to die or be destroyed."></div></div><div class="fire-mcq"><strong>8. What is the tone of the poem?</strong><button class="fire-option">Playful</button><button class="fire-option">Serious and thoughtful</button><button class="fire-option">Romantic</button><button class="fire-option">Comic</button><button class="fire-check" onclick="checkFireMCQ(this,1)">Check Answer</button><div class="fire-result" data-exp="The poem is serious and thoughtful."></div></div></div></div><div class="accordion-card"><button class="accordion-head" onclick="toggleAccordion(this)"><span>🎯 Exam Corner</span><span>＋</span></button><div class="accordion-body"><div class="enhanced-card"><b>Short:</b> What do fire and ice symbolise?</div><div class="enhanced-card"><b>Theme:</b> Desire and hatred are both destructive.</div><button class="complete-btn" onclick="markComplete('fire-exam',this)">Mark completed ✅</button></div></div>
+<div class="accordion-card"><button class="accordion-head" onclick="toggleAccordion(this)"><span>⬇️ Download Notes</span><span>＋</span></button><div class="accordion-body"><button class="notes-btn" onclick="downloadNotes('fire')">Download Fire and Ice Notes</button></div></div>
+</section></main><footer><p>© 2026 WAGH Tuition Classes | Class 10 English Interactive Chapter Portal</p></footer><script>
+        // Global audio state for start/stop control
+        let currentUtterance = null;
+        let currentAudioButton = null;
+
+
+        // Feature 0: Make story parts collapsible to keep the story flow clean
+        function togglePart(button){
+    const controls = button.nextElementSibling;
+    const content = controls ? controls.nextElementSibling : null;
+    const wasOpen = button.classList.contains('active');
+
+    document.querySelectorAll('#storyTranslationMode .part-title').forEach(btn => {
+        btn.classList.remove('active');
+        const arrow = btn.querySelector('.part-arrow');
+        if (arrow) arrow.textContent = '＋';
+    });
+    document.querySelectorAll('#storyTranslationMode .part-controls').forEach(ctrl => ctrl.classList.remove('open'));
+    document.querySelectorAll('#storyTranslationMode .summary-section').forEach(sec => sec.style.display = 'none');
+
+    if (!wasOpen) {
+        button.classList.add('active');
+        const arrow = button.querySelector('.part-arrow');
+        if (arrow) arrow.textContent = '−';
+        if (controls) controls.classList.add('open');
+        if (content) content.style.display = 'block';
+    }
+}
+
+        // Feature 1: Toggle Translations for the WHOLE section
+        function toggleTranslations(sectionId, btnElement) {
+            const section = document.getElementById(sectionId);
+            const drawers = section.querySelectorAll('.drawer-content');
+            
+            let isCurrentlyHidden = drawers.length > 0 && (drawers[0].style.display === 'none' || drawers[0].style.display === '');
+            
+            drawers.forEach(drawer => {
+                drawer.style.display = isCurrentlyHidden ? 'block' : 'none';
+            });
+
+            if (isCurrentlyHidden) {
+                btnElement.innerText = "📖 Hide Gujarati & Analysis";
+                btnElement.style.backgroundColor = "#e6f4ea";
+                btnElement.style.color = "#137333";
+            } else {
+                btnElement.innerText = "📖 Show Gujarati & Analysis";
+                btnElement.style.backgroundColor = "#ffffff";
+                btnElement.style.color = "#2c3e50";
+            }
+        }
+
+
+
+
+        // Toggle full Oral Comprehension Check panel
+        function toggleOCC(btnElement) {
+            const panel = btnElement.nextElementSibling;
+            const isHidden = panel.style.display === 'none' || panel.style.display === '';
+            panel.style.display = isHidden ? 'block' : 'none';
+            const originalText = btnElement.getAttribute('data-label') || btnElement.innerText.replace(' ▲', '').replace(' ▼', '');
+            btnElement.setAttribute('data-label', originalText);
+            btnElement.innerText = isHidden ? originalText + ' ▲' : originalText + ' ▼';
+        }
+
+        // Feature 1A: Toggle individual Oral Comprehension answers
+        function toggleOralAnswer(btnElement) {
+            const answer = btnElement.nextElementSibling;
+            const isHidden = answer.style.display === 'none' || answer.style.display === '';
+            answer.style.display = isHidden ? 'block' : 'none';
+            btnElement.innerText = isHidden ? 'Hide Answer' : 'Show Answer';
+        }
+
+        // Reset all voice buttons to default state
+        function resetVoiceButtons() {
+            document.querySelectorAll('.play-btn').forEach(btn => {
+                btn.innerText = btn.getAttribute('data-default-text') || '🔊 Listen';
+                btn.style.backgroundColor = "#3498db";
+                btn.style.borderColor = "#2980b9";
+                btn.style.color = "#ffffff";
+            });
+            currentUtterance = null;
+            currentAudioButton = null;
+        }
+
+        // Feature 2: Native Text-To-Speech (TTS) Engine with Start/Stop toggle
+        function speakPart(sectionId, btnElement) {
+            if (!btnElement.getAttribute('data-default-text')) {
+                btnElement.setAttribute('data-default-text', btnElement.innerText);
+            }
+
+            // If this same button is already playing, stop it
+            if (currentAudioButton === btnElement && window.speechSynthesis.speaking) {
+                window.speechSynthesis.cancel();
+                resetVoiceButtons();
+                return;
+            }
+
+            // Stop any other currently playing part before starting new one
+            window.speechSynthesis.cancel();
+            resetVoiceButtons();
+
+            const section = document.getElementById(sectionId);
+            const textNodes = section.querySelectorAll('.en-text');
+            let combinedText = "";
+
+            textNodes.forEach(node => {
+                let tempDiv = document.createElement('div');
+                tempDiv.innerHTML = node.innerHTML;
+                const lineNumSpan = tempDiv.querySelector('.line-num');
+                if(lineNumSpan) tempDiv.removeChild(lineNumSpan);
+                combinedText += tempDiv.innerText.trim() + " ";
+            });
+
+            if (!combinedText) return;
+
+            const narrationUtterance = new SpeechSynthesisUtterance(combinedText);
+            currentUtterance = narrationUtterance;
+            currentAudioButton = btnElement;
+            
+            const availableSystemVoices = window.speechSynthesis.getVoices();
+            let professionalFemaleVoice = availableSystemVoices.find(voice => 
+                (voice.name.includes('Google UK English Female')) ||
+                (voice.name.includes('Google US English') && voice.name.includes('Female')) || 
+                voice.name.includes('Zira') || 
+                voice.name.includes('Samantha') || 
+                voice.name.includes('Hazel') ||
+                voice.name.includes('Karen') ||
+                voice.name.includes('Microsoft Aura')
+            );
+
+            if (!professionalFemaleVoice) {
+                professionalFemaleVoice = availableSystemVoices.find(voice => 
+                    voice.lang.startsWith('en') && (voice.name.toLowerCase().includes('female') || voice.name.toLowerCase().includes('girl'))
+                );
+            }
+
+            if (!professionalFemaleVoice) {
+                professionalFemaleVoice = availableSystemVoices.find(voice => voice.lang.startsWith('en'));
+            }
+
+            if (professionalFemaleVoice) narrationUtterance.voice = professionalFemaleVoice;
+
+            narrationUtterance.rate = 0.85;
+            narrationUtterance.pitch = 1.1;
+
+            btnElement.innerText = "⏹ Stop Voice";
+            btnElement.style.backgroundColor = "#e74c3c";
+            btnElement.style.borderColor = "#c0392b";
+            btnElement.style.color = "#ffffff";
+
+            narrationUtterance.onend = resetVoiceButtons;
+            narrationUtterance.onerror = resetVoiceButtons;
+
+            window.speechSynthesis.speak(narrationUtterance);
+        }
+
+        // Handle asynchronous dynamic voice attachment across browsers
+        if (typeof speechSynthesis !== 'undefined' && speechSynthesis.onvoiceschanged !== undefined) {
+            speechSynthesis.onvoiceschanged = () => {};
+        }
+    
+function switchDustTab(btn, id){
+  const wrap = btn.closest('.accordion-body');
+  if(!wrap) return;
+  wrap.querySelectorAll('.dust-tab-btn').forEach(b=>b.classList.remove('active'));
+  wrap.querySelectorAll('.dust-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  const panel = document.getElementById(id);
+  if(panel) panel.classList.add('active');
+}
+function toggleDustLang(type){
+  const panel = document.getElementById('dustTranslationPanel');
+  if(!panel) return;
+  const selector = type === 'gu' ? '.dust-gu' : '.dust-hi';
+  panel.querySelectorAll(selector).forEach(x=>{
+    x.style.display = (x.style.display === 'block') ? 'none' : 'block';
+  });
+}
+
+
+function switchFireTab(btn,id){const w=btn.closest('.accordion-body');w.querySelectorAll('.fire-tab-btn').forEach(b=>b.classList.remove('active'));w.querySelectorAll('.fire-panel').forEach(p=>p.classList.remove('active'));btn.classList.add('active');document.getElementById(id).classList.add('active');}
+function toggleFireLang(type){const p=document.getElementById('fireTranslationPanel');const s=type==='gu'?'.fire-gu':'.fire-hi';p.querySelectorAll(s).forEach(x=>x.style.display=x.style.display==='block'?'none':'block');}
+function checkFireMCQ(btn,correctIndex){const box=btn.closest('.fire-mcq');const opts=[...box.querySelectorAll('.fire-option')];const res=box.querySelector('.fire-result');const selected=opts.findIndex(o=>o.classList.contains('selected'));opts.forEach((o,i)=>{o.classList.remove('correct','wrong');if(i===correctIndex)o.classList.add('correct');if(i===selected&&i!==correctIndex)o.classList.add('wrong')});res.style.display='block';res.innerHTML=(selected===-1?'Please select an option first. Correct answer is highlighted.':(selected===correctIndex?'✅ Correct! ':'❌ Incorrect. ')+res.dataset.exp);}
+document.addEventListener('click',e=>{if(e.target.classList&&e.target.classList.contains('fire-option')){const b=e.target.closest('.fire-mcq');b.querySelectorAll('.fire-option').forEach(o=>o.classList.remove('selected'));e.target.classList.add('selected');}});
+
+</script>
+<script>
+function openTab(evt, tabId){document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.getElementById(tabId).classList.add('active');evt.currentTarget.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});} 
+function toggleAccordion(btn){
+  const card=btn.closest('.accordion-card');
+  const panel=card.closest('.tab-panel') || document;
+  const wasOpen=card.classList.contains('open');
+
+  // Single-open accordion: close every other section in the same lesson
+  panel.querySelectorAll('.accordion-card').forEach(other=>{
+    if(other!==card){
+      other.classList.remove('open');
+      const otherIcon=other.querySelector('.accordion-head span:last-child');
+      if(otherIcon) otherIcon.textContent='＋';
+    }
+  });
+
+  // Toggle selected section
+  card.classList.toggle('open', !wasOpen);
+  const isOpen=card.classList.contains('open');
+  const icon=btn.querySelector('span:last-child');
+  if(icon){icon.textContent=isOpen?'−':'＋';}
+
+  if(isOpen){
+    const label=(btn.querySelector('span:first-child')?.innerText || 'section').replace(/[^a-zA-Z0-9]+/g,'-').replace(/^-|-$/g,'').toLowerCase();
+    const id=(panel?.id || 'chapter')+'-'+label;
+    completedSections.add(id);
+    saveProgress();
+    card.classList.add('completed-section');
+  }
+}
+</script>
+<button class="backtop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+const completedSections = new Set(JSON.parse(localStorage.getItem('wtc_ch1_completed') || '[]'));
+function saveProgress(){localStorage.setItem('wtc_ch1_completed', JSON.stringify([...completedSections]));updateProgress();}
+function getTotalSections(){return Math.max(1, document.querySelectorAll('.accordion-card').length);} 
+function updateProgress(){
+  const total=getTotalSections();
+  const done=[...completedSections].filter(Boolean).length;
+  const bar=document.getElementById('progressBar');
+  const text=document.getElementById('progressText');
+  if(bar)bar.style.width=Math.min(100,Math.round(done/total*100))+'%';
+  if(text)text.textContent=`Progress: ${Math.min(done,total)}/${total} sections completed`;
+  document.querySelectorAll('.complete-btn').forEach(btn=>{
+    const m=(btn.getAttribute('onclick')||'').match(/markComplete\('([^']+)'/);
+    if(m && completedSections.has(m[1])) btn.textContent='Completed ✅';
+  });
+}
+function markComplete(id,btn){completedSections.add(id);if(btn)btn.textContent='Completed ✅';saveProgress();}
+function showFullPortal(){
+  document.getElementById('appHome').classList.add('portal-hidden');
+  document.querySelector('.tabbar').classList.add('portal-hidden');
+  document.querySelector('main.container').classList.remove('portal-hidden');
+  document.getElementById('letter').classList.add('active');
+  document.getElementById('backLessonsBtn')?.classList.add('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function closeAllLessonAccordions(panel){
+  (panel || document).querySelectorAll('.accordion-card').forEach(card=>{
+    card.classList.remove('open');
+    const icon=card.querySelector('.accordion-head span:last-child');
+    if(icon) icon.textContent='＋';
+  });
+}
+function openLessonCard(id){
+  showFullPortal();
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  const panel=document.getElementById(id);
+  panel.classList.add('active');
+  closeAllLessonAccordions(panel);
+}
+function goHome(){
+  document.getElementById('appHome').classList.remove('portal-hidden');
+  document.querySelector('.tabbar').classList.add('portal-hidden');
+  document.querySelector('main.container').classList.add('portal-hidden');
+  document.getElementById('backLessonsBtn')?.classList.remove('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function toggleNightMode(){const on=document.body.classList.toggle('dark-mode');const btn=document.getElementById('nightModeBtn');if(btn){btn.classList.toggle('on',on);btn.innerHTML=on?'☀️ <span>Night Mode: ON</span>':'🌙 <span>Night Mode: OFF</span>';}}
+function toggleAns(btn){const ans=btn.nextElementSibling;ans.style.display=ans.style.display==='block'?'none':'block';btn.textContent=ans.style.display==='block'?'Hide Answer':'Show Answer';}
+function downloadNotes(kind){const data={letter:'A Letter to God Notes\nTheme: Faith, irony, nature, human kindness.\nKey points: Lencho asks God for 100 pesos after hail destroys crop. The postmaster helps but Lencho calls employees crooks.',dust:'Dust of Snow Notes\nTheme: Small natural moments can change mood.\nDevices: Symbolism, imagery, rhyme scheme abab cdcd.',fire:'Fire and Ice Notes\nTheme: Desire and hatred are destructive.\nDevices: Symbolism, imagery, alliteration.'}[kind];const blob=new Blob([data],{type:'text/plain'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`${kind}_notes.txt`;a.click();URL.revokeObjectURL(a.href);}
+const mcqs={letter:[['Lencho was a ___',['farmer','postman','teacher','shopkeeper'],0],['What destroyed Lencho’s crop?',['Fire','Hailstorm','Flood','Locusts'],1],['How much money did Lencho ask for?',['50 pesos','70 pesos','100 pesos','10 pesos'],2],['Who collected money for Lencho?',['Postmaster','Shopkeeper','Priest','Policeman'],0],['Lencho finally called the employees ___',['friends','crooks','angels','farmers'],1]],dust:[['Who shook down the dust of snow?',['Crow','Sparrow','Eagle','Pigeon'],0],['The snow was on a ___ tree.',['hemlock','mango','neem','banyan'],0],['The incident changed the poet’s ___',['mood','house','school','name'],0],['The poet had ___ the day.',['rued','celebrated','ignored','painted'],0]],fire:[['Fire symbolises ___',['desire','peace','patience','water'],0],['Ice symbolises ___',['hatred','joy','rain','truth'],0],['The poem suggests both fire and ice can cause ___',['destruction','growth','music','sleep'],0],['The poet is ___',['Robert Frost','G.L. Fuentes','Wordsworth','Keats'],0]]};
+function renderMCQ(id,arr){const box=document.getElementById(id);if(!box)return;let out='';arr.forEach((q,i)=>{out+=`<div class="enhanced-card"><b>${i+1}. ${q[0]}</b>`;q[1].forEach((o,j)=>out+=`<button class="mcq-option" data-correct="${j===q[2]}" onclick="chooseMCQ(this)">${o}</button>`);out+='</div>';});box.innerHTML=out;}
+function chooseMCQ(btn){const ok=btn.dataset.correct==='true';const options=btn.parentElement.querySelectorAll('.mcq-option');options.forEach(b=>{b.disabled=true;if(b.dataset.correct==='true')b.classList.add('correct');});if(!ok)btn.classList.add('wrong');}
+renderMCQ('mcq-letter',mcqs.letter);renderMCQ('mcq-dust',mcqs.dust);renderMCQ('mcq-fire',mcqs.fire);updateProgress();
+</script>
+<script>
+(function(){
+  function cleanTabText(text){
+    return text.replace(/[＋−]/g,'').replace(/^[^A-Za-z0-9]+\s*/,'').trim();
+  }
+  function ensureSectionTabs(panel){
+    if(!panel || panel.querySelector('.lesson-section-tabs')) return;
+    const info = panel.querySelector('.lesson-info');
+    const cards = [...panel.querySelectorAll(':scope > .accordion-card')];
+    if(!info || !cards.length) return;
+    const nav = document.createElement('div');
+    nav.className = 'lesson-section-tabs';
+    nav.setAttribute('aria-label','Lesson section tabs');
+    cards.forEach((card, index)=>{
+      if(!card.id) card.id = panel.id + '-section-' + (index+1);
+      const title = cleanTabText(card.querySelector('.accordion-head span:first-child')?.innerText || ('Section '+(index+1)));
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'section-tab-btn' + (index===0 ? ' active' : '');
+      if(title.toLowerCase() === 'story') btn.classList.add('story-tab');
+      btn.textContent = title;
+      btn.addEventListener('click', function(){
+        const head = card.querySelector('.accordion-head');
+        if(!card.classList.contains('open') && head) toggleAccordion(head);
+        nav.querySelectorAll('.section-tab-btn').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        const y = card.getBoundingClientRect().top + window.pageYOffset - 70;
+        window.scrollTo({top:y, behavior:'smooth'});
+      });
+      nav.appendChild(btn);
+    });
+    info.insertAdjacentElement('afterend', nav);
+  }
+  function setupAllSectionTabs(){document.querySelectorAll('.tab-panel').forEach(ensureSectionTabs);}
+  function updateActiveSectionTab(){
+    const panel = document.querySelector('.tab-panel.active');
+    if(!panel) return;
+    const nav = panel.querySelector('.lesson-section-tabs');
+    if(!nav) return;
+    const cards = [...panel.querySelectorAll(':scope > .accordion-card')];
+    let activeIndex = 0;
+    cards.forEach((card,i)=>{ if(card.getBoundingClientRect().top <= 120) activeIndex = i; });
+    const buttons = [...nav.querySelectorAll('.section-tab-btn')];
+    buttons.forEach((b,i)=>b.classList.toggle('active', i===activeIndex));
+    const activeBtn = buttons[activeIndex];
+    if(activeBtn) activeBtn.scrollIntoView({behavior:'smooth', inline:'center', block:'nearest'});
+  }
+  const oldOpenLessonCard = window.openLessonCard;
+  window.openLessonCard = function(id){
+    if(typeof oldOpenLessonCard === 'function') oldOpenLessonCard(id);
+    setupAllSectionTabs();
+    setTimeout(updateActiveSectionTab,120);
+  };
+  const oldGoHome = window.goHome;
+  window.goHome = function(){ if(typeof oldGoHome === 'function') oldGoHome(); };
+  document.addEventListener('DOMContentLoaded', setupAllSectionTabs);
+  window.addEventListener('load', setupAllSectionTabs);
+  window.addEventListener('scroll', function(){window.requestAnimationFrame(updateActiveSectionTab);}, {passive:true});
+  window.addEventListener('resize', updateActiveSectionTab);
+  setupAllSectionTabs();
+})();
+</script>
+<script>
+function switchStoryMode(btn,panelId){
+  const wrap=btn.closest('.story-zone');
+  if(!wrap) return;
+  wrap.querySelectorAll('.story-mode-btn').forEach(b=>b.classList.remove('active'));
+  wrap.querySelectorAll('.story-mode-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  const panel=document.getElementById(panelId);
+  if(panel) panel.classList.add('active');
+}
+function toggleOriginalPart(btn){
+  const controls=btn.nextElementSibling;
+  const sec=controls ? controls.nextElementSibling : null;
+  const isOpen=sec && sec.classList.contains('open');
+  const panel=btn.closest('.story-mode-panel');
+  if(panel){
+    panel.querySelectorAll('.original-summary').forEach(s=>s.classList.remove('open'));
+    panel.querySelectorAll('.original-controls').forEach(c=>c.classList.remove('open'));
+    panel.querySelectorAll('.part-title').forEach(b=>{b.classList.remove('active'); const a=b.querySelector('.part-arrow'); if(a)a.textContent='＋';});
+  }
+  if(sec && !isOpen){
+    sec.classList.add('open');
+    if(controls) controls.classList.add('open');
+    btn.classList.add('active');
+    const arrow=btn.querySelector('.part-arrow'); if(arrow) arrow.textContent='−';
+  }
+}
+function speakOriginalPart(sectionId,btnElement){
+  window.speechSynthesis.cancel();
+  const section=document.getElementById(sectionId);
+  if(!section) return;
+  const combined=[...section.querySelectorAll('.en-text')].map(n=>n.innerText.replace(/^Line\s*\d+:\s*/,'').trim()).join(' ');
+  if(!combined) return;
+  const u=new SpeechSynthesisUtterance(combined);
+  const voices=window.speechSynthesis.getVoices();
+  const v=voices.find(x=>x.lang && x.lang.startsWith('en'));
+  if(v) u.voice=v;
+  u.rate=.85; u.pitch=1.05;
+  const old=btnElement.innerText;
+  btnElement.innerText='⏹ Stop Voice';
+  btnElement.onclick=function(){window.speechSynthesis.cancel();btnElement.innerText=old;btnElement.onclick=function(){speakOriginalPart(sectionId,btnElement)}};
+  u.onend=function(){btnElement.innerText=old;btnElement.onclick=function(){speakOriginalPart(sectionId,btnElement)}};
+  window.speechSynthesis.speak(u);
+}
+</script>
+</body></html>
