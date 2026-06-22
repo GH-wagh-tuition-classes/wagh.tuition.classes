@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WTC Admin Panel</title>
+<style>
+:root{--bg:#f7fbfc;--card:#fff;--ink:#0f172a;--muted:#64748b;--blue:#2563eb;--green:#16a34a;--red:#dc2626;--orange:#f97316;--border:#d9e7eb;--shadow:0 12px 32px rgba(20,73,91,.12)}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--ink)}button,input{font:inherit}
+.login{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;background:linear-gradient(135deg,#eaf6f8,#fff8e8)}
+.login-card{width:min(430px,100%);background:#fff;border:1px solid var(--border);border-radius:26px;padding:28px;box-shadow:var(--shadow)}
+.logo{width:58px;height:58px;border-radius:18px;background:#19758a;color:white;display:grid;place-items:center;font-size:30px;margin:auto}
+h1{text-align:center;margin:16px 0 6px}.login-card p{text-align:center;color:var(--muted);margin:0 0 20px}
+label{display:block;font-weight:900;margin:13px 0 6px}input{width:100%;padding:13px;border:1px solid #cbd5e1;border-radius:13px;background:white}
+.primary{margin-top:16px;padding:12px 15px;border:0;border-radius:13px;background:var(--blue);color:white;font-weight:900;cursor:pointer}.full{width:100%}
+.error{display:none;margin-top:14px;padding:11px;border-radius:12px;background:#fee2e2;color:#991b1b;font-weight:800}
+.app{display:none;min-height:100vh}.side{position:fixed;left:0;top:0;bottom:0;width:250px;background:#0f172a;color:white;padding:18px;z-index:10}
+.brand{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:900;margin-bottom:24px}.mark{width:42px;height:42px;border-radius:14px;background:#19758a;display:grid;place-items:center}
+.nav{width:100%;text-align:left;border:0;background:transparent;color:#cbd5e1;padding:12px;border-radius:12px;font-weight:800;cursor:pointer;margin:3px 0}.nav.active,.nav:hover{background:#1e293b;color:white}
+.main{margin-left:250px;padding:18px}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;background:white;border:1px solid var(--border);border-radius:20px;padding:14px 16px;box-shadow:var(--shadow);margin-bottom:18px}
+.badge{display:flex;align-items:center;gap:10px}.avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#2563eb,#1e40af);color:white;display:grid;place-items:center;font-weight:900}
+.logout{border:0;background:var(--red);color:white;border-radius:999px;padding:9px 13px;font-weight:900;cursor:pointer}.panel{display:none}.panel.active{display:block}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px}.stat,.card{background:white;border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:var(--shadow)}.card{margin-top:16px}
+.stat small{color:var(--muted);font-weight:900}.stat b{display:block;font-size:32px;margin-top:8px}.note{color:var(--muted);font-weight:800;font-size:13px}
+.table-wrap{overflow:auto;border:1px solid var(--border);border-radius:14px;margin-top:14px}table{width:100%;border-collapse:collapse;background:white;min-width:760px}th,td{padding:11px;border-bottom:1px solid #e5e7eb;text-align:left;font-size:14px}th{background:#0f172a;color:white}
+.act{border:0;border-radius:10px;padding:7px 10px;color:white;font-weight:900;cursor:pointer;margin:2px}.block{background:var(--orange)}.unblock{background:var(--green)}.delete{background:var(--red)}
+.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}.menu{display:none}
+@media(max-width:850px){.side{transform:translateX(-100%);transition:.2s}.side.open{transform:translateX(0)}.main{margin-left:0;padding:12px}.menu{display:inline-flex;border:0;background:#0f172a;color:white;border-radius:12px;padding:9px 12px;font-weight:900}.top{border-radius:16px}}
+</style>
+</head>
+<body>
+<section id="login" class="login"><div class="login-card">
+<div class="logo">🎓</div><h1>WTC Admin Login</h1><p>Hidden admin panel for WAGH Tuition Classes</p>
+<label>Admin Mobile</label><input id="adminMobile" type="tel" placeholder="Enter admin mobile">
+<label>Admin Password</label><input id="adminPassword" type="password" placeholder="Enter admin password">
+<button class="primary full" onclick="adminLogin()">Login as Admin</button><div id="loginError" class="error"></div>
+</div></section>
+<section id="app" class="app">
+<aside id="side" class="side"><div class="brand"><span class="mark">🎓</span><span>WTC Admin</span></div>
+<button class="nav active" onclick="showPanel('dashboard',this)">📊 Dashboard</button>
+<button class="nav" onclick="showPanel('students',this)">👨‍🎓 Students</button>
+<button class="nav" onclick="showPanel('teachers',this)">👩‍🏫 Teachers</button>
+<button class="nav" onclick="showPanel('logs',this)">📄 Access Logs</button>
+<button class="nav" onclick="showPanel('addUser',this)">➕ Add User</button>
+<button class="nav" onclick="showPanel('settings',this)">⚙ Settings</button></aside>
+<main class="main"><div class="top"><button class="menu" onclick="toggleSide()">☰ Menu</button><div><b>WAGH Tuition Classes Admin Panel</b><div class="note">Manage users, teachers and access logs</div></div><div class="badge"><span class="avatar" id="adminAvatar">A</span><b id="adminName">Admin</b><button class="logout" onclick="adminLogout()">Logout</button></div></div>
+<section id="dashboard" class="panel active"><div class="grid"><div class="stat"><small>Total Students</small><b id="totalStudents">0</b></div><div class="stat"><small>Total Teachers</small><b id="totalTeachers">0</b></div><div class="stat"><small>Blocked Users</small><b id="blockedUsers">0</b></div><div class="stat"><small>Total Logs</small><b id="totalLogs">0</b></div></div><div class="card"><h2>Latest Access Logs</h2><div class="table-wrap"><table id="latestLogsTable"></table></div></div></section>
+<section id="students" class="panel"><div class="card"><h2>Student Management</h2><button class="primary" onclick="loadStudents()">Refresh Students</button><div class="table-wrap"><table id="studentsTable"></table></div></div></section>
+<section id="teachers" class="panel"><div class="card"><h2>Teacher Management</h2><button class="primary" onclick="loadTeachers()">Refresh Teachers</button><div class="table-wrap"><table id="teachersTable"></table></div></div></section>
+<section id="logs" class="panel"><div class="card"><h2>Access Logs</h2><button class="primary" onclick="loadLogs()">Refresh Logs</button><div class="table-wrap"><table id="logsTable"></table></div></div></section>
+<section id="addUser" class="panel"><div class="card"><h2>Add Student</h2><div class="form-grid"><input id="newStudentName" placeholder="Student name"><input id="newStudentMobile" placeholder="Mobile"><input id="newStudentPassword" placeholder="Password"></div><button class="primary" onclick="addStudent()">Create Student</button></div><div class="card"><h2>Add Teacher</h2><div class="form-grid"><input id="newTeacherName" placeholder="Teacher name"><input id="newTeacherMobile" placeholder="Mobile"><input id="newTeacherPassword" placeholder="Password"><input id="newTeacherSubject" placeholder="Subject"><input id="newTeacherClass" placeholder="Class"></div><button class="primary" onclick="addTeacher()">Create Teacher</button></div></section>
+<section id="settings" class="panel"><div class="card"><h2>Settings</h2><p class="note">Admin page is hidden from homepage. Open directly as /admin.html.</p><p class="note">Use the same Apps Script Web App URL as your main index.html.</p></div></section>
+</main></section>
+<script>
+const APPS_SCRIPT_URL="https://script.google.com/macros/s/AKfycbyVUDCOS_5F3IgARm6vKBWweYc4R4ad2qScwYklHhMbexxs8QqQWZvWXDjAxqJaQ9w/exec";
+let adminSession=null;
+function getAdminSession(){try{return JSON.parse(localStorage.getItem("wtcAdmin")||"null")}catch(e){return null}}
+function setAdminSession(a){localStorage.setItem("wtcAdmin",JSON.stringify(a))}
+function clearAdminSession(){localStorage.removeItem("wtcAdmin")}
+function getDeviceId(){let id=localStorage.getItem("wtcDeviceId");if(!id){id="DEV-"+Math.random().toString(36).slice(2)+Date.now();localStorage.setItem("wtcDeviceId",id)}return id}
+async function callApi(payload){if(APPS_SCRIPT_URL.includes("PASTE_YOUR"))throw new Error("Apps Script URL is not set yet in admin.html.");const r=await fetch(APPS_SCRIPT_URL,{method:"POST",body:JSON.stringify(payload)});return await r.json()}
+function showError(m){const e=document.getElementById("loginError");e.style.display="block";e.textContent=m}
+async function adminLogin(){const mobile=adminMobile.value.trim(),password=adminPassword.value.trim();if(!mobile||!password){showError("Enter mobile and password.");return}try{const d=await callApi({action:"adminLogin",mobile,password,deviceId:getDeviceId()});if(!d.success){showError(d.message||"Admin login failed.");return}setAdminSession(d.admin);initAdmin(d.admin)}catch(e){showError(e.message)}}
+function initAdmin(a){adminSession=a;login.style.display="none";app.style.display="block";adminName.textContent=a.name||"Admin";adminAvatar.textContent=(a.name||"Admin").split(/\s+/).slice(0,2).map(x=>x[0]).join("").toUpperCase()||"A";loadDashboard()}
+function adminLogout(){clearAdminSession();location.reload()}function toggleSide(){side.classList.toggle("open")}
+function showPanel(id,b){document.querySelectorAll(".panel").forEach(p=>p.classList.remove("active"));document.getElementById(id).classList.add("active");document.querySelectorAll(".nav").forEach(n=>n.classList.remove("active"));if(b)b.classList.add("active");side.classList.remove("open");if(id==="students")loadStudents();if(id==="teachers")loadTeachers();if(id==="logs")loadLogs()}
+function renderTable(id,h,rows){document.getElementById(id).innerHTML="<thead><tr>"+h.map(x=>`<th>${x}</th>`).join("")+"</tr></thead><tbody>"+rows.map(r=>"<tr>"+r.map(c=>`<td>${c??""}</td>`).join("")+"</tr>").join("")+"</tbody>"}
+function buttons(id,status,type){return (status==="Blocked"?`<button class="act unblock" onclick="updateStatus('${type}','${id}','Active')">Unblock</button>`:`<button class="act block" onclick="updateStatus('${type}','${id}','Blocked')">Block</button>`)+`<button class="act delete" onclick="deleteUser('${type}','${id}')">Delete</button>`}
+async function loadDashboard(){const d=await callApi({action:"adminDashboard",adminId:adminSession.adminId});if(!d.success){alert(d.message||"Dashboard failed");return}totalStudents.textContent=d.totalStudents||0;totalTeachers.textContent=d.totalTeachers||0;blockedUsers.textContent=d.blockedUsers||0;totalLogs.textContent=d.totalLogs||0;renderTable("latestLogsTable",["Time","User","Role","Mobile","Action","Page"],(d.latestLogs||[]).map(x=>[x.timestamp,x.name,x.role,x.mobile,x.action,x.page]))}
+async function loadStudents(){const d=await callApi({action:"adminListStudents",adminId:adminSession.adminId});if(!d.success){alert(d.message||"Students failed");return}renderTable("studentsTable",["ID","Name","Mobile","Class","Medium","Status","Device","Actions"],(d.students||[]).map(s=>[s.id,s.name,s.mobile,s.className,s.medium,s.status,s.deviceId,buttons(s.id,s.status,"student")]))}
+async function loadTeachers(){const d=await callApi({action:"adminListTeachers",adminId:adminSession.adminId});if(!d.success){alert(d.message||"Teachers failed");return}renderTable("teachersTable",["ID","Name","Mobile","Subject","Class","Status","Actions"],(d.teachers||[]).map(t=>[t.id,t.name,t.mobile,t.subject,t.className,t.status,buttons(t.id,t.status,"teacher")]))}
+async function loadLogs(){const d=await callApi({action:"adminListLogs",adminId:adminSession.adminId});if(!d.success){alert(d.message||"Logs failed");return}renderTable("logsTable",["Log ID","Time","User ID","Name","Role","Mobile","Action","Page","Device"],(d.logs||[]).map(x=>[x.logId,x.timestamp,x.userId,x.name,x.role,x.mobile,x.action,x.page,x.deviceId]))}
+async function updateStatus(type,id,status){if(!confirm(`Change ${type} ${id} to ${status}?`))return;const d=await callApi({action:"adminUpdateUserStatus",adminId:adminSession.adminId,type,id,status});alert(d.message||"Done");loadDashboard();type==="student"?loadStudents():loadTeachers()}
+async function deleteUser(type,id){if(!confirm(`Delete ${type} ${id}?`))return;const d=await callApi({action:"adminDeleteUser",adminId:adminSession.adminId,type,id});alert(d.message||"Done");loadDashboard();type==="student"?loadStudents():loadTeachers()}
+async function addStudent(){const name=newStudentName.value.trim(),mobile=newStudentMobile.value.trim(),password=newStudentPassword.value.trim();if(!name||!mobile||!password){alert("Fill all student fields.");return}const d=await callApi({action:"adminAddStudent",adminId:adminSession.adminId,name,mobile,password});alert(d.message||"Done")}
+async function addTeacher(){const name=newTeacherName.value.trim(),mobile=newTeacherMobile.value.trim(),password=newTeacherPassword.value.trim(),subject=newTeacherSubject.value.trim(),className=newTeacherClass.value.trim();if(!name||!mobile||!password){alert("Fill teacher name, mobile and password.");return}const d=await callApi({action:"adminAddTeacher",adminId:adminSession.adminId,name,mobile,password,subject,className});alert(d.message||"Done")}
+window.addEventListener("load",()=>{const a=getAdminSession();if(a&&a.adminId)initAdmin(a)})
+</script></body></html>
